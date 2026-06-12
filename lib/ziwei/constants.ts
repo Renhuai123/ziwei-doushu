@@ -1,46 +1,89 @@
-// 天干 Heavenly Stems
+// 天干 Heavenly Stems - Can Chi Thiên Can
 export const STEMS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
 
-// 地支 Earthly Branches
+// Mapping Thiên Can: Zh → Vi
+export const STEMS_VI: Record<string, string> = {
+  '甲': 'Giáp', '乙': 'Ất', '丙': 'Bính', '丁': 'Đinh', '戊': 'Mậu',
+  '己': 'Kỷ', '庚': 'Canh', '辛': 'Tân', '壬': 'Nhâm', '癸': 'Quý'
+};
+
+// 地支 Earthly Branches - Địa Chi
 export const BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 
-// 时辰对应地支
+// Mapping Địa Chi: Zh → Vi
+export const BRANCHES_VI: Record<string, string> = {
+  '子': 'Tý', '丑': 'Sửu', '寅': 'Dần', '卯': 'Mão', '辰': 'Thìn', '巳': 'Tỵ',
+  '午': 'Ngọ', '未': 'Mùi', '申': 'Thân', '酉': 'Dậu', '戌': 'Tuất', '亥': 'Hợi'
+};
+
+// 时辰对应地支 - Giờ sinh tương ứng Địa Chi
 export const SHICHEN = [
-  { branch: 0, name: '子时', range: '23:00-01:00' },
-  { branch: 1, name: '丑时', range: '01:00-03:00' },
-  { branch: 2, name: '寅时', range: '03:00-05:00' },
-  { branch: 3, name: '卯时', range: '05:00-07:00' },
-  { branch: 4, name: '辰时', range: '07:00-09:00' },
-  { branch: 5, name: '巳时', range: '09:00-11:00' },
-  { branch: 6, name: '午时', range: '11:00-13:00' },
-  { branch: 7, name: '未时', range: '13:00-15:00' },
-  { branch: 8, name: '申时', range: '15:00-17:00' },
-  { branch: 9, name: '酉时', range: '17:00-19:00' },
-  { branch: 10, name: '戌时', range: '19:00-21:00' },
-  { branch: 11, name: '亥时', range: '21:00-23:00' },
+  { branch: 0, name: '子时', nameVi: 'Giờ Tý', range: '23:00-01:00' },
+  { branch: 1, name: '丑时', nameVi: 'Giờ Sửu', range: '01:00-03:00' },
+  { branch: 2, name: '寅时', nameVi: 'Giờ Dần', range: '03:00-05:00' },
+  { branch: 3, name: '卯时', nameVi: 'Giờ Mão', range: '05:00-07:00' },
+  { branch: 4, name: '辰时', nameVi: 'Giờ Thìn', range: '07:00-09:00' },
+  { branch: 5, name: '巳时', nameVi: 'Giờ Tỵ', range: '09:00-11:00' },
+  { branch: 6, name: '午时', nameVi: 'Giờ Ngọ', range: '11:00-13:00' },
+  { branch: 7, name: '未时', nameVi: 'Giờ Mùi', range: '13:00-15:00' },
+  { branch: 8, name: '申时', nameVi: 'Giờ Thân', range: '15:00-17:00' },
+  { branch: 9, name: '酉时', nameVi: 'Giờ Dậu', range: '17:00-19:00' },
+  { branch: 10, name: '戌时', nameVi: 'Giờ Tuất', range: '19:00-21:00' },
+  { branch: 11, name: '亥时', nameVi: 'Giờ Hợi', range: '21:00-23:00' },
 ];
 
-// 十二宫名，从命宫顺时针
+// 十二宫名，从命宫顺时针 - Thập Nhị Cung
 export const PALACE_NAMES_ORDER = [
   '命宫', '兄弟宫', '夫妻宫', '子女宫', '财帛宫', '疾厄宫',
   '迁移宫', '交友宫', '官禄宫', '田宅宫', '福德宫', '父母宫'
 ];
 
-// 纳音五行（30组干支对的五行）
+// Mapping Thập Nhị Cung: Zh → Vi
+export const PALACE_NAMES_VI: Record<string, string> = {
+  '命宫': 'Cung Mệnh',
+  '兄弟宫': 'Cung Huynh Đệ',
+  '夫妻宫': 'Cung Phu Thê',
+  '子女宫': 'Cung Tử Tức',
+  '财帛宫': 'Cung Tài Bạch',
+  '疾厄宫': 'Cung Tật Ách',
+  '迁移宫': 'Cung Thiên Di',
+  '仆役宫': 'Cung Nô Bộc',
+  '交友宫': 'Cung Giao Hữu',
+  '官禄宫': 'Cung Quan Lộc',
+  '田宅宫': 'Cung Điền Trạch',
+  '福德宫': 'Cung Phúc Đức',
+  '父母宫': 'Cung Phụ Mẫu'
+};
+
+// 纳音五行（30 组干支对的五行）- Ngũ Hành Nạp Âm
 export const NAYIN_ELEMENTS = [
   '金','火','木','土','金','火','水','土','金','木',
   '水','土','火','木','水','金','火','木','土','金',
   '火','水','土','金','木','水','土','火','木','水'
 ];
 
-// 五行 → 局数
+// Mapping Ngũ Hành: Zh → Vi
+export const FIVE_ELEMENTS_VI: Record<string, string> = {
+  '金': 'Kim', '木': 'Mộc', '水': 'Thủy', '火': 'Hỏa', '土': 'Thổ'
+};
+
+// 五行 → 局数 - Ngũ Hành → Cục Số
 export const ELEMENT_TO_JU: Record<string, number> = {
   '水': 2, '木': 3, '金': 4, '土': 5, '火': 6
 };
 
-// 局数名称
+// 局数名称 - Tên Cục
 export const JU_NAMES: Record<number, string> = {
   2: '水二局', 3: '木三局', 4: '金四局', 5: '土五局', 6: '火六局'
+};
+
+// Mapping Tên Cục: number → Vi
+export const JU_NAMES_VI: Record<number, string> = {
+  2: 'Thủy Nhị Cục',
+  3: 'Mộc Tam Cục',
+  4: 'Kim Tứ Cục',
+  5: 'Thổ Ngũ Cục',
+  6: 'Hỏa Lục Cục'
 };
 
 // 四化表（年干 → [化禄, 化权, 化科, 化忌]）
