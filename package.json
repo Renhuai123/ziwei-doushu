@@ -8,7 +8,8 @@
     "start": "next start",
     "build:cf": "npx @cloudflare/next-on-pages",
     "preview:cf": "npx wrangler pages dev",
-    "prepare": "husky"
+    "prepare": "husky",
+    "find:zh": "tsx scripts/find-chinese.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.27.0",

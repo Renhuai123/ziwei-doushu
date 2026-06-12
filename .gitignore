@@ -1,8 +1,50 @@
+```
+# Dependencies
 node_modules/
-.next/
-.vercel/
-.env*
-!.env.example
+
+# Build artifacts
 dist/
-*.tsbuildinfo
+build/
+target/
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# System files
 .DS_Store
+Thumbs.db
+
+# Testing
+.mypy_cache/
+.pytest_cache/
+.nyc_output/
+coverage/
+
+# Distribution / packaging
+*.tar.gz
+*.whl
+*.egg-info/
+```
