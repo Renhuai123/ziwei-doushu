@@ -25,7 +25,9 @@ export interface Star {
   name: string;
   type: 'major' | 'minor' | 'lucky' | 'sha';
   siHua?: SiHua;
-  brightness?: 'bright' | 'normal' | 'dim';  // 庙旺利陷
+  brightness?: 'bright' | 'normal' | 'dim';  // 庙旺利陷（三档，兼容旧样本）
+  /** iztro 原始亮度六档原文：庙/旺/得/利/平/陷（辅煞星同样写入，缺失则不下发） */
+  brightnessRaw?: string;
 }
 
 export interface SelfSihuaMark {
@@ -54,6 +56,14 @@ export interface Palace {
   borrowedFromName?: string;
   /** 若为空宫，借到的对宫主星名列表（结构化数据，文案层不再需要从文本反查） */
   borrowedStars?: string[];
+  /** 长生十二神 */
+  changsheng12?: string;
+  /** 博士十二神 */
+  boshi12?: string;
+  /** 岁前十二神（龙德、天德、白虎、吊客、病符…） */
+  suiqian12?: string;
+  /** 将前十二神（将星、华盖、劫煞、咸池…） */
+  jiangqian12?: string;
 }
 
 export interface DaXianSiHua {

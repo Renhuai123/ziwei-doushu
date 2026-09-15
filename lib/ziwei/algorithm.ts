@@ -35,6 +35,12 @@ function mapBrightness(b?: string): 'bright' | 'normal' | 'dim' {
   return 'normal';
 }
 
+// ─── 亮度写入（六档原文 + 三档；无原始值时不下发，避免污染旧样本口径）──
+function withBrightness(star: Omit<Star, 'brightness' | 'brightnessRaw'>, raw?: string): Star {
+  if (!raw) return star;
+  return { ...star, brightness: mapBrightness(raw), brightnessRaw: raw };
+}
+
 // ─── 星曜类型映射 ────────────────────────────────────────────────
 const SHA_STARS = new Set(['擎羊', '陀罗', '火星', '铃星', '地空', '地劫',
   '天空', '旬空', '截路', '大耗', '天使', '天伤']);
@@ -78,22 +84,21 @@ export function generateChart(birthInfo: BirthInfo): ZiweiChart {
 
     // 合并所有星：主星 + 次星 + 杂耀
     const allStars: Star[] = [
-      ...(p.majorStars ?? []).map(s => ({
+      ...(p.majorStars ?? []).map(s => withBrightness({
         name:       s.name as string,
         type:       'major' as const,
-        brightness: mapBrightness(s.brightness as string),
         siHua:      s.mutagen as Star['siHua'],
-      })),
-      ...(p.minorStars ?? []).map(s => ({
+      }, s.brightness as string)),
+      ...(p.minorStars ?? []).map(s => withBrightness({
         name:  s.name as string,
         type:  mapStarType(s.name as string, s.type as string),
         siHua: s.mutagen as Star['siHua'],
-      })),
-      ...(p.adjectiveStars ?? []).map(s => ({
+      }, s.brightness as string)),
+      ...(p.adjectiveStars ?? []).map(s => withBrightness({
         name:  s.name as string,
         type:  'minor' as const,
         siHua: s.mutagen as Star['siHua'],
-      })),
+      }, s.brightness as string)),
     ];
 
     const range = p.decadal?.range;
@@ -106,6 +111,10 @@ export function generateChart(birthInfo: BirthInfo): ZiweiChart {
       isMingGong:    p.name === '命宫',
       isShenGong:    p.isBodyPalace ?? false,
       isCurrentDaXian: false,
+      changsheng12:  p.changsheng12 as string | undefined,
+      boshi12:       p.boshi12 as string | undefined,
+      suiqian12:     p.suiqian12 as string | undefined,
+      jiangqian12:   p.jiangqian12 as string | undefined,
     };
   });
 
