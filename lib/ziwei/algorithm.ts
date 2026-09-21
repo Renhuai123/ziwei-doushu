@@ -437,6 +437,9 @@ export function generateChart(
   opts?: { leapMonth?: LunarMonthPolicy },
 ): ZiweiChart {
   const { year, month, day, hour, gender } = birthInfo;
+  if (!Number.isInteger(hour) || hour < 0 || hour > 11) {
+    throw new RangeError(`hour must be an integer branch index from 0 to 11; received ${hour}`);
+  }
   const iztroGender = gender === 'male' ? '男' : '女';
 
   // 闰月处理（流派分歧：归本月 / 归下月 / 前后半分）
