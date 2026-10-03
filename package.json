@@ -26,7 +26,7 @@
     "pg": "^8.20.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "vercel": "^50.42.0"
+    "vercel": "^62.2.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
