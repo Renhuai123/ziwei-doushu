@@ -2,7 +2,7 @@
 
 欢迎提问题、提修复、提建议。先说清两件事，能省掉很多来回：
 
-- 本仓库是 [metisziwei.com](https://metisziwei.com) 排盘引擎的**开源快照**，定期从线上同步（节奏见 README「维护节奏与贡献」）。
+- 本仓库是 [metisziwei.com](https://metisziwei.com/?from=gh-contrib) 排盘引擎的**开源快照**，定期从线上同步（节奏见 README「维护节奏与贡献」）。
 - 开源版**不含**断语库、AI 解读提示词和任何 `/api/*` 后端接口（见 README「开源边界」）。AI 解读、合盘分析在开源版里返回 404 是预期行为，需要你自己实现。
 
 ## 提问题
