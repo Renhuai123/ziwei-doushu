@@ -61,9 +61,8 @@ export default function ChartPage() {
       />
 
       <div
+        className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)]"
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 380px)',
           gap: 20, marginTop: 16, alignItems: 'start',
         }}
       >
