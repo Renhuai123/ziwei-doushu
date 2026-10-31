@@ -10,6 +10,7 @@ import { BRANCHES, STEMS } from './constants';
 import { schoolStarBrightness, type BrightnessSchool } from './school-data';
 import { SCHOOL_AX } from './school-tables.generated';
 import { DEFAULT_LEAP_MONTH } from './school-config';
+import { calculateTrueSolarTime, resolveZiweiDayOffset, shiftGregorianDate } from './true-solar-time';
 // 飞星派工具仅供导出，不再在排盘时调用（倪师《天纪 03》：四化星永远固定不动）
 // import { detectSelfSihua, getSiHuaByStem } from './sihua';
 
@@ -445,7 +446,7 @@ export function generateChart(
   birthInfo: BirthInfo,
   opts?: { leapMonth?: LunarMonthPolicy },
 ): ZiweiChart {
-  const { year, month, day, hour, gender } = birthInfo;
+  const { year, month, day, hour, gender, longitude } = birthInfo;
   if (!Number.isInteger(hour) || hour < 0 || hour > 11) {
     throw new RangeError(`hour must be an integer branch index from 0 to 11; received ${hour}`);
   }
@@ -458,13 +459,51 @@ export function generateChart(
   ) {
     throw new RangeError(`solar date does not exist: ${year}-${month}-${day}`);
   }
+
+  // ── 真太阳时校正（issue #45）──
+  // hour 字段是时辰支索引（0=子…11=亥）而非钟表时间：走到 generateChart 时，
+  // 原始钟表时间只保留在 origInput 里。因此仅当 longitude 与 origInput 同时存在时，
+  // 才按 true-solar-time.ts 的完整口径（经度差 + 均时差）校正，并由校正后的时刻
+  // 重推时辰支与排盘日（晚子时 23:00-23:59 按次日，与 share.ts 表单层同口径）。
+  // 未提供 longitude 时下面全部保持原样 —— 对既有调用方零行为变化。
+  let effYear = year, effMonth = month, effDay = day, effHour = hour;
+  if (longitude !== undefined) {
+    // 与 hour / 公历日期一致的输入校验风格：超出地理范围直接拒绝。
+    // 非有限值（NaN/Infinity）沿用 true-solar-time.ts 的 corrected 判定，视为未提供。
+    if (Number.isFinite(longitude) && (longitude < -180 || longitude > 180)) {
+      throw new RangeError(`longitude must be within [-180, 180] degrees East; received ${longitude}`);
+    }
+    const oi = birthInfo.origInput;
+    if (oi && Number.isFinite(longitude)) {
+      // 时区口径沿用 true-solar-time.ts 的约定：国内一律东八区（不传 = 中央经线 120°）；
+      // 中国陆地经度带之外视为海外，BirthInfo 暂无显式时区字段，按就近标准经线
+      // round(经度/15)×15 推导 utcOffsetMinutes（实际使用非常规偏移的地区仍建议先自行换算）。
+      const domestic = longitude >= 73 && longitude <= 136;
+      const solar = calculateTrueSolarTime({
+        year: oi.year,
+        month: oi.month,
+        day: oi.day,
+        clockHour: oi.clockHour,
+        clockMinute: oi.clockMinute,
+        longitude,
+        utcOffsetMinutes: domestic ? undefined : Math.round(longitude / 15) * 60,
+      });
+      if (solar.dateValid) {
+        const shifted = shiftGregorianDate(oi, resolveZiweiDayOffset(solar, 'next-day'));
+        effYear = shifted.year;
+        effMonth = shifted.month;
+        effDay = shifted.day;
+        effHour = solar.branch;
+      }
+    }
+  }
   const iztroGender = gender === 'male' ? '男' : '女';
 
   // 闰月处理（流派分歧：归本月 / 归下月 / 前后半分）
   // 默认 = DEFAULT_LEAP_MONTH（2026-09-05 起 split：主流排盘默认口径「月中分界」，150 组金标准盘对照验证；倪师派归下月可经流派抽屉切 next-month）
   // 非 split 时先算农历，闰月才切 byLunar；非闰月仍走 bySolar，与 split 行为完全一致
   const leapMode = opts?.leapMonth ?? DEFAULT_LEAP_MONTH;
-  const effectiveLunar = resolveEffectiveLunarDate(year, month, day, leapMode);
+  const effectiveLunar = resolveEffectiveLunarDate(effYear, effMonth, effDay, leapMode);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let astrolabe: any;
@@ -474,7 +513,7 @@ export function generateChart(
       const lunarDateStr = `${effectiveLunar.lunarYear}-${effectiveLunar.lunarMonth}-${effectiveLunar.lunarDay}`;
       astrolabe = astro.byLunar(
         lunarDateStr,
-        hour,
+        effHour,
         iztroGender,
         effectiveLunar.isLeapMonth,
         false,
@@ -482,12 +521,16 @@ export function generateChart(
       );
   } else {
     // 非闰月或 split 模式：直接 bySolar，保持 iztro 的既有行为
-    astrolabe = astro.bySolar(`${year}-${month}-${day}`, hour, iztroGender, true, 'zh-CN');
+    astrolabe = astro.bySolar(`${effYear}-${effMonth}-${effDay}`, effHour, iztroGender, true, 'zh-CN');
   }
 
   // 让序列化后的 chart.birthInfo 继续携带同一闰月策略，供客户端运限 helper 重建本命盘。
   const chartBirthInfo = {
     ...birthInfo,
+    year: effYear,
+    month: effMonth,
+    day: effDay,
+    hour: effHour,
     leapMonthPolicy: leapMode,
   } as BirthInfo & { leapMonthPolicy: LunarMonthPolicy };
 
@@ -578,7 +621,7 @@ export function generateChart(
     currentAge = horo.age.nominalAge;
   } catch {
     // fallback：iztro 接口异常时回退到虚岁推导
-    currentAge = new Date().getFullYear() - year + 1;
+    currentAge = new Date().getFullYear() - effYear + 1;
   }
 
   palaces.forEach(p => {
@@ -631,7 +674,7 @@ export function generateChart(
   );
 
   // ── 农历信息（含节气四柱）──
-  const lunarInfo = getLunarInfo(year, month, day, hour, leapMode);
+  const lunarInfo = getLunarInfo(effYear, effMonth, effDay, effHour, leapMode);
 
   // ★ 2026-08-14 金标准盘核对：截空/副截阴干对调 + 年支大耗 + 旬空成对副旬
   applySchoolJiekong(palaces, lunarInfo.yearStem);
