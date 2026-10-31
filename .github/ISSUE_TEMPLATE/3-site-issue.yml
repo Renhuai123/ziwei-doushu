@@ -1,12 +1,12 @@
-name: 正式站问题 / metisziwei.com issue
-description: 线上网站（metisziwei.com）登录、支付、显示等问题
+name: 正式站问题 / ouranic.cn issue
+description: 线上网站（ouranic.cn）登录、支付、显示等问题
 labels: ["bug"]
 body:
   - type: input
     id: url
     attributes:
       label: 出问题的页面地址
-      placeholder: https://metisziwei.com/……
+      placeholder: https://ouranic.cn/……
     validations:
       required: true
   - type: textarea
