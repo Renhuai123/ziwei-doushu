@@ -113,7 +113,7 @@ export default function ChartPage() {
         {!form.province && <p>未填出生地，按北京时间排盘，未做真太阳时校正。</p>}
         {dateNotice && <p>{dateNotice}</p>}
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 380px)', gap: 20, alignItems: 'start' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px] gap-5 items-start">
         <div>
           <ChartBoard chart={chart} onPalaceSelect={setSelectedPalace}
             onStarSelect={(star, palace) => setSelectedStar({ star, palaceName: palace.name })}

@@ -61,6 +61,10 @@ export interface Palace {
   stem: number;        // 0-9 (天干索引)
   name: string;        // 宫名
   stars: Star[];
+  boshi12?: string;
+  jiangqian12?: string;
+  suiqian12?: string;
+  changsheng12?: string;
   daXianAge?: [number, number];   // 大限年龄段
   isCurrentDaXian?: boolean;
   isMingGong?: boolean;

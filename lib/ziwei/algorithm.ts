@@ -557,6 +557,11 @@ export function generateChart(
       stem:          stem >= 0 ? stem : 0,
       name:          p.name as string,
       stars:         allStars,
+      // 商业版 2026-10-31 实测 1990-06-15 午时男命盘的默认名称。
+      boshi12:       p.boshi12 === '官府' ? '官符' : p.boshi12,
+      jiangqian12:   p.jiangqian12,
+      suiqian12:     p.suiqian12 === '大耗' ? '岁破' : p.suiqian12,
+      changsheng12:  p.changsheng12,
       daXianAge:     range ? [range[0], range[1]] as [number, number] : undefined,
       isMingGong:    p.name === '命宫',
       isShenGong:    p.isBodyPalace ?? false,

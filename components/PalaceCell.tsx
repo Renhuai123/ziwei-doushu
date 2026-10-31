@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import type { Palace, Star } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES } from '@/lib/ziwei/constants';
 import clsx from 'clsx';
+import { detectSelfSihua } from '@/lib/ziwei/sihua';
 
 interface PalaceCellProps {
   palace: Palace;
@@ -58,6 +59,7 @@ export default function PalaceCell({
   overlayStarSiHua, overlayLabel, onSiHuaClick,
 }: PalaceCellProps) {
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
+  const selfSihua = detectSelfSihua(palace);
   const ganzhi = `${STEMS[stem]}${BRANCHES[branch]}`;
 
   const majorStars = stars.filter(s => s.type === 'major');
@@ -159,6 +161,12 @@ export default function PalaceCell({
         })}
       </div>
 
+      {selfSihua.length > 0 && (
+        <div className="flex flex-wrap gap-x-1 text-[9px] leading-tight mt-0.5" style={{ color: 'var(--t-gold)' }}>
+          {selfSihua.map(mark => <span key={`${mark.starName}-${mark.siHua}`}>{mark.starName}↻{mark.siHua}</span>)}
+        </div>
+      )}
+
       {/* 吉星 */}
       {luckyStars.length > 0 && (
         <div className="flex flex-wrap gap-x-1 mt-0.5">
@@ -196,6 +204,11 @@ export default function PalaceCell({
         </div>
       )}
 
+      {(palace.boshi12 || palace.jiangqian12 || palace.suiqian12) && (
+        <div className="hidden sm:flex flex-wrap gap-x-1 mt-1 text-[9px] leading-tight" style={{ color: 'var(--t-faint)' }}>
+          {[palace.boshi12, palace.jiangqian12, palace.suiqian12].filter(Boolean).map((god, i) => <span key={i}>{god}</span>)}
+        </div>
+      )}
     </motion.div>
   );
 }

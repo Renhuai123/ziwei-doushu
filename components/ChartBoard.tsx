@@ -20,6 +20,9 @@ const BRANCH_GRID_POS: Record<number, [number, number]> = {
   2: [4, 1], 1: [4, 2], 0: [4, 3], 11: [4, 4],
 };
 
+const DIRECTIONS = ['正北', '北偏东', '东偏北', '正东', '东偏南', '南偏东',
+  '正南', '南偏西', '西偏南', '正西', '西偏北', '北偏西'];
+
 // 每个地支宫位在网格中的中心坐标（百分比）
 const BRANCH_SVG_POS: Record<number, [number, number]> = {
   5: [12.5, 12.5], 6: [37.5, 12.5], 7: [62.5, 12.5], 8: [87.5, 12.5],
@@ -112,11 +115,20 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
         </h2>
       </motion.div>
 
+      <div className="relative sm:mx-12 sm:my-5 min-w-0">
+        {ANIMATION_ORDER.map(branch => {
+          const [row, col] = BRANCH_GRID_POS[branch];
+          const horizontal = row === 1 || row === 4;
+          const style = horizontal
+            ? { left: `${(col - 0.5) * 25}%`, [row === 1 ? 'bottom' : 'top']: '100%', transform: 'translateX(-50%)' }
+            : { top: `${(row - 0.5) * 25}%`, [col === 1 ? 'right' : 'left']: '100%', transform: 'translateY(-50%)' };
+          return <span key={branch} className="hidden sm:block absolute whitespace-nowrap text-[10px] px-1" style={{ ...style, color: 'var(--t-faint)' }}>{DIRECTIONS[branch]}</span>;
+        })}
       {/* 4x4 命盘网格（含 SVG 叠加层） */}
       <div
         className="grid rounded-xl overflow-hidden relative"
         style={{
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
           gridTemplateRows: 'repeat(4, auto)',
           gap: '1px',
           background: 'var(--t-border)',
@@ -261,6 +273,8 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
         </AnimatePresence>
       </div>
 
+      </div>
+
       {/* 图例 */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -276,6 +290,7 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
         ].map(({ h, c }) => (
           <span key={h} className={`border px-1.5 py-0.5 rounded-full font-medium ${c}`}>{h}</span>
         ))}
+        <span style={{ color: 'var(--t-faint)' }}>↻禄 / 权 / 科 / 忌：宫干自化</span>
         <span className="px-1.5 py-0.5 rounded-full" style={{ color: 'var(--t-faint)', border: '1px solid var(--t-border)' }}>
           点击宫位看三方四正
         </span>
