@@ -16,6 +16,7 @@ interface PalaceCellProps {
   overlayStarSiHua?: Record<string, string>;
   /** 叠加标签：'年'（流年）或 '限'（大限） */
   overlayLabel?: string;
+  layerPalaceName?: string;
   /** 点击叠加四化 badge 回调 */
   onSiHuaClick?: (starName: string, siHua: string) => void;
 }
@@ -56,7 +57,7 @@ const SiHuaBadge = ({
 
 export default function PalaceCell({
   palace, onClick, onStarClick, isSelected, isSanFang, delay = 0,
-  overlayStarSiHua, overlayLabel, onSiHuaClick,
+  overlayStarSiHua, overlayLabel, layerPalaceName, onSiHuaClick,
 }: PalaceCellProps) {
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
   const selfSihua = detectSelfSihua(palace);
@@ -124,6 +125,8 @@ export default function PalaceCell({
 
       {/* 干支 */}
       <div className="text-[9px] font-mono mb-1" style={{ color: 'var(--t-faint)', opacity: 0.75 }}>{ganzhi}</div>
+
+      {layerPalaceName && <div className="text-[10px] font-medium mb-0.5" style={{ color: 'var(--t-gold)' }}>{layerPalaceName}</div>}
 
       {/* 主星 */}
       <div className="flex flex-col gap-0.5 flex-1">

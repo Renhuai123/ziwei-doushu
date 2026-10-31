@@ -441,29 +441,14 @@ function applySchoolFuxun(palaces: Palace[]): void {
   pushNatalStar(palaces, fu, '副旬');
 }
 
-export function generateChart(
-  birthInfo: BirthInfo,
-  opts?: { leapMonth?: LunarMonthPolicy },
-): ZiweiChart {
+/** 与本命盘共用同一套 iztro 初始化和闰月归属。 */
+export function createNatalAstrolabe(birthInfo: BirthInfo, leapMode: LunarMonthPolicy = DEFAULT_LEAP_MONTH) {
   const { year, month, day, hour, gender } = birthInfo;
-  if (!Number.isInteger(hour) || hour < 0 || hour > 11) {
-    throw new RangeError(`hour must be an integer branch index from 0 to 11; received ${hour}`);
-  }
-  // 公历日期必须真实存在：2 月 30 日、非闰年 2 月 29 日、4 月 31 日这类日期，
-  // iztro 不报错而是顺延成下个月的头几天排盘，结果会和真实日期的盘重复。
-  const probe = new Date(Date.UTC(year, month - 1, day));
-  if (
-    !Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day) ||
-    probe.getUTCFullYear() !== year || probe.getUTCMonth() !== month - 1 || probe.getUTCDate() !== day
-  ) {
-    throw new RangeError(`solar date does not exist: ${year}-${month}-${day}`);
-  }
   const iztroGender = gender === 'male' ? '男' : '女';
 
   // 闰月处理（流派分歧：归本月 / 归下月 / 前后半分）
   // 默认 = DEFAULT_LEAP_MONTH（2026-09-05 起 split：主流排盘默认口径「月中分界」，150 组金标准盘对照验证；倪师派归下月可经流派抽屉切 next-month）
   // 非 split 时先算农历，闰月才切 byLunar；非闰月仍走 bySolar，与 split 行为完全一致
-  const leapMode = opts?.leapMonth ?? DEFAULT_LEAP_MONTH;
   const effectiveLunar = resolveEffectiveLunarDate(year, month, day, leapMode);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -484,6 +469,29 @@ export function generateChart(
     // 非闰月或 split 模式：直接 bySolar，保持 iztro 的既有行为
     astrolabe = astro.bySolar(`${year}-${month}-${day}`, hour, iztroGender, true, 'zh-CN');
   }
+
+  return astrolabe;
+}
+
+export function generateChart(
+  birthInfo: BirthInfo,
+  opts?: { leapMonth?: LunarMonthPolicy },
+): ZiweiChart {
+  const { year, month, day, hour, gender } = birthInfo;
+  if (!Number.isInteger(hour) || hour < 0 || hour > 11) {
+    throw new RangeError(`hour must be an integer branch index from 0 to 11; received ${hour}`);
+  }
+  // 公历日期必须真实存在：2 月 30 日、非闰年 2 月 29 日、4 月 31 日这类日期，
+  // iztro 不报错而是顺延成下个月的头几天排盘，结果会和真实日期的盘重复。
+  const probe = new Date(Date.UTC(year, month - 1, day));
+  if (
+    !Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day) ||
+    probe.getUTCFullYear() !== year || probe.getUTCMonth() !== month - 1 || probe.getUTCDate() !== day
+  ) {
+    throw new RangeError(`solar date does not exist: ${year}-${month}-${day}`);
+  }
+  const leapMode = opts?.leapMonth ?? DEFAULT_LEAP_MONTH;
+  const astrolabe = createNatalAstrolabe(birthInfo, leapMode);
 
   // 让序列化后的 chart.birthInfo 继续携带同一闰月策略，供客户端运限 helper 重建本命盘。
   const chartBirthInfo = {

@@ -250,7 +250,7 @@ ${selectedPalace.name}在命盘中的意义，以及这种星曜配置的整体�
       p.stars.some(s => s.name === selectedSiHua.starName)
     );
     const palaceName = palaceOfStar?.name ?? '未知宫位';
-    const viewLabel = selectedSiHua.view === 'daxian' ? '大限' : '流年';
+    const viewLabel = ({ mingpan: '本命', daxian: '大限', xiaoxian: '小限', liunian: '流年', liuyue: '流月', liuri: '流日', liushi: '流时' } as const)[selectedSiHua.view];
 
     const prompt = `请分析【${viewLabel}${selectedSiHua.starName}化${selectedSiHua.siHua}】的飞化影响，按以下结构输出：
 

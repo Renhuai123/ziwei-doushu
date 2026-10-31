@@ -1,10 +1,13 @@
 'use client';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Lunar, LunarMonth, Solar } from 'lunar-javascript';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
+import { getHoroscope } from '@/lib/ziwei/horoscope';
+import { CHILDHOOD_DAXIAN_INDEX, getChildhoodYears, getDaXianIndexForYear, getDaXianYears } from '@/lib/ziwei/yunxian-context';
 import PalaceCell from './PalaceCell';
-import TimeNav, { type TimeView, getYearStemIndex, buildSiHuaOverlay } from './TimeNav';
+import TimeNav, { type TimeView } from './TimeNav';
 
 interface ChartBoardProps {
   chart: ZiweiChart;
@@ -58,24 +61,46 @@ const ANIMATION_ORDER = [5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3, 4];
 export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHuaClick }: ChartBoardProps) {
   const [selectedBranch, setSelectedBranch] = useState<number | null>(null);
   const [timeView, setTimeView] = useState<TimeView>('mingpan');
-  const [liunianYear, setLiunianYear] = useState<number>(new Date().getFullYear());
+  const [initial] = useState(() => {
+    const now = new Date();
+    const lunar = Solar.fromYmd(now.getFullYear(), now.getMonth() + 1, now.getDate()).getLunar();
+    const currentYear = Number(lunar.getYear());
+    const dx = getDaXianIndexForYear(chart, currentYear);
+    const childhood = getChildhoodYears(chart);
+    const selected = dx >= 0 ? dx : childhood.includes(currentYear) ? CHILDHOOD_DAXIAN_INDEX : 0;
+    const years = selected === CHILDHOOD_DAXIAN_INDEX ? childhood : getDaXianYears(chart, selected);
+    return { currentYear, selected, year: years.includes(currentYear) ? currentYear : (years[0] ?? currentYear), month: Math.abs(Number(lunar.getMonth())), day: Number(lunar.getDay()), hour: Math.floor(((now.getHours() + 1) % 24) / 2) };
+  });
+  const [selectedDaXian, setSelectedDaXian] = useState(initial.selected);
+  const [liunianYear, setLiunianYear] = useState(initial.year);
+  const [lunarMonth, setLunarMonth] = useState(initial.month);
+  const [lunarDay, setLunarDay] = useState(initial.day);
+  const [hour, setHour] = useState(initial.hour);
 
   const palaceMap: Record<number, Palace> = {};
   chart.palaces.forEach(p => { palaceMap[p.branch] = p; });
 
-  // 计算当前叠加四化数据（大限或流年）
-  const currentDx = chart.daXians[chart.currentDaXianIndex];
-  const overlayData: Record<string, string> = (() => {
-    if (timeView === 'daxian' && currentDx) {
-      const dxPalace = chart.palaces.find(p => p.branch === currentDx.palaceBranch);
-      if (dxPalace) return buildSiHuaOverlay(dxPalace.stem);
-    }
-    if (timeView === 'liunian') {
-      return buildSiHuaOverlay(getYearStemIndex(liunianYear));
-    }
-    return {};
-  })();
-  const overlayLabel = timeView === 'daxian' ? '限' : timeView === 'liunian' ? '年' : undefined;
+  const dayCount = Number(LunarMonth.fromYm(liunianYear, lunarMonth)?.getDayCount() ?? 30);
+  const safeDay = Math.min(lunarDay, dayCount);
+  const solar = Lunar.fromYmd(liunianYear, lunarMonth, safeDay).getSolar();
+  const solarYear = Number(solar.getYear());
+  const solarMonth = Number(solar.getMonth());
+  const solarDay = Number(solar.getDay());
+  const isMingpan = timeView === 'mingpan';
+  const layers = useMemo(() => isMingpan ? null : getHoroscope(chart.birthInfo, {
+    year: solarYear, month: solarMonth, day: solarDay, hour,
+  }, chart), [chart, isMingpan, solarYear, solarMonth, solarDay, hour]);
+  const layer = timeView === 'mingpan' ? undefined : layers?.[timeView];
+  const overlayData: Record<string, string> = {};
+  if (layer) for (const [siHua, star] of Object.entries(layer.siHua)) overlayData[star] = siHua;
+  const overlayLabel = ({ mingpan: '', daxian: '限', xiaoxian: '小', liunian: '年', liuyue: '月', liuri: '日', liushi: '时' } as const)[timeView];
+
+  const changeDaXian = (index: number) => {
+    const years = index === CHILDHOOD_DAXIAN_INDEX ? getChildhoodYears(chart) : getDaXianYears(chart, index);
+    setSelectedDaXian(index);
+    setLiunianYear(years.includes(initial.currentYear) ? initial.currentYear : years[0]);
+    setTimeView('daxian');
+  };
 
   const handlePalaceClick = (branch: number) => {
     const isDeselecting = selectedBranch === branch;
@@ -96,9 +121,19 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
       <TimeNav
         chart={chart}
         view={timeView}
-        liunianYear={liunianYear}
+        selectedDaXian={selectedDaXian}
+        year={liunianYear}
+        month={lunarMonth}
+        day={safeDay}
+        hour={hour}
+        dayCount={dayCount}
+        layer={layer}
         onViewChange={setTimeView}
-        onYearChange={setLiunianYear}
+        onDaXianChange={changeDaXian}
+        onYearChange={year => { setLiunianYear(year); setLunarDay(Math.min(safeDay, Number(LunarMonth.fromYm(year, lunarMonth)?.getDayCount() ?? 30))); setTimeView('liunian'); }}
+        onMonthChange={month => { setLunarMonth(month); setLunarDay(Math.min(safeDay, Number(LunarMonth.fromYm(liunianYear, month)?.getDayCount() ?? 30))); setTimeView('liuyue'); }}
+        onDayChange={day => { setLunarDay(day); setTimeView('liuri'); }}
+        onHourChange={value => { setHour(value); setTimeView('liushi'); }}
       />
 
       {/* 命盘标题 */}
@@ -151,6 +186,7 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
                 delay={i * 0.04}
                 overlayStarSiHua={Object.keys(overlayData).length > 0 ? overlayData : undefined}
                 overlayLabel={overlayLabel}
+                layerPalaceName={layer ? `${overlayLabel}${layer.palaceNames[branch].slice(0, 1)}` : undefined}
                 onSiHuaClick={(starName, siHua) => onSiHuaClick?.(starName, siHua, timeView)}
               />
             </div>
