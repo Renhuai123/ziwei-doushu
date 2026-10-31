@@ -10,7 +10,7 @@ import StarDetailPanel from '@/components/StarDetailPanel';
 import type { TimeView } from '@/components/TimeNav';
 import { generateChart } from '@/lib/ziwei/algorithm';
 import { useHistory } from '@/lib/ziwei/history';
-import { formToBirthInfo, formToSearchParams } from '@/lib/ziwei/share';
+import { birthDateChangeNotice, formToBirthInfo, formToSearchParams, resolveBirthTime } from '@/lib/ziwei/share';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { parseChartForm } from './chart-form';
 import { getChartAnalysis } from './actions';
@@ -98,6 +98,7 @@ export default function ChartPage() {
   }
 
   const shareUrl = typeof window === 'undefined' ? '' : `${window.location.origin}/chart?${formToSearchParams(form)}`;
+  const dateNotice = birthDateChangeNotice(resolveBirthTime(form));
   return (
     <main style={{ maxWidth: 1280, margin: '0 auto', padding: '24px 16px' }}>
       <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
@@ -106,6 +107,11 @@ export default function ChartPage() {
           window.history.replaceState(window.history.state, '', window.location.pathname);
         }} style={{ padding: '6px 14px', cursor: 'pointer', border: '1px solid #ccc', borderRadius: 8, background: 'transparent' }}>← 重新起盘</button>
         <button type="button" onClick={() => setSharing(true)} style={{ padding: '6px 14px', cursor: 'pointer', border: '1px solid #ccc', borderRadius: 8, background: 'transparent' }}>分享</button>
+      </div>
+      <div style={{ fontSize: 12, color: 'var(--t-text2)', marginBottom: 12, lineHeight: 1.6 }}>
+        {form.unknownTime && <p>时辰不详，按子时起盘，命宫与时辰相关的星曜仅供参考。</p>}
+        {!form.province && <p>未填出生地，按北京时间排盘，未做真太阳时校正。</p>}
+        {dateNotice && <p>{dateNotice}</p>}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 380px)', gap: 20, alignItems: 'start' }}>
         <div>

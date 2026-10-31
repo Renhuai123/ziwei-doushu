@@ -1,49 +1,52 @@
 import type { BirthFormState } from '@/components/BirthForm';
 import type { BirthInfo } from './types';
+import { calculateTrueSolarTime, resolveZiweiDayOffset, shiftGregorianDate, type GregorianDate, type TrueSolarTimeResult } from './true-solar-time';
 
-/** 根据北京时间 + 经度计算真太阳时时辰支 (0-11) */
-export function calcTrueSolarBranch(clockHour: number, clockMinute: number, longitude: number): number {
-  const clockMins = clockHour * 60 + clockMinute;
-  const offset = (longitude - 120) * 4;
-  const solar = ((clockMins + offset) % 1440 + 1440) % 1440;
-  if (solar >= 1380 || solar < 60) return 0;
-  return Math.floor((solar - 60) / 120) + 1;
+/** 统一表单预览和排盘的日期、时辰与真太阳时口径。 */
+export function resolveBirthTime(form: BirthFormState): {
+  date: GregorianDate;
+  branch: number;
+  dayOffset: number;
+  solar: TrueSolarTimeResult | null;
+} {
+  const date = { year: Number(form.year), month: Number(form.month), day: Number(form.day) };
+  if (form.unknownTime) return { date, branch: 0, dayOffset: 0, solar: null };
+  const solar = calculateTrueSolarTime({
+    ...date,
+    clockHour: Number(form.clockHour),
+    clockMinute: Number(form.clockMinute),
+    longitude: form.province ? form.longitude : undefined,
+  });
+  const dayOffset = resolveZiweiDayOffset(solar, 'next-day');
+  return { date: dayOffset && solar.dateValid ? shiftGregorianDate(date, dayOffset) : date, branch: solar.branch, dayOffset, solar };
 }
 
-/** BirthFormState → BirthInfo
- *
- * 子时规则（倪海厦体系/三合派标准）：
- * · 23:00-23:59 = 晚子时，**按次日**排盘（日期 +1）
- * · 00:00-00:59 = 早子时，按本日排盘
- * 这与「时辰支同为子(0)」并不冲突——子时分早晚两段，需要在日期上区分。
- */
+/** 描述太阳时跨日与晚子时造成的排盘日变化。 */
+export function birthDateChangeNotice(result: ReturnType<typeof resolveBirthTime>): string | null {
+  if (!result.dayOffset || !result.solar?.dateValid) return null;
+  const { date, solar } = result;
+  const label = solar.corrected ? '真太阳时' : '北京时间';
+  const reason = solar.branch === 0 && solar.normalizedMinutes >= 1380
+    ? `${label}已过 23 点，按晚子时换日`
+    : `${label}跨到${solar.dayOffset < 0 ? '前一天' : '后一天'}`;
+  return `${reason}，按 ${date.year} 年 ${date.month} 月 ${date.day} 日排盘。`;
+}
+
+/** BirthFormState → BirthInfo */
 export function formToBirthInfo(form: BirthFormState): BirthInfo {
-  let y = parseInt(form.year) || 0;
-  let m = parseInt(form.month) || 0;
-  let d = parseInt(form.day) || 0;
-
-  // 晚子时（23:00-23:59）按次日处理：用 Date 对象自动处理月末/年末进位
-  if (!form.unknownTime) {
-    const clockHour = parseInt(form.clockHour) || 0;
-    if (clockHour === 23 && y > 0 && m > 0 && d > 0) {
-      const next = new Date(y, m - 1, d + 1);
-      y = next.getFullYear();
-      m = next.getMonth() + 1;
-      d = next.getDate();
-    }
-  }
-
-  const hour = form.unknownTime
-    ? 0
-    : calcTrueSolarBranch(parseInt(form.clockHour) || 0, parseInt(form.clockMinute) || 0, form.longitude);
+  const resolved = resolveBirthTime(form);
   return {
-    year: y, month: m, day: d,
-    hour,
+    ...resolved.date,
+    hour: resolved.branch,
     gender: form.gender,
     name: form.name || undefined,
     province: form.province || undefined,
     city: form.city || undefined,
     longitude: form.province ? form.longitude : undefined,
+    origInput: form.unknownTime ? undefined : {
+      year: Number(form.year), month: Number(form.month), day: Number(form.day),
+      clockHour: Number(form.clockHour), clockMinute: Number(form.clockMinute),
+    },
   };
 }
 
