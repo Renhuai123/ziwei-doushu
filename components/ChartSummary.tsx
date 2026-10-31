@@ -2,10 +2,12 @@
 import { motion } from 'framer-motion';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
-import { detectPatterns, getMingGongSummary } from '@/lib/ziwei/patterns';
+import type { Pattern } from '@/lib/ziwei/patterns';
 
 interface ChartSummaryProps {
   chart: ZiweiChart;
+  patterns: Pattern[];
+  summary: { stars: string[]; keywords: string[]; nature: string };
 }
 
 const PatternLevelStyle = {
@@ -15,9 +17,8 @@ const PatternLevelStyle = {
   caution: { dot: 'bg-orange-500', label: 'text-orange-500', badge: 'text-orange-500 bg-orange-500/10 border-orange-500/25' },
 };
 
-export default function ChartSummary({ chart }: ChartSummaryProps) {
-  const patterns = detectPatterns(chart);
-  const { stars: mingStars, keywords, nature } = getMingGongSummary(chart);
+export default function ChartSummary({ chart, patterns, summary }: ChartSummaryProps) {
+  const { stars: mingStars, keywords, nature } = summary;
   const currentDx = chart.daXians[chart.currentDaXianIndex];
 
   const siHuaSummary: { name: string; siHua: string; palaceName: string }[] = [];

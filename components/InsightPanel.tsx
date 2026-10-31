@@ -214,8 +214,7 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
 
   // Inject palace analysis when palace selected
   useEffect(() => {
-    if (!selectedPalace || selectedPalace.branch === lastPalaceBranch.current) return;
-    lastPalaceBranch.current = selectedPalace.branch;
+    if (!selectedPalace || loadingRef.current || selectedPalace.branch === lastPalaceBranch.current) return;
 
     const majorStars = selectedPalace.stars.filter(s => s.type === 'major');
     const starDesc = majorStars.length > 0
@@ -237,15 +236,14 @@ ${selectedPalace.name}在命盘中的意义，以及这种星曜配置的整体�
 **【实际建议】**
 基于此宫的具体建议。`;
 
-    sendMessage(prompt, true);
-  }, [selectedPalace]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (sendMessage(prompt, true)) lastPalaceBranch.current = selectedPalace.branch;
+  }, [selectedPalace, loading]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 注入四化飞化分析
   useEffect(() => {
-    if (!selectedSiHua) return;
+    if (!selectedSiHua || loadingRef.current) return;
     const key = `${selectedSiHua.starName}-${selectedSiHua.siHua}-${selectedSiHua.view}`;
     if (key === lastSiHuaKey.current) return;
-    lastSiHuaKey.current = key;
 
     // 找出该星所在宫位
     const palaceOfStar = chart.palaces.find(p =>
@@ -271,8 +269,8 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
 **【实际建议】**
 基于此四化的具体可操作建议。`;
 
-    sendMessage(prompt, true);
-  }, [selectedSiHua]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (sendMessage(prompt, true)) lastSiHuaKey.current = key;
+  }, [selectedSiHua, loading]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const streamResponse = async (apiMessages: { role: 'user' | 'assistant'; content: string }[]) => {
     try {
@@ -320,7 +318,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
   };
 
   const sendMessage = (text: string, hidden = false) => {
-    if (!text.trim() || loadingRef.current) return;
+    if (!text.trim() || loadingRef.current) return false;
     loadingRef.current = true;
     setLoading(true);
 
@@ -333,7 +331,8 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
 
     setMessages(prev => [...prev, userMsg]);
     setInput('');
-    streamResponse(apiMessages);
+    void streamResponse(apiMessages);
+    return true;
   };
 
   const handleTopicClick = (topicKey: string) => {
