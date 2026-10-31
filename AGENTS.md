@@ -52,7 +52,7 @@ Key patterns:
 - **The engine is pure.** `lib/ziwei/*` takes plain data and returns plain data. No network, no React state, no `Date.now()` inside chart logic.
 - **AI code stays on the server.** Anything that touches `@anthropic-ai/sdk` or an API key lives in `app/api/` or `lib/ai/` and is never imported by a `'use client'` file.
 - **The frontend contract is fixed.** See section 2.3. Build the backend to match it.
-- **Route files export only route fields.** `app/api/**/route.ts` may export only HTTP handlers (`POST`, `GET`) and route config (`runtime`). Next.js fails `npm run build` on any other export, even though `tsc` passes. Put helpers, prompt building, and anything a test needs to import in `lib/ai/`.
+- **Route files export only route fields.** `app/api/**/route.ts` may export only HTTP handlers (`POST`, `GET`) and route config (`runtime`). Extra exports make the route the place where logic lives, which is what we want to avoid. Put helpers, prompt building, and anything a test needs to import in `lib/ai/`.
 - **Keep the route thin.** The route parses the request, calls `lib/ai/` functions, and returns the response. Validation, chart-to-text, and the stream encoder each live in `lib/ai/` and have their own tests.
 
 ### Naming conventions and coding standards
@@ -194,7 +194,7 @@ A task is done when: the acceptance criteria are all met, `npm run typecheck` an
 <!-- Record each change to this file and why. This is the evidence of iteration for HW3. -->
 - v1 (10/30/2026): first version.
 - v2 (10/31/2026): after the first with-rules test run on issue #4. The agent ignored several rules, so v2 makes them concrete and checkable:
-  - Route files may export only route fields (the agent exported a helper from `route.ts`, which breaks `next build`).
+  - Route files may export only route fields (the agent exported a test helper from `route.ts`). Note: we first believed this breaks `next build`, but we tested it and the build passed on Next 16, so the rule is kept as an architecture convention, not a build requirement.
   - Keep the route thin; logic goes in `lib/ai/` (the agent put everything in `route.ts`).
   - Exact privacy rule: never send `birthInfo`/`lunarInfo`; never stringify the whole chart (the agent sent the full chart JSON).
   - Exact validation limits from issue #5 (the agent had no limits).
