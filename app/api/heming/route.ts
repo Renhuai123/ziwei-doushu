@@ -1,6 +1,7 @@
 /**
  * POST /api/heming — 合盘 AI 分析（/heming 页调用）
- * 请求：{ chartA: ZiweiChart, chartB: ZiweiChart, question?: string }
+ * 请求：{ chartA: ZiweiChart, chartB: ZiweiChart, relation?: 'love' | 'partner' | 'work' | 'friend', messages?: { role: 'user' | 'assistant', content: string }[], question?: string }
+ * relation 默认 love；未传 messages 时兼容旧的 question 字段。
  * 响应：SSE，`data: {"delta":{"text":"..."}}` … `data: [DONE]`
  */
 import { buildChartContext } from '@/lib/ai/chart-context';

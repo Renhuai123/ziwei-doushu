@@ -1102,6 +1102,13 @@ export default function HomePage() {
           </motion.button>
           <div className="mt-4 flex flex-wrap gap-3 justify-center">
             <motion.a
+              href="/liuren"
+              whileHover={{ scale: 1.02 }}
+              className="text-xs tracking-[0.2em] inline-flex items-center gap-2 px-4 py-2 rounded-full"
+              style={{ color: c.goldSolid, border: `1px solid ${c.goldLine}`, background: 'transparent', textDecoration: 'none' }}>
+              小六壬 →
+            </motion.a>
+            <motion.a
               href="/knowledge"
               whileHover={{ scale: 1.02 }}
               className="text-xs tracking-[0.2em] inline-flex items-center gap-2 px-4 py-2 rounded-full"
