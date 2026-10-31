@@ -1,0 +1,43 @@
+/**
+ * POST /api/heming — 合盘 AI 分析（/heming 页调用）
+ * 请求：{ chartA: ZiweiChart, chartB: ZiweiChart, question?: string }
+ * 响应：SSE，`data: {"delta":{"text":"..."}}` … `data: [DONE]`
+ */
+import { buildChartContext } from '@/lib/ai/chart-context';
+import { HEMING_SYSTEM } from '@/lib/ai/prompts';
+import { BadRequest, jsonError, readJson, rebuildChart, streamCompletion } from '@/lib/ai/request';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+const MAX_QUESTION_CHARS = 500;
+
+export async function POST(req: Request): Promise<Response> {
+  try {
+    const body = await readJson(req);
+    const chartA = rebuildChart(body.chartA, 'chartA');
+    const chartB = rebuildChart(body.chartB, 'chartB');
+
+    let question = '请为我们两人做一次完整的合盘分析。';
+    if (body.question !== undefined && body.question !== null) {
+      if (typeof body.question !== 'string') throw new BadRequest('question 必须是字符串');
+      const q = body.question.trim();
+      if (q.length > MAX_QUESTION_CHARS) throw new BadRequest(`问题不能超过 ${MAX_QUESTION_CHARS} 字`);
+      if (q) question = q;
+    }
+
+    return await streamCompletion({
+      system: HEMING_SYSTEM,
+      context: [
+        buildChartContext(chartA, { label: '甲方命盘' }),
+        buildChartContext(chartB, { label: '乙方命盘' }),
+      ].join('\n\n---\n\n'),
+      messages: [{ role: 'user', content: question }],
+      signal: req.signal,
+    });
+  } catch (e) {
+    if (e instanceof BadRequest) return jsonError(400, e.message);
+    console.error('[api/heming]', e);
+    return jsonError(500, '服务器内部错误');
+  }
+}
