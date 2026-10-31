@@ -1,6 +1,7 @@
 # AGENTS.md — Ziwei Doushu P2
 
 <!--
+  AGENTS: read this entire file before starting any task.
   Rules file for AI coding agents (Antigravity, Claude Code, Cursor, Copilot).
   Agents read this file before every task. Keep it short enough to read in full,
   and specific enough that an agent can follow it without asking.
@@ -51,6 +52,8 @@ Key patterns:
 - **The engine is pure.** `lib/ziwei/*` takes plain data and returns plain data. No network, no React state, no `Date.now()` inside chart logic.
 - **AI code stays on the server.** Anything that touches `@anthropic-ai/sdk` or an API key lives in `app/api/` or `lib/ai/` and is never imported by a `'use client'` file.
 - **The frontend contract is fixed.** See section 2.3. Build the backend to match it.
+- **Route files export only route fields.** `app/api/**/route.ts` may export only HTTP handlers (`POST`, `GET`) and route config (`runtime`). Next.js fails `npm run build` on any other export, even though `tsc` passes. Put helpers, prompt building, and anything a test needs to import in `lib/ai/`.
+- **Keep the route thin.** The route parses the request, calls `lib/ai/` functions, and returns the response. Validation, chart-to-text, and the stream encoder each live in `lib/ai/` and have their own tests.
 
 ### Naming conventions and coding standards
 
@@ -67,7 +70,13 @@ Key patterns:
 
 <!-- The repo does NOT use Jest or Vitest. Agents tend to add them; that is the #1 mistake to prevent. -->
 
-- **Framework:** none. Tests are plain TypeScript files run with `tsx`, using the repo's own assert helpers (`ok()` / `fail()` that count failures and `process.exit(1)` on failure). Copy the pattern in `scripts/regression/pan-integrity.test.ts`.
+- **Framework:** none. Tests are plain TypeScript files run with `tsx`, using the repo's own assert helpers (`ok()` / `fail()` that count failures and `process.exit(1)` on failure). Copy the pattern in `scripts/regression/pan-integrity.test.ts`. Do not use `node:assert`.
+  ```ts
+  let failures = 0;
+  const ok = (cond: boolean, name: string) => { if (cond) console.log(`  ✓ ${name}`); else { failures++; console.error(`  ✗ ${name}`); } };
+  // ... checks ...
+  if (failures) process.exit(1);
+  ```
 - **Location and naming:** `scripts/regression/<kebab-name>.test.ts`.
 - **Registration:** every new test file must be added to the `test` script in `package.json`, or CI will not run it.
 - **What to test:**
@@ -142,7 +151,7 @@ When a feature changes one of these flows, update this section in the same PR.
 - Read the GitHub Issue and its acceptance criteria before writing code, and restate them in your plan.
 - Reuse existing types and helpers (`ZiweiChart`, `generateChart`, `formToBirthInfo`) before writing new ones.
 - Keep changes small and focused on the issue.
-- Validate every API request body (shape, types, max message count and length) before using it.
+- Validate every API request body before using it: `chart.palaces` must have 12 entries, at most **30 messages**, each at most **2,000 characters**, roles only `user` / `assistant` (limits from issue #5).
 - Stream responses; the UI is built for streaming.
 - Add a test for each new `lib/` function and register it in `package.json`.
 
@@ -152,12 +161,16 @@ When a feature changes one of these flows, update this section in the same PR.
 - Don't change the request/response shapes in section 2.3.
 - Don't add new dependencies without saying why in the PR. Prefer what is installed: `@anthropic-ai/sdk` for AI, `ioredis` for rate limiting, `clsx` for class names, framer-motion for animation.
 - Don't add another UI or CSS library, or inline new color values.
+- **Don't delete or rewrite existing content outside the issue's scope.** When adding variables to `.env.example`, add them and keep every existing entry and comment. Don't edit README unless the issue asks for docs.
+- Don't hardcode a dated model ID (like `claude-3-5-sonnet-20241022`). Read the model from `ANTHROPIC_MODEL`, and if it's missing, return 500 with `{ error }`.
 - Don't use the `docs/tianji-ziwei/` quotes in anything commercial (they are CC BY-NC-SA).
 
 ### Security
 - API keys only in `.env.local` (git-ignored). Add any new variable to `.env.example` with a fake value.
 - Never import server code or read `process.env` secrets in a `'use client'` file. Only `NEXT_PUBLIC_*` variables may reach the browser.
 - **Birth data is personal data.** Don't log full birth details or chat contents on the server, don't put real people's birth data in tests or issues, and don't send more of the chart to the AI than the reading needs.
+  - **Never send `birthInfo` or `lunarInfo` (birth date, hour, gender) to the AI.** Send only what a reading uses: the 12 palaces (name, branch, stars, brightness, 四化), `wuxingJuName`, `mingZhu`, `shenZhu`, `currentAge`, and the decade ranges.
+  - Never `JSON.stringify` the whole chart into a prompt. Build the text with a serializer in `lib/ai/`.
 - Limit request size and rate-limit AI routes so one user can't run up the API bill.
 
 ### Accessibility
@@ -171,6 +184,20 @@ When a feature changes one of these flows, update this section in the same PR.
 
 A task is done when: the acceptance criteria are all met, `npm run typecheck` and `npm test` pass, new code has tests, the PR links the issue, and a teammate approved it.
 
+**When you finish a task, end your reply with:**
+1. Each acceptance criterion from the issue, marked ✅ or ❌.
+2. The branch name (section 3 format).
+3. The commit message (section 3 format).
+4. The PR description line `Closes #<issue>`.
+
 ## Changelog
 <!-- Record each change to this file and why. This is the evidence of iteration for HW3. -->
 - v1 (10/30/2026): first version.
+- v2 (10/31/2026): after the first with-rules test run on issue #4. The agent ignored several rules, so v2 makes them concrete and checkable:
+  - Route files may export only route fields (the agent exported a helper from `route.ts`, which breaks `next build`).
+  - Keep the route thin; logic goes in `lib/ai/` (the agent put everything in `route.ts`).
+  - Exact privacy rule: never send `birthInfo`/`lunarInfo`; never stringify the whole chart (the agent sent the full chart JSON).
+  - Exact validation limits from issue #5 (the agent had no limits).
+  - Test snippet and "no `node:assert`" (both runs used `node:assert`).
+  - Don't delete existing `.env.example` entries; no hardcoded dated model ID (both runs did this).
+  - Required end-of-task summary with acceptance criteria, branch, commit, and `Closes #N`.
