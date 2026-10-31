@@ -4,8 +4,8 @@
  * 响应：SSE，`data: {"delta":{"text":"..."}}` … `data: [DONE]`
  */
 import { buildChartContext } from '@/lib/ai/chart-context';
-import { HEMING_SYSTEM } from '@/lib/ai/prompts';
-import { BadRequest, jsonError, readJson, rebuildChart, streamCompletion } from '@/lib/ai/request';
+import { buildHemingRelationContext, HEMING_SYSTEM, type HemingRelation } from '@/lib/ai/prompts';
+import { BadRequest, jsonError, parseMessages, readJson, rebuildChart, streamCompletion } from '@/lib/ai/request';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -17,9 +17,11 @@ export async function POST(req: Request): Promise<Response> {
     const body = await readJson(req);
     const chartA = rebuildChart(body.chartA, 'chartA');
     const chartB = rebuildChart(body.chartB, 'chartB');
+    const relation = body.relation === undefined ? 'love' : body.relation;
+    if (relation !== 'love' && relation !== 'partner' && relation !== 'work' && relation !== 'friend') throw new BadRequest('relation 不合法');
 
-    let question = '请为我们两人做一次完整的合盘分析。';
-    if (body.question !== undefined && body.question !== null) {
+    let question = '请按本次关系类型的默认结构为我们做一次完整的合盘分析。';
+    if (body.messages === undefined && body.question !== undefined && body.question !== null) {
       if (typeof body.question !== 'string') throw new BadRequest('question 必须是字符串');
       const q = body.question.trim();
       if (q.length > MAX_QUESTION_CHARS) throw new BadRequest(`问题不能超过 ${MAX_QUESTION_CHARS} 字`);
@@ -29,10 +31,11 @@ export async function POST(req: Request): Promise<Response> {
     return await streamCompletion({
       system: HEMING_SYSTEM,
       context: [
+        buildHemingRelationContext(relation as HemingRelation),
         buildChartContext(chartA, { label: '甲方命盘' }),
         buildChartContext(chartB, { label: '乙方命盘' }),
       ].join('\n\n---\n\n'),
-      messages: [{ role: 'user', content: question }],
+      messages: body.messages === undefined ? [{ role: 'user', content: question }] : parseMessages(body.messages),
       signal: req.signal,
     });
   } catch (e) {
