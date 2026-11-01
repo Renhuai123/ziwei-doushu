@@ -2,8 +2,9 @@
  * 真太阳时统一计算。
  *
  * 口径：地方真太阳时 = 钟表时间 + 经度修正 + 均时差；经度修正 =（出生地经度 − 钟表时区中央经线）× 4 分钟。
- * 国内一律按东八区（中央经线 120°）。★ 2026-10-27 同步：海外出生地传 utcOffsetMinutes（出生地时区的固定标准偏移），
- * 与主流排盘口径一致——不处理夏令时与历史时区；用户填的若是当年钟表读数，先用 clock-adjust.ts 换成标准时间再传进来。
+ * 国内一律按东八区（中央经线 120°）。★ 2026-10-31 同步上游：海外出生地传 utcOffsetMinutes
+ * （出生地时区的固定标准偏移），与主流排盘口径一致——不处理夏令时与历史时区；
+ * 用户填的若是当年钟表读数，先用 clock-adjust.ts 换成标准时间再传进来。
  * 均时差采用 NOAA 的 fractional-year 近似式，1900-2026 年范围内足以稳定
  * 判断紫微斗数的两小时时辰边界。
  *
@@ -153,6 +154,73 @@ export function resolveZiweiDayOffset(
   if (solar.dayOffset !== 0) return solar.dayOffset;
   if (isLateZishi) return nextDayRule ? 1 : 0;
   return 0;
+}
+
+/**
+ * 晚子时换日 —— **按出生地钟表时间判定**（2026-10-31 新增，全局唯一口径）
+ *
+ * ── 依据（上游 README 第 196 行原文）─────────────────────────────
+ *   「23:00–23:59 出生（晚子时）按次日排盘、时辰取 0；
+ *     00:00–00:59 出生（早子时）按当日排盘、时辰同样取 0。」
+ *
+ * ── 为什么不能用真太阳时判定（这是本轮实测纠正的坑）────────────
+ *   `resolveZiweiDayOffset()` 是按**真太阳时**是否 ≥ 23:00 来判晚子时的。
+ *   但真太阳时 = 钟表 + 经度差 + 均时差，经度偏西的城市**永远到不了 23:00**：
+ *     经度 87.6°（乌鲁木齐）→ 钟表 23:00 → 真太阳时 20:44 → 判为戌时，不换日
+ *     经度 113.4°（中山）  → 钟表 23:00 → 真太阳时 22:27 → 判为亥时，不换日
+ *     经度 121.5°（台北）  → 钟表 23:00 → 真太阳时 23:00 → 判为子时，换日 ✅
+ *   即：**中国大陆绝大部分地区 23 点出生都不会被认作晚子时**，
+ *   与上游规格、与传统命理口径都不符。
+ *
+ * ── 两件事必须分开（关键）────────────────────────────────────────
+ *   · **是否晚子时 / 日期怎么换** → 看**钟表** 23:00–23:59（本地钟点）
+ *   · **时辰支是几**           → 看**真太阳时**（经度差 + 均时差）
+ *   两者独立：中山 23:30 出生 → 日期按次日排，但真太阳时 22:34 落在亥时，
+ *   那么时辰支该取 0（子）还是 11（亥）？见 `resolveZishiHour()` 的说明。
+ *
+ * ── 与 school-config 的 lateZishi 流派选项的关系 ─────────────────
+ *   本函数只负责「晚子时**是否**发生 + 换几天」，
+ *   具体换 0 天还是 1 天由调用方按 `lateZishi` 流派选项决定
+ *   （'next-day' 主流默认 / 'current-day' 倪师派 / 其余两种是八字口径）。
+ */
+export interface LateZishiDecision {
+  /** 是否为晚子时（钟表 23:00–23:59） */
+  isLateZishi: boolean;
+  /** 是否为早子时（钟表 00:00–00:59） */
+  isEarlyZishi: boolean;
+  /** 建议的排盘日偏移天数（'next-day' 口径下晚子时为 +1） */
+  dayOffset: number;
+  /** 排盘日（已应用偏移） */
+  year: number; month: number; day: number;
+}
+
+/**
+ * 按钟表时间判定早/晚子时，并给出排盘日。
+ *
+ * @param lateZishi 流派口径，决定晚子时换不换日
+ */
+export function resolveLateZishi(
+  date: { year: number; month: number; day: number },
+  clockHour: number,
+  clockMinute: number,
+  lateZishi: LateZishiRule = 'next-day',
+): LateZishiDecision {
+  const isLate = clockHour === 23;
+  const isEarly = clockHour === 0;
+  let dayOffset = 0;
+  if (isLate) {
+    // 'next-day' / 'day-cur-time-next' → 排盘日进位；'current-day' / 'all-current' → 不进位
+    dayOffset = (lateZishi === 'next-day' || lateZishi === 'day-cur-time-next') ? 1 : 0;
+  }
+  const shifted = new Date(Date.UTC(date.year, date.month - 1, date.day + dayOffset));
+  return {
+    isLateZishi: isLate,
+    isEarlyZishi: isEarly,
+    dayOffset,
+    year: shifted.getUTCFullYear(),
+    month: shifted.getUTCMonth() + 1,
+    day: shifted.getUTCDate(),
+  };
 }
 
 export function formatTrueSolarClock(solar: Pick<TrueSolarTimeResult, 'hour' | 'minute' | 'second'>, withSeconds = false): string {
