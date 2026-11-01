@@ -66,17 +66,23 @@ Engine code lives in `lib/ziwei/` (entry point: `generateChart()` in `algorithm.
 git clone https://github.com/Renhuai123/ziwei-doushu.git
 cd ziwei-doushu
 npm ci
+# Optional for charting; configure for AI interpretation / compatibility analysis (see .env.example)
+cp .env.example .env.local
 npm run dev          # charting demo at http://localhost:3000/chart
 
 npm run typecheck    # TypeScript check
-npm test             # charting regression tests
+npm test             # charting, birth-time, twelve spirits, six time layers, compatibility requests, sharing, Xiao Liu Ren and other regression tests
 ```
 
-**No API key is needed for charting.** The open-source version contains **no backend routes**: AI interpretation (`/api/interpret`) and compatibility analysis (`/api/heming`) return 404 until you implement them yourself.
+**No API key is needed for charting, displaying charts, or generating both compatibility charts:** these run in the browser. The repository includes `/api/interpret` for individual readings and follow-up questions, and `/api/heming` for four relationship types and multi-turn conversations. Set `AI_PROVIDER` and the corresponding key in `.env.local` (see `.env.example`) to use DeepSeek (default), Claude, or any OpenAI-compatible service. An unconfigured API returns 503 with a message.
+
+These endpoints use **generic prompts included in this repository**, not the live OURANIC prompts or judgment library; the style and quality of readings differ. **Security:** the endpoints have no login, rate limiting, or billing, so anyone could consume your API quota if they are deployed publicly. Add authentication and rate limiting before going live.
+
+The demo includes true solar time and date rollover, the twelve spirits, directions and self-transformations, six time layers, star details, pattern recognition, local history, share cards and links, thirteen AI interpretation topics and follow-ups (with a configured model), four compatibility relationship types with side-by-side charts, and Xiao Liu Ren. The redesigned live interface, flying-star / three-harmony / four-transformations board switching, deterministic judgment content, destiny twins, the three-discipline classroom and judgment subtitles, and report export are not included. The demo’s generic AI prompts do not reproduce the live deterministic readings.
 
 ## What is not included
 
-The interpretation database (`lib/ziwei/db-analysis.ts` is a placeholder), AI prompts, all `/api/*` backend routes, user accounts, payments, and deployment configuration.
+The live interpretation judgment library (`lib/ziwei/db-analysis.ts` is a placeholder), the live AI prompts and backend services, user accounts, payments, server-side security, and deployment configuration are not open-sourced. This repository includes generic AI interpretation and compatibility APIs in `app/api/` and `lib/ai/`; you can change models and prompts or extend them with the knowledge in `patterns.ts` and `heming-knowledge.ts`.
 
 ## Interpretation dataset v4.0 (674,976 charts × 13 topics, 2026-10-15)
 
