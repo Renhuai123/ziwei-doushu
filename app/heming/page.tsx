@@ -95,22 +95,18 @@ export default function HemingPage() {
     setAnalysisError(false);
 
     try {
-      // 并行起两张盘（如果还没起）
-      let cA = chartA;
-      let cB = chartB;
-      const [newA, newB] = await Promise.all([
-        cA ? Promise.resolve(cA) : generateChart(formToBirthInfo(formA!)),
-        cB ? Promise.resolve(cB) : generateChart(formToBirthInfo(formB!)),
+      // 每次按当前表单起盘，避免编辑出生信息后复用旧盘。
+      const [cA, cB] = await Promise.all([
+        generateChart(formToBirthInfo(formA!)),
+        generateChart(formToBirthInfo(formB!)),
       ]);
-      cA = newA;
-      cB = newB;
       if (!cA || !cB) {
         setAnalysisError(true);
         setAnalyzing(false);
         return;
       }
-      if (!chartA) setChartA(cA);
-      if (!chartB) setChartB(cB);
+      setChartA(cA);
+      setChartB(cB);
 
       const res = await fetch('/api/heming', {
         method: 'POST',
@@ -146,7 +142,7 @@ export default function HemingPage() {
     } finally {
       setAnalyzing(false);
     }
-  }, [chartA, chartB, formA, formB, generateChart]);
+  }, [formA, formB, generateChart]);
 
   const cardStyle = {
     background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.9)',
