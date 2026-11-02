@@ -76,6 +76,9 @@ export interface SchoolConfig {
  */
 export const DEFAULT_LEAP_MONTH: LeapMonth = 'split';
 
+/** 四个合法闰月口径，供运行时校验（引擎对非法 policy 抛 RangeError，分享链接解析在到达引擎前回落默认）。 */
+const LEAP_MONTH_VALUES: readonly LeapMonth[] = ['split', 'prev-month', 'next-month', 'origin-month'];
+
 export const SCHOOL_DEFAULT_CONFIG: SchoolConfig = {
   brightnessSchool: 'default',           // = 《斗数全书》（algorithm.ts 把 'default' 当 QS 用，对齐主流排盘默认口径，10-20 改）
   gengYearSihua: 'GYWYT',                // 阳武阴同
@@ -210,7 +213,11 @@ export function paramsToConfig(params: URLSearchParams): SchoolConfig {
     tianshiTianshang: (params.get('tst') as TianshiTianshangSchool) || SCHOOL_DEFAULT_CONFIG.tianshiTianshang,
     changshengSchool: (params.get('cs') as ChangshengSchool) || SCHOOL_DEFAULT_CONFIG.changshengSchool,
     lateZishi: (params.get('lz') as LateZishi) || SCHOOL_DEFAULT_CONFIG.lateZishi,
-    leapMonth: (params.get('lm') as LeapMonth) || SCHOOL_DEFAULT_CONFIG.leapMonth,
+    // 分享链接的 lm 可能是任意字符串（老链接/手改 URL）；引擎现在对非法 policy 抛
+    // RangeError，这里先校验，坏值回落默认口径，别让一张坏链接崩掉整页。
+    leapMonth: LEAP_MONTH_VALUES.includes(params.get('lm') as LeapMonth)
+      ? (params.get('lm') as LeapMonth)
+      : SCHOOL_DEFAULT_CONFIG.leapMonth,
   });
 }
 
