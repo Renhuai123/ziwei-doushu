@@ -1,7 +1,9 @@
 /**
  * 真太阳时统一计算。
  *
- * 口径：地方真太阳时 = 东八区钟表时间 + 经度修正 + 均时差。
+ * 口径：地方真太阳时 = 钟表时间 + 经度修正 + 均时差；经度修正 =（出生地经度 − 钟表时区中央经线）× 4 分钟。
+ * 国内一律按东八区（中央经线 120°）。★ 2026-10-27 同步：海外出生地传 utcOffsetMinutes（出生地时区的固定标准偏移），
+ * 与主流排盘口径一致——不处理夏令时与历史时区；用户填的若是当年钟表读数，先用 clock-adjust.ts 换成标准时间再传进来。
  * 均时差采用 NOAA 的 fractional-year 近似式，1900-2026 年范围内足以稳定
  * 判断紫微斗数的两小时时辰边界。
  *
@@ -21,6 +23,8 @@ export interface TrueSolarTimeInput extends GregorianDate {
   clockMinute: number;
   /** 未提供经度时保持原钟表时间，不做真太阳时校正。 */
   longitude?: number;
+  /** 钟表时间所在时区的标准偏移（分钟，东正西负）；不传 = 北京时间 480（国内、老数据） */
+  utcOffsetMinutes?: number;
 }
 
 export interface TrueSolarTimeResult {
@@ -99,7 +103,9 @@ export function branchFromSolarMinutes(normalizedMinutes: number): number {
 export function calculateTrueSolarTime(input: TrueSolarTimeInput): TrueSolarTimeResult {
   const dateValid = isValidGregorianDate(input.year, input.month, input.day);
   const corrected = input.longitude !== undefined && Number.isFinite(input.longitude);
-  const longitudeCorrectionMinutes = corrected ? (input.longitude! - 120) * 4 : 0;
+  // 中央经线 = 时区偏移 / 4（480 分钟 → 120°）；国内仍是原式 (经度 − 120) × 4，结果逐位不变
+  const meridian = input.utcOffsetMinutes !== undefined && Number.isFinite(input.utcOffsetMinutes) ? input.utcOffsetMinutes / 4 : 120;
+  const longitudeCorrectionMinutes = corrected ? (input.longitude! - meridian) * 4 : 0;
   const eot = corrected && dateValid
     ? equationOfTimeMinutes(input.year, input.month, input.day, input.clockHour, input.clockMinute)
     : 0;
