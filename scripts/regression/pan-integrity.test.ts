@@ -3,13 +3,13 @@
  *
  * 起因: 用户反馈"天机天梁在财帛宫被说成夫妻宫"。
  * 排查结论: 算法层 100% 正确, 是 AI context 文本歧义。
- * 但为防止未来真的有人改坏排盘核心 (algorithm.ts / wenmo-patches),
+ * 但为防止未来真的有人改坏排盘核心 (algorithm.ts / school-patches),
  * 把"排盘必须满足的紫微斗数铁律"固化成断言, 进 CI 每次 push 跑。
  *
  * 跑: npx tsx scripts/regression/pan-integrity.test.ts
  * 失败 exit 1 → CI 红
  *
- * 不引 vitest, 用项目现有 tsx + 自定义断言惯例 (同 test-wenmo-patches.ts)
+ * 不引 vitest, 用项目现有 tsx + 自定义断言惯例 (同 test-school-patches.ts)
  */
 import { generateChart } from '../../lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart } from '../../lib/ziwei/types';

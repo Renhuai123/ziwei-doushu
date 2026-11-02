@@ -1,5 +1,5 @@
-紫微斗数开源样本数据集 v3.0（518,400 条）· 使用条款
-Ziwei Doushu Open Sample Dataset v3.0 — License
+紫微斗数开源样本数据集 v3.0（518,400 条）与开源解读数据集 v4.0（674,976 张命盘 × 13 维）· 使用条款
+Ziwei Doushu Open Sample Dataset v3.0 & Open Interpretation Dataset v4.0 — License
 
 ================================================================
 简版：可自由使用，含商业用途；唯一要求是保留来源标注。
@@ -7,8 +7,10 @@ Short version: free to use, including commercially. Attribution required.
 ================================================================
 
 适用范围
-  本文件适用于 GitHub Releases 页面 tag `v3.0-samples` 下发布的样本数据集
-  （ziwei-samples-v3-part1/2/3 及其校验文件）。
+  本文件适用于 GitHub Releases 页面下列 tag 发布的数据集：
+    · `v3.0-samples`：样本数据集 v3.0（ziwei-samples-v3-part1/2/3 及其校验文件）；
+    · `v4.0-13d`：解读数据集 v4.0（year-1950 … year-2026.jsonl.zst、
+      ziwei-interp-v4-all.tar、MANIFEST.json 及校验文件）。
   仓库内的**代码**另行适用根目录 LICENSE（MIT）；
   仓库内的**古籍原文**（骨髓赋、紫微斗数全集 / 全书）属公有领域。
 
@@ -24,9 +26,11 @@ Short version: free to use, including commercially. Attribution required.
   无需付费、无需申请、无需事先告知。
 
 唯一要求：保留来源标注
-  在合理的位置注明：
+  在合理的位置注明（按你用的版本写）：
 
     本项目使用了 紫微斗数开源样本数据集 v3.0（518,400 条）
+    —— 或 ——
+    本项目使用了 紫微斗数开源解读数据集 v4.0（674,976 张命盘 × 13 维）
     来源：https://github.com/Renhuai123/ziwei-doushu
     作者：王多鱼AI
 
@@ -34,13 +38,20 @@ Short version: free to use, including commercially. Attribution required.
   Training Data 字段；论文的参考文献或致谢；二次发布数据集的 README 或
   metadata 文件。
 
+引文不在授权范围内
+  解读文本中引用的倪海厦《天纪》原话，是为说明断语出处而注明集数与时间码的
+  简短引用，著作权归原权利人，不属于本数据集的授权范围；要把这些原话单独成批
+  使用，按仓库 docs/tianji-ziwei/LICENSE.md（CC BY-NC-SA 4.0）处理。
+  《紫微斗数全书》等古籍原文属公有领域。
+
 免责声明
   本数据集由排盘引擎批量生成，解读文本为基于传统命理体系的文本演绎，
   仅供学习、研究与文化交流使用，不构成任何形式的预测、诊断或建议。
   数据「按现状」提供，不附带任何明示或默示的担保。
 
 版本说明
-  v3.0 数据由 v3 版排盘引擎与当期断语库生成。仓库内的引擎会持续更新，
+  v3.0 数据由 v3 版排盘引擎与当期断语库生成；v4.0 由 2026-10-15 版断语库
+  （内容版本 ca268829f7a9）生成。仓库内的引擎会持续更新，
   因此新版引擎的输出与本数据集可能存在差异；需要与数据集完全对应时，
   请以数据集自带的版本说明为准。
 

@@ -45,7 +45,7 @@ export function getDaXianYears(chart: ZiweiChart, index: number): number[] {
   return Array.from({ length: dx.endAge - dx.startAge + 1 }, (_, offset) => startYear + offset);
 }
 
-/** 文墨把第一实际大限之前的 1..起限-1 虚岁作为独立童限。 */
+/** 主流排盘口径把第一实际大限之前的 1..起限-1 虚岁作为独立童限。 */
 export function getChildhoodYears(chart: ZiweiChart): number[] {
   const firstStartAge = chart.daXians[0]?.startAge;
   if (!Number.isFinite(firstStartAge) || firstStartAge <= 1) return [];
@@ -60,7 +60,7 @@ export function isChildhoodYear(chart: ZiweiChart, year: number): boolean {
 
 /**
  * 童限大命相对本命命宫的地支偏移（虚岁 1–5）。
- * 专业版四盘逐年宫底绿「大命」同一套：虚岁1=本命命宫，其后 −4/−1/+3/+4。
+ * 与四张金标准盘逐年宫底「大命」同一套：虚岁1=本命命宫，其后 −4/−1/+3/+4。
  * 阳男亥→未→午→酉；阴男亥→未；阳女亥→未→午→酉→丑；立春阴女未→卯→寅→巳→酉。
  */
 const CHILDHOOD_MING_OFFSET: Record<number, number> = {

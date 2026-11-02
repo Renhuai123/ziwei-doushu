@@ -46,7 +46,7 @@ body:
     id: ref
     attributes:
       label: 拿什么对照
-      placeholder: 例：文墨天机专业版 / 某本书第几页
+      placeholder: 例：其它排盘软件 / 某本书第几页
     validations:
       required: true
   - type: textarea

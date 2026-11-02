@@ -8,6 +8,11 @@ export interface ProvinceInfo {
   cities: CityInfo[];
 }
 
+// ★ 2026-10-07 用户反馈「出生地点还不够全」→ 补全全国区县（直辖市以外 2724 个，挂在各地级市下）。
+//   区县不放进本表：本表经 BirthForm → LocationPicker 在 /chart、/heming 首屏静态依赖图上，
+//   区县表与拼音表在 lib/ziwei/counties.generated.ts、lib/i18n/county-pinyin.generated.ts，
+//   打开地点选择框时才动态加载（lib/ziwei/county-data.ts）。区县选中后城市字段存成「地级市·区县」，
+//   见 lib/ziwei/county-label.ts。省直辖县级单位（仙桃、海南各市县、新疆兵团各市）仍是本表的市一级。
 export const PROVINCES: ProvinceInfo[] = [
   // ─── 直辖市 ───────────────────────────────────────────
   {
@@ -386,6 +391,8 @@ export const PROVINCES: ProvinceInfo[] = [
       { name: '仙桃', longitude: 113.4 },
       { name: '潜江', longitude: 112.9 },
       { name: '天门', longitude: 113.2 },
+      // ★ 2026-10-07 补省直辖县级单位（经度取 data/geo/cn-counties-2023.json）
+      { name: '神农架', longitude: 110.67 },
     ],
   },
   {
@@ -466,6 +473,16 @@ export const PROVINCES: ProvinceInfo[] = [
       { name: '陵水', longitude: 110.0 },
       { name: '乐东', longitude: 109.2 },
       { name: '五指山', longitude: 109.5 },
+      // ★ 2026-10-07 补齐省直辖市县（经度取 data/geo/cn-counties-2023.json）
+      { name: '东方', longitude: 108.65 },
+      { name: '定安', longitude: 110.33 },
+      { name: '屯昌', longitude: 110.1 },
+      { name: '澄迈', longitude: 109.99 },
+      { name: '临高', longitude: 109.71 },
+      { name: '白沙', longitude: 109.45 },
+      { name: '昌江', longitude: 109.08 },
+      { name: '保亭', longitude: 109.67 },
+      { name: '琼中', longitude: 109.85 },
       { name: '三沙（中国最南）', longitude: 112.3 },
     ],
   },
@@ -623,6 +640,18 @@ export const PROVINCES: ProvinceInfo[] = [
       { name: '塔城', longitude: 83.0 },
       { name: '阿勒泰', longitude: 88.1 },
       { name: '石河子', longitude: 86.1 },
+      // ★ 2026-10-07 补齐自治区直辖县级市（兵团各市，经度取 data/geo/cn-counties-2023.json）
+      { name: '阿拉尔', longitude: 81.27 },
+      { name: '图木舒克', longitude: 79.07 },
+      { name: '五家渠', longitude: 87.54 },
+      { name: '北屯', longitude: 87.82 },
+      { name: '铁门关', longitude: 85.65 },
+      { name: '双河', longitude: 82.35 },
+      { name: '可克达拉', longitude: 81.0 },
+      { name: '昆玉', longitude: 79.29 },
+      { name: '胡杨河', longitude: 84.83 },
+      { name: '新星', longitude: 93.75 },
+      { name: '白杨', longitude: 82.9 },
       { name: '塔什库尔干（中国最西）', longitude: 75.2 },
     ],
   },

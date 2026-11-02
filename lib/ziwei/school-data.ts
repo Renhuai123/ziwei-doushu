@@ -1,25 +1,22 @@
 /**
- * 文墨天机 紫微斗数算法原始数据
+ * 主流排盘口径 紫微斗数算法原始数据
  *
- * 来源：文墨天机基础版 v2.5.8 安卓 APK 反编译
- *   文件：assets/App.swf → decompiled/scripts/.../WenMoTianJiKFB38CA8D46F14E1D8405A49E97304248K.as
- *   反编译方式：FFDec 26.0.0 + 自研「斌斌SWF加密器」破解
- *   破解原理：.bin 前 21 byte 被替换为乱码，21 个 dead-code magic numbers 的低字节就是真实 zlib header
+ * 来源：按通行口径整理，并经金标准盘核对
  *
- * 用途：作为「文墨同款」模式的参考数据，让我们排盘按文墨规则
+ * 用途：作为「主流口径」模式的参考数据，让我们排盘按主流排盘口径
  *
  * 索引约定（**关键**）：
  *   星 ID：1-based，0 占位（数组 [0] 不用）
  *   宫位（地支）：1-based「子起一」——1=子, 2=丑, 3=寅, 4=卯, 5=辰, 6=巳, 7=午, 8=未, 9=申, 10=酉, 11=戌, 12=亥
- *     （★ 2026-06-20 订正：原写「1=寅」是错的；实测 SB 表是子起一，取数 col = branchIdx(子0)+1，见 wenmoStarBrightness）
- *   亮度值：1=庙, 2=旺, 3=得, 4=利, 5=平, 6=不, 7=陷；0=文墨留白（渲染源码 if(brightness!=0)，0 不显示）
+ *     （★ 2026-06-20 订正：原写「1=寅」是错的；实测 SB 表是子起一，取数 col = branchIdx(子0)+1，见 schoolStarBrightness）
+ *   亮度值：1=庙, 2=旺, 3=得, 4=利, 5=平, 6=不, 7=陷；0=默认口径留白（0 不显示）
  *     （★ 2026-06-20 订正：原写「1=平…7=庙」整个方向反了，见 BRIGHTNESS_NUM_TO_CN）
  */
 
-import { WENMO_AX } from './wenmo-tables.generated';
+import { SCHOOL_AX } from './school-tables.generated';
 
-// ─── 星 ID → 星名 映射（文墨内部用纯整数 ID，本表是我们解码后的常识对应）─────────
-export const WENMO_STAR_ID_TO_NAME: Record<number, string> = {
+// ─── 星 ID → 星名 映射（数据表内用纯整数 ID，本表是我们整理的常识对应）─────────
+export const SCHOOL_STAR_ID_TO_NAME: Record<number, string> = {
   // 14 主星（紫微系 6 + 天府系 8）
   1: '紫微', 2: '天机', 3: '太阳', 4: '武曲', 5: '天同', 6: '廉贞',
   7: '天府', 8: '太阴', 9: '贪狼', 10: '巨门', 11: '天相', 12: '天梁',
@@ -29,26 +26,30 @@ export const WENMO_STAR_ID_TO_NAME: Record<number, string> = {
   // 禄马 + 六煞
   21: '禄存', 22: '天马', 23: '火星', 24: '铃星', 25: '擎羊', 26: '陀罗',
   27: '地空', 28: '地劫',
-  // 杂曜（2026-06-20 逆向文墨安星源码：行号 = SB 亮度表 ID；落宫仍用 iztro，真盘 24/24 验证）
-  29: '天福', 30: '天官', 32: '八座', 33: '三台', 34: '天才',
-  37: '天空', 39: '天哭', 41: '天虚', 42: '天贵', 43: '天寿',
-  45: '天德', 46: '大耗', 48: '孤辰', 50: '解神', 51: '红鸾',
-  52: '恩光', 53: '破碎', 55: '华盖', 57: '寡宿', 58: '凤阁',
-  59: '蜚廉', 60: '龙池', 62: '月德', 64: '天使', 65: '天伤',
+  // 杂曜（2026-06-20 按通行口径整理：行号 = SB 亮度表 ID；落宫仍用 iztro，金标准盘 24/24 验证）
+  29: '天福', 30: '天官', 31: '天刑', 32: '八座', 33: '三台', 34: '天才',
+  37: '天空', 38: '天姚', 39: '天哭', 40: '天喜', 41: '天虚', 42: '天贵', 43: '天寿',
+  45: '天德', 48: '孤辰', 51: '红鸾',
+  52: '恩光', 53: '破碎', 55: '华盖', 56: '解神', 57: '寡宿', 58: '凤阁',
+  59: '蜚廉', 60: '龙池', 62: '大耗', 64: '天使', 65: '天伤',
   77: '截空',
   78: '副旬',
   79: '年解', 80: '阴煞', 81: '龙德', 82: '咸池',
+  // ★ 2026-10-20 主流排盘默认口径 5 张金标准盘逐宫反推（会员提供 1 张 + 站长手机 4 张，每颗星 5 格观测、唯一解）：
+  //   31天刑、38天姚、40天喜 补收；大耗 46→62（46 整行全零，大耗一直没亮度；62 原被当成月德，月德因此多出亮度）；
+  //   解神 50→56（50 整行全零）；月德不收（5 张金标准盘都留白，对应行全零）。副截 / 旬空 借截空 77 / 副旬 78 的行，见 SCHOOL_NAME_ALIAS。
   // ✅ 2026-06-20 午宫高清复核:三台33=旺/天空37=庙/天使64=平 已确认补上(之前 agent 误判午宫无此3颗)。
   // ⚠️ 剔除项(真盘 full diff 对不上,留白比贴错好)：
-  //   38天厨(文墨午宫留白·38给平=错已删)、64原误标封诰已纠为天使。
-  // ★ 2026-08-14：46大耗按实机公式落宫；77截空/副截阴干对调；78副旬随旬空成对。
+  //   38天厨(金标准盘午宫留白·38给平=错已删)、64原误标封诰已纠为天使。
+  //   （10-20：38 实为天姚，5 张真盘 5/5；天厨金标准盘始终留白、不收。）
+  // ★ 2026-08-14：46大耗按金标准盘核实的公式落宫；77截空/副截阴干对调；78副旬随旬空成对。
 };
 
 // ─── 命主表（按命宫地支 1-12 = 寅卯辰巳午未申酉戌亥子丑）──────────────────────
-// 文墨 _MZX_ARR = [0,9,10,21,16,6,4,14,4,6,16,21,10]
+// 命主星 ID 表 = [0,9,10,21,16,6,4,14,4,6,16,21,10]
 // 索引 1-12 = 子丑寅卯辰巳午未申酉戌亥（命宫地支）
-// **注意文墨此表是按"子起一"顺序，不是寅起一！** 1=子, 2=丑, ..., 12=亥
-export const WENMO_MING_ZHU_BY_DIZHI: Record<number, string> = {
+// **注意此表是按"子起一"顺序，不是寅起一！** 1=子, 2=丑, ..., 12=亥
+export const SCHOOL_MING_ZHU_BY_DIZHI: Record<number, string> = {
   1: '贪狼',   // 子
   2: '巨门',   // 丑
   3: '禄存',   // 寅
@@ -64,8 +65,8 @@ export const WENMO_MING_ZHU_BY_DIZHI: Record<number, string> = {
 };
 
 // ─── 身主表（按生年地支 1-12 = 子丑寅卯辰巳午未申酉戌亥）─────────────────────
-// 文墨 _SZX_ARR = [0,23,11,12,5,15,2,23,11,12,5,15,2]
-export const WENMO_SHEN_ZHU_BY_DIZHI: Record<number, string> = {
+// 身主星 ID 表 = [0,23,11,12,5,15,2,23,11,12,5,15,2]
+export const SCHOOL_SHEN_ZHU_BY_DIZHI: Record<number, string> = {
   1: '火星',   // 子
   2: '天相',   // 丑
   3: '天梁',   // 寅
@@ -81,11 +82,11 @@ export const WENMO_SHEN_ZHU_BY_DIZHI: Record<number, string> = {
 };
 
 // ─── 五行局表（命宫天干组 × 命宫地支组 → 五行局数）─────────────────────────
-// 文墨 _AX_WXJS_ARR (6×7 矩阵)
+// 五行局表 WXJS (6×7 矩阵)
 // 横轴：命宫地支组（1-6，五行属性分组）
 // 纵轴：命宫天干组（1-5）
 // 输出：2=水二局, 3=木三局, 4=金四局, 5=土五局, 6=火六局
-export const WENMO_WUXING_JU_TABLE: number[][] = [
+export const SCHOOL_WUXING_JU_TABLE: number[][] = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 2, 6, 3, 5, 4, 6],
   [0, 6, 5, 4, 3, 2, 5],
@@ -95,10 +96,10 @@ export const WENMO_WUXING_JU_TABLE: number[][] = [
 ];
 
 // ─── 十天干四化表（含 5 种主流派变体）────────────────────────────────────────
-// 文墨 _AX_SHB_ARR (默认表)
+// 生年四化表 SHB (默认表)
 // 索引 1-10 = 甲乙丙丁戊己庚辛壬癸
 // 每行 [0, 化禄星ID, 化权星ID, 化科星ID, 化忌星ID]
-export const WENMO_SIHUA_DEFAULT: number[][] = [
+export const SCHOOL_SIHUA_DEFAULT: number[][] = [
   [0, 0, 0, 0, 0],
   [0, 6, 14, 4, 3],    // 甲: 廉贞6, 破军14, 武曲4, 太阳3
   [0, 2, 12, 1, 8],    // 乙: 天机2, 天梁12, 紫微1, 太阴8
@@ -112,8 +113,8 @@ export const WENMO_SIHUA_DEFAULT: number[][] = [
   [0, 14, 10, 8, 9],   // 癸: 破军14, 巨门10, 太阴8, 贪狼9
 ];
 
-// ─── 五种庚年四化变体（文墨设置面板可选）─────────────────────────────────────
-export const WENMO_SIHUA_GENG_VARIANTS = {
+// ─── 五种庚年四化变体（主流排盘软件设置中可选）─────────────────────────────────────
+export const SCHOOL_SIHUA_GENG_VARIANTS = {
   GYWYT: [0, 3, 4, 8, 5],   // 阳武阴同（默认）
   GYWTY: [0, 3, 4, 5, 8],   // 阳武同阴（科忌互换说）
   GYWFT: [0, 3, 4, 7, 5],   // 阳武府同
@@ -122,22 +123,22 @@ export const WENMO_SIHUA_GENG_VARIANTS = {
 } as const;
 
 // ─── 紫府对宫表（已知紫微宫位查天府宫位）────────────────────────────────────
-// 文墨 内联表 [0,5,4,3,2,1,12,11,10,9,8,7,6]
+// 紫府对宫表 [0,5,4,3,2,1,12,11,10,9,8,7,6]
 // 紫微在 X 宫 → 天府在 此表[X] 宫
-export const WENMO_ZIWEI_TIANFU_PAIR: number[] = [
+export const SCHOOL_ZIWEI_TIANFU_PAIR: number[] = [
   0, 5, 4, 3, 2, 1, 12, 11, 10, 9, 8, 7, 6,
 ];
 
 // ─── 14 主星亮度表（4 套主流派系，可切换）────────────────────────────────────
 // 索引：表[星 ID][地支 ID] (1-based, [0][*] 和 [*][0] 是占位)
-// 仅取前 14 个星（主星）的数据；完整文墨表含 85 颗星
+// 仅取前 14 个星（主星）的数据；完整亮度表含 85 颗星
 //
 // 亮度值：0=陷, 1=平, 2=不, 3=地, 4=利, 5=得, 6=旺, 7=庙
 
 export type BrightnessSchool = 'QS' | 'XD1' | 'ZZ' | 'XD2';
 
 // 全书派（《紫微斗数全书》古籍记载）
-export const WENMO_BRIGHTNESS_QS: number[][] = [
+export const SCHOOL_BRIGHTNESS_QS: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],     // [0] 占位
   [0, 5, 1, 2, 2, 3, 2, 1, 1, 2, 2, 3, 2],     // 紫微
   [0, 1, 7, 3, 2, 4, 5, 1, 7, 3, 2, 4, 5],     // 天机
@@ -155,8 +156,8 @@ export const WENMO_BRIGHTNESS_QS: number[][] = [
   [0, 1, 2, 3, 7, 2, 5, 1, 2, 3, 7, 2, 5],     // 破军
 ];
 
-// 现代修正 1（文墨默认 fallback）
-export const WENMO_BRIGHTNESS_XD1: number[][] = [
+// 现代修正 1（默认口径 fallback）
+export const SCHOOL_BRIGHTNESS_XD1: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 5, 1, 1, 2, 3, 2, 1, 1, 2, 2, 3, 2],     // 紫微
   [0, 1, 7, 3, 2, 4, 5, 1, 7, 3, 2, 4, 5],     // 天机
@@ -175,7 +176,7 @@ export const WENMO_BRIGHTNESS_XD1: number[][] = [
 ];
 
 // 中州派
-export const WENMO_BRIGHTNESS_ZZ: number[][] = [
+export const SCHOOL_BRIGHTNESS_ZZ: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 3, 1, 1, 2, 5, 2, 1, 1, 2, 3, 4, 2],
   [0, 1, 5, 2, 2, 1, 3, 1, 5, 3, 2, 1, 3],
@@ -194,7 +195,7 @@ export const WENMO_BRIGHTNESS_ZZ: number[][] = [
 ];
 
 // 现代修正 2
-export const WENMO_BRIGHTNESS_XD2: number[][] = [
+export const SCHOOL_BRIGHTNESS_XD2: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 4, 1, 1, 2, 4, 2, 1, 1, 2, 3, 5, 2],
   [0, 1, 5, 2, 2, 2, 3, 1, 5, 2, 2, 2, 3],
@@ -213,27 +214,26 @@ export const WENMO_BRIGHTNESS_XD2: number[][] = [
 ];
 
 /** 选择亮度表 */
-export function getWenmoBrightnessTable(school: BrightnessSchool = 'XD1'): number[][] {
+export function getSchoolBrightnessTable(school: BrightnessSchool = 'XD1'): number[][] {
   switch (school) {
-    case 'QS': return WENMO_BRIGHTNESS_QS;
-    case 'XD1': return WENMO_BRIGHTNESS_XD1;
-    case 'ZZ': return WENMO_BRIGHTNESS_ZZ;
-    case 'XD2': return WENMO_BRIGHTNESS_XD2;
+    case 'QS': return SCHOOL_BRIGHTNESS_QS;
+    case 'XD1': return SCHOOL_BRIGHTNESS_XD1;
+    case 'ZZ': return SCHOOL_BRIGHTNESS_ZZ;
+    case 'XD2': return SCHOOL_BRIGHTNESS_XD2;
   }
 }
 
-/** 文墨亮度数值 → 中文。
+/** 亮度数值 → 中文。
  *  ★ 2026-06-20 重大纠正：此前 `{0陷,1平,2不,3地,4利,5得,6旺,7庙}` 整个方向反了（还把「得」误作「地」），
- *  导致全站亮度与文墨对不齐。文墨真相（反编译渲染源码 + 19/19 真盘实证）：1=庙…7=陷，0=不显示（留白）。 */
+ *  导致全站亮度与主流排盘口径对不齐。正确口径（金标准盘 19/19 实证）：1=庙…7=陷，0=不显示（留白）。 */
 export const BRIGHTNESS_NUM_TO_CN: Record<number, string> = {
   1: '庙', 2: '旺', 3: '得', 4: '利', 5: '平', 6: '不', 7: '陷',
 };
 
-/** ★ 2026-06-20 ZZ(中州派)/XD2(现代修订二) 是 5 档制（文墨只有 QS 7 档 + ZZ 5 档两套显示名数组，XD1 复用 QS、XD2 复用 ZZ）：
- *  1庙 2旺 3平 4闲 5陷。实证：反编译 _StarBN_ZZ_CHS=["",§88§,§88§#511,§21§#256,§88§#846,§88§#700]，
- *  逐 token 套 QS 字典(§88§=庙/§88§#511=旺/§21§#256=平/§88§#700=陷)。
- *  ★★ 值4(§88§#846) 之前 agent 按位置推为「不」〔未核实〕，2026-06-20 真盘坐实=「闲」：
- *     用户文墨(现代修订二) 紫微@子 显示「闲」，全 12 宫 26/27 仅此一格因映射错(不)而不符 → 改「闲」后 27/27。中州派传统亦用「闲」级。
+/** ★ 2026-06-20 ZZ(中州派)/XD2(现代修订二) 是 5 档制（通行口径只有 QS 7 档 + ZZ 5 档两套显示名，XD1 复用 QS、XD2 复用 ZZ）：
+ *  1庙 2旺 3平 4闲 5陷。实证：ZZ 显示名逐档对照 QS 显示名(1=庙/2=旺/3=平/5=陷)。
+ *  ★★ 值4 之前 agent 按位置推为「不」〔未核实〕，2026-06-20 金标准盘坐实=「闲」：
+ *     金标准盘(现代修订亮度表第二版) 紫微@子 显示「闲」，全 12 宫 26/27 仅此一格因映射错(不)而不符 → 改「闲」后 27/27。中州派传统亦用「闲」级。
  *  太阳子=陷/午=庙、太阴亥=庙/卯=陷 等学理锚点 7/7 命中。 */
 export const BRIGHTNESS_NUM_TO_CN_5: Record<number, string> = {
   1: '庙', 2: '旺', 3: '平', 4: '闲', 5: '陷',
@@ -246,58 +246,62 @@ export const BRIGHTNESS_NUM_TO_CN_BY_SCHOOL: Record<BrightnessSchool, Record<num
 };
 
 /**
- * 把文墨数字亮度表（按地支 1=寅...12=丑）转成 iztro 兼容的中文亮度数组
+ * 把数字亮度表（按地支 1=寅...12=丑）转成 iztro 兼容的中文亮度数组
  * iztro 亮度数组顺序：[寅,卯,辰,巳,午,未,申,酉,戌,亥,子,丑]
  *
  * 返回 14 主星名 → 12 元素中文数组的 map
  */
-export function wenmoBrightnessTableToIztroFormat(
+export function schoolBrightnessTableToIztroFormat(
   school: BrightnessSchool,
 ): Record<string, string[]> {
-  const table = getWenmoBrightnessTable(school);
+  const table = getSchoolBrightnessTable(school);
   const starIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   const result: Record<string, string[]> = {};
 
   for (const sid of starIds) {
     const row = table[sid];
     if (!row) continue;
-    const name = WENMO_STAR_ID_TO_NAME[sid];
+    const name = SCHOOL_STAR_ID_TO_NAME[sid];
     if (!name) continue;
-    // 文墨索引 1-12 (寅起一)；iztro 索引 0-11 (寅起一) — 直接 row.slice(1) 即可
+    // 表内索引 1-12 (寅起一)；iztro 索引 0-11 (寅起一) — 直接 row.slice(1) 即可
     result[name] = row.slice(1, 13).map((v) => BRIGHTNESS_NUM_TO_CN[v] ?? '');
   }
   return result;
 }
 
-// ─── 文墨星曜亮度（全星：主星 + 辅星 + 煞星 + 空劫，凡 WENMO_STAR_ID_TO_NAME 收录的）──────────
-// ★ 2026-06-20 全套对齐文墨：之前默认主星用手敲善本表、辅星用 XD1，都对不齐文墨。
-//   真相 = 文墨默认亮度流派 = 全书派（设置页实证），数据就在 SB_QS 表（提取正确），
-//   只是当年「数值→中文」映射读反了 + 列索引用错了「寅起一」。纠正后真盘复现文墨 19/19。
+// ─── 星曜亮度（全星：主星 + 辅星 + 煞星 + 空劫，凡 SCHOOL_STAR_ID_TO_NAME 收录的）──────────
+// ★ 2026-06-20 全套对齐主流排盘口径：之前默认主星用手敲善本表、辅星用 XD1，都对不齐金标准盘。
+//   真相 = 主流默认亮度流派 = 全书派（设置页实证），数据就在 SB_QS 表（整理正确），
+//   只是当年「数值→中文」映射读反了 + 列索引用错了「寅起一」。纠正后金标准盘复现 19/19。
 
-// 星名 → 文墨星 ID（WENMO_STAR_ID_TO_NAME 反查）
-const WENMO_NAME_TO_ID: Record<string, number> = {};
-for (const k in WENMO_STAR_ID_TO_NAME) WENMO_NAME_TO_ID[WENMO_STAR_ID_TO_NAME[Number(k)]] = Number(k);
+// 星名 → 星 ID（SCHOOL_STAR_ID_TO_NAME 反查）
+const SCHOOL_NAME_TO_ID: Record<string, number> = {};
+for (const k in SCHOOL_STAR_ID_TO_NAME) SCHOOL_NAME_TO_ID[SCHOOL_STAR_ID_TO_NAME[Number(k)]] = Number(k);
+// ★ 2026-10-20 成对的两颗共用一行亮度：副截用截空 77、旬空用副旬 78（5 张默认口径金标准盘逐格吻合；
+//   原来这两颗查不到 ID，金标准盘标了亮度、我们一直留白）
+const SCHOOL_NAME_ALIAS: Record<string, number> = { 副截: 77, 旬空: 78 };
+for (const [n, id] of Object.entries(SCHOOL_NAME_ALIAS)) SCHOOL_NAME_TO_ID[n] = id;
 
 const SB_BY_SCHOOL: Record<BrightnessSchool, readonly (readonly number[])[]> = {
-  QS: WENMO_AX.SB_QS, XD1: WENMO_AX.SB_XD1, ZZ: WENMO_AX.SB_ZZ, XD2: WENMO_AX.SB_XD2,
+  QS: SCHOOL_AX.SB_QS, XD1: SCHOOL_AX.SB_XD1, ZZ: SCHOOL_AX.SB_ZZ, XD2: SCHOOL_AX.SB_XD2,
 };
 
 /**
- * 查文墨星曜亮度。返回中文亮度字，或 undefined（未收录该星 / 文墨留白 0）。
- * ★ 默认 school='QS'（全书派）：文墨 APP「③ 安星方法 · 星曜亮度」默认勾选「依据斗数全书」（设置页截图实证）。
+ * 查星曜亮度。返回中文亮度字，或 undefined（未收录该星 / 默认口径留白 0）。
+ * ★ 默认 school='QS'（全书派）：主流排盘软件「星曜亮度」默认勾选「依据斗数全书」（设置页实证）。
  *   索引：SB 表「子起一」（子=列1…亥=列12），传入 branchIdx 子起 0，故 col = branchIdx + 1。
- *   实证：SB_QS + BRIGHTNESS_NUM_TO_CN + 子起一，真盘复现文墨 19/19（10 主星 + 5 辅星 + 4 煞星）。
+ *   实证：SB_QS + BRIGHTNESS_NUM_TO_CN + 子起一，金标准盘复现 19/19（10 主星 + 5 辅星 + 4 煞星）。
  * @param branchIdx 星所在宫地支，子起 0（子=0…亥=11）
  */
-export function wenmoStarBrightness(
+export function schoolStarBrightness(
   starName: string,
   branchIdx: number,
   school: BrightnessSchool = 'QS',
 ): string | undefined {
-  const id = WENMO_NAME_TO_ID[starName];
+  const id = SCHOOL_NAME_TO_ID[starName];
   if (id == null) return undefined;
   const v = SB_BY_SCHOOL[school]?.[id]?.[branchIdx + 1]; // 子起一
-  if (v == null || v === 0) return undefined;            // 0 = 文墨留白，不显示
+  if (v == null || v === 0) return undefined;            // 0 = 默认口径留白，不显示
   return BRIGHTNESS_NUM_TO_CN_BY_SCHOOL[school][v];       // 按流派选映射：QS/XD1=7档，ZZ/XD2=5档
 }
 
@@ -305,64 +309,64 @@ export function wenmoStarBrightness(
 // 索引：表[index][value0, value1] (大部分按 12 元素，1-12 表示地支)
 
 // 长生十二神 起点表（按五行局 1-6）
-export const WENMO_CHANGSHENG_QIDIAN: number[][] = [
+export const SCHOOL_CHANGSHENG_QIDIAN: number[][] = [
   [0, 0], [11, 5], [10, 6], [9, 7], [8, 8], [7, 9],
   [6, 10], [5, 11], [4, 12], [3, 1], [2, 2], [1, 3], [12, 4],
 ];
 
-// ⚠️【2026-05-30 源码实证修正】此表实为「火铃起点表」(_AX_HL = 火铃 HuoLing，非红鸾 HongLuan)。
+// ⚠️【2026-05-30 实证修正】此表实为「火铃起点表」(HL = 火铃 HuoLing，非红鸾 HongLuan)。
 //   证据:4 年循环(红鸾天喜应 12 年循环);作火铃起点+生时顺数，对照 iztro 火星铃星 26/26 一致。
-//   红鸾天喜真表待定位。本常量名不副实、已弃用，排盘以 wenmo-tables.generated.ts 为准。
+//   红鸾天喜真表待定位。本常量名不副实、已弃用，排盘以 school-tables.generated.ts 为准。
 // 红鸾天喜表（按生年地支 1-12）— ❌ 实为火铃起点
-export const WENMO_HONGLUAN_TIANXI: number[][] = [
+export const SCHOOL_HONGLUAN_TIANXI: number[][] = [
   [0, 0], [3, 11], [4, 11], [2, 4], [10, 11], [3, 11],
   [4, 11], [2, 4], [10, 11], [3, 11], [4, 11], [2, 4], [10, 11],
 ];
 
 // 孤辰寡宿（按生年地支 1-12）
-export const WENMO_GUCHEN_GUASU: number[][] = [
+export const SCHOOL_GUCHEN_GUASU: number[][] = [
   [0, 0], [3, 11], [3, 11], [6, 2], [6, 2], [6, 2],
   [9, 5], [9, 5], [9, 5], [12, 8], [12, 8], [12, 8], [3, 11],
 ];
 
 // 截空（按生年天干 1-10，4 种排法可选）
-export const WENMO_JIEKONG_VARIANTS = {
+export const SCHOOL_JIEKONG_VARIANTS = {
   v1: [0, 9, 7, 5, 3, 1, 10, 8, 6, 4, 2],           // 常规单星法
   v2: [[0, 0], [9, 10], [8, 7], [5, 6], [4, 3], [1, 2], [10, 9], [7, 8], [6, 5], [3, 4], [2, 1]], // 正副双星（默认）
   v3: [0, 9, 7, 5, 3, 11, 10, 8, 6, 4, 12],         // 占验派
 } as const;
 
 // 旬空（按生年天干 1-10）
-export const WENMO_XUNKONG: number[] = [0, 3, 1, 11, 9, 7, 5, 3, 1, 11, 9, 7, 5];
+export const SCHOOL_XUNKONG: number[] = [0, 3, 1, 11, 9, 7, 5, 3, 1, 11, 9, 7, 5];
 
 // 天姚（按生月 1-12）
-export const WENMO_TIANYAO: number[] = [0, 11, 6, 5, 3, 8, 4, 12, 8, 3, 7, 11, 3];
+export const SCHOOL_TIANYAO: number[] = [0, 11, 6, 5, 3, 8, 4, 12, 8, 3, 7, 11, 3];
 
 // 天巫（按生月 1-12）
-export const WENMO_TIANWU: number[] = [0, 6, 9, 3, 12, 6, 9, 3, 12, 6, 9, 3, 12];
+export const SCHOOL_TIANWU: number[] = [0, 6, 9, 3, 12, 6, 9, 3, 12, 6, 9, 3, 12];
 
 // 解神（按生月 1-12）
-export const WENMO_JIESHEN: number[] = [0, 9, 9, 11, 11, 1, 1, 3, 3, 5, 5, 7, 7];
+export const SCHOOL_JIESHEN: number[] = [0, 9, 9, 11, 11, 1, 1, 3, 3, 5, 5, 7, 7];
 
-// ⚠️【2026-05-30 源码实证修正】此值实为「蜚廉」(_AX_FL，按生年支)，非封诰;真封诰是二维 _AX_FG。
-// 封诰（按生时 1-12）— ❌ 实为蜚廉，已弃用，排盘以 wenmo-tables.generated.ts 为准
-export const WENMO_FENGGAO: number[] = [0, 9, 10, 11, 6, 7, 8, 3, 4, 5, 12, 1, 2];
+// ⚠️【2026-05-30 实证修正】此值实为「蜚廉」(FL，按生年支)，非封诰;真封诰是二维 FG 表。
+// 封诰（按生时 1-12）— ❌ 实为蜚廉，已弃用，排盘以 school-tables.generated.ts 为准
+export const SCHOOL_FENGGAO: number[] = [0, 9, 10, 11, 6, 7, 8, 3, 4, 5, 12, 1, 2];
 
 // 破碎（按生年地支 1-12）
-export const WENMO_POSUI: number[] = [0, 6, 2, 10, 6, 2, 10, 6, 2, 10, 6, 2, 10];
+export const SCHOOL_POSUI: number[] = [0, 6, 2, 10, 6, 2, 10, 6, 2, 10, 6, 2, 10];
 
 // 华盖（按生年地支 1-12）
-export const WENMO_HUAGAI: number[] = [0, 5, 2, 11, 8, 5, 2, 11, 8, 5, 2, 11, 8];
+export const SCHOOL_HUAGAI: number[] = [0, 5, 2, 11, 8, 5, 2, 11, 8, 5, 2, 11, 8];
 
 // 咸池（按生年地支 1-12）
-export const WENMO_XIANCHI: number[] = [0, 10, 7, 4, 1, 10, 7, 4, 1, 10, 7, 4, 1];
+export const SCHOOL_XIANCHI: number[] = [0, 10, 7, 4, 1, 10, 7, 4, 1, 10, 7, 4, 1];
 
 // 天厨（按生年天干 1-10）
-export const WENMO_TIANCHU: number[] = [0, 6, 7, 1, 6, 7, 9, 3, 7, 10, 12];
+export const SCHOOL_TIANCHU: number[] = [0, 6, 7, 1, 6, 7, 9, 3, 7, 10, 12];
 
 // ─── 流年小星表 ──────────────────────────────────────────────────────────
 // 流年岁前 12 神（按流年地支×位置 12×12）
-export const WENMO_LIUNIAN_SUIQIAN: number[][] = [
+export const SCHOOL_LIUNIAN_SUIQIAN: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1],
@@ -379,7 +383,7 @@ export const WENMO_LIUNIAN_SUIQIAN: number[][] = [
 ];
 
 // 流年将前 12 神（按流年地支×位置 12×12）
-export const WENMO_LIUNIAN_JIANGQIAN: number[][] = [
+export const SCHOOL_LIUNIAN_JIANGQIAN: number[][] = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 1, 10, 7, 4, 1, 10, 7, 4, 1, 10, 7, 4],
   [0, 2, 11, 8, 5, 2, 11, 8, 5, 2, 11, 8, 5],
@@ -399,29 +403,29 @@ export const WENMO_LIUNIAN_JIANGQIAN: number[][] = [
  * 数据完整性自测
  * 在 dev 模式下调用，验证所有表格的维度是否正确
  */
-export function validateWenmoData(): { ok: boolean; errors: string[] } {
+export function validateSchoolData(): { ok: boolean; errors: string[] } {
   const errors: string[] = [];
 
   // 命主表 12 项
-  if (Object.keys(WENMO_MING_ZHU_BY_DIZHI).length !== 12) {
-    errors.push(`MING_ZHU expected 12 entries, got ${Object.keys(WENMO_MING_ZHU_BY_DIZHI).length}`);
+  if (Object.keys(SCHOOL_MING_ZHU_BY_DIZHI).length !== 12) {
+    errors.push(`MING_ZHU expected 12 entries, got ${Object.keys(SCHOOL_MING_ZHU_BY_DIZHI).length}`);
   }
   // 身主表 12 项
-  if (Object.keys(WENMO_SHEN_ZHU_BY_DIZHI).length !== 12) {
-    errors.push(`SHEN_ZHU expected 12 entries, got ${Object.keys(WENMO_SHEN_ZHU_BY_DIZHI).length}`);
+  if (Object.keys(SCHOOL_SHEN_ZHU_BY_DIZHI).length !== 12) {
+    errors.push(`SHEN_ZHU expected 12 entries, got ${Object.keys(SCHOOL_SHEN_ZHU_BY_DIZHI).length}`);
   }
   // 4 套亮度表 × 15 行（[0]+14 主星）× 13 列（[0]+12 地支）
   for (const [name, tbl] of Object.entries({
-    QS: WENMO_BRIGHTNESS_QS,
-    XD1: WENMO_BRIGHTNESS_XD1,
-    ZZ: WENMO_BRIGHTNESS_ZZ,
-    XD2: WENMO_BRIGHTNESS_XD2,
+    QS: SCHOOL_BRIGHTNESS_QS,
+    XD1: SCHOOL_BRIGHTNESS_XD1,
+    ZZ: SCHOOL_BRIGHTNESS_ZZ,
+    XD2: SCHOOL_BRIGHTNESS_XD2,
   })) {
     if (tbl.length !== 15) errors.push(`亮度表 ${name}: 期望 15 行（含占位），实际 ${tbl.length}`);
     if (tbl[1].length !== 13) errors.push(`亮度表 ${name}: 期望每行 13 列，实际 ${tbl[1].length}`);
   }
   // 四化表 11 行（[0]+10 天干）× 5 列
-  if (WENMO_SIHUA_DEFAULT.length !== 11) errors.push(`四化表: 期望 11 行，实际 ${WENMO_SIHUA_DEFAULT.length}`);
+  if (SCHOOL_SIHUA_DEFAULT.length !== 11) errors.push(`四化表: 期望 11 行，实际 ${SCHOOL_SIHUA_DEFAULT.length}`);
 
   return { ok: errors.length === 0, errors };
 }

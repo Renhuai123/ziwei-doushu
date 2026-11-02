@@ -38,7 +38,7 @@ export interface LunarInfo {
 
 export type SiHua = '禄' | '权' | '科' | '忌';
 
-/** 星辰亮度 8 档（紫微斗数标准）——'地' 为文墨 XD1 流派额外等级 */
+/** 星辰亮度 8 档（紫微斗数标准）——'地' 为 XD1（现代修订亮度表第一版）额外等级 */
 export type StarBrightness = '庙' | '旺' | '得' | '利' | '平' | '不' | '闲' | '陷' | '地';
 
 export interface Star {
