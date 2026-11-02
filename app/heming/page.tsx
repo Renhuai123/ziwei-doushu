@@ -119,12 +119,16 @@ export default function HemingPage() {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let text = '';
+      let pendingLine = '';
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split('\n')) {
+        pendingLine += decoder.decode(value, { stream: true });
+        const lines = pendingLine.split('\n');
+        pendingLine = lines.pop() ?? '';
+        for (const rawLine of lines) {
+          const line = rawLine.endsWith('\r') ? rawLine.slice(0, -1) : rawLine;
           if (!line.startsWith('data: ')) continue;
           const data = line.slice(6);
           if (data === '[DONE]') break;
