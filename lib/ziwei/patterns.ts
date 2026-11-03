@@ -16,7 +16,7 @@
  */
 
 import 'server-only';
-import type { ZiweiChart, Palace, Star } from './types';
+import type { ZiweiChart, Palace, Star, SiHua } from './types';
 
 // ────────────────── 类型 ──────────────────
 export interface PatternCondition {
@@ -99,6 +99,13 @@ function isDim(palace: Palace, starName: string): boolean {
 function getStarSiHua(palace: Palace, starName: string): Star['siHua'] | undefined {
   return findStar(palace, starName)?.siHua;
 }
+// 四化挂在星曜的 siHua 字段上，不是独立星名——不能用 hasStar / sanFangAllStars 查「化禄」
+function palaceHasSiHua(palace: Palace, hua: SiHua): boolean {
+  return palace.stars.some(s => s.siHua === hua);
+}
+function sanFangHasSiHua(chart: ZiweiChart, hua: SiHua): boolean {
+  return getSanFangPalaces(chart).some(p => palaceHasSiHua(p, hua));
+}
 const BRANCH_NAMES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 
 // ────────────────── 正格识别器 ──────────────────
@@ -171,7 +178,7 @@ function detectFuXiangChaoYuan(chart: ZiweiChart, ming: Palace, patterns: Patter
   const required = ['天府坐命三方', '天相坐命三方', '两星不同宫'];
   const bonus: string[] = [];
   const breaking: string[] = [];
-  if (hasStar(ming, '禄存') || hasStar(ming, '化禄')) bonus.push('命宫见禄');
+  if (hasStar(ming, '禄存') || palaceHasSiHua(ming, '禄')) bonus.push('命宫见禄');
   if (sanFangAllStars(chart).has('左辅')) bonus.push('再会左辅');
   if (hasShaInPalace(ming, SHA_HARD)) breaking.push('命宫坐煞星');
   if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('三方四正煞星过多');
@@ -204,7 +211,7 @@ function detectYangLiangChangLu(chart: ZiweiChart, ming: Palace, patterns: Patte
   const breaking: string[] = [];
   if (isBright(sun, '太阳')) bonus.push('太阳庙旺');
   if (isBright(liang, '天梁')) bonus.push('天梁庙旺');
-  if (sanFangSet.has('化科')) bonus.push('再会化科');
+  if (sanFangHasSiHua(chart, '科')) bonus.push('再会化科');
   if (isDim(sun, '太阳')) breaking.push('太阳落陷（阳梁失辉）');
   if (sanFangShaCount(chart, SHA_HARD) >= 2) breaking.push('三方煞重');
 
@@ -294,7 +301,7 @@ function detectShaPoLang(chart: ZiweiChart, ming: Palace, patterns: Pattern[]) {
   const required = ['七杀、破军、贪狼三星齐入命宫三方四正'];
   const bonus: string[] = [];
   const breaking: string[] = [];
-  if (sanFangSet.has('化禄') || sanFangSet.has('化权')) bonus.push('三方有化禄或化权（动得有力）');
+  if (sanFangHasSiHua(chart, '禄') || sanFangHasSiHua(chart, '权')) bonus.push('三方有化禄或化权（动得有力）');
   if (sanFangSet.has('左辅') && sanFangSet.has('右弼')) bonus.push('辅弼同会（变动中得贵人）');
   if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('煞星过重（动而无成）');
   if (hasShaInPalace(ming, SHA_KONG)) breaking.push('命坐空劫（动得辛苦）');
@@ -319,7 +326,7 @@ function detectJiYueTongLiang(chart: ZiweiChart, ming: Palace, patterns: Pattern
   const bonus: string[] = [];
   const breaking: string[] = [];
   if (sanFangSet.has('文昌') || sanFangSet.has('文曲')) bonus.push('再会昌曲');
-  if (sanFangSet.has('化科')) bonus.push('再会化科');
+  if (sanFangHasSiHua(chart, '科')) bonus.push('再会化科');
   if (sanFangShaCount(chart, SHA_HARD) >= 3) breaking.push('煞星过多（机月同梁忌煞）');
   if (hasShaInPalace(ming, SHA_HARD)) breaking.push('命宫坐煞');
 

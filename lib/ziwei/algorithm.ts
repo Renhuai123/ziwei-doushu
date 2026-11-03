@@ -140,6 +140,15 @@ export function resolveEffectiveLunarDate(
   day: number,
   policy: LunarMonthPolicy = 'prev-month',
 ): EffectiveLunarDate {
+  // 闰月归属是字面量联合类型，但本函数可从运行时 JavaScript / JSON API 直接调用，
+  // 类型形同虚设。拼错的 policy 原本会落进下方 if/else 链的尾部，静默按「归本月」
+  // 排盘且把错误值随 chart.birthInfo.leapMonthPolicy 序列化传播——与 hour、公历日期
+  // 的既有校验同一口径：无效输入当场拒绝，而不是产出一张口径不明的盘。
+  if (policy !== 'split' && policy !== 'next-month' && policy !== 'prev-month' && policy !== 'origin-month') {
+    throw new RangeError(
+      `leapMonth policy must be one of 'split' | 'next-month' | 'prev-month' | 'origin-month'; received ${String(policy)}`,
+    );
+  }
   const lunar = Solar.fromYmd(year, month, day).getLunar();
   const rawLunarMonth = Number(lunar.getMonth());
   const rawLunarDay = Number(lunar.getDay());
