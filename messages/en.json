@@ -1,0 +1,64 @@
+{
+  "common": {
+    "appName": "Zi Wei Dou Shu",
+    "home": "Home",
+    "chart": "Birth chart",
+    "classics": "Classical texts",
+    "encyclopedia": "Encyclopedia",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "loading": "Loading…",
+    "back": "Back",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "home": {
+    "eyebrow": "ZI WEI DOU SHU",
+    "title": "Explore your Zi Wei chart",
+    "description": "Generate a chart with a deterministic, inspectable calculation engine and explore the stars, palaces, and concepts of Zi Wei Dou Shu.",
+    "startChart": "Create a chart",
+    "learnMore": "Learn more"
+  },
+  "chart": {
+    "title": "Create a Zi Wei chart",
+    "description": "Enter birth details to generate a chart.",
+    "birthDate": "Date of birth",
+    "birthTime": "Time of birth",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "birthPlace": "Place of birth",
+    "year": "Year",
+    "month": "Month",
+    "day": "Day",
+    "hour": "Hour",
+    "minute": "Minute",
+    "submit": "Generate chart",
+    "reset": "Create another chart",
+    "natal": "Natal chart",
+    "decade": "Decade cycle",
+    "annual": "Annual cycle",
+    "palace": "Palace",
+    "majorStars": "Major stars",
+    "minorStars": "Minor stars"
+  },
+  "disclaimer": {
+    "title": "Important note",
+    "body": "Zi Wei content belongs to a traditional cultural knowledge system and is provided for learning and reference only. It is not a substitute for professional advice or personal decision-making."
+  },
+  "terminology": {
+    "ziwei": "Zi Wei",
+    "mingGong": "Ming Palace",
+    "shenGong": "Body Palace",
+    "siHua": "Four Transformations",
+    "huaLu": "Hua Lu",
+    "huaQuan": "Hua Quan",
+    "huaKe": "Hua Ke",
+    "huaJi": "Hua Ji",
+    "daXian": "Decade cycle",
+    "liuNian": "Annual cycle"
+  }
+}
