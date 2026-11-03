@@ -196,6 +196,18 @@ export default function PalaceCell({
         </div>
       )}
 
+      {/* 宫底十二神煞：博士（不跟随运限）· 岁前 · 将前（运限视图下由 ChartBoard 覆盖） */}
+      {(palace.boshiShen || palace.suiQianShen || palace.jiangQianShen) && (
+        <div
+          className="flex items-center justify-between gap-1 mt-1 pt-0.5 text-[8px] leading-tight"
+          style={{ borderTop: '1px dashed var(--t-border)', color: 'var(--t-faint)' }}
+        >
+          <span className="text-violet-500/70">{palace.boshiShen}</span>
+          <span>{palace.suiQianShen}</span>
+          <span>{palace.jiangQianShen}</span>
+        </div>
+      )}
+
     </motion.div>
   );
 }
