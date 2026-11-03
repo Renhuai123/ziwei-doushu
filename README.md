@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 [![Dataset: CC BY 4.0](https://img.shields.io/badge/dataset-CC%20BY%204.0-green.svg)](./DATASET-LICENSE)
 
-**中文** · [English](./README.en.md)
+**中文** · [English](./README.en.md) · [日本語](./README.ja.md)
 
 </div>
 
