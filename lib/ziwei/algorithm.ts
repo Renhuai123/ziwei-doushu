@@ -10,6 +10,10 @@ import { BRANCHES, STEMS } from './constants';
 import { schoolStarBrightness, type BrightnessSchool } from './school-data';
 import { SCHOOL_AX } from './school-tables.generated';
 import { DEFAULT_LEAP_MONTH } from './school-config';
+import {
+  SUI_QIAN_SHEN, JIANG_QIAN_SHEN, BOSHI_SHEN,
+  suiQianShenByBranch, jiangQianShenByBranch, boshiShenByStem,
+} from './shier-shen';
 // 飞星派工具仅供导出，不再在排盘时调用（倪师《天纪 03》：四化星永远固定不动）
 // import { detectSelfSihua, getSiHuaByStem } from './sihua';
 
@@ -450,6 +454,24 @@ function applySchoolFuxun(palaces: Palace[]): void {
   pushNatalStar(palaces, fu, '副旬');
 }
 
+/**
+ * 宫底十二神煞（2026-11-03 接入，issue #73）：
+ *   shier-shen.ts 早已实现岁前/将前/博士十二神，但一直未接入排盘主流程，
+ *   导致盘面无十二神煞、AI（/api/interpret 接收整个 chart）也拿不到数据。
+ * 本命层：岁前/将前按生年支起；博士从生年禄存起（阳男阴女顺、阴男阳女逆，不跟随运限）。
+ * 运限视图下岁前/将前由 ChartBoard 按该层支重算覆盖（跟随运限，主流排盘默认口径）。
+ */
+function applyShierShen(palaces: Palace[], yearStem: number, yearBranch: number, gender: 'male' | 'female'): void {
+  const suiArr = suiQianShenByBranch(yearBranch);
+  const jiangArr = jiangQianShenByBranch(yearBranch);
+  const boshiArr = boshiShenByStem(yearStem, gender);
+  for (const p of palaces) {
+    p.suiQianShen = SUI_QIAN_SHEN[suiArr[p.branch]];
+    p.jiangQianShen = JIANG_QIAN_SHEN[jiangArr[p.branch]];
+    p.boshiShen = BOSHI_SHEN[boshiArr[p.branch]];
+  }
+}
+
 export function generateChart(
   birthInfo: BirthInfo,
   opts?: { leapMonth?: LunarMonthPolicy },
@@ -651,6 +673,7 @@ export function generateChart(
   applySchoolJiekong(palaces, lunarInfo.yearStem);
   applySchoolDahao(palaces, lunarInfo.yearBranch);
   applySchoolFuxun(palaces);
+  applyShierShen(palaces, lunarInfo.yearStem, lunarInfo.yearBranch, gender);
 
   // ── 命主 / 身主 / 阴阳性别 ──
   const mingZhu = calcMingZhu(mingGongBranch >= 0 ? mingGongBranch : 0);

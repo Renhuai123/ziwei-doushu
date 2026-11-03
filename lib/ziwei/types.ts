@@ -77,6 +77,12 @@ export interface Palace {
   borrowedFromName?: string;
   /** 若为空宫，借到的对宫主星名列表（结构化数据，文案层不再需要从文本反查） */
   borrowedStars?: string[];
+  /** 岁前十二神（本命层按生年支起；运限视图下由展示层按该层支重算覆盖） */
+  suiQianShen?: string;
+  /** 将前十二神（本命层按生年支起；运限视图下由展示层按该层支重算覆盖） */
+  jiangQianShen?: string;
+  /** 博士十二神（从生年禄存起，阳男阴女顺、阴男阳女逆；不跟随运限） */
+  boshiShen?: string;
 }
 
 export interface DaXianSiHua {
