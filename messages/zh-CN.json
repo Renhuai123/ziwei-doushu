@@ -1,0 +1,64 @@
+{
+  "common": {
+    "appName": "紫微斗数",
+    "home": "首页",
+    "chart": "排盘",
+    "classics": "古籍",
+    "encyclopedia": "百科",
+    "settings": "设置",
+    "language": "语言",
+    "theme": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "loading": "加载中…",
+    "back": "返回",
+    "cancel": "取消",
+    "confirm": "确认"
+  },
+  "home": {
+    "eyebrow": "紫微斗数",
+    "title": "探索你的紫微命盘",
+    "description": "使用可验证的确定性排盘引擎生成命盘，并了解星曜、宫位与紫微斗数概念。",
+    "startChart": "立即排盘",
+    "learnMore": "了解更多"
+  },
+  "chart": {
+    "title": "紫微斗数排盘",
+    "description": "输入出生日期与时间，由排盘引擎生成命盘。",
+    "birthDate": "出生日期",
+    "birthTime": "出生时间",
+    "gender": "性别",
+    "male": "男",
+    "female": "女",
+    "birthPlace": "出生地",
+    "year": "年",
+    "month": "月",
+    "day": "日",
+    "hour": "时",
+    "minute": "分",
+    "submit": "生成命盘",
+    "reset": "重新排盘",
+    "natal": "本命",
+    "decade": "大限",
+    "annual": "流年",
+    "palace": "宫位",
+    "majorStars": "主星",
+    "minorStars": "辅星"
+  },
+  "disclaimer": {
+    "title": "说明",
+    "body": "紫微斗数内容属于传统文化知识体系，仅供学习与参考，不构成专业意见，也不应替代个人判断。"
+  },
+  "terminology": {
+    "ziwei": "紫微",
+    "mingGong": "命宫",
+    "shenGong": "身宫",
+    "siHua": "四化",
+    "huaLu": "化禄",
+    "huaQuan": "化权",
+    "huaKe": "化科",
+    "huaJi": "化忌",
+    "daXian": "大限",
+    "liuNian": "流年"
+  }
+}
