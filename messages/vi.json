@@ -1,0 +1,64 @@
+{
+  "common": {
+    "appName": "Tử Vi Đẩu Số",
+    "home": "Trang chủ",
+    "chart": "Lập lá số",
+    "classics": "Cổ tịch",
+    "encyclopedia": "Từ điển",
+    "settings": "Cài đặt",
+    "language": "Ngôn ngữ",
+    "theme": "Giao diện",
+    "light": "Sáng",
+    "dark": "Tối",
+    "loading": "Đang tải…",
+    "back": "Quay lại",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  },
+  "home": {
+    "eyebrow": "TỬ VI ĐẨU SỐ",
+    "title": "Khám phá lá số Tử Vi của bạn",
+    "description": "Lập lá số bằng bộ máy tính toán có thể kiểm chứng, tìm hiểu hệ thống sao, cung và các khái niệm Tử Vi Đẩu Số.",
+    "startChart": "Lập lá số ngay",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "chart": {
+    "title": "Lập lá số Tử Vi",
+    "description": "Nhập thông tin ngày giờ sinh để bộ máy lập lá số tạo bản đồ sao.",
+    "birthDate": "Ngày sinh",
+    "birthTime": "Giờ sinh",
+    "gender": "Giới tính",
+    "male": "Nam",
+    "female": "Nữ",
+    "birthPlace": "Nơi sinh",
+    "year": "Năm",
+    "month": "Tháng",
+    "day": "Ngày",
+    "hour": "Giờ",
+    "minute": "Phút",
+    "submit": "Tạo lá số",
+    "reset": "Lập lá số mới",
+    "natal": "Bản mệnh",
+    "decade": "Đại hạn",
+    "annual": "Lưu niên",
+    "palace": "Cung",
+    "majorStars": "Chính tinh",
+    "minorStars": "Phụ tinh"
+  },
+  "disclaimer": {
+    "title": "Lưu ý",
+    "body": "Nội dung Tử Vi thuộc hệ thống tri thức văn hóa truyền thống, chỉ phục vụ mục đích tìm hiểu và tham khảo; không thay thế tư vấn chuyên môn hoặc quyết định cá nhân."
+  },
+  "terminology": {
+    "ziwei": "Tử Vi",
+    "mingGong": "Mệnh cung",
+    "shenGong": "Thân cung",
+    "siHua": "Tứ Hóa",
+    "huaLu": "Hóa Lộc",
+    "huaQuan": "Hóa Quyền",
+    "huaKe": "Hóa Khoa",
+    "huaJi": "Hóa Kỵ",
+    "daXian": "Đại hạn",
+    "liuNian": "Lưu niên"
+  }
+}
