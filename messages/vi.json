@@ -20,7 +20,24 @@
     "title": "Khám phá lá số Tử Vi của bạn",
     "description": "Lập lá số bằng bộ máy tính toán có thể kiểm chứng, tìm hiểu hệ thống sao, cung và các khái niệm Tử Vi Đẩu Số.",
     "startChart": "Lập lá số ngay",
-    "learnMore": "Tìm hiểu thêm"
+    "learnMore": "Tìm hiểu thêm",
+    "nav": {
+      "brand": "Lá số Tử Vi",
+      "compare": "Hợp số",
+      "startChart": "Lập lá số"
+    },
+    "theme": {
+      "toLight": "Chuyển sang giao diện sáng",
+      "toDark": "Chuyển sang giao diện tối"
+    },
+    "hero": {
+      "tag": "Tử Vi Đẩu Số · Hệ thống Nghê Hải Hạ",
+      "title": "Lá số Tử Vi",
+      "tagline": "Tử Vi là cửa · Thiên Địa Nhân là đường · Nghê Hải Hạ là thầy",
+      "subtitle": "AI giải đáp · Tri hành hợp nhất",
+      "description": "Nhập ngày giờ sinh để tạo lá số Tử Vi Đẩu Số riêng của bạn — các học phần Thiên Kỷ, Địa Kỷ, Nhân Kỷ sẽ lần lượt mở.",
+      "cta": "Lập lá số ngay"
+    }
   },
   "chart": {
     "title": "Lập lá số Tử Vi",

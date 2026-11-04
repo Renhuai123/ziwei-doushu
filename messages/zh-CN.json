@@ -20,7 +20,24 @@
     "title": "探索你的紫微命盘",
     "description": "使用可验证的确定性排盘引擎生成命盘，并了解星曜、宫位与紫微斗数概念。",
     "startChart": "立即排盘",
-    "learnMore": "了解更多"
+    "learnMore": "了解更多",
+    "nav": {
+      "brand": "紫微命盘",
+      "compare": "合盘",
+      "startChart": "立即起盘"
+    },
+    "theme": {
+      "toLight": "切换亮色主题",
+      "toDark": "切换暗色主题"
+    },
+    "hero": {
+      "tag": "紫微斗数 · 倪海厦体系",
+      "title": "紫微命盘",
+      "tagline": "紫微为门 · 天地人为路 · 倪海厦为师",
+      "subtitle": "AI 答疑 · 知行合一",
+      "description": "输入出生年月日时，生成专属紫微斗数命盘 — 后续天纪、地纪、人纪学习模块陆续开放。",
+      "cta": "立即起盘"
+    }
   },
   "chart": {
     "title": "紫微斗数排盘",

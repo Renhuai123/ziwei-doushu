@@ -20,7 +20,24 @@
     "title": "Explore your Zi Wei chart",
     "description": "Generate a chart with a deterministic, inspectable calculation engine and explore the stars, palaces, and concepts of Zi Wei Dou Shu.",
     "startChart": "Create a chart",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "nav": {
+      "brand": "Zi Wei Chart",
+      "compare": "Compatibility",
+      "startChart": "Start chart"
+    },
+    "theme": {
+      "toLight": "Switch to light theme",
+      "toDark": "Switch to dark theme"
+    },
+    "hero": {
+      "tag": "Zi Wei Dou Shu · Ni Hai-Xia System",
+      "title": "Zi Wei Chart",
+      "tagline": "Zi Wei as the gate · Heaven, Earth, Humanity as the path · Ni Hai-Xia as the teacher",
+      "subtitle": "AI Q&A · Unity of knowledge and action",
+      "description": "Enter your birth date and time to generate your Zi Wei Dou Shu chart — the Tian Ji, Di Ji and Ren Ji modules will open in turn.",
+      "cta": "Start your chart"
+    }
   },
   "chart": {
     "title": "Create a Zi Wei chart",
