@@ -5,6 +5,7 @@
  */
 
 const PALACE_NAME_VI: Record<string, string> = {
+  // Dạng có hậu tố "宫" (dùng trong constants.ts/PALACE_NAMES_ORDER và văn bản cổ thư)
   '命宫': 'Cung Mệnh',
   '兄弟宫': 'Cung Huynh Đệ',
   '夫妻宫': 'Cung Phu Thê',
@@ -18,6 +19,19 @@ const PALACE_NAME_VI: Record<string, string> = {
   '福德宫': 'Cung Phúc Đức',
   '父母宫': 'Cung Phụ Mẫu',
   '身宫': 'Cung Thân',
+  // Dạng không hậu tố "宫" (thư viện iztro dùng cho Palace.name, xem node_modules/iztro/lib/i18n/locales/zh-CN/palace.js)
+  '兄弟': 'Cung Huynh Đệ',
+  '夫妻': 'Cung Phu Thê',
+  '子女': 'Cung Tử Nữ',
+  '财帛': 'Cung Tài Bạch',
+  '疾厄': 'Cung Tật Ách',
+  '迁移': 'Cung Thiên Di',
+  '仆役': 'Cung Giao Hữu',
+  '官禄': 'Cung Quan Lộc',
+  '田宅': 'Cung Điền Trạch',
+  '福德': 'Cung Phúc Đức',
+  '父母': 'Cung Phụ Mẫu',
+  '来因': 'Cung Lai Nhân',
 };
 
 const STAR_NAME_VI: Record<string, string> = {
@@ -37,6 +51,10 @@ const STAR_NAME_VI: Record<string, string> = {
   '天喜': 'Thiên Hỷ', '解神': 'Giải Thần', '天德': 'Thiên Đức', '月德': 'Nguyệt Đức',
   '年解': 'Niên Giải', '天巫': 'Thiên Vu', '华盖': 'Hoa Cái', '封诰': 'Phong Cáo',
   '破碎': 'Phá Toái', '天厨': 'Thiên Trù',
+  // Nhóm Tuần Không / Triệt Không và sao phụ hiếm gặp (xem SHA_STARS trong lib/ziwei/algorithm.ts)
+  '天空': 'Thiên Không', '旬空': 'Tuần Không', '副旬': 'Phó Tuần',
+  '截路': 'Triệt Lộ', '截空': 'Triệt Không', '副截': 'Phó Triệt',
+  '大耗': 'Đại Hao', '天使': 'Thiên Sứ', '天伤': 'Thiên Thương',
 };
 
 const SIHUA_NAME_VI: Record<string, string> = {
@@ -66,6 +84,11 @@ const BRANCH_NAME_VI: Record<string, string> = {
 
 const ELEMENT_NAME_VI: Record<string, string> = {
   '金': 'Kim', '木': 'Mộc', '水': 'Thủy', '火': 'Hỏa', '土': 'Thổ',
+};
+
+const JU_NAME_VI: Record<string, string> = {
+  '水二局': 'Thủy Nhị Cục', '木三局': 'Mộc Tam Cục', '金四局': 'Kim Tứ Cục',
+  '土五局': 'Thổ Ngũ Cục', '火六局': 'Hỏa Lục Cục',
 };
 
 function lookup(dict: Record<string, string>, key: string): string {
@@ -98,6 +121,10 @@ export function branchName(hanzi: string): string {
 
 export function elementName(hanzi: string): string {
   return lookup(ELEMENT_NAME_VI, hanzi);
+}
+
+export function juName(hanzi: string): string {
+  return lookup(JU_NAME_VI, hanzi);
 }
 
 /** Tra theo bất kỳ loại nào, dùng khi không biết trước danh mục (ví dụ render danh sách hỗn hợp). */

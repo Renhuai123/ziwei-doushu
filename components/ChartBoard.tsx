@@ -5,7 +5,7 @@ import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
 import PalaceCell from './PalaceCell';
 import TimeNav, { type TimeView, getYearStemIndex, buildSiHuaOverlay } from './TimeNav';
-import { branchName, paName } from '@/lib/ziwei/display-vi';
+import { branchName, paName, juName } from '@/lib/ziwei/display-vi';
 
 interface ChartBoardProps {
   chart: ZiweiChart;
@@ -163,7 +163,7 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
             <div className="text-[10px] space-y-0.5" style={{ color: 'var(--t-faint)' }}>
               <div>Cung Mệnh <span style={{ color: 'var(--t-gold)', opacity: 0.7 }}>{branchName(BRANCHES[chart.mingGongBranch])}</span></div>
               <div>Cung Thân <span className="text-sky-500/70">{branchName(BRANCHES[chart.shenGongBranch])}</span></div>
-              <div className="text-[9px]" style={{ color: 'var(--t-gold)', opacity: 0.75 }}>{chart.wuxingJuName}</div>
+              <div className="text-[9px]" style={{ color: 'var(--t-gold)', opacity: 0.75 }}>{juName(chart.wuxingJuName)}</div>
             </div>
           </div>
 

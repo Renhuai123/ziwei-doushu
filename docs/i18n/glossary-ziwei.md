@@ -16,6 +16,8 @@ cột "Hán Việt" / "Việt" khi hiển thị ra UI qua lớp display (lib/ziw
 | 疾厄宫 | Tật ách cung | Cung Tật Ách | |
 | 迁移宫 | Thiên di cung | Cung Thiên Di | |
 | 交友宫 | Giao hữu cung | Cung Giao Hữu / Nô Bộc | tên cổ: Nô bộc cung |
+| 仆役 | Bộc Dịch | Cung Giao Hữu | thư viện iztro dùng tên "仆役" (không hậu tố 宫) cho Palace.name, ánh xạ cùng nghĩa với 交友宫 |
+| 来因 | Lai Nhân | Cung Lai Nhân | cung phụ do iztro cung cấp (nguồn gốc nhân duyên), không thuộc 12 cung chính thống kê trong PALACE_NAMES_ORDER |
 | 官禄宫 | Quan lộc cung | Cung Quan Lộc | |
 | 田宅宫 | Điền trạch cung | Cung Điền Trạch | |
 | 福德宫 | Phúc đức cung | Cung Phúc Đức | |
@@ -91,6 +93,15 @@ cột "Hán Việt" / "Việt" khi hiển thị ra UI qua lớp display (lib/ziw
 | 封诰 | Phong Cáo | Phong Cáo |
 | 破碎 | Phá Toái | Phá Toái |
 | 天厨 | Thiên Trù | Thiên Trù |
+| 天空 | Thiên Không | Thiên Không | sát tinh, khác với 旬空/截空 |
+| 旬空 | Tuần Không | Tuần Không | |
+| 副旬 | Phó Tuần | Phó Tuần | sao đi cặp với 旬空 |
+| 截路 | Triệt Lộ | Triệt Lộ | iztro đổi tên thành 截空 khi hiển thị (xem lib/ziwei/algorithm.ts) |
+| 截空 | Triệt Không | Triệt Không | |
+| 副截 | Phó Triệt | Phó Triệt | sao đi cặp với 截空, iztro đổi tên từ 空亡 |
+| 大耗 | Đại Hao | Đại Hao | có 2 nghĩa: sát tinh đỉnh bàn theo năm chi, và một trong Bác Sĩ Thập Nhị Thần — cả hai đều dịch "Đại Hao" |
+| 天使 | Thiên Sứ | Thiên Sứ | |
+| 天伤 | Thiên Thương | Thiên Thương | |
 
 ## 4. Tứ Hóa
 
@@ -112,6 +123,7 @@ cột "Hán Việt" / "Việt" khi hiển thị ra UI qua lớp display (lib/ziw
 | 金木水火土 | Kim Mộc Thủy Hỏa Thổ | Ngũ hành |
 | 水二局/木三局/金四局/土五局/火六局 | Thủy Nhị Cục / Mộc Tam Cục / Kim Tứ Cục / Thổ Ngũ Cục / Hỏa Lục Cục | Cục số |
 | 纳音 | Nạp Âm | Nạp Âm |
+| 水二局/木三局/金四局/土五局/火六局 (dạng chuỗi iztro, xem lib/ziwei/display-vi.ts juName()) | — | Thủy Nhị Cục / Mộc Tam Cục / Kim Tứ Cục / Thổ Ngũ Cục / Hỏa Lục Cục | chart.wuxingJuName trả nguyên văn các chuỗi này từ thư viện iztro |
 
 ## 6. Mười hai Thần (Tuế Tiền / Tướng Tiền / Bác Sĩ)
 

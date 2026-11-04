@@ -63,7 +63,7 @@ export default function PalaceCell({
   overlayStarSiHua, overlayLabel, onSiHuaClick,
 }: PalaceCellProps) {
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
-  const ganzhi = `${stemName(STEMS[stem])}${branchName(BRANCHES[branch])}`;
+  const ganzhi = `${stemName(STEMS[stem])} ${branchName(BRANCHES[branch])}`;
 
   const majorStars = stars.filter(s => s.type === 'major');
   const luckyStars = stars.filter(s => s.type === 'lucky');

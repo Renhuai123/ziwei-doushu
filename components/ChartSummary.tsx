@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
 import { detectPatterns, getMingGongSummary } from '@/lib/ziwei/patterns';
-import { starName, paName, stemName, branchName } from '@/lib/ziwei/display-vi';
+import { starName, paName, stemName, branchName, juName } from '@/lib/ziwei/display-vi';
 
 interface ChartSummaryProps {
   chart: ZiweiChart;
@@ -88,7 +88,7 @@ export default function ChartSummary({ chart }: ChartSummaryProps) {
 
           <div className="ml-auto text-right">
             <div className="text-[9px] mb-1" style={{ color: 'var(--t-faint)', opacity: 0.85 }}>Ngũ Hành Cục · Đại Hạn hiện tại</div>
-            <div className="text-[11px]" style={{ color: 'var(--t-text2)' }}>{chart.wuxingJuName}</div>
+            <div className="text-[11px]" style={{ color: 'var(--t-text2)' }}>{juName(chart.wuxingJuName)}</div>
             {currentDx && (
               <div className="text-[11px] text-purple-500 mt-0.5">
                 {currentDx.startAge}~{currentDx.endAge} tuổi · {paName(currentDx.palaceName)}
@@ -104,7 +104,7 @@ export default function ChartSummary({ chart }: ChartSummaryProps) {
             Âm lịch năm {chart.lunarInfo.lunarYear}{chart.lunarInfo.isLeapMonth ? ' (nhuận)' : ''}
             , tháng {chart.lunarInfo.lunarMonth}, ngày {chart.lunarInfo.lunarDay}
           </span>
-          <span>Năm {stemName(STEMS[chart.lunarInfo.yearStem])}{branchName(BRANCHES[chart.lunarInfo.yearBranch])} · Giờ {branchName(BRANCHES[chart.birthInfo.hour])}</span>
+          <span>Năm {stemName(STEMS[chart.lunarInfo.yearStem])} {branchName(BRANCHES[chart.lunarInfo.yearBranch])} · Giờ {branchName(BRANCHES[chart.birthInfo.hour])}</span>
           <span>Cung Mệnh tại {branchName(BRANCHES[chart.mingGongBranch])} · Cung Thân tại {branchName(BRANCHES[chart.shenGongBranch])}</span>
         </div>
       </div>
