@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { STEMS, SI_HUA_TABLE } from '@/lib/ziwei/constants';
 import type { ZiweiChart } from '@/lib/ziwei/types';
+import { starName as starNameVi, stemName as stemNameVi } from '@/lib/ziwei/display-vi';
 
 export type TimeView = 'mingpan' | 'daxian' | 'liunian';
 
@@ -80,23 +81,23 @@ export default function TimeNav({
         className="flex items-center rounded-xl p-1 gap-1"
         style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border)' }}
       >
-        {/* 本命 */}
+        {/* Bản Mệnh */}
         <TabButton
           active={view === 'mingpan'}
           onClick={() => onViewChange('mingpan')}
         >
-          本命
+          Bản Mệnh
         </TabButton>
 
-        {/* 大限 */}
+        {/* Đại Hạn */}
         <TabButton
           active={view === 'daxian'}
           onClick={() => onViewChange('daxian')}
         >
-          {currentDx ? `大限 ${currentDx.startAge}–${currentDx.endAge}` : '大限'}
+          {currentDx ? `Đại Hạn ${currentDx.startAge}–${currentDx.endAge}` : 'Đại Hạn'}
         </TabButton>
 
-        {/* 流年 — 含年份切换 */}
+        {/* Lưu Niên — kèm chuyển năm */}
         <div
           className="relative flex-1 flex items-center justify-center rounded-lg py-1.5 gap-1 transition-all duration-200"
           style={{
@@ -113,9 +114,9 @@ export default function TimeNav({
             className="text-[10px] font-medium flex-1 text-center"
             style={{ color: view === 'liunian' ? 'var(--t-gold)' : 'var(--t-faint)' }}
           >
-            流年
+            Lưu Niên
           </button>
-          {/* 年份 +/- */}
+          {/* Năm +/- */}
           <div className="flex items-center gap-0.5">
             <button
               onClick={e => { e.stopPropagation(); onYearChange(liunianYear - 1); if (view !== 'liunian') onViewChange('liunian'); }}
@@ -142,7 +143,7 @@ export default function TimeNav({
         </div>
       </div>
 
-      {/* 叠加四化说明行 */}
+      {/* Dòng chú giải Tứ Hóa lưu chuyển */}
       {overlayInfo && (
         <motion.div
           initial={{ opacity: 0, y: -4 }}
@@ -151,14 +152,15 @@ export default function TimeNav({
           className="flex items-center gap-2 mt-1.5 px-1 flex-wrap"
         >
           <span className="text-[9px]" style={{ color: 'var(--t-faint)' }}>
-            {view === 'daxian' ? '大限' : `${liunianYear}`}·{overlayInfo.stemName}年四化：
+            {view === 'daxian' ? 'Đại Hạn' : `${liunianYear}`}·Tứ Hóa năm {stemNameVi(overlayInfo.stemName)}:
           </span>
           {(['禄', '权', '科', '忌'] as const).map(sh => {
-            const starName = Object.keys(overlayInfo.overlay).find(k => overlayInfo.overlay[k] === sh);
-            if (!starName) return null;
+            const star = Object.keys(overlayInfo.overlay).find(k => overlayInfo.overlay[k] === sh);
+            if (!star) return null;
+            const sihuaLabel = sh === '禄' ? 'Hóa Lộc' : sh === '权' ? 'Hóa Quyền' : sh === '科' ? 'Hóa Khoa' : 'Hóa Kỵ';
             return (
               <span key={sh} className="text-[9px] font-medium" style={{ color: SIHUA_COLORS[sh] }}>
-                {starName}化{sh}
+                {starNameVi(star)} {sihuaLabel}
               </span>
             );
           })}

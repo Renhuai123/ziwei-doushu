@@ -23,22 +23,22 @@ export default function ChartPage() {
   const [view, setView] = useState<TimeView>('mingpan');
   const [liunianYear, setLiunianYear] = useState(() => new Date().getFullYear());
 
-  // ── 未起盘：展示出生信息表单 ──
+  // ── Chưa lập lá số: hiển thị form nhập thông tin sinh ──
   if (!chart) {
     return (
       <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 20px' }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>紫微斗数排盘</h1>
+        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Lập lá số Tử Vi Đẩu Số</h1>
         <p style={{ color: '#888', marginBottom: 32, fontSize: 14, lineHeight: 1.7 }}>
-          输入出生年月日时，开源排盘引擎即时生成命盘。
+          Nhập năm, tháng, ngày, giờ sinh — bộ máy lập lá số mã nguồn mở sẽ tạo lá số ngay lập tức.
           <br />
-          （本页为引擎 Demo，完整商业版界面不在开源范围；排盘内核完全开放。）
+          (Trang này là bản demo bộ máy lập lá số, giao diện bản thương mại đầy đủ không thuộc phạm vi mã nguồn mở; nhân lập lá số hoàn toàn mở.)
         </p>
         <BirthForm onSubmit={(info: BirthInfo) => setChart(generateChart(info))} />
       </main>
     );
   }
 
-  // ── 已起盘：命盘 + 解读 ──
+  // ── Đã lập lá số: hiển thị lá số + luận giải ──
   return (
     <main style={{ maxWidth: 1280, margin: '0 auto', padding: '24px 16px' }}>
       <button
@@ -49,7 +49,7 @@ export default function ChartPage() {
           border: '1px solid #ccc', borderRadius: 8, background: 'transparent',
         }}
       >
-        ← 重新起盘
+        ← Lập lại lá số
       </button>
 
       <TimeNav
