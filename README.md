@@ -298,6 +298,13 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 
 > **注意：开源版不含后端 API 路由。**排盘、命盘展示、合盘起盘都在浏览器里用本仓库的引擎完成，**不需要任何 API Key**。AI 解读（`/api/interpret`）和合盘 AI 分析（`/api/heming`）需要你自己实现接口；没实现之前，这两处会直接提示「开源版不含该接口」，配置 API Key 也不会变成可用（#30 就是这个原因）。
 
+### 一键部署
+
+不想在本地跑，也可以一键部署，在线打开排盘引擎与演示界面：
+
+<a href="https://repocloud.io/details/Ziwei%20Doushu/"><img src="https://d16t0pc4846x52.cloudfront.net/deploylobe.svg" alt="Deploy on RepoCloud" height="42"></a>
+<a href="https://railway.com/deploy/ziwei-doushu"><img src="https://railway.com/button.svg" alt="Deploy on Railway" height="42"></a>
+
 ---
 
 ## 四、排盘引擎
