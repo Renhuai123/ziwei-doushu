@@ -1,9 +1,9 @@
 'use client';
 
 /**
- * 古籍库搜索框 — client component
+ * Khung tìm kiếm kho cổ tịch — client component
  *
- * 输入 → 实时搜索 → 跳转 /library/search?q=xxx
+ * Nhập từ khóa → Tìm kiếm theo thời gian thực → Chuyển hướng tới /library/search?q=xxx
  */
 
 import { useState, useTransition } from 'react';
@@ -36,7 +36,7 @@ export default function LibrarySearch() {
         value={q}
         onChange={e => setQ(e.target.value)}
         onKeyDown={e => e.key === 'Enter' && submit()}
-        placeholder="Tìm kiếm nguyên văn cổ tịch, như: 七杀朝斗 / 双禄朝垣 / 化忌"
+        placeholder="Tìm kiếm nguyên văn cổ tịch, như: Thất Sát Triều Đẩu / Song Lộc Triều Viên / Hóa Kỵ..."
         style={{
           flex: 1,
           padding: '10px 14px',

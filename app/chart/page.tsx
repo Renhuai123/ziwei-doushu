@@ -8,14 +8,16 @@ import { generateChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
 
 /**
- * 命盘页 —— 开源版「排盘引擎 Demo」
+ * Trang lá số —— Bản mã nguồn mở「Demo Bộ máy lập lá số」
  *
- * 这是一个最小可运行示例：用本仓库的排盘引擎 generateChart() 配合基础 UI
- * 组件，渲染一张完整紫微命盘 + 基础解读，并支持本命 / 大限 / 流年切换。
+ * Đây là một ví dụ tối thiểu có thể chạy: sử dụng bộ máy lập lá số generateChart() của
+ * kho lưu trữ này kết hợp với các component UI cơ bản, hiển thị một lá số Tử Vi hoàn chỉnh
+ * kèm luận giải cơ bản, đồng thời hỗ trợ chuyển đổi Bản Mệnh / Đại Hạn / Lưu Niên.
  *
- * 说明：线上商业版的完整交互界面（重设计的新 UI、AI 流式解读、合盘、分享
- * 卡片等）不在开源范围内；但排盘内核——安星算法、四化、格局识别、古籍库——
- * 完全开放（见 lib/ziwei/*），可自由二次开发出你自己的界面。
+ * Lưu ý: Giao diện tương tác hoàn chỉnh của phiên bản thương mại trực tuyến (UI thiết kế mới,
+ * luận giải AI dạng stream, hợp mệnh, thẻ chia sẻ, v.v.) không nằm trong phạm vi mã nguồn mở;
+ * tuy nhiên phần lõi lập lá số —— thuật toán an sao, tứ hóa, nhận diện cách cục, kho cổ thư ——
+ * hoàn toàn mở (xem lib/ziwei/*), bạn có thể tự do phát triển giao diện của riêng mình.
  */
 export default function ChartPage() {
   const [chart, setChart] = useState<ZiweiChart | null>(null);

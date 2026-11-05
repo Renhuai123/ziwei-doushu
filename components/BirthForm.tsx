@@ -6,6 +6,7 @@ import { SHICHEN } from '@/lib/ziwei/constants';
 import { useTheme } from '@/components/ThemeProvider';
 import { PROVINCES } from '@/lib/ziwei/cities';
 import { formToBirthInfo, calcTrueSolarBranch } from '@/lib/ziwei/share';
+import { provinceName, cityName } from '@/lib/ziwei/display-vi';
 
 export interface BirthFormState {
   name: string;
@@ -295,7 +296,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
           >
             <option value="">Tỉnh / Thành phố trực thuộc trung ương</option>
             {PROVINCES.map(p => (
-              <option key={p.name} value={p.name}>{p.name}</option>
+              <option key={p.name} value={p.name}>{provinceName(p.name)}</option>
             ))}
           </select>
           <select
@@ -308,7 +309,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
           >
             <option value="">{form.province ? 'Thành phố' : 'Chọn tỉnh trước'}</option>
             {cityList.map(c => (
-              <option key={c.name} value={c.name}>{c.name}</option>
+              <option key={c.name} value={c.name}>{cityName(c.name)}</option>
             ))}
           </select>
         </div>
@@ -321,7 +322,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
               exit={{ opacity: 0 }}
               style={{ fontSize: '10px', color: isDark ? 'rgba(180,210,235,0.85)' : 'rgba(100,70,10,0.5)', marginTop: '5px' }}
             >
-              {form.city || '(vui lòng chọn thành phố)'} · Kinh độ {form.longitude.toFixed(1)}°Đ · Chênh giờ {offsetMin > 0 ? '+' : ''}{offsetMin} phút
+              {cityName(form.city) || '(vui lòng chọn thành phố)'} · Kinh độ {form.longitude.toFixed(1)}°Đ · Chênh giờ {offsetMin > 0 ? '+' : ''}{offsetMin} phút
             </motion.p>
           ) : (
             <motion.p

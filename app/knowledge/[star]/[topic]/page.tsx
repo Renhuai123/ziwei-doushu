@@ -1,15 +1,15 @@
 /**
- * /knowledge/[star]/[topic] — SEO 落地页
+ * /knowledge/[star]/[topic] — Trang đích SEO
  *
- * 14 主星 × 13 topic = 182 个独立 URL
- * 每页含完整的 STAR_DB 4 段论断（一句话定调/核心论断/命盘依据/经典出处）
+ * 14 chính tinh × 13 chủ đề = 182 URL độc lập
+ * Mỗi trang chứa đầy đủ 4 đoạn luận đoán từ STAR_DB (Định tính một câu / Luận đoán cốt lõi / Căn cứ lá số / Xuất xứ kinh điển)
  *
- * SEO 要点：
- *  - title 含主关键词（如"紫微入命宫·倪海厦体系详解"）
- *  - description 用 dingdiao（一句话定调）
- *  - JSON-LD Article 结构化数据
- *  - 内链：同主星其他 12 宫 + 同宫其他 13 主星
- *  - generateStaticParams 静态生成，零运行时开销
+ * Điểm trọng yếu SEO:
+ *  - title chứa từ khóa chính (như "Tử Vi nhập Cung Mệnh · Luận giải chuyên sâu hệ thống Nghê Hải Hạ")
+ *  - description dùng dingdiao (Định tính một câu)
+ *  - Cấu trúc dữ liệu JSON-LD Article
+ *  - Liên kết nội bộ: 12 cung khác của cùng chính tinh + 13 chính tinh khác tại cùng cung
+ *  - generateStaticParams tạo tĩnh, không tốn tài nguyên runtime
  */
 
 import Link from 'next/link';
@@ -43,13 +43,13 @@ const TOPIC_LABEL_VI: Record<TopicKey, string> = {
   parents:     'Phụ mẫu trưởng bối',
 };
 
-// 允许动态参数：如果某个 star/topic 组合不在 generateStaticParams 列表中
-// 也允许运行时按需渲染，避免中文 URL 编码问题导致 404
+// Cho phép tham số động: nếu tổ hợp star/topic nào không nằm trong danh sách generateStaticParams
+// thì vẫn cho phép render theo yêu cầu tại runtime, tránh lỗi 404 do mã hóa URL chữ Hán
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const routes = getAllKnowledgeRoutes();
-  // URL 用拼音 slug 替代中文，避开 Vercel/CDN 中文路由边界问题
+  // URL dùng slug pinyin thay cho chữ Hán, tránh lỗi phân giải routing tiếng Trung trên Vercel/CDN
   return routes.map(r => ({ star: r.slug, topic: r.topic }));
 }
 
@@ -99,9 +99,9 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
   const palaceNameVi = paName(data.palaceName);
   const topicLabelVi = TOPIC_LABEL_VI[topic as TopicKey] ?? data.topicLabel;
 
-  // 同主星其他 topic
+  // Các chủ đề khác của cùng chính tinh
   const otherTopicsForStar = ALL_TOPICS.filter(t => t !== topic && getKnowledge(star, t).exists);
-  // 同 topic 其他主星
+  // Các chính tinh khác trong cùng chủ đề
   const otherStarsForTopic = ALL_STARS.filter(s => s !== star && getKnowledge(s, topic as TopicKey).exists);
 
   // JSON-LD
@@ -127,7 +127,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
     <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* 顶栏 */}
+      {/* Thanh điều hướng trên */}
       <div className="px-6 py-4 flex items-center justify-between"
         style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
         <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
@@ -142,7 +142,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
       </div>
 
       <article className="max-w-3xl mx-auto px-6 py-12">
-        {/* 面包屑 */}
+        {/* Đường dẫn điều hướng (Breadcrumb) */}
         <nav style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.1em', marginBottom: '16px' }}>
           <Link href="/" style={{ color: 'var(--tx-3)', textDecoration: 'none' }}>Trang chủ</Link>
           <span style={{ margin: '0 8px' }}>/</span>
@@ -153,7 +153,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
           <span style={{ color: 'var(--ac)' }}>{palaceNameVi}</span>
         </nav>
 
-        {/* 标题区 */}
+        {/* Khu vực tiêu đề */}
         <header style={{ marginBottom: '36px' }}>
           <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.25em', marginBottom: '8px' }}>
             {topicLabelVi} · Luận giải chuyên sâu hệ thống Nghê Hải Hạ
@@ -168,7 +168,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
           )}
         </header>
 
-        {/* 内容 4 段 */}
+        {/* Nội dung 4 phần luận đoán */}
         {data.parsed.dingdiao && (
           <Section title="Định tính trong một câu" gradient>
             <p style={{ fontSize: '17px', color: 'var(--tx-0)', lineHeight: 1.9, fontWeight: 500, letterSpacing: '0.04em' }}>
@@ -232,7 +232,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
           </Link>
         </div>
 
-        {/* 内链：同主星其他 topic */}
+        {/* Liên kết nội bộ: Các chủ đề khác của cùng chính tinh */}
         <Section title={`Luận giải các cung vị khác của sao ${starNameVi}`} minimal>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {otherTopicsForStar.map(t => {
@@ -258,7 +258,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
           </div>
         </Section>
 
-        {/* 内链：同 topic 其他主星 */}
+        {/* Liên kết nội bộ: Các chính tinh khác trong cùng chủ đề */}
         <Section title={`Luận giải các chính tinh khác nhập ${palaceNameVi}`} minimal>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {otherStarsForTopic.slice(0, 13).map(s => (
@@ -281,7 +281,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
           </div>
         </Section>
 
-        {/* 古籍库链接 */}
+        {/* Liên kết kho cổ tịch */}
         <div style={{
           marginTop: '40px',
           padding: '16px 20px',
@@ -299,7 +299,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
         </div>
       </article>
 
-      {/* 页脚 */}
+      {/* Chân trang */}
       <footer style={{ borderTop: '1px solid rgba(184,146,42,0.15)', padding: '20px 24px', textAlign: 'center', fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.1em' }}>
         <div style={{ marginBottom: '6px' }}>Nghiên cứu Tử Vi · Dựa trên hệ thống chính tông Nghê Hải Hạ · Chỉ dùng cho mục đích học tập tham khảo</div>
         <div style={{ opacity: 0.85 }}>Nền tảng này không cấu thành bất kỳ lời khuyên nào về y tế, đầu tư, pháp lý hoặc quyết định trọng đại</div>

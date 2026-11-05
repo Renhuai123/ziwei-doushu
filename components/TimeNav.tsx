@@ -14,12 +14,12 @@ interface TimeNavProps {
   onYearChange: (year: number) => void;
 }
 
-/** 由年份计算天干索引 (0-9) */
+/** Tính chỉ số thiên can từ năm (0-9) */
 export function getYearStemIndex(year: number): number {
   return ((year - 4) % 10 + 10) % 10;
 }
 
-/** 根据天干索引返回四化映射：starName → SiHua */
+/** Trả về ánh xạ tứ hóa theo chỉ số thiên can: starName → SiHua */
 export function buildSiHuaOverlay(stemIndex: number): Record<string, string> {
   const stars = SI_HUA_TABLE[stemIndex];
   if (!stars) return {};
@@ -47,7 +47,7 @@ export default function TimeNav({
 }: TimeNavProps) {
   const currentDx = chart.daXians[chart.currentDaXianIndex];
 
-  // 计算当前叠加四化信息
+  // Tính thông tin tứ hóa lưu chuyển hiện tại
   const getOverlayInfo = (): { stemName: string; overlay: Record<string, string> } | null => {
     if (view === 'mingpan') return null;
 
@@ -76,7 +76,7 @@ export default function TimeNav({
 
   return (
     <div className="mb-3">
-      {/* Tab 行 */}
+      {/* Hàng Tab */}
       <div
         className="flex items-center rounded-xl p-1 gap-1"
         style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border)' }}

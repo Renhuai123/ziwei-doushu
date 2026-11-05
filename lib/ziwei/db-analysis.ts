@@ -1,20 +1,21 @@
 /**
- * lib/ziwei/db-analysis —— 开源占位版（论断内容库不在开源范围）
+ * lib/ziwei/db-analysis —— Bản giữ chỗ mã nguồn mở (kho nội dung luận đoán không thuộc phạm vi mã nguồn mở)
  *
- * 线上完整版包含 14 主星 × 13 宫位语境的详细命理论断（一句话定调 / 核心论断 /
- * 命盘依据 / 经典出处），属于核心内容、不随排盘引擎开源。此文件仅保留 SEO
- * 知识页框架所需的「类型 + 宫位/主题标签」（紫微斗数通用术语，非独有内容），
- * 论断内容库 STAR_DB 置空 —— 因此知识库详情页会生成 0 条静态路由。
+ * Phiên bản đầy đủ trực tuyến bao gồm luận đoán mệnh lý chi tiết của 14 chính tinh × 13 ngữ cảnh cung vị
+ * (Định hướng một câu / Luận đoán cốt lõi / Căn cứ lá số / Xuất xứ cổ điển), thuộc về nội dung cốt lõi,
+ * không mở mã nguồn cùng công cụ an sao. Tệp này chỉ giữ lại "kiểu dữ liệu + nhãn cung vị/chủ đề"
+ * cần thiết cho khung trang tri thức SEO (thuật ngữ Tử Vi Đẩu Số thông dụng, không phải nội dung độc quyền),
+ * kho nội dung luận đoán STAR_DB được để trống —— do đó trang chi tiết kho tri thức sẽ tạo ra 0 route tĩnh.
  *
- * 排盘内核（安星算法、四化、格局识别、古籍原文）完全开放，
- * 见 lib/ziwei 下的 algorithm.ts / patterns.ts / sihua.ts 等。
+ * Nhân lõi an sao (thuật toán an sao, tứ hóa, nhận diện cách cục, nguyên văn cổ tịch) hoàn toàn mở,
+ * xem algorithm.ts / patterns.ts / sihua.ts trong thư mục lib/ziwei.
  */
 
 export type TopicKey =
   | 'overview' | 'personality' | 'love' | 'career' | 'wealth' | 'health'
   | 'family' | 'children' | 'move' | 'friends' | 'home' | 'spirit' | 'parents';
 
-// iztro zh-CN 宫位名：命宫保留「宫」字，其余无「宫」字，「交友」在 iztro 里叫「仆役」
+// Tên cung vị iztro zh-CN: Cung Mệnh giữ chữ "宫" (Cung), các cung khác không có chữ "宫", "Giao hữu" trong iztro gọi là "Bộc dịch" (仆役)
 export const TOPIC_PALACE_NAME: Record<TopicKey, string> = {
   overview:    '命宫',
   personality: '命宫',
@@ -32,23 +33,23 @@ export const TOPIC_PALACE_NAME: Record<TopicKey, string> = {
 };
 
 export const TOPIC_LABEL: Record<TopicKey, string> = {
-  overview:    '命格总览',
-  personality: '性格特质',
-  love:        '感情婚姻',
-  career:      '事业职业',
-  wealth:      '财富运势',
-  health:      '健康状况',
-  family:      '兄弟合伙',
-  children:    '子女缘分',
-  move:        '迁移外出',
-  friends:     '人际贵人',
-  home:        '田宅不动产',
-  spirit:      '精神福德',
-  parents:     '父母长辈',
+  overview:    'Tổng quan Mệnh cách',
+  personality: 'Đặc điểm tính cách',
+  love:        'Tình cảm hôn nhân',
+  career:      'Sự nghiệp chức nghiệp',
+  wealth:      'Vận thế tài lộc',
+  health:      'Tình trạng sức khỏe',
+  family:      'Huynh đệ hợp tác',
+  children:    'Duyên phận con cái',
+  move:        'Thiên di xuất hành',
+  friends:     'Nhân tế quý nhân',
+  home:        'Điền trạch bất động sản',
+  spirit:      'Tinh thần phúc đức',
+  parents:     'Phụ mẫu trưởng bối',
 };
 
 /**
- * 论断内容库（14 主星 × 各宫位语境的详细断语）——核心内容，不在开源范围。
- * 此处置空；知识库 SEO 页因 `exists=false` 生成 0 条静态详情路由，但列表框架仍可运行。
+ * Kho nội dung luận đoán (lời đoán chi tiết của 14 chính tinh × các ngữ cảnh cung vị) — nội dung cốt lõi, không nằm trong phạm vi mã nguồn mở.
+ * Tại đây để trống; trang SEO kho tri thức do `exists=false` sẽ tạo 0 route chi tiết tĩnh, nhưng khung danh sách vẫn chạy bình thường.
  */
 export const STAR_DB: Record<string, unknown> = {};

@@ -1,34 +1,66 @@
 /**
- * 古籍原典查询库 · 主页
+ * Kho tra cứu cổ tịch nguyên điển · Trang chủ
  *
- * 列出所有收录古籍 + 全局搜索入口
+ * Danh sách toàn bộ cổ tịch thu thập + Cổng tìm kiếm toàn văn
  */
 
 import Link from 'next/link';
 import { ALL_BOOKS, TOTAL_PARAGRAPHS } from '@/lib/classics';
 import LibrarySearch from './LibrarySearch';
 
-const BOOK_TITLE_VI: Record<string, string> = {
+const BOOK_NAME_VI: Record<string, string> = {
   '紫微斗数全书': 'Tử Vi Đẩu Số Toàn Thư',
   '紫微斗数全集': 'Tử Vi Đẩu Số Toàn Tập',
   '骨髓赋': 'Cốt Tủy Phú',
   '天纪': 'Thiên Kỷ',
+  '太微赋': 'Thái Vi Phú',
+  '形性赋': 'Hình Tính Phú',
+  '诸星问答论': 'Chư Tinh Vấn Đáp Luận',
+  '斗数捷径': 'Đẩu Số Tiệp Kính',
+  '增补紫微斗数全书': 'Tăng Bổ Tử Vi Đẩu Số Toàn Thư',
+  '十八飞星策天胴胆经': 'Thập Bát Phi Tinh Sách Thiên Đống Đảm Kinh',
 };
 
+const BOOK_TITLE_VI: Record<string, string> = BOOK_NAME_VI;
+
 function bookTitleVi(title: string): string {
-  return BOOK_TITLE_VI[title] ?? title;
+  return BOOK_NAME_VI[title] ?? title;
 }
 
 const DYNASTY_VI: Record<string, string> = {
   '明代': 'Thời Minh',
+  '明': 'Thời Minh',
+  '明朝': 'Thời Minh',
   '宋代': 'Thời Tống',
+  '宋': 'Thời Tống',
+  '宋朝': 'Thời Tống',
   '清代': 'Thời Thanh',
+  '清': 'Thời Thanh',
+  '清朝': 'Thời Thanh',
   '唐代': 'Thời Đường',
+  '唐': 'Thời Đường',
+  '唐朝': 'Thời Đường',
   '汉代': 'Thời Hán',
+  '汉': 'Thời Hán',
+  '汉朝': 'Thời Hán',
+  '元代': 'Thời Nguyên',
+  '元': 'Thời Nguyên',
+  '元朝': 'Thời Nguyên',
+  '周代': 'Thời Chu',
+  '周': 'Thời Chu',
+  '周朝': 'Thời Chu',
+  '现代': 'Thời Hiện Đại',
 };
 
 function dynastyVi(dynasty: string): string {
   return DYNASTY_VI[dynasty] ?? dynasty;
+}
+
+function authorShortVi(book: { slug: string; author: string }): string {
+  if (book.slug === 'gusuifu') return 'Khuyết danh';
+  if (book.slug === 'quanji') return 'Tổ sư Trần Đoàn';
+  if (book.slug === 'quanshu') return 'La Hồng Tiên';
+  return book.author.replace(/^(Tương truyền do |Cổ tịch Tử Vi Đẩu Số truyền lại |Tương truyền: )/, '').replace(/\s*biên soạn$/, '');
 }
 
 export const metadata = {
@@ -39,7 +71,7 @@ export const metadata = {
 export default function LibraryHomePage() {
   return (
     <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      {/* 顶栏 */}
+      {/* Thanh điều hướng trên */}
       <div className="px-6 py-4 flex items-center justify-between"
         style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
         <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
@@ -53,11 +85,11 @@ export default function LibraryHomePage() {
         </Link>
       </div>
 
-      {/* Hero */}
+      {/* Hero giới thiệu */}
       <div className="text-center px-6 py-16">
         <div className="flex items-center justify-center gap-3 mb-4">
           <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to right, transparent, rgba(184,146,42,0.4))' }} />
-          <span style={{ fontSize: '11px', color: 'var(--ac)', letterSpacing: '0.4em' }}>NI HAI XIA · CURRICULUM</span>
+          <span style={{ fontSize: '11px', color: 'var(--ac)', letterSpacing: '0.4em' }}>NGHÊ HẢI HẠ · HỆ THỐNG THIÊN KỶ</span>
           <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to left, transparent, rgba(184,146,42,0.4))' }} />
         </div>
         <h1 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 700, color: 'var(--tx-0)', letterSpacing: '0.15em', marginBottom: '12px' }}>
@@ -69,12 +101,12 @@ export default function LibraryHomePage() {
         </p>
       </div>
 
-      {/* 搜索 */}
+      {/* Thanh tìm kiếm */}
       <div className="max-w-2xl mx-auto px-6 mb-12">
         <LibrarySearch />
       </div>
 
-      {/* 古籍列表 */}
+      {/* Danh sách cổ tịch */}
       <div className="max-w-5xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ALL_BOOKS.map(book => (
@@ -94,7 +126,7 @@ export default function LibraryHomePage() {
               className="hover:shadow-lg"
             >
               <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '6px' }}>
-                {dynastyVi(book.dynasty)} · {book.author.split(' ')[0]}
+                {dynastyVi(book.dynasty)} · {authorShortVi(book)}
               </div>
               <div style={{ fontSize: '20px', fontWeight: 600, color: 'var(--tx-0)', marginBottom: '10px', letterSpacing: '0.1em' }}>
                 《{bookTitleVi(book.title)}》
@@ -121,7 +153,7 @@ export default function LibraryHomePage() {
           ))}
         </div>
 
-        {/* 底部说明 */}
+        {/* Phần thuyết minh dưới trang */}
         <div style={{ marginTop: '60px', padding: '24px', background: 'rgba(184,146,42,0.05)', borderRadius: '10px', textAlign: 'center' }}>
           <div style={{ fontSize: '11px', color: 'var(--ac-dim)', fontWeight: 600, letterSpacing: '0.15em', marginBottom: '8px' }}>
             Về kho cổ tịch

@@ -1,6 +1,6 @@
 /**
- * /knowledge — 知识库主页
- * 列出 14 主星，每星可看其在 13 宫位的解读
+ * /knowledge — Trang chủ kho kiến thức
+ * Liệt kê 14 chính tinh, mỗi sao có thể xem luận giải tại 13 cung vị
  */
 
 import Link from 'next/link';
@@ -36,7 +36,7 @@ export default function KnowledgeHomePage() {
 
   return (
     <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      {/* 顶栏 */}
+      {/* Thanh điều hướng trên */}
       <div className="px-6 py-4 flex items-center justify-between"
         style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
         <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
@@ -66,7 +66,7 @@ export default function KnowledgeHomePage() {
         </p>
       </div>
 
-      {/* 14 主星卡片 */}
+      {/* Thẻ 14 chính tinh */}
       <div className="max-w-5xl mx-auto px-6 pb-20">
         <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.3em', textAlign: 'center', marginBottom: '24px' }}>
           14 CHÍNH TINH
@@ -95,7 +95,7 @@ export default function KnowledgeHomePage() {
           ))}
         </div>
 
-        {/* 详细列表（每个主星 + 简介 + 进入按钮） */}
+        {/* Danh sách chi tiết (từng chính tinh + tóm tắt sơ lược + liên kết chuyển tiếp) */}
         <div className="mt-14 space-y-4">
           {ALL_STARS.map(star => (
             <div key={star} style={{
@@ -109,7 +109,7 @@ export default function KnowledgeHomePage() {
                   Sao {starName(star)}
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.15em' }}>
-                  ZI WEI · 14 STARS
+                  TỬ VI · 14 CHÍNH TINH
                 </span>
               </div>
               <p style={{ fontSize: '12px', color: 'var(--tx-2)', lineHeight: 1.7, marginBottom: '12px' }}>

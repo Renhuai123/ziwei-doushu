@@ -1,8 +1,8 @@
 /**
- * 古籍原典查询库 — 入口
+ * Thư viện tra cứu nguyên điển cổ tịch — Điểm khởi đầu (Entry)
  *
- * 加载所有古籍数据 + 提供查询/搜索 API
- * 数据为 JSON 静态打包，零 DB 依赖、零网络请求
+ * Tải toàn bộ dữ liệu cổ tịch + Cung cấp API truy vấn / tìm kiếm
+ * Dữ liệu đóng gói tĩnh JSON, không phụ thuộc cơ sở dữ liệu, không tạo yêu cầu mạng
  */
 
 import type { Book, Paragraph, SearchHit } from './types';
@@ -10,25 +10,25 @@ import { guSuiFu } from './data/gusuifu';
 import { ziWeiQuanJi } from './data/quanji';
 import { ziWeiQuanShu } from './data/quanshu';
 
-/** 所有已收录古籍 */
+/** Toàn bộ cổ tịch đã được thu thập */
 export const ALL_BOOKS: Book[] = [
   guSuiFu,
   ziWeiQuanJi,
   ziWeiQuanShu,
 ];
 
-/** 总段落数（用于首页统计） */
+/** Tổng số đoạn văn (dùng cho thống kê trang chủ) */
 export const TOTAL_PARAGRAPHS = ALL_BOOKS.reduce(
   (sum, b) => sum + b.chapters.reduce((s, c) => s + c.paragraphs.length, 0),
   0,
 );
 
-/** 按 slug 取书 */
+/** Lấy thông tin sách theo slug */
 export function getBookBySlug(slug: string): Book | null {
   return ALL_BOOKS.find(b => b.slug === slug) ?? null;
 }
 
-/** 按章节序号取章节 */
+/** Lấy chương theo số thứ tự chương trong sách */
 export function getChapter(bookSlug: string, chapterIdx: number) {
   const book = getBookBySlug(bookSlug);
   if (!book) return null;
@@ -37,7 +37,7 @@ export function getChapter(bookSlug: string, chapterIdx: number) {
   return { book, chapter, chapterIdx };
 }
 
-/** 按段落 id 取段落（含书与章节信息）*/
+/** Lấy đoạn văn theo ID đoạn (kèm thông tin sách và chương tương ứng) */
 export function getParagraphById(id: string) {
   for (const book of ALL_BOOKS) {
     for (let i = 0; i < book.chapters.length; i++) {
@@ -52,10 +52,10 @@ export function getParagraphById(id: string) {
 }
 
 /**
- * 全文搜索
+ * Tìm kiếm toàn văn
  *
- * 简单子字符串匹配（不分词，对中文 OK）
- * 大小写不敏感、繁简转换暂不支持
+ * Khớp chuỗi con đơn giản (không tách từ, phù hợp với Hán văn/tiếng Trung)
+ * Không phân biệt chữ hoa chữ thường, hiện chưa hỗ trợ chuyển đổi giản - phồn thể
  */
 export function searchClassics(query: string, limit = 30): SearchHit[] {
   const q = query.trim();
@@ -68,7 +68,7 @@ export function searchClassics(query: string, limit = 30): SearchHit[] {
         const idx = p.text.indexOf(q);
         if (idx < 0) continue;
 
-        // 提取上下文（前后各 40 字）
+        // Trích xuất ngữ cảnh (trước và sau mỗi bên 40 ký tự)
         const start = Math.max(0, idx - 40);
         const end = Math.min(p.text.length, idx + q.length + 40);
         const before = p.text.slice(start, idx);

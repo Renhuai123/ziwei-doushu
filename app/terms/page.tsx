@@ -32,7 +32,7 @@ export default function TermsPage() {
         <strong>Toàn bộ nội dung luận mệnh, kho tri thức (bao gồm toàn bộ văn bản luận giải của 14 chính tinh × 12 cung × nam nữ × Tứ Hóa × Đại Hạn Lưu Niên), thiết kế UI, phương án tích hợp thuật toán, kho tình huống mẫu trên nền tảng này đều là sản phẩm gốc hoặc được biên soạn hợp pháp bởi nền tảng.</strong><br/><br/>
         Nghiêm cấm các hành vi sau đây, người vi phạm sẽ bị truy cứu trách nhiệm bồi thường dân sự và trách nhiệm hình sự:<br/>
         ① Sử dụng crawler, script tự động, gọi API hàng loạt hoặc bất kỳ biện pháp kỹ thuật nào khác để thu thập nội dung của nền tảng;<br/>
-        ② Dùng luận giải lá số, văn bản, dữ liệu phản hồi API do nền tảng tạo ra **để huấn luyện bất kỳ mô hình học máy nào** (bao gồm nhưng không giới hạn ở mô hình ngôn ngữ lớn, mô hình sinh luận mệnh, mô hình sinh văn bản...);<br/>
+        ② Dùng luận giải lá số, văn bản, dữ liệu phản hồi API do nền tảng tạo ra <strong>để huấn luyện bất kỳ mô hình học máy nào</strong> (bao gồm nhưng không giới hạn ở mô hình ngôn ngữ lớn, mô hình sinh luận mệnh, mô hình sinh văn bản...);<br/>
         ③ Bán lại hoặc đăng nội dung do nền tảng tạo ra lên website, ứng dụng, tài khoản truyền thông khác;<br/>
         ④ Dịch ngược, sao chép, chỉnh sửa mã nguồn front-end hoặc back-end của nền tảng để tự cung cấp dịch vụ tương tự.<br/><br/>
         Văn bản đầu ra của nền tảng có nhúng watermark truy vết vân tay, đầu ra phát sinh từ việc sao chép/huấn luyện trái phép có thể bị phát hiện và truy vết. Khi phát hiện vi phạm, nền tảng có quyền yêu cầu <strong>bồi thường 1.000.000 Nhân dân tệ cho mỗi trường hợp vi phạm</strong>, và bảo lưu quyền khởi kiện ra tòa án cũng như phối hợp với cơ quan công an điều tra.

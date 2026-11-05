@@ -1,10 +1,10 @@
 'use client';
 
 /**
- * 命盘分享卡 — 真正的 12 宫命盘缩略图
+ * Thẻ chia sẻ lá số — Thu nhỏ 12 cung lá số thực tế
  *
- * 设计：左侧 12 宫缩略命盘 + 右侧关键信息
- * 浏览器原生中文字体，不依赖 SSR
+ * Thiết kế: Bên trái thu nhỏ 12 cung + Bên phải thông tin cốt lõi
+ * Dùng font chữ hệ thống trên trình duyệt, không phụ thuộc SSR
  */
 
 import type { ZiweiChart } from '@/lib/ziwei/types';
@@ -13,24 +13,29 @@ import { branchName, starName, paName, juName } from '@/lib/ziwei/display-vi';
 
 const BRANCH_NAMES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 
-// 紫微斗数 12 宫地支布局（按"地支盘"标准排列，固定）
-// 寅卯辰巳 → 上行
-// 丑    午
-// 子    未
-// 亥戌酉申 → 下行
+const SIHUA_LABEL_VI: Record<string, string> = {
+  '禄': 'Lộc', '权': 'Quyền', '科': 'Khoa', '忌': 'Kỵ',
+  '化禄': 'Lộc', '化权': 'Quyền', '化科': 'Khoa', '化忌': 'Kỵ',
+};
+
+// Bố cục địa chi 12 cung Tử Vi Đẩu Số (sắp xếp chuẩn theo Địa Chi Bàn, cố định)
+// Dần Mão Thìn Tỵ → Hàng trên
+// Sửu          Ngọ
+// Tý           Mùi
+// Hợi Tuất Dậu Thân → Hàng dưới
 const ZHIWEI_LAYOUT: Array<{ branch: number; row: number; col: number }> = [
-  { branch: 2,  row: 0, col: 0 }, // 寅
-  { branch: 3,  row: 0, col: 1 }, // 卯
-  { branch: 4,  row: 0, col: 2 }, // 辰
-  { branch: 5,  row: 0, col: 3 }, // 巳
-  { branch: 1,  row: 1, col: 0 }, // 丑
-  { branch: 6,  row: 1, col: 3 }, // 午
-  { branch: 0,  row: 2, col: 0 }, // 子
-  { branch: 7,  row: 2, col: 3 }, // 未
-  { branch: 11, row: 3, col: 0 }, // 亥
-  { branch: 10, row: 3, col: 1 }, // 戌
-  { branch: 9,  row: 3, col: 2 }, // 酉
-  { branch: 8,  row: 3, col: 3 }, // 申
+  { branch: 2,  row: 0, col: 0 }, // Dần
+  { branch: 3,  row: 0, col: 1 }, // Mão
+  { branch: 4,  row: 0, col: 2 }, // Thìn
+  { branch: 5,  row: 0, col: 3 }, // Tỵ
+  { branch: 1,  row: 1, col: 0 }, // Sửu
+  { branch: 6,  row: 1, col: 3 }, // Ngọ
+  { branch: 0,  row: 2, col: 0 }, // Tý
+  { branch: 7,  row: 2, col: 3 }, // Mùi
+  { branch: 11, row: 3, col: 0 }, // Hợi
+  { branch: 10, row: 3, col: 1 }, // Tuất
+  { branch: 9,  row: 3, col: 2 }, // Dậu
+  { branch: 8,  row: 3, col: 3 }, // Thân
 ];
 
 interface ShareCardProps {
@@ -47,7 +52,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
   const shenBranchName = branchName(BRANCH_NAMES[chart.shenGongBranch] || '');
   const dx = chart.daXians?.[chart.currentDaXianIndex];
 
-  // 把每个宫位组织成 12 个格子，按布局画
+  // Tổ chức mỗi cung thành 12 ô, vẽ theo bố cục
   const cells = ZHIWEI_LAYOUT.map(slot => {
     const palace = chart.palaces.find(p => p.branch === slot.branch);
     const majors = palace?.stars.filter(s => s.type === 'major') ?? [];
@@ -56,7 +61,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
     return { ...slot, palace, majors, isMing, isShen };
   });
 
-  // 卡片尺寸：680x420（适合微信缩略 + 朋友圈）
+  // Kích thước thẻ: 680x420 (phù hợp ảnh thu nhỏ + mạng xã hội)
   return (
     <div id="share-card" style={{
       width: '680px',
@@ -71,7 +76,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
       display: 'flex',
       flexDirection: 'column',
     }}>
-      {/* 装饰光晕 */}
+      {/* Hiệu ứng hào quang trang trí */}
       <div style={{
         position: 'absolute', top: '-60px', left: '-60px',
         width: '180px', height: '180px', borderRadius: '50%',
@@ -83,7 +88,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
         background: 'radial-gradient(circle, rgba(196,90,45,0.12) 0%, transparent 70%)',
       }} />
 
-      {/* 顶部 */}
+      {/* Phần đầu thẻ */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
@@ -110,9 +115,9 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
         </div>
       </div>
 
-      {/* 主体：左 12 宫格子 + 右关键信息 */}
+      {/* Thân thẻ: Bên trái 12 ô cung + Bên phải thông tin cốt lõi */}
       <div style={{ display: 'flex', gap: '16px', flex: 1, position: 'relative', zIndex: 1, minHeight: 0 }}>
-        {/* 左：12 宫缩略命盘 */}
+        {/* Trái: Bàn thu nhỏ 12 cung */}
         <div style={{
           width: '300px',
           height: '288px',
@@ -127,7 +132,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
           position: 'relative',
         }}>
           {cells.map((cell, i) => {
-            // 中央 4 个格子（row 1-2, col 1-2）合并为中心说明区
+            // 4 ô trung tâm (hàng 1-2, cột 1-2) gộp thành khu vực thuyết minh trung tâm
             if ((cell.row === 1 || cell.row === 2) && (cell.col === 1 || cell.col === 2)) return null;
             return (
               <div key={i} style={{
@@ -144,7 +149,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
                 position: 'relative',
                 overflow: 'hidden',
               }}>
-                {/* 宫名 + 地支 */}
+                {/* Tên cung + Địa chi */}
                 <div style={{
                   fontSize: '8px',
                   color: cell.isMing ? '#8b6a14' : '#a89b7c',
@@ -159,7 +164,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
                   </span>
                   <span style={{ fontSize: '7px', opacity: 0.7 }}>{branchName(BRANCH_NAMES[cell.branch])}</span>
                 </div>
-                {/* 主星 */}
+                {/* Chính tinh */}
                 <div style={{
                   marginTop: '2px',
                   display: 'flex',
@@ -176,7 +181,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
                       letterSpacing: '0.02em',
                       lineHeight: 1.1,
                     }}>
-                      {starName(s.name)}{s.siHua ? <span style={{ fontSize: '8px', color: '#c45a2d', marginLeft: '1px' }}>{s.siHua}</span> : ''}
+                      {starName(s.name)}{s.siHua ? <span style={{ fontSize: '8px', color: '#c45a2d', marginLeft: '1px' }}>{SIHUA_LABEL_VI[s.siHua] ?? s.siHua}</span> : ''}
                     </div>
                   )) : (
                     <div style={{ fontSize: '9px', color: '#a89b7c', fontStyle: 'italic' }}>Cung trống</div>
@@ -186,7 +191,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
             );
           })}
 
-          {/* 中央说明区（占据 4 个格子）*/}
+          {/* Khu vực thuyết minh trung tâm (chiếm 4 ô) */}
           <div style={{
             gridRow: '2 / 4',
             gridColumn: '2 / 4',
@@ -220,7 +225,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
               marginBottom: '12px',
             }}>{mingStarStr}</div>
 
-            {/* 高亮 */}
+            {/* Điểm nhấn nổi bật */}
             {highlight && (
               <div style={{
                 fontSize: '12px',
@@ -272,7 +277,7 @@ export default function ShareCardCanvas({ chart, birth, highlight }: ShareCardPr
   );
 }
 
-/** 截图工具：把上面的 div 转成 PNG dataURL */
+/** Công cụ chụp ảnh: chuyển đổi div trên thành PNG dataURL */
 export async function captureShareCard(): Promise<string | null> {
   try {
     const html2canvas = (await import('html2canvas')).default;

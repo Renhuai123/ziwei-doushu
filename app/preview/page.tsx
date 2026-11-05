@@ -6,16 +6,16 @@ import ScrollIntro from '@/components/ScrollIntro';
 
 export default function PreviewPage() {
   const router = useRouter();
-  // replayKey 用于强制重置 ScrollIntro（用户点"再播放一次"时）
+  // replayKey dùng để buộc thiết lập lại ScrollIntro (khi người dùng bấm "Phát Lại Một Lần")
   const [replayKey, setReplayKey] = useState(0);
   const [done, setDone] = useState(false);
 
   return (
     <>
-      {/* 卷轴开场动画 */}
+      {/* Hoạt ảnh cuộn tranh mở màn */}
       <ScrollIntro key={replayKey} onComplete={() => setDone(true)} />
 
-      {/* 动画结束后的「样片说明 + 操作按钮」面板 */}
+      {/* Bảng "Thuyết minh bản xem trước + nút thao tác" sau khi kết thúc hoạt ảnh */}
       {done && (
         <main style={{
           minHeight: '100vh',
@@ -96,7 +96,7 @@ export default function PreviewPage() {
             <Link href="/heming" style={{ color: 'inherit', textDecoration: 'none' }}>Hợp Hôn</Link>
           </div>
 
-          {/* 时间轴说明 */}
+          {/* Thuyết minh dòng thời gian */}
           <div style={{
             marginTop: '64px',
             padding: '24px 32px',

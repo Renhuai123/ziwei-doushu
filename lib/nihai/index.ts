@@ -1,13 +1,13 @@
 /**
- * 倪海厦 天纪 / 地纪 / 人纪 — 统一导出
+ * Nghê Hải Hạ — Thiên Kỷ / Địa Kỷ / Nhân Kỷ — Xuất khẩu thống nhất
  *
- * 倪海厦（1954-2012），美国汉唐中医学院创办人，
- * 当代少见的「命、相、卜、山、医」五术兼备之旷世奇人。
+ * Nghê Hải Hạ (1954-2012), người sáng lập Học viện Trung y Hán Đường Hoa Kỳ,
+ * kỳ nhân khoáng thế đương đại hiếm có kiêm toàn cả năm thuật "Mệnh, Tướng, Bốc, Sơn, Y".
  *
- * 三纪体系：
- *   天纪 —— 上知天文（紫微斗数、易经、堪舆、推命、面相、测字）
- *   地纪 —— 下知地理（国家地理志、风水与国运）
- *   人纪 —— 中知人事（针灸、黄帝内经、神农本草经、伤寒论、金匮要略）
+ * Hệ thống Tam Kỷ:
+ *   Thiên Kỷ —— Thượng tri thiên văn (Tử Vi Đẩu Số, Kinh Dịch, Kham dư, Thôi mệnh, Diện tướng, Trắc tự)
+ *   Địa Kỷ —— Hạ tri địa lý (Quốc gia địa lý chí, Phong thủy và quốc vận)
+ *   Nhân Kỷ —— Trung tri nhân sự (Châm cứu, Hoàng Đế Nội Kinh, Thần Nông Bản Thảo Kinh, Thương Hàn Luận, Kim Quỹ Yếu Lược)
  */
 
 export * from './types';
@@ -15,134 +15,134 @@ export { TIANJI_MODULES, HEXAGRAMS, FENGSHUI_ENTRIES, TIANJI_EPISODES, TIANJI_QU
 export { RENJI_MODULES, ACU_EXPERIENCES, TRANS_NEEDLING, HANTANG_FORMULAS, CLASSIC_FORMULAS, RENJI_STATS } from './renji';
 export { DIJI_MODULES, DIJI_STATS } from './diji';
 
-/** 倪海厦完整传记 */
+/** Tiểu sử hoàn chỉnh Nghê Hải Hạ */
 export const NI_HAIXIA_BIO = {
-  name: '倪海厦',
-  nameVariant: '倪海夏',
-  alias: '梵宇龙',
-  birth: '1954年1月1日',
-  death: '2012年1月31日',
-  birthPlace: '台北市',
-  ancestry: '浙江瑞安',
-  family: '七个兄弟姊妹，排行第五',
-  education: '东吴大学政治系',
-  title: '美国汉唐中医学院创办人',
+  name: 'Nghê Hải Hạ',
+  nameVariant: 'Nghê Hải Hạ (倪海夏)',
+  alias: 'Phạn Vũ Long',
+  birth: '1/1/1954',
+  death: '31/1/2012',
+  birthPlace: 'Thành phố Đài Bắc',
+  ancestry: 'Thụy An, Chiết Giang',
+  family: 'Bảy anh chị em, đứng thứ năm',
+  education: 'Khoa Chính trị Đại học Đông Ngô',
+  title: 'Người sáng lập Học viện Trung y Hán Đường Hoa Kỳ',
   titles: [
-    '命、相、卜、山、医 五术兼备之旷世奇人',
-    '美国汉唐中医学院院长',
-    '美国加州中医药大学博士指导教授',
-    '佛罗里达州卫生署中医委员会最高委员（2000-2003）',
-    '佛州针灸委员会委员及副主席',
-    '经方派现代继承者',
-    '天纪、人纪教学体系创立者',
-    '海外优秀华人奖获得者',
+    'Kỳ nhân khoáng thế kiêm toàn ngũ thuật Mệnh, Tướng, Bốc, Sơn, Y',
+    'Viện trưởng Học viện Trung y Hán Đường Hoa Kỳ',
+    'Giáo sư hướng dẫn tiến sĩ Đại học Trung y Dược California, Hoa Kỳ',
+    'Ủy viên tối cao Ủy ban Trung y Sở Y tế bang Florida (2000-2003)',
+    'Ủy viên kiêm Phó Chủ tịch Ủy ban Châm cứu bang Florida',
+    'Người kế thừa hiện đại của phái Kinh Phương',
+    'Người sáng lập hệ thống giảng dạy Thiên Kỷ, Nhân Kỷ',
+    'Người đoạt giải Hoa kiều ưu tú hải ngoại',
   ],
-  /** 师承关系 */
+  /** Quan hệ sư thừa */
   teachers: [
-    { name: '周左宇', background: '北京四代家传名医，1949年后移居台湾', subject: '针灸', period: '1977-1981' },
-    { name: '徐济民', background: '江苏籍上海名医', subject: '针灸', period: '1970s' },
-    { name: '姜佐景传承', background: '师承曹颖甫的经方家', subject: '经方', period: '基隆中药行学徒期间' },
+    { name: 'Chu Tả Vũ', background: 'Danh y gia truyền bốn đời Bắc Kinh, sau năm 1949 chuyển đến Đài Loan', subject: 'Châm cứu', period: '1977-1981' },
+    { name: 'Từ Tế Dân', background: 'Danh y Thượng Hải gốc Giang Tô', subject: 'Châm cứu', period: 'Thập niên 1970' },
+    { name: 'Truyền thừa Khương Tá Cảnh', background: 'Nhà Kinh phương học trò của Tào Dĩnh Phủ', subject: 'Kinh phương', period: 'Thời gian học việc tại tiệm thuốc bắc Cơ Long' },
   ],
-  /** 核心理念 */
+  /** Triết lý cốt lõi */
   corePhilosophy: [
-    '大道至简——飞星飞来飞去太复杂，不搞这个',
-    '命宫为本，三方为用',
-    '人事努力+地理调整 > 先天命运（2/3 > 1/3）',
-    '中医是物理医学，从物理角度分析人体',
-    '辨证不辨病——中医看的是证型而非病名',
-    '经方一剂知，二剂已',
-    '不希望中华文化失传，所以教了许多学生',
-    '算命就是一个讨论果的哲学',
-    '文字只是船，真理才是彼岸',
+    'Đại đạo chí giản — Phi Tinh bay qua bay lại quá phức tạp, không làm cái này',
+    'Cung Mệnh làm gốc, Tam Phương làm dụng',
+    'Nỗ lực nhân sự + Điều chỉnh địa lý > Vận mệnh tiên thiên (2/3 > 1/3)',
+    'Trung y là y học vật lý, phân tích cơ thể người từ góc độ vật lý',
+    'Biện chứng bất biện bệnh — Trung y nhìn vào chứng hình chứ không phải tên bệnh',
+    'Kinh phương nhất tề tri, nhị tề dĩ (Một thang thấy chuyển biến, hai thang khỏi bệnh)',
+    'Không muốn văn hóa Trung Hoa thất truyền, nên đã dạy rất nhiều học trò',
+    'Đoán mệnh là một môn triết học bàn luận về Quả',
+    'Văn tự chỉ là chiếc thuyền, chân lý mới là bờ bên kia',
   ],
-  /** 人生大事记 */
+  /** Niên biểu cuộc đời */
   timeline: [
-    { year: '1954', event: '出生于台北市，祖籍浙江瑞安' },
-    { year: '1970s', event: '高中时以《医宗金鉴》治愈二姐月经痛，立志习医' },
-    { year: '1977-1981', event: '向周左宇医师学习针灸' },
-    { year: '1978', event: '军旅服役马祖军医部，获"马祖神医"称号，时年24岁' },
-    { year: '1979', event: '退伍后以化名"梵宇龙"开始算命看相事业' },
-    { year: '1980', event: '移民美国' },
-    { year: '1988', event: '在台北金山南路开办"天文地理班"，传授紫微斗数和阳宅风水' },
-    { year: '1991', event: '成为美国佛罗里达州注册针灸师' },
-    { year: '1993', event: '在佛州Merritt Island选定汉唐中医学院地产' },
-    { year: '1994', event: '完成《天纪》系列著作录制，共24集' },
-    { year: '1995', event: '创办汉唐中医学院' },
-    { year: '2000-2003', event: '任佛州卫生署中医委员会最高委员' },
-    { year: '2004', event: '在台北开设《人纪》中医教学班' },
-    { year: '2005', event: '《人纪》系列教学DVD出版' },
-    { year: '2007', event: '开始撰写《地纪》' },
-    { year: '2010', event: '成立台北汉唐经方中医诊所；受邀第三届扶阳论坛整天演讲' },
-    { year: '2011', event: '成立深圳汉唐经方中医馆' },
-    { year: '2012', event: '1月31日因心肺衰竭在台北辞世，享年59岁' },
+    { year: '1954', event: 'Sinh tại thành phố Đài Bắc, tổ quán Thụy An, Chiết Giang' },
+    { year: 'Thập niên 1970', event: 'Thời trung học dùng 《Y Tông Kim Giám》 chữa khỏi đau bụng kinh cho chị hai, lập chí học y' },
+    { year: '1977-1981', event: 'Học châm cứu với danh y Chu Tả Vũ' },
+    { year: '1978', event: 'Phục vụ trong quân y bộ Mã Tổ, được xưng tụng là "Mã Tổ thần y", khi đó 24 tuổi' },
+    { year: '1979', event: 'Sau khi xuất ngũ lấy hóa danh "Phạn Vũ Long" bắt đầu sự nghiệp toán mệnh xem tướng' },
+    { year: '1980', event: 'Di cư sang Hoa Kỳ' },
+    { year: '1988', event: 'Mở lớp "Thiên văn Địa lý" tại đường Kim Sơn Nam, Đài Bắc, truyền dạy Tử Vi Đẩu Số và phong thủy Dương trạch' },
+    { year: '1991', event: 'Trở thành châm cứu sư có chứng chỉ tại bang Florida, Hoa Kỳ' },
+    { year: '1993', event: 'Chọn địa điểm xây dựng Học viện Trung y Hán Đường tại đảo Merritt, bang Florida' },
+    { year: '1994', event: 'Hoàn thành ghi hình bộ tác phẩm 《Thiên Kỷ》 gồm 24 tập' },
+    { year: '1995', event: 'Thành lập Học viện Trung y Hán Đường' },
+    { year: '2000-2003', event: 'Giữ chức Ủy viên tối cao Ủy ban Trung y Sở Y tế bang Florida' },
+    { year: '2004', event: 'Mở lớp giảng dạy Trung y 《Nhân Kỷ》 tại Đài Bắc' },
+    { year: '2005', event: 'Xuất bản bộ DVD giảng dạy 《Nhân Kỷ》' },
+    { year: '2007', event: 'Bắt đầu biên soạn 《Địa Kỷ》' },
+    { year: '2010', event: 'Thành lập Phòng khám Trung y Kinh Phương Hán Đường Đài Bắc; nhận lời mời thuyết giảng trọn ngày tại Diễn đàn Phù Dương lần 3' },
+    { year: '2011', event: 'Thành lập Hán Đường Kinh Phương Trung Y Quán tại Thâm Quyến' },
+    { year: '2012', event: 'Ngày 31 tháng 1 tạ thế tại Đài Bắc do suy tim phổi, hưởng thọ 59 tuổi' },
   ],
-  /** 著作体系 */
+  /** Hệ thống tác phẩm */
   publications: {
-    originalBooks8: ['黄帝内经素问', '黄帝内经', '神农本草经', '针灸', '伤寒论', '金匮', '人间道', '天机道·地脉道'],
-    totalBooks: '26-44册（含注解版教材、医案全集、穴位精解等）',
-    hantangFormulas: '汉唐100方',
-    classicFormulas: '259个经典配方',
-    medicalCases: '医案全集7本',
-    totalVideoHours: '200+小时',
+    originalBooks8: ['Hoàng Đế Nội Kinh Tố Vấn', 'Hoàng Đế Nội Kinh', 'Thần Nông Bản Thảo Kinh', 'Châm Cứu', 'Thương Hàn Luận', 'Kim Quỹ', 'Nhân Gian Đạo', 'Thiên Cơ Đạo · Địa Mạch Đạo'],
+    totalBooks: '26-44 cuốn (bao gồm giáo trình chú giải, y án toàn tập, giải nghĩa huyệt vị...)',
+    hantangFormulas: 'Hán Đường 100 phương',
+    classicFormulas: '259 bài thuốc kinh điển',
+    medicalCases: 'Y án toàn tập 7 tập',
+    totalVideoHours: 'Hơn 200 giờ',
   },
-  /** 三纪体系 */
+  /** Hệ thống Tam Kỷ */
   sanJi: {
     tianji: {
-      name: '天纪',
-      meaning: '上知天文',
-      content: '紫微斗数、易经64卦、堪舆学、推命学、面相学、测字术',
+      name: 'Thiên Kỷ',
+      meaning: 'Thượng tri thiên văn',
+      content: 'Tử Vi Đẩu Số, Kinh Dịch 64 quẻ, Kham dư học, Thôi mệnh học, Diện tướng học, Trắc tự thuật',
       recordYear: 1994,
       episodes: 24,
       hdEpisodes: 83,
       hoursPerEpisode: 2,
       totalHours: 48,
-      books: ['天机道', '人间道', '地脉道', '64卦易图'],
-      schools: ['三合派（紫微斗数）', '象数派（易经）', '九星派（堪舆）', '河洛数理派（推命）'],
-      structure: '前一小时讲命学，后一小时讲易经',
+      books: ['Thiên Cơ Đạo', 'Nhân Gian Đạo', 'Địa Mạch Đạo', '64 Quái Dịch Đồ'],
+      schools: ['Phái Tam Hợp (Tử Vi Đẩu Số)', 'Phái Tượng Số (Kinh Dịch)', 'Phái Cửu Tinh (Kham Dư)', 'Phái Hà Lạc Số Lý (Thôi Mệnh)'],
+      structure: 'Một giờ đầu giảng về Mệnh học, một giờ sau giảng về Kinh Dịch',
     },
     renji: {
-      name: '人纪',
-      meaning: '中知人事',
-      content: '针灸大成(44集)、黄帝内经(20集)、神农本草经(46集)、伤寒论、金匮要略(20集)',
+      name: 'Nhân Kỷ',
+      meaning: 'Trung tri nhân sự',
+      content: 'Châm Cứu Đại Thành (44 tập), Hoàng Đế Nội Kinh (20 tập), Thần Nông Bản Thảo Kinh (46 tập), Thương Hàn Luận, Kim Quỹ Yếu Lược (20 tập)',
       completionYear: '2004-2005',
-      totalLessons: '150+集',
-      learningOrder: '针灸→黄帝内经→神农本草经→伤寒论→金匮要略',
+      totalLessons: 'Hơn 150 tập',
+      learningOrder: 'Châm cứu → Hoàng Đế Nội Kinh → Thần Nông Bản Thảo Kinh → Thương Hàn Luận → Kim Quỹ Yếu Lược',
       acuExperience: 215,
       transNeedling: 31,
       hantangFormulas: 100,
     },
     diji: {
-      name: '地纪',
-      meaning: '下知地理',
-      content: '国家地理志（未完成）',
-      status: '倪师未竟之业',
-      note: '原计划60岁后著述，2012年辞世',
+      name: 'Địa Kỷ',
+      meaning: 'Hạ tri địa lý',
+      content: 'Quốc gia địa lý chí (chưa hoàn thành)',
+      status: 'Tâm nguyện chưa hoàn thành của thầy Nghê',
+      note: 'Kế hoạch ban đầu là trước tác sau tuổi 60, năm 2012 thầy tạ thế',
       startYear: 2007,
-      existingContent: '天纪课程中堪舆学部分 + 后人整理遗稿',
+      existingContent: 'Phần Kham dư học trong khóa Thiên Kỷ + di cảo do học trò và hậu thế chỉnh lý',
     },
   },
-  /** 人格特征 */
+  /** Đặc trưng tính cách */
   personality: {
-    算命风格: '铁口直断不留余地',
-    音乐爱好: '最喜老鹰乐队《加州旅馆》',
-    生活技能: '做饭洗衣样样精通，一手面点功夫人人喊赞',
-    工作态度: '床头经年放纸笔，遭遇疑难杂症时向先师祝祷',
-    睡眠: '多年夜间睡眠不足三小时',
-    患者评价: '常被美国病患称为"最后的希望（The last hope）"',
+    'Phong cách toán mệnh': 'Thiết khẩu trực đoán không lưu dư địa',
+    'Sở thích âm nhạc': 'Thích nhất bài "Hotel California" của The Eagles',
+    'Kỹ năng đời sống': 'Nấu nướng giặt giũ đều tinh thông, tay nghề làm mì bánh ai cũng tấm tắc khen ngợi',
+    'Thái độ làm việc': 'Đầu giường quanh năm để sẵn giấy bút, khi gặp ca bệnh nan y liền hướng về tiên sư cầu nguyện',
+    'Giấc ngủ': 'Nhiều năm liền ngủ đêm không quá ba tiếng',
+    'Đánh giá của bệnh nhân': 'Thường được các bệnh nhân người Mỹ gọi là "Niềm hy vọng cuối cùng (The last hope)"',
   },
-  /** 传人选拔标准 */
+  /** Tiêu chuẩn tuyển chọn truyền nhân */
   discipleStandards: [
-    '心性好',
-    '个性强',
-    '主见强',
-    '敏锐观察力',
-    '勇于批判错误理论',
+    'Tâm tính tốt',
+    'Cá tính mạnh mẽ',
+    'Chủ kiến vững vàng',
+    'Khả năng quan sát nhạy bén',
+    'Dũng cảm phê phán những lý luận sai lầm',
   ],
 };
 
-/** 三纪导航 */
+/** Điều hướng Tam Kỷ */
 export const SANJI_CATEGORIES = [
-  { key: 'tianji' as const, name: '天纪', nameEn: 'Tian Ji', icon: '⊙', meaning: '上知天文', color: '#d4a843', href: '/tianji' },
-  { key: 'diji' as const, name: '地纪', nameEn: 'Di Ji', icon: '⊞', meaning: '下知地理', color: '#6b8a5e', href: '/diji' },
-  { key: 'renji' as const, name: '人纪', nameEn: 'Ren Ji', icon: '⊕', meaning: '中知人事', color: '#8b6b9e', href: '/renji' },
+  { key: 'tianji' as const, name: 'Thiên Kỷ', nameEn: 'Tian Ji', icon: '⊙', meaning: 'Thượng tri thiên văn', color: '#d4a843', href: '/tianji' },
+  { key: 'diji' as const, name: 'Địa Kỷ', nameEn: 'Di Ji', icon: '⊞', meaning: 'Hạ tri địa lý', color: '#6b8a5e', href: '/diji' },
+  { key: 'renji' as const, name: 'Nhân Kỷ', nameEn: 'Ren Ji', icon: '⊕', meaning: 'Trung tri nhân sự', color: '#8b6b9e', href: '/renji' },
 ] as const;
