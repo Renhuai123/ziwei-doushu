@@ -1,4 +1,4 @@
-export const metadata = { title: '服务条款 · 紫微命盘', description: '紫微命盘服务条款与用户协议' };
+export const metadata = { title: 'Điều khoản sử dụng · Lá số Tử Vi', description: 'Điều khoản dịch vụ và thỏa thuận người dùng Lá số Tử Vi' };
 
 export default function TermsPage() {
   return (
@@ -6,53 +6,53 @@ export default function TermsPage() {
       <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'var(--bg-0)', borderBottom: '1px solid var(--bdr)', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '16px' }}>
         <a href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--tx-3)', textDecoration: 'none' }}>
           <span style={{ fontSize: '16px' }}>‹</span>
-          <span>返回首页</span>
+          <span>Về trang chủ</span>
         </a>
         <div style={{ width: '1px', height: '20px', background: 'var(--bdr-med)' }} />
-        <span style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em' }}>紫微命盘</span>
+        <span style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em' }}>Lá số Tử Vi</span>
       </header>
       <main style={{ maxWidth: 800, margin: '0 auto', padding: '60px 24px 80px', color: 'var(--tx-1)', lineHeight: 1.8 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 8 }}>服务条款</h1>
-        <p style={{ fontSize: 12, color: 'var(--tx-3)', marginBottom: 32 }}>最后更新：2026年4月</p>
+        <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 8 }}>Điều khoản sử dụng</h1>
+        <p style={{ fontSize: 12, color: 'var(--tx-3)', marginBottom: 32 }}>Cập nhật lần cuối: tháng 4/2026</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>1. 服务概述</h2>
-      <p>紫微命盘（以下简称"本平台"）基于倪海厦《天纪》紫微斗数体系提供命盘排盘与解读服务。本平台所有命理内容仅供参考，<strong>不构成任何医疗、投资、法律、心理咨询或人生重大决策建议</strong>。</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>1. Tổng quan dịch vụ</h2>
+      <p>Lá số Tử Vi (sau đây gọi là “nền tảng”) cung cấp dịch vụ lập và luận giải lá số theo hệ thống Tử Vi Đẩu Số trong Thiên Kỷ của Nghê Hải Hạ. Mọi nội dung mệnh lý chỉ để tham khảo,<strong>không thay thế tư vấn y tế, đầu tư, pháp lý, tâm lý hoặc lời khuyên cho các quyết định quan trọng trong cuộc sống</strong>。</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>2. 用户行为规范</h2>
-      <p>使用本平台即表示您同意：</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>2. Quy tắc sử dụng</h2>
+      <p>Khi sử dụng nền tảng, bạn đồng ý:</p>
       <ul style={{ paddingLeft: 24 }}>
-        <li>仅出于合法、个人参考目的使用本平台</li>
-        <li>不传播本平台内容用于商业销售、转载或公开发布</li>
-        <li>不进行扰乱平台正常运行的行为</li>
-        <li>提交的出生信息真实有效；本平台对错误信息导致的解读偏差不承担责任</li>
+        <li>Chỉ sử dụng vì mục đích hợp pháp và tham khảo cá nhân</li>
+        <li>Không phát tán nội dung của nền tảng để bán thương mại, đăng lại hoặc công bố công khai</li>
+        <li>Không thực hiện hành vi gây gián đoạn hoạt động bình thường của nền tảng</li>
+        <li>Cung cấp thông tin sinh chính xác; nền tảng không chịu trách nhiệm về sai lệch luận giải do thông tin đầu vào không đúng</li>
       </ul>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>3. 知识产权与禁止条款 · 反爬反训练</h2>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>3. Sở hữu trí tuệ và hạn chế thu thập dữ liệu, huấn luyện mô hình</h2>
       <p style={{ background: 'rgba(168,50,40,0.06)', border: '1px solid rgba(168,50,40,0.2)', padding: 16, borderRadius: 8 }}>
-        <strong>本平台所有命理内容、知识库（含 14 主星 × 12 宫 × 男女 × 四化 × 大限流年的全部解读文本）、UI 设计、算法整合方案、案例库均为本平台原创或经合法整理。</strong><br/><br/>
-        严格禁止以下行为，违者保留追究民事赔偿与刑事责任的权利：<br/>
-        ① 通过爬虫、自动化脚本、批量调用 API 等任何技术手段抓取本平台内容；<br/>
-        ② 将本平台生成的命盘解读、文本、API 响应数据**用于训练任何机器学习模型**（含但不限于大语言模型、命理生成模型、文本生成模型等）；<br/>
-        ③ 将本平台生成的内容转售、发布到其他网站、APP、自媒体账号；<br/>
-        ④ 反编译、复制、修改本平台前端或后端代码并以"自营"方式提供同类服务。<br/><br/>
-        本平台输出文本嵌入有指纹追溯水印，违规复制 / 训练所产生的输出可被检测追溯。一经发现违规，本平台有权要求 <strong>每例违约赔偿 100 万元人民币</strong>，并保留向法院提起诉讼及配合公安机关调查的权利。
+        <strong>Toàn bộ nội dung mệnh lý, kho kiến thức (bao gồm văn bản luận giải 14 chính tinh × 12 cung × nam nữ × Tứ Hóa × đại hạn, lưu niên), thiết kế giao diện, phương án tích hợp thuật toán và kho trường hợp được nền tảng sáng tạo hoặc tổng hợp hợp pháp.</strong><br/><br/>
+        Các hành vi dưới đây bị nghiêm cấm; nền tảng bảo lưu quyền yêu cầu bồi thường dân sự và xem xét trách nhiệm hình sự đối với vi phạm:<br/>
+        ① Thu thập nội dung bằng trình thu thập dữ liệu, script tự động, gọi API hàng loạt hoặc các biện pháp kỹ thuật khác;<br/>
+        ② Dùng luận giải, văn bản hoặc dữ liệu phản hồi API do nền tảng tạo ra để huấn luyện mô hình học máy, bao gồm mô hình ngôn ngữ lớn, mô hình sinh nội dung mệnh lý hoặc văn bản;<br/>
+        ③ Bán lại hoặc đăng nội dung do nền tảng tạo ra lên website, ứng dụng hay tài khoản truyền thông khác;<br/>
+        ④ Dịch ngược, sao chép hoặc sửa mã frontend, backend để tự cung cấp dịch vụ tương tự.<br/><br/>
+        Văn bản đầu ra có dấu vết nhận dạng nhằm truy xuất nguồn; đầu ra từ hoạt động sao chép hoặc huấn luyện trái phép có thể được phát hiện và truy vết. Khi phát hiện vi phạm, nền tảng có quyền yêu cầu <strong>bồi thường 1 triệu nhân dân tệ cho mỗi trường hợp vi phạm</strong>, đồng thời bảo lưu quyền khởi kiện và phối hợp điều tra với cơ quan công an.
       </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>4. 免责声明</h2>
-      <p>本平台命理内容基于传统紫微斗数与倪海厦体系的知识整理，<strong>不保证 100% 准确</strong>。命运受天、地、人三才共同影响，本平台输出仅作为认识自我的参考，使用者应理性看待，不应过度依赖任何单一命理判断。</p>
-      <p>因使用本平台内容产生的任何后果（包括但不限于决策失误、心理影响、关系变化等），本平台不承担法律责任。</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>4. Miễn trừ trách nhiệm</h2>
+      <p>Nội dung được tổng hợp từ Tử Vi Đẩu Số truyền thống và hệ thống Nghê Hải Hạ,<strong>không bảo đảm chính xác 100%</strong>. Theo quan niệm Thiên–Địa–Nhân, nội dung chỉ là góc nhìn để tìm hiểu bản thân. Người dùng cần xem xét hợp lý và không phụ thuộc quá mức vào một nhận định mệnh lý duy nhất.</p>
+      <p>Nền tảng không chịu trách nhiệm pháp lý về hậu quả phát sinh từ việc sử dụng nội dung, bao gồm quyết định sai, ảnh hưởng tâm lý hoặc thay đổi quan hệ.</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>5. 服务变更与终止</h2>
-      <p>本平台保留随时调整、暂停或终止部分或全部服务的权利。重大变更将以站内公告或邮件方式通知用户。</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>5. Thay đổi và chấm dứt dịch vụ</h2>
+      <p>Nền tảng bảo lưu quyền điều chỉnh, tạm dừng hoặc chấm dứt một phần hay toàn bộ dịch vụ. Thay đổi quan trọng sẽ được thông báo trên website hoặc qua email.</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>6. 法律适用与争议解决</h2>
-      <p>本条款适用中华人民共和国法律。若发生争议，双方应友好协商；协商不成的，提交本平台运营主体所在地有管辖权的人民法院诉讼解决。</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>6. Luật áp dụng và giải quyết tranh chấp</h2>
+      <p>Điều khoản này áp dụng pháp luật Cộng hòa Nhân dân Trung Hoa. Tranh chấp trước hết được thương lượng; nếu không đạt thỏa thuận, vụ việc được đưa ra tòa án nhân dân có thẩm quyền tại nơi đặt đơn vị vận hành nền tảng.</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>7. 联系方式</h2>
-      <p>如有疑问，请通过本平台公布的客服微信 / 邮箱联系。</p>
+      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>7. Liên hệ</h2>
+      <p>Nếu có thắc mắc, vui lòng liên hệ qua WeChat hỗ trợ hoặc email được nền tảng công bố.</p>
 
         <p style={{ marginTop: 48, fontSize: 12, color: 'var(--tx-3)' }}>
-          <a href="/privacy" style={{ color: 'var(--ac)' }}>隐私政策</a> · <a href="/" style={{ color: 'var(--ac)' }}>返回首页</a>
+          <a href="/privacy" style={{ color: 'var(--ac)' }}>Chính sách riêng tư</a> · <a href="/" style={{ color: 'var(--ac)' }}>Về trang chủ</a>
         </p>
       </main>
     </>

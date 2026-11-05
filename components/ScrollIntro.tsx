@@ -8,9 +8,9 @@ interface ScrollIntroProps {
   skipLabel?: string;
 }
 
-const BEIDOU = ['天枢', '天璇', '天玑', '天权', '玉衡', '开阳', '摇光'];
+const BEIDOU = ['Thiên Xu', 'Thiên Tuyền', 'Thiên Cơ', 'Thiên Quyền', 'Ngọc Hành', 'Khai Dương', 'Dao Quang'];
 
-export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: ScrollIntroProps) {
+export default function ScrollIntro({ onComplete, skipLabel = 'Bỏ qua' }: ScrollIntroProps) {
   // visible：整个 intro 是否在显示
   // unrolled：卷轴是否已展开（控制内容浮现）
   const [visible, setVisible] = useState(true);
@@ -148,9 +148,9 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   marginBottom: 'clamp(16px, 2.5vh, 28px)',
                 }} />
 
-                {/* 大字「紫微命盘」 */}
+                {/* 大字「Lá số Tử Vi」 */}
                 <h1 style={{
-                  fontSize: 'clamp(48px, 8vw, 110px)',
+                  fontSize: 'clamp(24px, 5vw, 68px)',
                   fontWeight: 700,
                   color: '#1a1208',
                   letterSpacing: 'clamp(0.18em, 0.25vw, 0.3em)',
@@ -159,30 +159,30 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   textShadow: '0 1px 0 rgba(255,250,235,0.3)',
                   whiteSpace: 'nowrap',
                 }}>
-                  紫微命盘
+                  Lá số Tử Vi
                 </h1>
 
                 {/* 副标 楷体 */}
                 <div style={{
                   fontSize: 'clamp(13px, 1.5vw, 18px)',
                   color: '#6b4818',
-                  letterSpacing: '0.4em',
+                  letterSpacing: '0.08em',
                   fontFamily: '"STKaiti", "Kaiti SC", serif',
                   marginTop: 'clamp(16px, 2.5vh, 24px)',
                   marginBottom: '6px',
                   whiteSpace: 'nowrap',
                 }}>
-                  观 天 之 象 · 察 人 之 命
+                  Quan thiên tượng · Xét nhân mệnh
                 </div>
                 <div style={{
                   fontSize: 'clamp(11px, 1.2vw, 14px)',
                   color: '#8b6410',
-                  letterSpacing: '0.3em',
+                  letterSpacing: '0.06em',
                   fontFamily: '"STSong", serif',
                   whiteSpace: 'nowrap',
                   opacity: 0.85,
                 }}>
-                  倪海厦《天纪》正宗体系
+                  Theo Thiên Kỷ của Nghê Hải Hạ
                 </div>
 
                 {/* 朱砂方印 */}
@@ -208,8 +208,8 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                     fontSize: 'clamp(11px, 1.2vw, 13px)',
                   }}
                 >
-                  <div style={{ display: 'flex', gap: '0' }}><span>王</span><span>多</span></div>
-                  <div style={{ display: 'flex', gap: '0' }}><span>鱼</span><span>印</span></div>
+                  <div style={{ display: 'flex', gap: '0' }}><span>Vương</span></div>
+                  <div style={{ display: 'flex', gap: '0' }}><span>Đa Ngư</span></div>
                 </motion.div>
 
                 {/* 底部装饰：八卦 */}

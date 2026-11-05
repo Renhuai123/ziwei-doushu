@@ -36,7 +36,8 @@ export default function LibrarySearch() {
         value={q}
         onChange={e => setQ(e.target.value)}
         onKeyDown={e => e.key === 'Enter' && submit()}
-        placeholder="搜索古籍原文，如：七杀朝斗 / 双禄朝垣 / 化忌"
+        aria-label="Tìm kiếm trong cổ thư"
+        placeholder="Tìm từ khóa: Tử Vi / Hóa Kỵ / Thất Sát triều đẩu"
         style={{
           flex: 1,
           padding: '10px 14px',
@@ -63,7 +64,7 @@ export default function LibrarySearch() {
           opacity: q.trim() ? 1 : 0.5,
         }}
       >
-        {isPending ? '…' : '搜索'}
+        {isPending ? 'Đang tìm…' : 'Tìm kiếm'}
       </button>
     </div>
   );
