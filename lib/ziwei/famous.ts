@@ -28,11 +28,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '马云',
     nameEn: 'Jack Ma',
     category: '商业',
-    description: '阿里巴巴创始人',
+    description: 'Nhà sáng lập Alibaba',
     descriptionEn: 'Founder of Alibaba',
     year: 1964, month: 9, day: 10, hour: 5,  // 约巳时
     gender: 'male',
-    notable: '命盘显示极强的破格重建之力，官禄宫星曜与互联网商业帝国高度对应',
+    notable: 'Lá số hiển lộ sức mạnh phá cách tái thiết cực kỳ mãnh liệt, các sao tại Cung Quan Lộc tương ứng sâu sắc với đế chế thương mại Internet',
     notableEn: 'The chart shows an exceptional ability to break established patterns and rebuild, while the Career Palace closely parallels the rise of an internet business empire.',
   },
   {
@@ -40,11 +40,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '李嘉诚',
     nameEn: 'Li Ka-shing',
     category: '商业',
-    description: '香港超级富豪，长和系创始人',
+    description: 'Siêu tỷ phú Hồng Kông, nhà sáng lập hệ thống tập đoàn Trường Hòa',
     descriptionEn: 'Hong Kong billionaire and founder of the CK Hutchison business empire',
     year: 1928, month: 7, day: 29, hour: 3,  // 约卯时
     gender: 'male',
-    notable: '财帛宫四化是研究东方首富命盘的绝佳案例，禄存守财，越积越厚',
+    notable: 'Tứ Hóa tại Cung Tài Bạch là điển lệ tuyệt hảo để nghiên cứu lá số bậc phú hào hàng đầu phương Đông; Lộc Tồn thủ tài, càng tích lũy càng dày dặn',
     notableEn: 'The Four Transformations in the Wealth Palace make this a compelling case study of extraordinary wealth; Lu Cun preserves assets and supports steady accumulation.',
   },
   {
@@ -52,11 +52,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '任正非',
     nameEn: 'Ren Zhengfei',
     category: '商业',
-    description: '华为创始人',
+    description: 'Nhà sáng lập Huawei',
     descriptionEn: 'Founder of Huawei',
     year: 1944, month: 10, day: 25, hour: 3, // 卯时
     gender: 'male',
-    notable: '七杀入命格局，一生逆风而行，越打压越强大，倪师七杀理论的活教材',
+    notable: 'Cách Cục Thất Sát nhập Mệnh, một đời ngược gió tiến bước, càng bị chèn ép càng hùng mạnh, là minh chứng sống động cho lý luận Thất Sát của thầy Nghê',
     notableEn: 'Qi Sha in the Life Palace points to a life strengthened by adversity—the greater the pressure, the stronger the response—making this a vivid case study of traditional Qi Sha theory.',
   },
 
@@ -66,11 +66,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '张爱玲',
     nameEn: 'Eileen Chang',
     category: '文艺',
-    description: '中国现代文学巨匠',
+    description: 'Bậc đại danh gia văn học hiện đại Trung Quốc',
     descriptionEn: 'A master of modern Chinese literature',
     year: 1920, month: 9, day: 30, hour: 1, // 丑时
     gender: 'female',
-    notable: '命盘孤独星曜组合与其传奇感情经历、文学成就形成神奇对照',
+    notable: 'Tổ hợp các sao cô độc trên lá số tạo nên sự đối chiếu kỳ diệu với hành trình tình cảm huyền thoại và thành tựu văn chương của bà',
     notableEn: 'The chart’s combination of solitary stars forms a striking parallel with her celebrated romantic history and literary achievements.',
   },
   {
@@ -78,11 +78,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '周杰伦',
     nameEn: 'Jay Chou',
     category: '文艺',
-    description: '华语流行音乐天王',
+    description: 'Thiên vương nhạc nhẹ Hoa ngữ',
     descriptionEn: 'Mandopop singer-songwriter and cultural icon',
     year: 1979, month: 1, day: 18, hour: 1,  // 丑时（据报道夜间出生）
     gender: 'male',
-    notable: '文曲星与贪狼的组合，天生才艺之命，命盘解释了他为何能横跨音乐各风格',
+    notable: 'Tổ hợp sao Văn Khúc và Tham Lang, bản mệnh thiên phú tài nghệ; lá số lý giải vì sao anh có thể tung hoành qua nhiều phong cách âm nhạc khác nhau',
     notableEn: 'The combination of Wen Qu and Tan Lang suggests natural artistic talent and helps explain his ability to move across musical styles.',
   },
   {
@@ -90,11 +90,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '王菲',
     nameEn: 'Faye Wong',
     category: '文艺',
-    description: '华语乐坛最具传奇色彩的女歌手',
+    description: 'Nữ danh ca mang màu sắc huyền thoại bậc nhất làng nhạc Hoa ngữ',
     descriptionEn: 'One of the most iconic singers in Chinese pop',
     year: 1969, month: 8, day: 8, hour: 4,   // 辰时
     gender: 'female',
-    notable: '夫妻宫星曜与其两段传奇婚姻高度对应，感情格局极具研究价值',
+    notable: 'Các sao tại Cung Phu Thê tương ứng sâu sắc với hai cuộc hôn nhân huyền thoại của cô, Cách Cục tình cảm rất có giá trị nghiên cứu',
     notableEn: 'The stars in the Marriage Palace closely parallel her two high-profile marriages, making the relationship pattern especially valuable for study.',
   },
   {
@@ -102,11 +102,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '林志玲',
     nameEn: 'Lin Chi-ling',
     category: '文艺',
-    description: '台湾名模、演员',
+    description: 'Siêu mẫu, diễn viên nổi tiếng Đài Loan',
     descriptionEn: 'Taiwanese model and actress',
     year: 1974, month: 11, day: 29, hour: 5, // 巳时
     gender: 'female',
-    notable: '太阴守命的女性美貌典范，命盘完美印证倪师"太阴入命女孩最漂亮"的论断',
+    notable: 'Hình mẫu điển hình về nhan sắc nữ giới có Thái Âm thủ Mệnh; lá số minh chứng hoàn hảo cho luận đoán "con gái có Thái Âm nhập Mệnh là xinh đẹp nhất" của thầy Nghê',
     notableEn: 'Tai Yin guarding the Life Palace is a classic symbol of feminine grace, closely echoing the traditional view that this placement bestows exceptional beauty.',
   },
 
@@ -116,11 +116,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '乔布斯',
     nameEn: 'Steve Jobs',
     category: '科技',
-    description: '苹果公司联合创始人',
+    description: 'Đồng sáng lập công ty Apple',
     descriptionEn: 'Co-founder of Apple',
     year: 1955, month: 2, day: 24, hour: 6,  // 午时
     gender: 'male',
-    notable: '破军入命格局，被亲生父母遗弃又创建苹果帝国，破而后立的命盘典范',
+    notable: 'Cách Cục Phá Quân nhập Mệnh, bị cha mẹ ruột bỏ rơi rồi lại sáng lập đế chế Apple, là hình mẫu điển hình của lá số phá nhi hậu lập',
     notableEn: 'Po Jun in the Life Palace, adoption at birth, and the creation of the Apple empire make this an archetypal chart of renewal after disruption.',
   },
   {
@@ -128,11 +128,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '马斯克',
     nameEn: 'Elon Musk',
     category: '科技',
-    description: '特斯拉、SpaceX创始人',
+    description: 'Nhà sáng lập Tesla và SpaceX',
     descriptionEn: 'Founder of SpaceX and CEO of Tesla',
     year: 1971, month: 6, day: 28, hour: 4,  // 辰时（7:30AM 有文献记录）
     gender: 'male',
-    notable: '杀破狼格局的极致体现，命盘中驿马星旺盛，一生在改变人类未来边界',
+    notable: 'Thể hiện tột cùng của Cách Cục Sát Phá Lang, sao Dịch Mã trong lá số cực vượng, một đời luôn thay đổi ranh giới tương lai của nhân loại',
     notableEn: 'An intense expression of the Sha Po Lang pattern, with a powerful Travel Horse star and a life devoted to pushing the boundaries of humanity’s future.',
   },
 
@@ -142,11 +142,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '姚明',
     nameEn: 'Yao Ming',
     category: '体育',
-    description: 'NBA传奇中锋，中国篮球代言人',
+    description: 'Trung phong huyền thoại NBA, gương mặt đại diện của bóng rổ Trung Quốc',
     descriptionEn: 'Legendary NBA center and ambassador for Chinese basketball',
     year: 1980, month: 9, day: 12, hour: 5,  // 巳时
     gender: 'male',
-    notable: '天梁守命，高大威严，官禄宫星象与其职业成就高度吻合',
+    notable: 'Thiên Lương thủ Mệnh, cao lớn uy nghiêm, tinh tượng tại Cung Quan Lộc trùng khớp cao độ với thành tựu sự nghiệp của anh',
     notableEn: 'Tian Liang guarding the Life Palace suggests stature and dignity, while the Career Palace closely aligns with his professional achievements.',
   },
   {
@@ -154,11 +154,11 @@ export const FAMOUS_PERSONS: FamousPerson[] = [
     name: '李娜',
     nameEn: 'Li Na',
     category: '体育',
-    description: '中国网球大满贯得主',
+    description: 'Nhà vô địch Grand Slam quần vợt của Trung Quốc',
     descriptionEn: 'Chinese Grand Slam tennis champion',
     year: 1982, month: 2, day: 26, hour: 2,  // 寅时
     gender: 'female',
-    notable: '七杀化气，命中注定与人竞争，大限流年与法网夺冠时间点精准对应',
+    notable: 'Thất Sát hóa khí, trong mệnh định sẵn sự cạnh tranh với người đời, Đại Hạn và Lưu Niên tương ứng chuẩn xác với thời điểm đăng quang giải Pháp Mở rộng',
     notableEn: 'Qi Sha channels a powerful competitive drive, while the major periods and annual cycles closely align with the timing of her French Open victory.',
   },
 ];

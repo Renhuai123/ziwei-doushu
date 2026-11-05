@@ -1,144 +1,144 @@
 /**
- * 《紫微斗数全书》— 核心精选
+ * 《Tử Vi Đẩu Số Toàn Thư》— Tuyển trạch cốt lõi
  *
- * 公版（明代罗洪先编）
- * 是紫微斗数最系统的古籍，强调宫位关系与四化，全本约 10 万字。
+ * Bản công cộng (do La Hồng Tiên biên soạn thời Minh)
+ * Là bộ cổ tịch có tính hệ thống nhất của Tử Vi Đẩu Số, nhấn mạnh mối quan hệ cung vị và Tứ Hóa, toàn bản khoảng 10 vạn chữ.
  */
 
 import type { Book } from '../types';
 
 export const ziWeiQuanShu: Book = {
-  title: '紫微斗数全书',
+  title: 'Tử Vi Đẩu Số Toàn Thư',
   slug: 'quanshu',
-  dynasty: '明代',
-  author: '罗洪先 编',
-  intro: '紫微斗数最系统的古籍，强调十二宫与四化的关系。是清代以降紫微学者的主要教材。',
+  dynasty: 'Thời Minh',
+  author: 'La Hồng Tiên biên soạn',
+  intro: 'Cổ tịch Tử Vi Đẩu Số có hệ thống nhất, nhấn mạnh mối quan hệ giữa mười hai cung và Tứ Hóa. Là tài liệu nền tảng chủ yếu của các bậc học giả Tử Vi từ thời Thanh đến nay.',
   wordCount: 100000,
   chapters: [
     {
-      title: '十二宫论·命宫',
-      subtitle: '看命之根本',
+      title: 'Thập Nhị Cung Luận · Mệnh Cung',
+      subtitle: 'Khán mệnh chi căn bản',
       paragraphs: [
         {
           id: 'qs-1-1',
           idx: 1,
-          text: '命宫者，一身之根本，万事之枢纽。命宫定，则一生格局定。看命宫先看主星，次看辅煞，再看四化与三方四正之会照。',
+          text: '"Mệnh cung giả, nhất thân chi căn bản, vạn sự chi khu nữu. Mệnh cung định, tắc nhất sinh cách cục định. Khán Mệnh cung tiên khán chủ tinh, thứ khán phụ sát, tái khán Tứ Hóa dữ tam phương tứ chính chi hội chiếu." (Cung Mệnh là gốc rễ của một đời, là then chốt của vạn sự. Cung Mệnh đã định thì cách cục cả đời đã định. Xem Cung Mệnh trước xem chính tinh, kế xem phụ tinh sát tinh, lại xem Tứ Hóa cùng sự hội chiếu của tam phương tứ chính).',
         },
         {
           id: 'qs-1-2',
           idx: 2,
-          text: '命宫主星庙旺，主先天优势，做事事半功倍；落陷则主先天劣势，但反主大成——落陷之人有"不甘"二字推动，反能爆发出庙旺命格做不到的逆袭。',
+          text: 'Chính tinh Cung Mệnh miếu vượng chủ ưu thế tiên thiên, làm việc công nửa được gấp đôi; lạc hãm chủ thế yếu tiên thiên, song trái lại chủ nên việc lớn — người có sao lạc hãm nhờ hai chữ "chẳng cam lòng" thôi thúc, ngược lại có thể bộc phát sức bật nghịch chuyển càn khôn mà mệnh cách miếu vượng không làm được.',
         },
         {
           id: 'qs-1-3',
           idx: 3,
-          text: '命宫见六吉星（左辅右弼文昌文曲天魁天钺），主一生贵人不绝；命宫见六煞星（擎羊陀罗火星铃星地空地劫），主多波折磨砺，但若能忍过，反成大器。',
+          text: 'Cung Mệnh hội Lục Cát Tinh (Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt), chủ một đời quý nhân không ngớt; Cung Mệnh thấy Lục Sát Tinh (Kình Dương, Đà La, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp), chủ nhiều sóng gió thử thách, song nếu nhẫn nại vượt qua được, trái lại ắt thành đại khí.',
         },
       ],
     },
     {
-      title: '十二宫论·财帛宫',
-      subtitle: '财源所在',
+      title: 'Thập Nhị Cung Luận · Tài Bạch Cung',
+      subtitle: 'Tài nguyên sở tại',
       paragraphs: [
         {
           id: 'qs-2-1',
           idx: 1,
-          text: '财帛宫主一生之财源、收入、理财方式。财帛宫主星不同，赚钱方式各异：紫微在财主官财，武曲在财主商财，太阴在财主田宅财，巨门在财主口才财。',
+          text: 'Cung Tài Bạch chủ về nguồn tiền của, thu nhập và phương thức quản lý tài chính của một đời. Chính tinh Cung Tài Bạch khác nhau thì cách kiếm tiền cũng khác nhau: Tử Vi tại Tài chủ tiền tài từ đường quan lộc bổng lộc, Vũ Khúc tại Tài chủ tiền tài từ đường buôn bán kinh thương, Thái Âm tại Tài chủ tiền tài từ điền trạch bất động sản, Cự Môn tại Tài chủ tiền tài từ tài ăn nói khẩu tài.',
         },
         {
           id: 'qs-2-2',
           idx: 2,
-          text: '财帛宫化禄入命，主财源广进；财帛宫化忌，主财来财去；财帛宫见禄存，主稳定积累；财帛宫遇空劫，主财耗虚名。',
+          text: 'Cung Tài Bạch Hóa Lộc nhập Mệnh, chủ tài nguyên rộng mở dồi dào; Cung Tài Bạch Hóa Kỵ, chủ tiền đến rồi tiền đi; Cung Tài Bạch thấy Lộc Tồn, chủ tích lũy vững vàng; Cung Tài Bạch gặp Không Kiếp, chủ hao tài tổn của, chỉ chuốc lấy hư danh.',
         },
       ],
     },
     {
-      title: '十二宫论·官禄宫',
-      subtitle: '事业之根',
+      title: 'Thập Nhị Cung Luận · Quan Lộc Cung',
+      subtitle: 'Sự nghiệp chi căn',
       paragraphs: [
         {
           id: 'qs-3-1',
           idx: 1,
-          text: '官禄宫主事业、地位、社会成就。官禄宫主星不同，事业方向各异：紫微在官宜大平台高位，太阳在官宜公务名声，武曲在官宜金融实业，廉贞在官宜文武兼备。',
+          text: 'Cung Quan Lộc chủ về sự nghiệp, địa vị và thành tựu xã hội. Chính tinh Cung Quan Lộc khác nhau thì phương hướng sự nghiệp cũng phân rẽ: Tử Vi tọa Quan nên ở vị thế cao trên nền tảng lớn, Thái Dương tọa Quan nên theo đuổi công vụ danh tiếng, Vũ Khúc tọa Quan nên làm tài chính thực nghiệp, Liêm Trinh tọa Quan thích hợp nơi kiêm toàn cả văn lẫn võ.',
         },
         {
           id: 'qs-3-2',
           idx: 2,
-          text: '官禄宫化权入命，主能独当一面；化禄入官，主财从职业来；化忌入官，主职场波折。',
+          text: 'Cung Quan Lộc Hóa Quyền nhập Mệnh, chủ khả năng độc đương một phương; Hóa Lộc nhập Quan, chủ tiền tài bắt nguồn từ sự nghiệp chuyên môn; Hóa Kỵ nhập Quan, chủ đường quan lộ chức nghiệp lắm nỗi thăng trầm.',
         },
       ],
     },
     {
-      title: '十二宫论·夫妻宫',
-      subtitle: '配偶气场',
+      title: 'Thập Nhị Cung Luận · Phu Thê Cung',
+      subtitle: 'Phối ngẫu khí trường',
       paragraphs: [
         {
           id: 'qs-4-1',
           idx: 1,
-          text: '夫妻宫主配偶气质、婚姻状态。夫妻宫紫微主配偶端庄威权，宜迟婚；夫妻宫贪狼主配偶多情，桃花重；夫妻宫天梁主配偶成熟稳重，年长。',
+          text: 'Cung Phu Thê chủ về khí chất của người phối ngẫu và tình trạng hôn nhân. Tử Vi tại Phu Thê chủ bạn đời đoan trang có uy quyền, nên kết hôn muộn; Tham Lang tại Phu Thê chủ bạn đời đa tình, đào hoa nặng; Thiên Lương tại Phu Thê chủ bạn đời thành thục trầm ổn, thường lớn tuổi hơn.',
         },
         {
           id: 'qs-4-2',
           idx: 2,
-          text: '夫妻宫化忌冲命，主婚姻多波折。夫妻宫见六煞，需特别注意感情之磨砺。夫妻宫见六吉，主配偶贵人。',
+          text: 'Cung Phu Thê Hóa Kỵ xung Mệnh, chủ hôn nhân nhiều phen trắc trở sóng gió. Cung Phu Thê thấy Lục Sát, cần đặc biệt lưu tâm đến sự thử thách rạn nứt trong tình cảm. Cung Phu Thê thấy Lục Cát, chủ người phối ngẫu là bậc quý nhân tương trợ.',
         },
       ],
     },
     {
-      title: '四化论',
-      subtitle: '化禄化权化科化忌',
+      title: 'Tứ Hóa Luận',
+      subtitle: 'Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ',
       paragraphs: [
         {
           id: 'qs-5-1',
           idx: 1,
-          text: '四化为命盘之精华——化禄主财、化权主势、化科主名、化忌主病。四化所在宫位，决定一生重大事件之节点。',
+          text: 'Tứ Hóa là tinh hoa cốt tủy của mệnh bàn — Hóa Lộc chủ tài lộc, Hóa Quyền chủ quyền thế, Hóa Khoa chủ danh vọng, Hóa Kỵ chủ tật bệnh cùng trắc trở. Cung vị nơi Tứ Hóa tọa lạc quyết định những điểm nút then chốt của các sự kiện trọng đại trong đời.',
         },
         {
           id: 'qs-5-2',
           idx: 2,
-          text: '生年四化为本命四化，永远固定；倪师强调四化星不动，只看大限流年走到何处。北派飞星派之自化、宫干飞化、来因宫等，倪师不主张使用。',
+          text: 'Sinh Niên Tứ Hóa là Tứ Hóa của bản mệnh, vĩnh viễn cố định; Thầy Nghê nhấn mạnh Tứ Hóa bất động, chỉ xem Đại Hạn Lưu Niên đi đến phương nào. Các thuyết tự hóa, cung can phi hóa, Cung Lai Nhân... của Bắc phái Phi Tinh, Thầy Nghê không chủ trương sử dụng.',
         },
         {
           id: 'qs-5-3',
           idx: 3,
-          text: '化禄入命三方四正：财源稳定，缘分广，能力可变现。化禄入夫妻：婚姻甜蜜。化禄入官禄：事业财源相应。',
+          text: 'Hóa Lộc nhập tam phương tứ chính Cung Mệnh: Nguồn tài chính vững vàng, nhân duyên rộng mở, năng lực dễ dàng biến thành của cải. Hóa Lộc nhập Phu Thê: Hôn nhân mặn nồng ngọt ngào. Hóa Lộc nhập Quan Lộc: Sự nghiệp và tài lộc tương đắc hô ứng.',
         },
         {
           id: 'qs-5-4',
           idx: 4,
-          text: '化忌入命三方四正：一生有深刻功课，宜面对而非逃避。化忌入夫妻：婚姻多磨砺。化忌入官禄：事业多波折，但磨练后反成专业人才。',
+          text: 'Hóa Kỵ nhập tam phương tứ chính Cung Mệnh: Cả đời có những bài học sâu sắc, nên dũng cảm đối diện thay vì né tránh. Hóa Kỵ nhập Phu Thê: Hôn nhân nhiều phen tôi luyện thử thách. Hóa Kỵ nhập Quan Lộc: Sự nghiệp nhiều trắc trở gian nan, song sau khi rèn giũa trái lại trở thành nhân tài chuyên môn kiệt xuất.',
         },
       ],
     },
     {
-      title: '机月同梁格',
-      subtitle: '稳定累积之命',
+      title: 'Cơ Nguyệt Đồng Lương Cách',
+      subtitle: 'Ổn định tích lũy chi mệnh',
       paragraphs: [
         {
           id: 'qs-6-1',
           idx: 1,
-          text: '天机太阴天同天梁四星齐入命三方四正，称机月同梁格。文质彬彬、聪慧善谋，最适合公职、学术、文艺、医疗、服务等需稳定累积的行业。',
+          text: 'Bốn sao Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương cùng hội tụ về tam phương tứ chính Cung Mệnh, gọi là cách Cơ Nguyệt Đồng Lương. Khí chất nho nhã, thông tuệ giỏi mưu toan, thích hợp nhất với các lĩnh vực công chức, học thuật, văn nghệ, y tế, dịch vụ cần tích lũy vững vàng.',
         },
         {
           id: 'qs-6-2',
           idx: 2,
-          text: '机月同梁作吏人——古云此格者宜担任公职、行政文书工作，安稳一生。再会昌曲化科，主名声远播。最忌煞星过多，则反主多变难安。',
+          text: '"Cơ Nguyệt Đồng Lương tác lại nhân" — Cổ nhân dạy người đắc cách này nên đảm nhiệm công chức, công việc hành chính văn thư, một đời an ổn. Lại hội Xương Khúc Hóa Khoa, chủ danh tiếng vang xa. Kỵ nhất quá nhiều sát tinh, trái lại chủ biến động khó yên.',
         },
       ],
     },
     {
-      title: '双禄朝垣格',
-      subtitle: '富比陶朱',
+      title: 'Song Lộc Triều Viên Cách',
+      subtitle: 'Phú tỷ Đào Chu',
       paragraphs: [
         {
           id: 'qs-7-1',
           idx: 1,
-          text: '化禄与禄存同会命宫三方四正，称双禄朝垣格。古云"双禄朝垣，富比陶朱"，主一生不愁财，多有正财横财兼得。',
+          text: 'Hóa Lộc cùng Lộc Tồn hội chiếu về tam phương tứ chính Cung Mệnh, gọi là cách Song Lộc Triều Viên. Cổ văn có câu: "Song Lộc triều viên, phú tỷ Đào Chu", chủ một đời chẳng lo thiếu thốn tiền của, thường đắc cả chính tài lẫn hoành tài.',
         },
         {
           id: 'qs-7-2',
           idx: 2,
-          text: '双禄朝垣最忌空劫——空劫一冲，则双禄成虚名。需见左辅右弼或文昌文曲，方为正格。',
+          text: 'Song Lộc Triều Viên kỵ nhất Không Kiếp — Địa Không Địa Kiếp một khi xung phá thì Song Lộc chỉ còn là hư danh hão huyền. Cần phải hội kiến Tả Phụ Hữu Bật hoặc Văn Xương Văn Khúc mới thành chính cách.',
         },
       ],
     },

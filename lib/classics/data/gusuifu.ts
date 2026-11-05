@@ -1,216 +1,216 @@
 /**
- * 《骨髓赋》— 紫微斗数核心口诀
+ * 《Cốt Tủy Phú》— Khẩu quyết cốt lõi của Tử Vi Đẩu Số
  *
- * 公版（明代刊本）。是紫微斗数最权威、最浓缩的口诀，长约 1500 字。
- * 倪师在《天纪》中多次援引此赋。
+ * Bản công cộng (bản in thời Minh). Là khẩu quyết uy quyền và cô đọng nhất của Tử Vi Đẩu Số, dài khoảng 1500 chữ.
+ * Thầy Nghê trong bộ "Thiên Kỷ" nhiều lần dẫn dụng phú này.
  */
 
 import type { Book } from '../types';
 
 export const guSuiFu: Book = {
-  title: '骨髓赋',
+  title: 'Cốt Tủy Phú',
   slug: 'gusuifu',
-  dynasty: '明代',
-  author: '紫微斗数古籍传承（无确切作者）',
-  intro: '紫微斗数最浓缩的核心口诀，全文约 1500 字。倪海厦《天纪》中多次援引此赋，是紫微学者必读经典。',
+  dynasty: 'Thời Minh',
+  author: 'Cổ tịch Tử Vi Đẩu Số truyền lại (không rõ tác giả)',
+  intro: 'Khẩu quyết cốt lõi cô đọng nhất của Tử Vi Đẩu Số, toàn văn khoảng 1500 chữ. Thầy Nghê Hải Hạ trong "Thiên Kỷ" nhiều lần dẫn dụng phú này, là kinh điển người học Tử Vi ắt phải đọc.',
   wordCount: 1500,
   chapters: [
     {
-      title: '总论篇',
-      subtitle: '紫微斗数的基本立论',
+      title: 'Tổng Luận Thiên',
+      subtitle: 'Lập luận cơ bản của Tử Vi Đẩu Số',
       paragraphs: [
         {
           id: 'gsf-1-1',
           idx: 1,
-          text: '太极星曜，乃群星之主。紫微帝座，为众星之尊。天府令星，南北斗化禄、化权、令星；左辅右弼，主祭祀之星。',
+          text: '"Thái Cực tinh diệu, nãi quần tinh chi chủ. Tử Vi đế tọa, vi chúng tinh chi tôn. Thiên Phủ lệnh tinh, Nam Bắc Đẩu Hóa Lộc, Hóa Quyền, lệnh tinh; Tả Phụ Hữu Bật, chủ tế tự chi tinh." (Thái Cực tinh diệu là chủ của muôn sao. Tử Vi đế tọa là ngôi tôn quý của chúng tinh. Thiên Phủ là lệnh tinh, giữ quyền Hóa Lộc, Hóa Quyền của Nam Bắc Đẩu; Tả Phụ Hữu Bật là sao chủ việc tế tự phò tá).',
         },
         {
           id: 'gsf-1-2',
           idx: 2,
-          text: '紫微为君，以左辅右弼为相。天府为臣，以禄存为府库。天机为善，天梁为荫，遇之则吉；廉贞为囚，破军为耗，逢之则凶。',
+          text: '"Tử Vi vi quân, dĩ Tả Phụ Hữu Bật vi tướng. Thiên Phủ vi thần, dĩ Lộc Tồn vi phủ khố. Thiên Cơ vi thiện, Thiên Lương vi ấm, ngộ chi tắc cát; Liêm Trinh vi tù, Phá Quân vi hao, phùng chi tắc hung." (Tử Vi là vua, lấy Tả Phụ Hữu Bật làm tể tướng. Thiên Phủ là bề tôi, lấy Lộc Tồn làm kho tàng. Thiên Cơ là thiện, Thiên Lương là ấm, gặp được ắt cát lợi; Liêm Trinh là tù, Phá Quân là hao, gặp phải ắt hung hại).',
         },
         {
           id: 'gsf-1-3',
           idx: 3,
-          text: '看命之要，先看命宫。命宫主星定其格局，三方四正定其用武。次看身宫，身宫定其晚景与依归。再看大限流年，定其一生进退之节。',
+          text: '"Khán mệnh chi yếu, tiên khán Mệnh cung. Mệnh cung chủ tinh định kỳ cách cục, tam phương tứ chính định kỳ dụng võ. Thứ khán Thân cung, Thân cung định kỳ vãn cảnh dữ y quy. Tái khán Đại Hạn Lưu Niên, định kỳ nhất sinh tiến thoái chi tiết." (Yếu chỉ xem mệnh, trước xem Cung Mệnh. Chủ tinh Cung Mệnh định nên cách cục, tam phương tứ chính định chỗ dụng võ. Kế đến xem Cung Thân, Cung Thân định hậu vận và nơi quy túc. Lại xem Đại Hạn, Lưu Niên để định tiết nhịp tiến thoái của một đời).',
         },
       ],
     },
     {
-      title: '紫微星论',
-      subtitle: '帝座之尊，得辅则贵',
+      title: 'Tử Vi Tinh Luận',
+      subtitle: 'Đế tọa chi tôn, đắc phụ tắc quý',
       paragraphs: [
         {
           id: 'gsf-2-1',
           idx: 1,
-          text: '紫微为帝座之星，得辅弼则贵，得昌曲则秀，得魁钺则贵人扶持。紫微独坐无辅，纵贵不久；得三方四正之吉星会照，方为正宗大格。',
+          text: '"Tử Vi vi đế tọa chi tinh, đắc Phụ Bật tắc quý, đắc Xương Khúc tắc tú, đắc Khôi Việt tắc quý nhân phù trì. Tử Vi độc tọa vô phụ, túng quý bất cửu; đắc tam phương tứ chính chi cát tinh hội chiếu, phương vi chính tông đại cách." (Tử Vi là sao đế tọa, được Phụ Bật thì quý hiển, được Xương Khúc thì thanh tú, được Khôi Việt thì có quý nhân nâng đỡ. Tử Vi đơn thủ không có phò tá, dẫu quý cũng không bền; được cát tinh tam phương tứ chính hội chiếu mới thành đại cách chính tông).',
         },
         {
           id: 'gsf-2-2',
           idx: 2,
-          text: '紫微在子午为「面南背北」之贵，主大富大贵；紫微在丑未与破军同宫，主刚毅果决；紫微在寅申与天府同宫，称「紫府同宫」格，主品端衣食丰足。',
+          text: 'Tử Vi tại Tý Ngọ là thế quý "Diện nam bối bắc", chủ đại phú đại quý; Tử Vi tại Sửu Mùi đồng cung với Phá Quân, chủ cương nghị quyết đoán; Tử Vi tại Dần Thân đồng cung với Thiên Phủ, gọi là cách "Tử Phủ đồng cung", chủ phẩm hạnh đoan chính, cơm áo phong túc.',
         },
         {
           id: 'gsf-2-3',
           idx: 3,
-          text: '紫微居官禄，无煞冲破，必为高官；紫微居田宅，主有祖业，又能自置；紫微居夫妻，主配偶端庄，气质不凡，但宜迟婚不宜早。',
+          text: 'Tử Vi cư Quan Lộc, không bị sát tinh xung phá, tất làm quan cao; Tử Vi cư Điền Trạch, chủ có sản nghiệp tổ tiên để lại, lại có thể tự gây dựng thêm; Tử Vi cư Phu Thê, chủ phối ngẫu đoan trang, khí chất phi phàm, nhưng nên kết hôn muộn, không nên lập gia đình sớm.',
         },
         {
           id: 'gsf-2-4',
           idx: 4,
-          text: '紫微忌空劫，主有位无禄。紫微忌孤君无辅，主孤峰独峙，难成大事。紫微化权主独断，紫微化科主名声，紫微化忌主受制于人。',
+          text: 'Tử Vi kỵ Không Kiếp, chủ có ngôi vị mà không có bổng lộc. Tử Vi kỵ cô quân vô phụ (vua đơn độc không quần thần phò trợ), chủ như ngọn núi lẻ loi chơ vơ giữa trời, khó thành đại nghiệp. Tử Vi Hóa Quyền chủ độc đoán quyết đoán, Tử Vi Hóa Khoa chủ thanh danh vang xa, Tử Vi Hóa Kỵ chủ chịu sự kiềm chế của người khác.',
         },
       ],
     },
     {
-      title: '七杀星论',
-      subtitle: '将星孤独，宜武职',
+      title: 'Thất Sát Tinh Luận',
+      subtitle: 'Tướng tinh cô độc, nghi võ chức',
       paragraphs: [
         {
           id: 'gsf-3-1',
           idx: 1,
-          text: '七杀为将星，性刚毅果决。七杀守命，不喜与诸吉同宫，独行其道方为本格。七杀逢空劫，主孤独漂泊，事业难成。',
+          text: '"Thất Sát vi tướng tinh, tính cương nghị quả quyết. Thất Sát thủ Mệnh, bất hỷ dữ chư cát đồng cung, độc hành kỳ đạo phương vi bản cách. Thất Sát phùng Không Kiếp, chủ cô độc phiêu bạt, sự nghiệp nan thành." (Thất Sát là tướng tinh, tính tình cương nghị quyết đoán. Thất Sát thủ Mệnh không ưa đồng cung với các cát tinh, một mình đi con đường riêng mới là bản cách. Thất Sát gặp Không Kiếp, chủ cô độc phiêu bạt, sự nghiệp khó thành).',
         },
         {
           id: 'gsf-3-2',
           idx: 2,
-          text: '七杀朝斗格：七杀居子午、寅申，对宫紫微天府相照，主爵禄荣昌。最宜军警武职、开疆拓土。一生贵气难挡，但需经磨炼方成大器。',
+          text: 'Thất Sát Triều Đẩu cách: Thất Sát cư Tý Ngọ, Dần Thân, đối cung có Tử Vi Thiên Phủ chiếu về, chủ tước lộc vinh hiển xương thịnh. Thích hợp nhất với quân cảnh võ chức, khai cương thác thổ. Một đời quý khí khó cản, song phải trải qua tôi luyện mới thành đại khí.',
         },
         {
           id: 'gsf-3-3',
           idx: 3,
-          text: '七杀逢羊陀，主刑伤血光；七杀逢火铃，主威武刚烈；七杀逢化禄，主一身武贵；七杀逢化忌，反主消沉，事业多败。',
+          text: 'Thất Sát gặp Kình Đà, chủ hình thương huyết quang; Thất Sát gặp Hỏa Linh, chủ uy vũ cương liệt; Thất Sát gặp Hóa Lộc, chủ một thân võ quý; Thất Sát gặp Hóa Kỵ, trái lại chủ tiêu trầm, sự nghiệp nhiều phen trắc trở thất bại.',
         },
       ],
     },
     {
-      title: '杀破狼格',
-      subtitle: '开创闯荡，变动之命',
+      title: 'Sát Phá Tham Cách',
+      subtitle: 'Khai sáng sấm đãng, biến động chi mệnh',
       paragraphs: [
         {
           id: 'gsf-4-1',
           idx: 1,
-          text: '七杀、破军、贪狼三星会命迁财官，称「杀破狼格」。主一生变动多、不甘平凡，宜创业、军警、业务。年轻易冲动失利，中年后方能稳定守成。',
+          text: 'Ba sao Thất Sát, Phá Quân, Tham Lang hội họp tại Mệnh, Di, Tài, Quan, gọi là "Sát Phá Tham cách". Chủ một đời nhiều biến động, chẳng chịu an phận tầm thường, hợp với khởi nghiệp, quân cảnh, kinh doanh thị trường. Tuổi trẻ dễ bốc đồng mà tổn thất, từ trung niên trở đi mới có thể vững vàng giữ nghiệp.',
         },
         {
           id: 'gsf-4-2',
           idx: 2,
-          text: '杀破狼三方有化禄或化权，主动得有力，可成大事；若三方煞星过重（羊陀火铃齐照），主动而无成，宜静守。',
+          text: 'Sát Phá Tham tam phương hội Hóa Lộc hoặc Hóa Quyền thì hành động đắc lực, có thể lập nên đại sự; nếu tam phương sát tinh quá nặng (Kình Đà Hỏa Linh đồng thời chiếu về) thì động ắt vô thành, nên tĩnh tại giữ mình.',
         },
       ],
     },
     {
-      title: '机月同梁',
-      subtitle: '稳定累积，宜公职',
+      title: 'Cơ Nguyệt Đồng Lương',
+      subtitle: 'Ổn định tích lũy, nghi công chức',
       paragraphs: [
         {
           id: 'gsf-5-1',
           idx: 1,
-          text: '天机、太阴、天同、天梁四星齐入命迁财官，称「机月同梁格」。主文质彬彬、聪慧善谋。最适合公职、学术、文艺、医疗、服务等需稳定累积的行业，不宜大冒险大投机。',
+          text: 'Bốn sao Thiên Cơ, Thái Âm, Thiên Đồng, Thiên Lương cùng nhập Mệnh, Di, Tài, Quan, gọi là "Cơ Nguyệt Đồng Lương cách". Chủ người văn chất nho nhã, thông tuệ giỏi mưu lược. Thích hợp nhất với các ngành công chức, học thuật, văn nghệ, y tế, dịch vụ cần tích lũy lâu dài, không hợp mạo hiểm đầu cơ lớn.',
         },
         {
           id: 'gsf-5-2',
           idx: 2,
-          text: '机月同梁作吏人——古云此格者宜担任公职、行政文书工作，安稳一生。再会昌曲化科，主名声远播。最忌煞星过多，则反主多变难安。',
+          text: '"Cơ Nguyệt Đồng Lương tác lại nhân" — Cổ nhân dạy người đắc cách này nên đảm nhiệm công chức, công việc hành chính văn thư, một đời an ổn. Lại hội Xương Khúc Hóa Khoa, chủ danh tiếng vang xa. Kỵ nhất quá nhiều sát tinh, trái lại chủ biến động khó yên.',
         },
       ],
     },
     {
-      title: '四化星论',
-      subtitle: '化禄化权化科化忌之吉凶',
+      title: 'Tứ Hóa Tinh Luận',
+      subtitle: 'Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ chi cát hung',
       paragraphs: [
         {
           id: 'gsf-6-1',
           idx: 1,
-          text: '化禄主财、主缘、主能力变现；化权主权、主决断、主独当一面；化科主名、主贵人、主文书；化忌主病、主煞、主深刻功课。',
+          text: 'Hóa Lộc chủ tài lộc, chủ nhân duyên, chủ năng lực chuyển hóa thành tiền tài; Hóa Quyền chủ uy quyền, chủ quyết đoán, chủ khả năng độc đương một phương; Hóa Khoa chủ danh vọng, chủ quý nhân, chủ văn thư khoa bảng; Hóa Kỵ chủ tật bệnh, chủ sát khí, chủ những bài học trắc trở sâu sắc trong đời.',
         },
         {
           id: 'gsf-6-2',
           idx: 2,
-          text: '化禄入命，财源广进；化权入命，能担大任；化科入命，名声远播；化忌入命，须经磨炼方能成器。',
+          text: 'Hóa Lộc nhập Mệnh, tài nguyên rộng mở; Hóa Quyền nhập Mệnh, gánh vác việc lớn; Hóa Khoa nhập Mệnh, danh tiếng vang xa; Hóa Kỵ nhập Mệnh, phải kinh qua rèn giũa mới thành tài.',
         },
         {
           id: 'gsf-6-3',
           idx: 3,
-          text: '化忌入财，主财来财去；化忌入官，主事业受挫；化忌入夫妻，主婚姻多波折；化忌入子女，主子女缘薄或亲子摩擦。',
+          text: 'Hóa Kỵ nhập Tài, chủ tiền đến rồi lại đi; Hóa Kỵ nhập Quan, chủ sự nghiệp gặp trắc trở; Hóa Kỵ nhập Phu Thê, chủ hôn nhân nhiều sóng gió; Hóa Kỵ nhập Tử Nữ, chủ duyên phận con cái mỏng manh hoặc cha con bất hòa xung đột.',
         },
         {
           id: 'gsf-6-4',
           idx: 4,
-          text: '禄存与化禄同会命三方，称「双禄朝垣」，主富比陶朱；化科与化权同会，称「科权双会」，主名权双美。',
+          text: 'Lộc Tồn cùng Hóa Lộc hội chiếu về tam phương của Mệnh, gọi là cách "Song Lộc triều viên", chủ sự giàu có sánh ngang Đào Chu; Hóa Khoa cùng Hóa Quyền đồng hội, gọi là cách "Khoa Quyền song hội", chủ danh quyền vẹn toàn tốt đẹp.',
         },
       ],
     },
     {
-      title: '辅弼魁钺论',
-      subtitle: '六吉星之贵',
+      title: 'Phụ Bật Khôi Việt Luận',
+      subtitle: 'Lục Cát Tinh chi quý',
       paragraphs: [
         {
           id: 'gsf-7-1',
           idx: 1,
-          text: '左辅右弼为「相星」，主助力贵人；文昌文曲为「文星」，主聪明俊秀；天魁天钺为「贵人星」，主关键时刻有人扶持。',
+          text: 'Tả Phụ Hữu Bật là "tướng tinh" (sao phò tá), chủ sự tương trợ và quý nhân nâng đỡ; Văn Xương Văn Khúc là "văn tinh", chủ thông minh tuấn tú; Thiên Khôi Thiên Việt là "quý nhân tinh", chủ vào thời khắc then chốt có người tương trợ dìu dắt.',
         },
         {
           id: 'gsf-7-2',
           idx: 2,
-          text: '六吉星齐会命宫三方四正，主一生贵人不绝、人缘极佳。即使命格平常，亦能借六吉之力达成不凡之业。',
+          text: 'Sáu cát tinh cùng hội tụ về tam phương tứ chính Cung Mệnh, chủ một đời quý nhân không ngớt, nhân duyên cực kỳ tốt đẹp. Dẫu mệnh cách bình thường, cũng có thể nương nhờ sức mạnh của Lục Cát mà lập nên sự nghiệp phi phàm.',
         },
         {
           id: 'gsf-7-3',
           idx: 3,
-          text: '辅弼夹命：左辅右弼夹于命宫前后两宫，主一生贵人扶持，遇困有助。最宜与紫微同宫，称「君臣庆会」格。',
+          text: 'Phụ Bật giáp Mệnh: Tả Phụ Hữu Bật giáp ở hai cung trước sau của Cung Mệnh, chủ một đời có quý nhân nâng đỡ, lâm nạn được cứu giúp. Hợp nhất là đồng cung với Tử Vi, gọi là cách "Quân Thần Khánh Hội".',
         },
       ],
     },
     {
-      title: '六煞星论',
-      subtitle: '羊陀火铃空劫之凶',
+      title: 'Lục Sát Tinh Luận',
+      subtitle: 'Kình Đà Hỏa Linh Không Kiếp chi hung',
       paragraphs: [
         {
           id: 'gsf-8-1',
           idx: 1,
-          text: '擎羊陀罗为「煞星」，主血光、是非、阻碍；火星铃星为「燥星」，主冲动、急躁、伤灾；地空地劫为「空亡」，主财耗、虚名、不实。',
+          text: 'Kình Dương Đà La là "sát tinh", chủ huyết quang, thị phi, trắc trở cản trở; Hỏa Tinh Linh Tinh là "táo tinh" (sao nóng nảy), chủ bốc đồng, nôn nóng, tai ương thương tích; Địa Không Địa Kiếp là "không vong", chủ hao tài tốn của, hữu danh vô thực, ảo vọng không bền.',
         },
         {
           id: 'gsf-8-2',
           idx: 2,
-          text: '煞星不全是凶——煞星犹如磨刀石，能炼出常人没有的破局力。年轻时易冲动伤己，中年后方能化煞为权。',
+          text: 'Sát tinh chẳng hoàn toàn là hung — Sát tinh tựa như đá mài dao, có thể rèn giũa nên sức mạnh phá vỡ cục diện mà người thường không có được. Thời trẻ dễ bốc đồng làm hại bản thân, đến tuổi trung niên mới có thể hóa sát vi quyền.',
         },
         {
           id: 'gsf-8-3',
           idx: 3,
-          text: '羊陀夹忌：擎羊陀罗夹于化忌星所在宫，主大凶。其年其大限须特别警觉血光、官非、重大变故。',
+          text: 'Dương Đà giáp Kỵ: Kình Dương và Đà La kẹp hai bên cung có Hóa Kỵ tọa thủ, chủ đại hung. Năm đó hoặc Đại Hạn đó cần đặc biệt cảnh giác tai họa huyết quang, kiện tụng quan phi, cùng những biến cố trọng đại.',
         },
         {
           id: 'gsf-8-4',
           idx: 4,
-          text: '空劫夹命：地空地劫夹于命宫前后两宫，主一生宜务虚不务实，宜从事文艺、宗教、玄学等"非实"行业，不宜经商投资。',
+          text: 'Không Kiếp giáp Mệnh: Địa Không Địa Kiếp kẹp hai bên Cung Mệnh, chủ một đời nên hướng vào hư hơn là thực, thích hợp làm các ngành "phi thực nghiệp" như văn nghệ, tôn giáo, huyền học, không nên kinh thương đầu tư buôn bán.',
         },
       ],
     },
     {
-      title: '十二宫论',
-      subtitle: '各宫主象与吉凶',
+      title: 'Thập Nhị Cung Luận',
+      subtitle: 'Các cung chủ tượng dữ cát hung',
       paragraphs: [
         {
           id: 'gsf-9-1',
           idx: 1,
-          text: '命宫为本，三方为用：财帛主财源、官禄主事业、迁移主外缘。三方四正吉星会照，命格方能完整发用。',
+          text: 'Cung Mệnh làm gốc, tam phương làm dụng: Tài Bạch chủ nguồn tiền của, Quan Lộc chủ sự nghiệp tiền đồ, Thiên Di chủ đối ngoại và duyên ngoài. Tam phương tứ chính có cát tinh hội chiếu thì mệnh cách mới phát huy trọn vẹn diệu dụng.',
         },
         {
           id: 'gsf-9-2',
           idx: 2,
-          text: '夫妻宫看配偶气质，子女宫看子女缘分，疾厄宫看身体罩门，迁移宫看外出运势。各宫主星与四化决定该领域之吉凶进退。',
+          text: 'Cung Phu Thê xem khí chất phối ngẫu, Cung Tử Nữ xem duyên phận con cái, Cung Tật Ách xem yếu huyệt thân thể bệnh tật, Cung Thiên Di xem vận thế xuất ngoại đi xa. Chủ tinh và Tứ Hóa ở từng cung quyết định cát hung tiến thoái trong phương diện đó.',
         },
         {
           id: 'gsf-9-3',
           idx: 3,
-          text: '田宅宫为命盘财库，正财能否守住看此宫；福德宫为精神享受，心安与否看此宫；父母宫为长辈关系，亦主文书契约。',
+          text: 'Cung Điền Trạch là kho tàng tài sản trên lá số, tiền tài chính thống có giữ được hay không đều xem cung này; Cung Phúc Đức là nơi hưởng thụ tinh thần, tâm an hay loạn xem cung này; Cung Phụ Mẫu chủ về mối quan hệ với bậc trưởng bối, cũng chủ về văn thư khế ước.',
         },
         {
           id: 'gsf-9-4',
           idx: 4,
-          text: '空宫借对宫论事——某宫无主星时，借其对宫主星论该宫之事。如命宫空宫，借迁移宫主星定命格。',
+          text: 'Cung vô chính diệu mượn đối cung luận sự — Khi một cung không có chính tinh tọa thủ, phải mượn chính tinh ở cung đối diện để luận đoán sự việc cung đó. Như Cung Mệnh vô chính diệu thì mượn chính tinh Cung Thiên Di để định mệnh cách.',
         },
       ],
     },
