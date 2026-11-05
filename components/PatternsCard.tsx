@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 import { detectPatterns } from '@/lib/ziwei/patterns';
+import { paName } from '@/lib/ziwei/display-vi';
 
 const LevelStyle = {
   excellent: { dot: 'bg-amber-400', label: 'text-amber-500', badge: 'text-amber-500 bg-amber-500/10 border-amber-500/25' },
@@ -23,8 +24,8 @@ export default function PatternsCard({ chart }: { chart: ZiweiChart }) {
     >
       <div className="text-[10px] tracking-widest mb-3 flex items-center gap-2" style={{ color: 'var(--t-faint)' }}>
         <span style={{ color: 'var(--t-gold)', opacity: 0.6 }}>◉</span>
-        格局识别（严格古书条件）
-        <span className="text-[9px] ml-auto" style={{ color: 'var(--t-faint)', opacity: 0.75 }}>{patterns.length}个</span>
+        Nhận diện Cách Cục (điều kiện cổ thư nghiêm ngặt)
+        <span className="text-[9px] ml-auto" style={{ color: 'var(--t-faint)', opacity: 0.75 }}>{patterns.length} cách cục</span>
       </div>
       <div className="space-y-2">
         {patterns.map((p, i) => {
@@ -43,7 +44,7 @@ export default function PatternsCard({ chart }: { chart: ZiweiChart }) {
                 <div className="flex gap-1 ml-auto">
                   {p.palaces.slice(0, 2).map(pa => (
                     <span key={pa} className={`text-[8px] px-1.5 py-px rounded-full border ${st.badge}`}>
-                      {pa.replace('宫', '')}
+                      {paName(pa).replace('Cung ', '')}
                     </span>
                   ))}
                 </div>
@@ -57,21 +58,21 @@ export default function PatternsCard({ chart }: { chart: ZiweiChart }) {
                 <div className="mt-2 pl-3.5 space-y-0.5">
                   {p.conditions.required.length > 0 && (
                     <div className="text-[9px] leading-relaxed" style={{ color: 'var(--t-text2)', opacity: 0.85 }}>
-                      <span className="font-medium" style={{ color: 'var(--t-gold)' }}>必须</span>
+                      <span className="font-medium" style={{ color: 'var(--t-gold)' }}>Bắt buộc</span>
                       <span style={{ opacity: 0.6 }}> · </span>
                       {p.conditions.required.join('、')}
                     </div>
                   )}
                   {p.conditions.bonus && p.conditions.bonus.length > 0 && (
                     <div className="text-[9px] leading-relaxed" style={{ color: 'var(--t-text2)', opacity: 0.85 }}>
-                      <span className="font-medium text-emerald-500">加分</span>
+                      <span className="font-medium text-emerald-500">Cộng điểm</span>
                       <span style={{ opacity: 0.6 }}> · </span>
                       {p.conditions.bonus.join('、')}
                     </div>
                   )}
                   {p.conditions.breaking && p.conditions.breaking.length > 0 && (
                     <div className="text-[9px] leading-relaxed" style={{ color: 'var(--t-text2)', opacity: 0.85 }}>
-                      <span className="font-medium text-orange-500">破格</span>
+                      <span className="font-medium text-orange-500">Phá cách</span>
                       <span style={{ opacity: 0.6 }}> · </span>
                       {p.conditions.breaking.join('、')}
                     </div>
@@ -81,7 +82,7 @@ export default function PatternsCard({ chart }: { chart: ZiweiChart }) {
 
               {p.source && (
                 <div className="text-[9px] mt-1.5 pl-3.5" style={{ color: 'var(--t-faint)', opacity: 0.5 }}>
-                  出处 · {p.source}
+                  Xuất xứ · {p.source}
                 </div>
               )}
             </motion.div>

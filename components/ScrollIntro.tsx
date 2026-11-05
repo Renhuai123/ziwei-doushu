@@ -8,9 +8,9 @@ interface ScrollIntroProps {
   skipLabel?: string;
 }
 
-const BEIDOU = ['天枢', '天璇', '天玑', '天权', '玉衡', '开阳', '摇光'];
+const BEIDOU = ['Thiên Xu', 'Thiên Toàn', 'Thiên Cơ', 'Thiên Quyền', 'Ngọc Hoành', 'Khai Dương', 'Dao Quang'];
 
-export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: ScrollIntroProps) {
+export default function ScrollIntro({ onComplete, skipLabel = 'Bỏ qua' }: ScrollIntroProps) {
   // visible：整个 intro 是否在显示
   // unrolled：卷轴是否已展开（控制内容浮现）
   const [visible, setVisible] = useState(true);
@@ -148,7 +148,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   marginBottom: 'clamp(16px, 2.5vh, 28px)',
                 }} />
 
-                {/* 大字「紫微命盘」 */}
+                {/* 大字「Lá Số Tử Vi」 */}
                 <h1 style={{
                   fontSize: 'clamp(48px, 8vw, 110px)',
                   fontWeight: 700,
@@ -159,7 +159,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   textShadow: '0 1px 0 rgba(255,250,235,0.3)',
                   whiteSpace: 'nowrap',
                 }}>
-                  紫微命盘
+                  Lá Số Tử Vi
                 </h1>
 
                 {/* 副标 楷体 */}
@@ -172,7 +172,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   marginBottom: '6px',
                   whiteSpace: 'nowrap',
                 }}>
-                  观 天 之 象 · 察 人 之 命
+                  Quan Thiên Chi Tượng · Sát Nhân Chi Mệnh
                 </div>
                 <div style={{
                   fontSize: 'clamp(11px, 1.2vw, 14px)',
@@ -182,7 +182,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   whiteSpace: 'nowrap',
                   opacity: 0.85,
                 }}>
-                  倪海厦《天纪》正宗体系
+                  Hệ thống chính truyền Nghê Hải Hạ 《Thiên Kỷ》
                 </div>
 
                 {/* 朱砂方印 */}

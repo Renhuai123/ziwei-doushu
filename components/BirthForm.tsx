@@ -30,7 +30,7 @@ interface BirthFormProps {
   hideSubmit?: boolean;
 }
 
-const SHICHEN_NAMES = ['Tử', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
+const SHICHEN_NAMES = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
 
 /** 检查日期是否合法 */
 function isValidDate(y: number, m: number, d: number): boolean {
@@ -382,7 +382,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
             style={{ width: '14px', height: '14px', borderRadius: '4px', cursor: 'pointer' }}
           />
           <span style={{ fontSize: '10px', color: isDark ? 'rgba(165,185,210,0.7)' : 'rgba(140,100,20,0.45)' }}>
-            Không rõ giờ sinh, sẽ lập theo Giờ Tử (23:00–01:00)
+            Không rõ giờ sinh, sẽ lập theo Giờ Tý (23:00–01:00)
           </span>
         </label>
       </div>

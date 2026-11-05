@@ -119,7 +119,8 @@ cột "Hán Việt" / "Việt" khi hiển thị ra UI qua lớp display (lib/ziw
 | 天干 | Thiên Can | Thiên Can |
 | 地支 | Địa Chi | Địa Chi |
 | 甲乙丙丁戊己庚辛壬癸 | Giáp Ất Bính Đinh Mậu Kỷ Canh Tân Nhâm Quý | (giữ nguyên âm Hán Việt) |
-| 子丑寅卯辰巳午未申酉戌亥 | Tử Sửu Dần Mão Thìn Tỵ Ngọ Mùi Thân Dậu Tuất Hợi | (giữ nguyên âm Hán Việt) |
+| 子丑寅卯辰巳午未申酉戌亥 | Tý Sửu Dần Mão Thìn Tỵ Ngọ Mùi Thân Dậu Tuất Hợi | Địa chi 子 đọc "Tý" (không phải "Tử" — "Tử" là âm của 紫/子 trong nghĩa khác) |
+| 子午流注 | Tý Ngọ Lưu Chú | Tý Ngọ Lưu Chú | lý thuyết kinh mạch theo giờ trong Trung y |
 | 金木水火土 | Kim Mộc Thủy Hỏa Thổ | Ngũ hành |
 | 水二局/木三局/金四局/土五局/火六局 | Thủy Nhị Cục / Mộc Tam Cục / Kim Tứ Cục / Thổ Ngũ Cục / Hỏa Lục Cục | Cục số |
 | 纳音 | Nạp Âm | Nạp Âm |

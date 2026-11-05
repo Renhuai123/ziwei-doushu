@@ -78,7 +78,7 @@ const STEM_NAME_VI: Record<string, string> = {
 };
 
 const BRANCH_NAME_VI: Record<string, string> = {
-  '子': 'Tử', '丑': 'Sửu', '寅': 'Dần', '卯': 'Mão', '辰': 'Thìn', '巳': 'Tỵ',
+  '子': 'Tý', '丑': 'Sửu', '寅': 'Dần', '卯': 'Mão', '辰': 'Thìn', '巳': 'Tỵ',
   '午': 'Ngọ', '未': 'Mùi', '申': 'Thân', '酉': 'Dậu', '戌': 'Tuất', '亥': 'Hợi',
 };
 
