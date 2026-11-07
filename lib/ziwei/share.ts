@@ -1,11 +1,25 @@
 import type { BirthFormState } from '@/components/BirthForm';
 import type { BirthInfo } from './types';
 import { branchFromSolarMinutes, resolveZiweiDayOffset, shiftGregorianDate } from './true-solar-time';
+import { birthUtcOffsetMinutes, calendarZoneInfo, type CalendarZone, type VietnamRegion } from './calendar-zone';
+import { findProvince } from './cities';
 
-/** 根据北京时间 + 经度计算真太阳时时辰支 (0-11) */
-export function calcTrueSolarBranch(clockHour: number, clockMinute: number, longitude: number): number {
+/**
+ * 真太阳时时辰支 (0-11)。
+ *
+ * ★ 2026-11: 增加 `utcOffsetMinutes`（出生地时区的标准偏移，东正西负），
+ *   经度修正改为 (经度 − utcOffsetMinutes/4) × 4 —— 越南 UTC+7 → 105°Đ.
+ *   不传时仍是旧的东八区 120°Đ 口径，国内结果逐位不变。
+ */
+export function calcTrueSolarBranch(
+  clockHour: number,
+  clockMinute: number,
+  longitude: number,
+  utcOffsetMinutes = 480,
+): number {
   const clockMins = clockHour * 60 + clockMinute;
-  const offset = (longitude - 120) * 4;
+  const meridian = Number.isFinite(utcOffsetMinutes) ? utcOffsetMinutes / 4 : 120;
+  const offset = (longitude - meridian) * 4;
   const solar = ((clockMins + offset) % 1440 + 1440) % 1440;
   if (solar >= 1380 || solar < 60) return 0;
   return Math.floor((solar - 60) / 120) + 1;
@@ -24,10 +38,23 @@ export function formToBirthInfo(form: BirthFormState): BirthInfo {
   let d = parseInt(form.day) || 0;
   let hour = 0;
 
+  // 出生地时区：越南 UTC+7（含 1975 年前 miền Nam UTC+8 的历史时段），
+  // 未选出生地时按当前日历分区（默认中国 UTC+8，与旧行为一致）。
+  const provinceInfo = form.province ? findProvince(form.province) : undefined;
+  const zone: CalendarZone = form.calendarZone ?? provinceInfo?.calendarZone ?? 'cn';
+  const region: VietnamRegion | undefined = zone === 'vn'
+    ? (form.vnRegion ?? provinceInfo?.region)
+    : undefined;
+  const utcOffsetMinutes = form.province
+    ? birthUtcOffsetMinutes(zone, y, m, d, region)
+    : calendarZoneInfo(zone).utcOffsetMinutes;
+  const meridian = utcOffsetMinutes / 4;
+
   // 晚子时换日按真太阳时判定，与时辰支同一口径（见 true-solar-time.ts 的 resolveZiweiDayOffset）。
   // 只看钟表 23 点会和经度校正后的时辰错位：东经 100° 钟表 23:30 是真太阳时 22:10 亥时，不该换日。
   if (!form.unknownTime) {
-    const solar = (parseInt(form.clockHour) || 0) * 60 + (parseInt(form.clockMinute) || 0) + (form.longitude - 120) * 4;
+    const solar = (parseInt(form.clockHour) || 0) * 60 + (parseInt(form.clockMinute) || 0)
+      + (form.longitude - meridian) * 4;
     const normalizedMinutes = ((solar % 1440) + 1440) % 1440;
     hour = branchFromSolarMinutes(normalizedMinutes);
     const dayOffset = resolveZiweiDayOffset({ dayOffset: Math.floor(solar / 1440), normalizedMinutes, branch: hour });
@@ -44,6 +71,8 @@ export function formToBirthInfo(form: BirthFormState): BirthInfo {
     province: form.province || undefined,
     city: form.city || undefined,
     longitude: form.province ? form.longitude : undefined,
+    calendarZone: zone,
+    utcOffsetMinutes,
   };
 }
 
@@ -63,6 +92,8 @@ export function formToSearchParams(form: BirthFormState): URLSearchParams {
   if (form.province) p.set('p', form.province);
   if (form.city) p.set('c', form.city);
   if (form.longitude && form.longitude !== 120) p.set('lo', String(form.longitude));
+  if (form.calendarZone && form.calendarZone !== 'cn') p.set('z', form.calendarZone);
+  if (form.vnRegion) p.set('rg', form.vnRegion);
   p.set('g', form.gender === 'male' ? 'm' : 'f');
   return p;
 }
@@ -73,6 +104,8 @@ export function searchParamsToForm(params: URLSearchParams): Partial<BirthFormSt
   const month = params.get('m');
   const day = params.get('d');
   if (!year || !month || !day) return null;
+  const zoneParam = params.get('z');
+  const regionParam = params.get('rg');
   return {
     name: params.get('n') || '',
     year,
@@ -84,6 +117,8 @@ export function searchParamsToForm(params: URLSearchParams): Partial<BirthFormSt
     province: params.get('p') || '',
     city: params.get('c') || '',
     longitude: parseFloat(params.get('lo') || '120'),
+    calendarZone: zoneParam === 'vn' || zoneParam === 'cn' ? zoneParam : undefined,
+    vnRegion: regionParam === 'north' || regionParam === 'south' ? regionParam : undefined,
     gender: params.get('g') === 'f' ? 'female' : 'male',
   };
 }

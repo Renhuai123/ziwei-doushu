@@ -6,6 +6,7 @@ import InsightPanel from '@/components/InsightPanel';
 import TimeNav, { type TimeView } from '@/components/TimeNav';
 import { generateChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
+import { useLanguage } from '@/components/LanguageProvider';
 
 /**
  * 命盘页 —— 开源版「排盘引擎 Demo」
@@ -18,6 +19,8 @@ import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
  * 完全开放（见 lib/ziwei/*），可自由二次开发出你自己的界面。
  */
 export default function ChartPage() {
+  // 界面文案统一取自 messages/*.json → chart
+  const { t } = useLanguage();
   const [chart, setChart] = useState<ZiweiChart | null>(null);
   const [selectedPalace, setSelectedPalace] = useState<Palace | null>(null);
   const [view, setView] = useState<TimeView>('mingpan');
@@ -27,11 +30,11 @@ export default function ChartPage() {
   if (!chart) {
     return (
       <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 20px' }}>
-        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>紫微斗数排盘</h1>
+        <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>{t('chart.title')}</h1>
         <p style={{ color: '#888', marginBottom: 32, fontSize: 14, lineHeight: 1.7 }}>
-          输入出生年月日时，开源排盘引擎即时生成命盘。
+          {t('chart.demo.description')}
           <br />
-          （本页为引擎 Demo，完整商业版界面不在开源范围；排盘内核完全开放。）
+          {t('chart.demo.note')}
         </p>
         <BirthForm onSubmit={(info: BirthInfo) => setChart(generateChart(info))} />
       </main>
@@ -49,7 +52,7 @@ export default function ChartPage() {
           border: '1px solid #ccc', borderRadius: 8, background: 'transparent',
         }}
       >
-        ← 重新起盘
+        ← {t('chart.reset')}
       </button>
 
       <TimeNav

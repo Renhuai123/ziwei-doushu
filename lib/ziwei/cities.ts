@@ -1,3 +1,5 @@
+import type { CalendarZone, VietnamRegion } from './calendar-zone';
+
 export interface CityInfo {
   name: string;
   longitude: number; // degrees East
@@ -6,6 +8,10 @@ export interface CityInfo {
 export interface ProvinceInfo {
   name: string;
   cities: CityInfo[];
+  /** Lịch âm / múi giờ mặc định của nơi sinh; bỏ trống = Trung Quốc (UTC+8) như trước. */
+  calendarZone?: CalendarZone;
+  /** Chỉ dùng cho độ lệch giờ lịch sử của Việt Nam trước 1975-06-13. */
+  region?: VietnamRegion;
 }
 
 // ★ 2026-10-07 用户反馈「出生地点还不够全」→ 补全全国区县（直辖市以外 2724 个，挂在各地级市下）。
@@ -702,3 +708,112 @@ export const PROVINCES: ProvinceInfo[] = [
   // 注：海外出生暂未支持，因 share.ts 真太阳时算法假设输入为北京时间(UTC+8)。
   // 海外用户请把当地时间换算成北京时间再填写（或填出生时所在的中国时区相对城市）。
 ];
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Việt Nam — 63 tỉnh/thành (đơn vị hành chính trước 2025; giữ đủ để người sinh
+ * trước đây chọn đúng nơi sinh). Kinh độ là kinh độ tỉnh lỵ, sai số ≤ 0,1° ≈ 24 giây
+ * giờ mặt trời thật — thừa sức phân biệt hai canh giờ cách nhau 2 tiếng.
+ *
+ * `calendarZone: 'vn'` → lá số dùng âm lịch Việt Nam (UTC+7, kinh tuyến 105°Đ).
+ * `region` chỉ dùng cho độ lệch giờ lịch sử trước 1975-06-13 (xem calendar-zone.ts):
+ * miền Nam dùng giờ Sài Gòn UTC+8 từ 1960, miền Bắc UTC+7 từ 1968.
+ * ───────────────────────────────────────────────────────────────────────────── */
+const VN_NORTH: VietnamRegion = 'north';
+const VN_SOUTH: VietnamRegion = 'south';
+
+function vnProvince(name: string, capital: string, longitude: number, region: 'north' | 'south'): ProvinceInfo {
+  return {
+    name,
+    calendarZone: 'vn',
+    region,
+    cities: [{ name: capital, longitude }],
+  };
+}
+
+export const VN_PROVINCES: ProvinceInfo[] = [
+  // ─── Miền Bắc ───
+  vnProvince('Hà Nội', 'Hà Nội', 105.85, VN_NORTH),
+  vnProvince('Hải Phòng', 'Hải Phòng', 106.68, VN_NORTH),
+  vnProvince('Quảng Ninh', 'Hạ Long', 107.08, VN_NORTH),
+  vnProvince('Hải Dương', 'Hải Dương', 106.33, VN_NORTH),
+  vnProvince('Hưng Yên', 'Hưng Yên', 106.05, VN_NORTH),
+  vnProvince('Bắc Ninh', 'Bắc Ninh', 106.08, VN_NORTH),
+  vnProvince('Bắc Giang', 'Bắc Giang', 106.20, VN_NORTH),
+  vnProvince('Vĩnh Phúc', 'Vĩnh Yên', 105.60, VN_NORTH),
+  vnProvince('Thái Nguyên', 'Thái Nguyên', 105.85, VN_NORTH),
+  vnProvince('Lạng Sơn', 'Lạng Sơn', 106.76, VN_NORTH),
+  vnProvince('Cao Bằng', 'Cao Bằng', 106.25, VN_NORTH),
+  vnProvince('Bắc Kạn', 'Bắc Kạn', 105.83, VN_NORTH),
+  vnProvince('Tuyên Quang', 'Tuyên Quang', 105.22, VN_NORTH),
+  vnProvince('Hà Giang', 'Hà Giang', 104.98, VN_NORTH),
+  vnProvince('Lào Cai', 'Lào Cai', 103.97, VN_NORTH),
+  vnProvince('Yên Bái', 'Yên Bái', 104.87, VN_NORTH),
+  vnProvince('Phú Thọ', 'Việt Trì', 105.40, VN_NORTH),
+  vnProvince('Điện Biên', 'Điện Biên Phủ', 103.02, VN_NORTH),
+  vnProvince('Lai Châu', 'Lai Châu', 103.46, VN_NORTH),
+  vnProvince('Sơn La', 'Sơn La', 103.91, VN_NORTH),
+  vnProvince('Hòa Bình', 'Hòa Bình', 105.34, VN_NORTH),
+  vnProvince('Hà Nam', 'Phủ Lý', 105.92, VN_NORTH),
+  vnProvince('Thái Bình', 'Thái Bình', 106.34, VN_NORTH),
+  vnProvince('Nam Định', 'Nam Định', 106.17, VN_NORTH),
+  vnProvince('Ninh Bình', 'Ninh Bình', 105.97, VN_NORTH),
+  vnProvince('Thanh Hóa', 'Thanh Hóa', 105.78, VN_NORTH),
+  vnProvince('Nghệ An', 'Vinh', 105.68, VN_NORTH),
+  vnProvince('Hà Tĩnh', 'Hà Tĩnh', 105.90, VN_NORTH),
+  vnProvince('Quảng Bình', 'Đồng Hới', 106.60, VN_NORTH),
+
+  // ─── Miền Trung & Tây Nguyên ───
+  vnProvince('Quảng Trị', 'Đông Hà', 106.58, VN_SOUTH),
+  vnProvince('Thừa Thiên Huế', 'Huế', 107.60, VN_SOUTH),
+  vnProvince('Đà Nẵng', 'Đà Nẵng', 108.22, VN_SOUTH),
+  vnProvince('Quảng Nam', 'Tam Kỳ', 108.47, VN_SOUTH),
+  vnProvince('Quảng Ngãi', 'Quảng Ngãi', 108.80, VN_SOUTH),
+  vnProvince('Bình Định', 'Quy Nhơn', 109.22, VN_SOUTH),
+  vnProvince('Phú Yên', 'Tuy Hòa', 109.30, VN_SOUTH),
+  vnProvince('Khánh Hòa', 'Nha Trang', 109.19, VN_SOUTH),
+  vnProvince('Ninh Thuận', 'Phan Rang - Tháp Chàm', 108.99, VN_SOUTH),
+  vnProvince('Bình Thuận', 'Phan Thiết', 108.10, VN_SOUTH),
+  vnProvince('Kon Tum', 'Kon Tum', 108.00, VN_SOUTH),
+  vnProvince('Gia Lai', 'Pleiku', 107.98, VN_SOUTH),
+  vnProvince('Đắk Lắk', 'Buôn Ma Thuột', 108.05, VN_SOUTH),
+  vnProvince('Đắk Nông', 'Gia Nghĩa', 107.69, VN_SOUTH),
+  vnProvince('Lâm Đồng', 'Đà Lạt', 108.44, VN_SOUTH),
+
+  // ─── Miền Nam ───
+  vnProvince('Bình Phước', 'Đồng Xoài', 106.90, VN_SOUTH),
+  vnProvince('Tây Ninh', 'Tây Ninh', 106.10, VN_SOUTH),
+  vnProvince('Bình Dương', 'Thủ Dầu Một', 106.65, VN_SOUTH),
+  vnProvince('Đồng Nai', 'Biên Hòa', 106.82, VN_SOUTH),
+  vnProvince('Bà Rịa - Vũng Tàu', 'Vũng Tàu', 107.08, VN_SOUTH),
+  vnProvince('TP. Hồ Chí Minh', 'TP. Hồ Chí Minh', 106.70, VN_SOUTH),
+  vnProvince('Long An', 'Tân An', 106.41, VN_SOUTH),
+  vnProvince('Tiền Giang', 'Mỹ Tho', 106.36, VN_SOUTH),
+  vnProvince('Bến Tre', 'Bến Tre', 106.37, VN_SOUTH),
+  vnProvince('Trà Vinh', 'Trà Vinh', 106.34, VN_SOUTH),
+  vnProvince('Vĩnh Long', 'Vĩnh Long', 105.97, VN_SOUTH),
+  vnProvince('Đồng Tháp', 'Cao Lãnh', 105.63, VN_SOUTH),
+  vnProvince('An Giang', 'Long Xuyên', 105.43, VN_SOUTH),
+  vnProvince('Kiên Giang', 'Rạch Giá', 105.08, VN_SOUTH),
+  vnProvince('Cần Thơ', 'Cần Thơ', 105.78, VN_SOUTH),
+  vnProvince('Hậu Giang', 'Vị Thanh', 105.47, VN_SOUTH),
+  vnProvince('Sóc Trăng', 'Sóc Trăng', 105.97, VN_SOUTH),
+  vnProvince('Bạc Liêu', 'Bạc Liêu', 105.72, VN_SOUTH),
+  vnProvince('Cà Mau', 'Cà Mau', 105.15, VN_SOUTH),
+];
+
+/** Toàn bộ địa danh chọn được (Việt Nam trước, Trung Quốc sau). */
+export const ALL_PROVINCES: ProvinceInfo[] = [...VN_PROVINCES, ...PROVINCES];
+
+/** Nhóm địa danh theo quốc gia — dùng cho <optgroup> trong form. */
+export const PLACE_GROUPS: ReadonlyArray<{ id: 'vn' | 'cn'; provinces: ProvinceInfo[] }> = [
+  { id: 'vn', provinces: VN_PROVINCES },
+  { id: 'cn', provinces: PROVINCES },
+];
+
+export function findProvince(name: string): ProvinceInfo | undefined {
+  return ALL_PROVINCES.find((p) => p.name === name);
+}
+
+export function findCity(provinceName: string, cityName: string): CityInfo | undefined {
+  return findProvince(provinceName)?.cities.find((c) => c.name === cityName);
+}

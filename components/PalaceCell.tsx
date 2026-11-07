@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import type { Palace, Star } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES } from '@/lib/ziwei/constants';
 import clsx from 'clsx';
+import { useLanguage } from '@/components/LanguageProvider';
 
 interface PalaceCellProps {
   palace: Palace;
@@ -57,6 +58,8 @@ export default function PalaceCell({
   palace, onClick, onStarClick, isSelected, isSanFang, delay = 0,
   overlayStarSiHua, overlayLabel, onSiHuaClick,
 }: PalaceCellProps) {
+  // 界面文案统一取自 messages/*.json → chart
+  const { t } = useLanguage();
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
   const ganzhi = `${STEMS[stem]}${BRANCHES[branch]}`;
 
@@ -113,10 +116,10 @@ export default function PalaceCell({
           {name}
         </span>
         {isMingGong && (
-          <span className="text-[7px] text-amber-500/80 border border-amber-500/30 px-0.5 rounded leading-tight">命</span>
+          <span className="text-[7px] text-amber-500/80 border border-amber-500/30 px-0.5 rounded leading-tight">{t('chart.badges.ming')}</span>
         )}
         {isShenGong && (
-          <span className="text-[7px] text-sky-500/80 border border-sky-500/30 px-0.5 rounded leading-tight">身</span>
+          <span className="text-[7px] text-sky-500/80 border border-sky-500/30 px-0.5 rounded leading-tight">{t('chart.badges.shen')}</span>
         )}
       </div>
 
@@ -126,7 +129,7 @@ export default function PalaceCell({
       {/* 主星 */}
       <div className="flex flex-col gap-0.5 flex-1">
         {majorStars.length === 0 && (
-          <span className="text-[10px] italic" style={{ color: 'var(--t-faint)', opacity: 0.6 }}>空宫</span>
+          <span className="text-[10px] italic" style={{ color: 'var(--t-faint)', opacity: 0.6 }}>{t('chart.emptyPalace')}</span>
         )}
         {majorStars.map((star) => {
           const overlaySiHua = overlayStarSiHua?.[star.name];

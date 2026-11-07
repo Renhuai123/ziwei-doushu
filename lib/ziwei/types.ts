@@ -9,6 +9,14 @@ export interface BirthInfo {
   city?: string;       // 出生城市
   longitude?: number;  // 出生地经度（用于真太阳时校正）
   /**
+   * Lịch âm / múi giờ dùng để lập lá số:
+   * · 'vn' = âm lịch Việt Nam (UTC+7, kinh tuyến 105°Đ) — người sinh ở Việt Nam;
+   * · 'cn' = âm lịch Trung Quốc (UTC+8, kinh tuyến 120°Đ) — mặc định của engine khi không truyền.
+   */
+  calendarZone?: 'vn' | 'cn';
+  /** Độ lệch giờ pháp định tại nơi sinh (phút) dùng cho hiệu chỉnh kinh độ; bỏ trống = theo calendarZone. */
+  utcOffsetMinutes?: number;
+  /**
    * 原始输入（用户在表单里实际填的时间），已知出生时间时始终保留。
    * 例：用户输入 5/9 23:55 → year/month/day 会被改成 5/10（次日子时），
    *     而这里保存原始的 { year:Y, month:5, day:9, clockHour:23, clockMinute:55 }，

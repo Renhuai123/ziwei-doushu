@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
 import type { TimeView } from './TimeNav';
+import { useLanguage } from '@/components/LanguageProvider';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -22,126 +23,58 @@ interface InsightPanelProps {
   selectedSiHua?: SelectedSiHua | null;
 }
 
-const TOPICS = [
-  { key: 'overview',     label: '命格' },
-  { key: 'love',        label: '感情' },
-  { key: 'career',      label: '事业' },
-  { key: 'wealth',      label: '财运' },
-  { key: 'health',      label: '健康' },
-  { key: 'personality', label: '性格' },
-] as const;
-
-const TOPIC_PROMPTS: Record<string, string> = {
-  overview: `请生成命格总览，按以下结构输出：
-
-**【命格定性】**
-用一句话概括这个命盘的核心格局与命主气质。
-
-**【主星解读】**
-命宫主星的核心特质，引用倪海厦原话或观点。
-
-**【三方四正】**
-财、官、迁三宫的联动分析及整体格局。
-
-**【当前大限】**
-当下大限运势方向与最值得关注的事项。
-
-**【优势与注意】**
-命盘天赋优势，以及需要注意的风险或功课。`,
-
-  love: `请深度分析感情婚姻运，按以下结构输出：
-
-**【感情格局】**
-一句话定性感情命格。
-
-**【夫妻宫分析】**
-夫妻宫主星、四化，以及倪海厦体系的具体解读。
-
-**【三方联动】**
-相关宫位对感情的影响。
-
-**【当前大限感情运】**
-当下10年感情走向与关键节点。
-
-**【实际建议】**
-具体可行的感情建议。`,
-
-  career: `请深度分析事业运，按以下结构输出：
-
-**【事业格局】**
-一句话定性事业命格，宜任职或宜创业。
-
-**【官禄宫分析】**
-官禄宫主星、四化，以及倪师对这种配置的判断。
-
-**【财帛宫联动】**
-财运与事业的关系，财路来源分析。
-
-**【当前大限事业运】**
-当下10年事业走向。
-
-**【实际建议】**
-适合的方向、行业与策略。`,
-
-  wealth: `请深度分析财运，按以下结构输出：
-
-**【财运格局】**
-一句话定性财运模式，是主动财还是被动财。
-
-**【财帛宫分析】**
-财帛宫主星、四化，财富来源与流动模式。
-
-**【田宅宫（财库）】**
-积蓄能力与不动产运势分析。
-
-**【当前大限财运】**
-当下财运走向与注意事项。
-
-**【理财建议】**
-具体的财务建议。`,
-
-  health: `请分析健康运势，按以下结构输出：
-
-**【疾厄宫主星】**
-疾厄宫星曜与健康含义。
-
-**【主要风险】**
-结合倪海厦子午流注理论，分析主要健康隐患与需关注的部位。
-
-**【大限健康走势】**
-当下健康趋势与关键时间段。
-
-**【预防建议】**
-具体注意事项与养生方向。`,
-
-  personality: `请深度解析性格特质，按以下结构输出：
-
-**【命宫主星性格】**
-命宫主星的核心性格特质，引用倪师原话。
-
-**【三方性格综合】**
-财、官、迁三宫对性格的影响，全貌描绘。
-
-**【人际关系模式】**
-与他人互动方式、待人处世风格。
-
-**【优势与人生课题】**
-天赋优势，以及需要面对的人生功课。`,
+// 话题按钮文案见 messages/*.json → chart.topics
+const TOPICS = ['overview', 'love', 'career', 'wealth', 'health', 'personality'] as const;const TOPIC_PROMPTS: Record<string, string> = {
+  overview: `Hãy tổng hợp tóm tắt mệnh cách, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Định tính mệnh: một câu khái quát cơ cấu chính và khí chất của người này.
+- Giải chính tinh: đặc tính cốt lõi của chính tinh ở Mệnh cung, dẫn ý hoặc quan điểm của thầy Nghê Hải Hạ nếu có.
+- Tam phương tứ chính: phân tích tương tác giữa Tài Bạch, Quan Lộc, Thiên Di và cơ cấu tổng thể.
+- Đại hạn hiện tại: hướng vận trong thập niên hiện tại và điểm đáng chú ý nhất.
+- Điểm mạnh và lưu ý: năng lực bẩm sinh, cùng rủi ro hoặc bài học cần quan tâm.`,
+  love: `Hãy phân tích sâu vận tình cảm và hôn nhân, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Tình cảm: một câu định tính vận mệnh cảm xúc của người này.
+- Cung Phu Thê: chính tinh và Tứ Hóa ở Phu Thê cung, cùng解读 cụ thể theo hệ Nghê Hải Hạ nếu có.
+- Tương tác tam phương: các cung liên quan ảnh hưởng tình cảm thế nào.
+- Đại hạn tình cảm hiện tại: hướng感情 trong 10 năm nay và các thời điểm then chốt.
+- Lời khuyên thực tế: đề xuất concrete trong tình cảm.`,
+  career: `Hãy phân tích sâu vận sự nghiệp, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Sự nghiệp: một câu定性 liệu thích hợp làm nhân viên hay khởi nghiệp.
+- Cung Quan Lộc: chính tinh và Tứ Hóa ở Quan Lộc, cùng đánh giá của thầy Nghê về方式配置 này.
+- Liên động Tài Bạch: mối liên hệ giữa tài vận và sự nghiệp, nguồn thu nhập.
+- Đại hạn sự nghiệp hiện tại: hướng事业 trong thập niên hiện tại.
+- Lời khuyên thực tế: hướng, ngành và chiến lược phù hợp.`,
+  wealth: `Hãy phân tích sâu vận tài, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Tài vận: một câu定性 mẫu tài vận, chủ động hay被 động.
+- Cung Tài Bạch: chính tinh và Tứ Hóa ở Tài Bạch, nguồn tài và cách lưu chuyển.
+- Cung Điền Trạch: khả năng tích lũy và vận thế bất động产.
+- Đại hạn tài vận hiện tại: hướng tài trong thập niên nay và lưu ý.
+- Lời khuyên kiếm tiền: đề xuất financial cụ thể.`,
+  health: `Hãy phân tích vận khỏe, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Chính tinh ở Tật Ách: star và ý nghĩa健康ở Tật Ách.
+- Nguy cơ chính: kết hợp lý thuyết子午流注 của thầy Nghê, phỏng đoán hidden health và vùng cần quan tâm.
+- Đại hạn sức khỏe: xu hướng健康 tại và thời điểm quan trọng.
+- Lời khuyên phòng ngừa: đề xuất chăm sóc sức khỏe cụ thể.`,
+  personality: `Hãy phân tích sâu tính cách, trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Chính tinh ở Mệnh: đặc tính cốt lõi của chính tinh ở Mệnh cung, dẫn ý thầy Nghê.
+- Tam phương tính cách: tài, quan, di ảnh hưởng tính cách total.
+- Mô thức giao tiếp: cách tương tác với người và phong cách ứng xử.
+- Những điểm mạnh và bài học: điểm mạnh bẩm sinh, và bài học cần đối mặt.`,
 };
 
+
 const PALACE_ROLES: Record<string, string> = {
-  '命宫':   '自我、性格、先天格局',
-  '兄弟宫': '兄弟关系、合伙人',
-  '夫妻宫': '感情关系、婚姻状态',
-  '子女宫': '子女缘分、下属关系',
-  '财帛宫': '财运来源、收入方式',
-  '疾厄宫': '身体健康、意外',
-  '迁移宫': '外出机遇、人际格局',
-  '交友宫': '朋友圈、贵人、小人',
-  '官禄宫': '事业成就、社会地位',
-  '田宅宫': '不动产、家庭环境',
-  '福德宫': '精神享受、内心福分',
-  '父母宫': '父母关系、文书契约',
+  '命宫':   'Tự tôi, tính cách, cơ cấu bẩm sinh',
+  '兄弟宫': 'Quan hệ anh em, đối tác',
+  '夫妻宫': 'Quan hệ tình cảm, tình trạng hôn nhân',
+  '子女宫': 'Duyên con cái, quan hệ cấp dưới',
+  '财帛宫': 'Nguồn tài, cách thu nhập',
+  '疾厄宫': 'Sức khỏe, tình huống bất ngờ',
+  '迁移宫': 'Cơ hội ra ngoài, võng mạng giao tiếp',
+  '交友宫': 'Mạng bạn bè, kim tinh, ngu nhiệt',
+  '官禄宫': 'Thành tựu sự nghiệp, vị thế xã hội',
+  '田宅宫': 'Bất động sản, môi trường gia đình',
+  '福德宫': 'Thỏa thích tinh thần, phúc đức nội tâm',
+  '父母宫': 'Quan hệ cha mẹ, giấy tờ hợp đồng',
 };
 
 /** Render AI markdown: **【Title】** → gold header, **bold** → strong */
@@ -183,6 +116,8 @@ function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
 }
 
 export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: InsightPanelProps) {
+  // 界面文案统一取自 messages/*.json → chart
+  const { t } = useLanguage();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -223,19 +158,11 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
       : '空宫（借对宫）';
     const role = PALACE_ROLES[selectedPalace.name] ?? '';
 
-    const prompt = `请重点分析【${selectedPalace.name}】（主管：${role}），该宫主星为${starDesc}，按以下结构输出：
-
-**【宫位定性】**
-${selectedPalace.name}在命盘中的意义，以及这种星曜配置的整体判断。
-
-**【主星解读】**
-主星在此宫的倪海厦体系解读，引用具体观点。
-
-**【三方四正联动】**
-三方四正宫位对此宫的影响。
-
-**【实际建议】**
-基于此宫的具体建议。`;
+    const prompt = `Hãy phân tích chuyên sâu cung ${selectedPalace.name} (chức năng: ${role}). Chính tinh tại cung này là ${starDesc}. Trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Định tính cung: ý nghĩa của ${selectedPalace.name} trong lá số và đánh giá tổng thể về配置 tinh hoa này.
+- Giải chính tinh所在宫:解读 chính tinh ở cung này theo hệ Nghê Hải Hạ, dẫn cụ thể.
+- Tương tác tam phương tứ chính: các cung tam phương tứ chính ảnh hưởng đến cung này.
+- Lời khuyên thực tế: dựa vào cung này, đề xuất cụ thể.`;
 
     sendMessage(prompt, true);
   }, [selectedPalace]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -254,22 +181,12 @@ ${selectedPalace.name}在命盘中的意义，以及这种星曜配置的整体�
     const palaceName = palaceOfStar?.name ?? '未知宫位';
     const viewLabel = selectedSiHua.view === 'daxian' ? '大限' : '流年';
 
-    const prompt = `请分析【${viewLabel}${selectedSiHua.starName}化${selectedSiHua.siHua}】的飞化影响，按以下结构输出：
-
-**【化${selectedSiHua.siHua}基本含义】**
-化${selectedSiHua.siHua}在倪海厦体系中的核心含义，以及${selectedSiHua.starName}化${selectedSiHua.siHua}的特殊含义。
-
-**【落宫影响】**
-${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，该宫主管的领域受到何种影响，倪师如何解读。
-
-**【三方四正飞化路径】**
-化${selectedSiHua.siHua}入${palaceName}后，对其三方四正（对宫、两个三合宫）的联动影响。
-
-**【当前运势影响】**
-在${viewLabel}时间维度下，此化${selectedSiHua.siHua}对命主近期运势的具体影响。
-
-**【实际建议】**
-基于此四化的具体可操作建议。`;
+    const prompt = `Hãy phân tích ảnh hưởng flying transformation của ${viewLabel}${selectedSiHua.starName}化${selectedSiHua.siHua}. Trả lời bằng tiếng Việt, theo cấu trúc sau:
+- Ý nghĩa của化${selectedSiHua.siHua}: ý nghĩa cốt lõi của化${selectedSiHua.siHua} trong hệ Nghê Hải Hạ và đặc điểm của${selectedSiHua.starName}化${selectedSiHua.siHua}.
+- Ảnh hưởng khi落宫: ${selectedSiHua.starName}化${selectedSiHua.siHua} rơi vào ${palaceName}, lĩnh vực do cung này主管 chịu ảnh hưởng thế nào, thầy Nghê如何解读.
+- Đường飞化 tam phương tứ chính: sau khi化${selectedSiHua.siHua} vào${palaceName}, ảnh hưởng liên động đến对宫 và hai tam hợp cung.
+- Ảnh hưởng vận势 hiện tại: trong khoảng thời gian ${viewLabel}, ảnh hưởng cụ thể của hóa${selectedSiHua.siHua} này đến vận势 gần đây của命主.
+- Lời khuyên thực tế: dựa vào此四化, đề xuất có thể操作.`;
 
     sendMessage(prompt, true);
   }, [selectedSiHua]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -312,7 +229,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       }
     } catch (e) {
       const missing = e instanceof Error && e.message === 'api-missing';
-      setMessages(prev => [...prev, { role: 'assistant', content: missing ? '开源版不含 AI 解读接口（/api/interpret），需要你自己实现后才能用，详见 README「快速开始」。排盘本身不需要任何 API Key。' : '解读失败，请稍后重试。' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: missing ? t('chart.errors.apiMissing') : t('chart.errors.failed') }]);
     } finally {
       setLoading(false);
       loadingRef.current = false;
@@ -352,12 +269,12 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       {/* ── Topic buttons ── */}
       <div className="flex-shrink-0 px-2 pt-2.5 pb-2" style={{ borderBottom: '1px solid var(--t-border)' }}>
         <div className="grid grid-cols-6 gap-1">
-          {TOPICS.map(t => {
-            const isActive = activeTopic === t.key;
+          {TOPICS.map(topic => {
+            const isActive = activeTopic === topic;
             return (
               <button
-                key={t.key}
-                onClick={() => handleTopicClick(t.key)}
+                key={topic}
+                onClick={() => handleTopicClick(topic)}
                 disabled={loading}
                 className="py-1.5 text-[10px] font-medium rounded-lg transition-all duration-150 disabled:opacity-40"
                 style={{
@@ -366,7 +283,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   color: isActive ? 'var(--t-gold)' : 'var(--t-faint)',
                 }}
               >
-                {t.label}
+                {t(`chart.topics.${topic}`)}
               </button>
             );
           })}
@@ -380,7 +297,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center">
             <div className="text-4xl mb-3" style={{ color: 'var(--t-gold)', opacity: 0.1 }}>✦</div>
-            <p className="text-[10px] animate-pulse" style={{ color: 'var(--t-faint)' }}>命格解读生成中…</p>
+            <p className="text-[10px] animate-pulse" style={{ color: 'var(--t-faint)' }}>{t('chart.generating')}</p>
           </div>
         )}
 
@@ -423,7 +340,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   style={{ color: 'var(--t-faint)' }}
                 >
                   <span style={{ color: 'var(--t-gold)', opacity: 0.4 }}>✦</span>
-                  命理解读
+                  {t('chart.reading')}
                 </div>
                 <AiContent text={msg.content} streaming={loading && isLastMsg} />
               </motion.div>
@@ -440,7 +357,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleSend()}
-            placeholder="继续追问，如：今年适合换工作吗？"
+            placeholder={t('chart.followUpPlaceholder')}
             disabled={loading}
             className="flex-1 rounded-lg px-3 py-2 text-[11px] focus:outline-none transition-colors"
             style={{
@@ -459,7 +376,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
               color: 'var(--t-gold)',
             }}
           >
-            {loading ? '…' : '追问'}
+            {loading ? '…' : t('chart.followUp')}
           </button>
         </div>
       </div>

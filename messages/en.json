@@ -37,6 +37,208 @@
       "subtitle": "AI Q&A · Unity of knowledge and action",
       "description": "Enter your birth date and time to generate your Zi Wei Dou Shu chart — the Tian Ji, Di Ji and Ren Ji modules will open in turn.",
       "cta": "Start your chart"
+    },
+    "philosophy": {
+      "eyebrow": "Fate · Fortune · Outlook",
+      "lines": [
+        "The point of glimpsing fate ahead of time",
+        "Is not to foretell the future",
+        "But to keep coming to know yourself"
+      ],
+      "closing": "And finally write the script of your own life"
+    },
+    "curriculum": {
+      "eyebrow": "Curriculum",
+      "title": "Master Ni's Methodology · Unfolding Step by Step",
+      "description": "Start with Zi Wei, then unlock the Tian Ji, Di Ji and Ren Ji modules in turn"
+    },
+    "sections": {
+      "ziwei": {
+        "name": "Zi Wei",
+        "desc": "14 major stars · 13 palaces · AI reading",
+        "when": "May",
+        "note": ""
+      },
+      "tianji": {
+        "name": "Tian Ji",
+        "desc": "Zi Wei · I Ching · Qi Men Dun Jia",
+        "when": "June",
+        "note": ""
+      },
+      "diji": {
+        "name": "Di Ji",
+        "desc": "Master Ni's unfinished work · Annotated by later students",
+        "when": "June",
+        "note": "Manuscript study"
+      },
+      "renji": {
+        "name": "Ren Ji",
+        "desc": "Nei Jing · Shang Han · Jin Gui · Acupuncture",
+        "when": "July",
+        "note": ""
+      }
+    },
+    "sectionLabels": {
+      "heading": "Master Ni's methodology · Academic system",
+      "ready": "✓ Live",
+      "soon": "Coming soon"
+    },
+    "features": {
+      "casting": {
+        "tag": "Charting system",
+        "title": "Authentic Ni Hai-Xia\nZi Wei Dou Shu",
+        "subtitle": "Not a simplified version — strictly following Master Ni Hai-Xia's lineage",
+        "points": [
+          "Charts are cast from the Na Yin five-element bureau, not from simplified web algorithms",
+          "Ming palace counted backwards from the birth hour and Shen palace forwards, exactly as taught",
+          "The fourteen major stars and four transformations are derived by the original method, fully traceable"
+        ]
+      },
+      "chartDisplay": {
+        "tag": "Chart display",
+        "title": "All fourteen major stars\nand four transformations",
+        "subtitle": "A clear structure that shows the main axis and key points at a glance",
+        "points": [
+          "All fourteen major stars seated in their palaces, with readable relationships between them",
+          "Minor and malefic stars shown on the same screen, so no key information is missing",
+          "Brightness graded from Miao to Xian for quick strength assessment",
+          "Tap any major star to read Master Ni Hai-Xia's detailed interpretation of it"
+        ]
+      },
+      "aiReading": {
+        "tag": "AI reading",
+        "title": "In-depth analysis\nbeyond calculation",
+        "subtitle": "Ni Hai-Xia knowledge base × Claude AI",
+        "points": [
+          "Chart analysis: starting from the Ming palace star and the three directions with four corners, giving a full read on character and life pattern",
+          "Six dimensions: career direction, love and marriage, wealth pattern, health cautions, family relationships and children",
+          "Decade and annual tracking: the focus of your current ten-year cycle plus concrete guidance for this year's annual palace",
+          "Ask anything: put questions directly to your chart — “Can I change jobs this year?”, “When is my best marriage luck?”"
+        ]
+      },
+      "patternDetection": {
+        "tag": "Pattern detection",
+        "title": "Automatic detection\nof chart patterns",
+        "subtitle": "Discover your destiny in the combinations of stars",
+        "points": [
+          "Detects 11 classic patterns automatically: Zi Fu in the same palace, Sha Po Lang, Ji Yue Tong Liang, Lian Xiang, Wu Qu with Qi Sha and more",
+          "Precisely detects special patterns such as Fu Bi flanking the Ming palace or Sun and Moon flanking the Ming palace, with standard readings from Ni Hai-Xia's system",
+          "Automatically flags special cases where the four transformations fall into the Ming or Migration palace, highlighting life themes to watch",
+          "Patterns are layered by auspiciousness so you can see the strengths and challenges in your chart at a glance"
+        ]
+      }
+    },
+    "teachings": {
+      "mingPalace": {
+        "title": "The Ming palace is the foundation, the three directions are the application",
+        "body": "Master Ni always stressed that reading a chart begins with the Ming palace. The star in the Ming palace sets a person's basic pattern and innate character, while the three directions (Wealth, Career, Travel) determine where that person can put their talents to use. Only the four palaces read together form a complete picture of a life."
+      },
+      "oppositePalace": {
+        "title": "Borrowing stars from the opposite palace cannot be ignored",
+        "body": "Master Ni's distinctive approach was to value the opposite palace. Whenever a palace has no major star, its reading must borrow the stars of the palace opposite; the Ming palace faces the Migration palace and the two shape each other — a key point many beginners overlook."
+      },
+      "siHua": {
+        "title": "The four transformations are the hand of destiny",
+        "body": "The stars are only the foundation; the four transformations (Hua Lu, Hua Quan, Hua Ke, Hua Ji) decide whether fortune runs well or badly. The same star with Hua Lu or with Hua Ji can lead to completely different life paths. Master Ni repeated it: without the four transformations, only half the chart is read."
+      },
+      "decadeCycle": {
+        "title": "Ten-year cycles give fortune its rhythm",
+        "body": "Master Ni divided a life into twelve decade cycles of ten years each. In his view, a person's circumstances differ completely from one cycle palace to the next. Only by knowing which cycle you are in — and which stars occupy that palace — can you truly grasp your present fortune."
+      }
+    },
+    "exploreMore": "Explore more",
+    "finalCta": {
+      "eyebrow": "Begin your chart journey",
+      "titleLine1": "Your Zi Wei chart",
+      "titleLine2": "is waiting to be read",
+      "descLine1": "Enter your birth date and time to generate your personal chart in seconds",
+      "descLine2": "then let AI read it in depth through Ni Hai-Xia's system",
+      "cta": "Create your chart free",
+      "knowledge": "✦ Zi Wei Dou Shu knowledge base →",
+      "classics": "📜 Classical texts library →"
+    },
+    "threeRealms": {
+      "title": "Heaven · Earth · Human",
+      "introLine1": "Ni Hai-Xia's core view of destiny: fate is never the whole of a life.",
+      "introLine2": "He divided the forces that shape a life into three equally important dimensions.",
+      "cards": {
+        "heaven": {
+          "label": "Innate destiny",
+          "sub": "Birth chart · Stars · Five elements",
+          "desc": "What Zi Wei Dou Shu reveals is the innate pattern of a person's chart — the star layout, the five-element bureau and the ruler of the Life palace, all fixed by the moment of birth. That is only one third of destiny: the base coat of a life, not the whole picture."
+        },
+        "earth": {
+          "label": "Geographic environment",
+          "sub": "Region · Feng shui · Surroundings",
+          "desc": "The geography you live in — your city, country and feng shui, down to family background and social structure — forms the second dimension of destiny. With the same chart, being born in different places can mean a world of difference in what comes your way."
+        },
+        "human": {
+          "label": "Human mind and will",
+          "sub": "Will · Choice · Action",
+          "desc": "A person's will, mindset, choices and actions are the most active force for changing destiny. Master Ni stressed that reading a chart is for becoming a better person, not for sitting and waiting on fate. Improving yourself is the strongest way to break through."
+        }
+      },
+      "quote": "「Fate is not the whole of life — add geography and human intention, and then it is.」",
+      "attribution": "— Ni Hai-Xia"
+    },
+    "master": {
+      "heading": "Master Ni Hai-Xia",
+      "tagline1": "One of the most influential masters of Chinese medicine and the metaphysical arts in the contemporary Chinese-speaking world",
+      "tagline2": "Founder of the Han Tang College of Chinese Medicine in the US · His two teaching systems, “Ren Ji” and “Tian Ji”, carry his legacy",
+      "facts": {
+        "birth": {
+          "label": "Born",
+          "value": "1954",
+          "sub": "Taiwan"
+        },
+        "passing": {
+          "label": "Passed away",
+          "value": "2012",
+          "sub": "31 January · aged 58"
+        },
+        "lineage": {
+          "label": "Legacy",
+          "value": "Zi Wei Dou Shu",
+          "sub": "Classical formula medicine · I Ching"
+        }
+      },
+      "bio": {
+        "source": {
+          "label": "Biography: ",
+          "body": "Mr. Ni Hai-Xia (1954–2012) was born in Taiwan. In his early years he studied under several renowned physicians and specialised in the classical formula school (the lineage of the Treatise on Cold Damage). In mid-life he moved to the United States to practise medicine and founded the **Han Tang College of Chinese Medicine**, teaching Chinese medicine and traditional divination systematically for more than twenty years. He died of liver cancer in Taiwan on 31 January 2012, at the age of 58."
+        },
+        "teaching": {
+          "label": "Teaching system: ",
+          "body": "Master Ni organised a lifetime of study into two public teaching series. **“Ren Ji”** (Records of the Human) covers the Great Compendium of Acupuncture and Moxibustion, the Shennong Bencao Jing, the Huangdi Neijing, the Treatise on Cold Damage and the Essentials of the Golden Cabinet — the “record of the human”, which lays out the complete path of Chinese medicine study. **“Tian Ji”** (Records of Heaven) covers Zi Wei Dou Shu and the I Ching — the “record of heaven”, the systematised fruit of divination research. Together they form the most complete legacy Master Ni left to later generations."
+        },
+        "stance": {
+          "label": "Position on Zi Wei: ",
+          "body": "In Zi Wei Dou Shu, Master Ni stands clearly with the **Southern San He school**, holding that “the Life palace is the foundation, the three directions and four corners are the application, and the Four Transformations are the outline”. In his Tian Ji course he said plainly: “_Flying stars (the Four Transformations) flying back and forth is too complicated — I don't do that; after all, the great way is simple._” That position sets him clearly apart from the elaborate Flying Star school."
+        },
+        "scholarship": {
+          "label": "Scholarly attitude: ",
+          "body": "Master Ni opposed rote memorisation of mnemonic verses, insisting that “understanding the principle beats recitation” and “checkable logic beats mystical obscurity”. That attitude carried Zi Wei Dou Shu out of a closed system of secret transmission from master to disciple, into a modern body of knowledge that is systematic, verifiable and learnable."
+        },
+        "influence": {
+          "label": "Contemporary influence: ",
+          "body": "Master Ni's lecture videos circulate widely on Bilibili, YouTube and other major platforms, and a new generation of astrology and Chinese medicine enthusiasts treats them as required introductory material. He was not only a transmitter of Zi Wei Dou Shu but one of the key figures who brought traditional astrology and Chinese medicine into the modern knowledge system."
+        },
+        "disclaimer": {
+          "body": "Every reading on this platform is compiled from Master Ni's public Tian Ji lecture notes, the Ming-dynasty edition of the Complete Book of Zi Wei Dou Shu, and classical texts of the traditional San He school. It is offered for cultural and personal-growth reference only. Master Ni himself has no commercial connection with this platform."
+        }
+      }
+    },
+    "hemingCta": {
+      "title": "Zi Wei Compatibility",
+      "descLine1": "Enter two people's birth details and the AI, working from Ni Hai-Xia's system, analyses the mutual reference of the Spouse palaces, the compatibility of the Life palaces and the interplay of the three directions and four corners,",
+      "descLine2": "then gives a romantic match score, an assessment of business compatibility, and advice on how best to get along.",
+      "tags": [
+        "Romance match analysis",
+        "Business partnership assessment",
+        "Parent–child affinity reading",
+        "Pre-marriage compatibility check"
+      ],
+      "cta": "Start compatibility analysis"
     }
   },
   "chart": {
@@ -60,7 +262,140 @@
     "annual": "Annual cycle",
     "palace": "Palace",
     "majorStars": "Major stars",
-    "minorStars": "Minor stars"
+    "minorStars": "Minor stars",
+    "boardTitle": "Zi Wei Dou Shu birth chart",
+    "boardCenter": "Zi Wei Dou Shu",
+    "currentDaXian": "Current decade",
+    "decadeWithAges": "Decade {start}–{end}",
+    "ageRange": "{start}–{end} yrs",
+    "leapMonth": "Leap ",
+    "emptyPalace": "Empty",
+    "badges": {
+      "ming": "Ming",
+      "shen": "Shen",
+      "decade": "Dec",
+      "annual": "Yr"
+    },
+    "legend": {
+      "sanFang": "Tap a palace to see its three directions and four corners"
+    },
+    "overlay": {
+      "daxian": "Decade · {stem} year transformations:",
+      "annual": "{year} · {stem} year transformations:"
+    },
+    "topics": {
+      "overview": "Life pattern",
+      "love": "Love",
+      "career": "Career",
+      "wealth": "Wealth",
+      "health": "Health",
+      "personality": "Character"
+    },
+    "generating": "Generating your reading…",
+    "reading": "Reading",
+    "followUpPlaceholder": "Ask a follow-up, e.g. is this a good year to change jobs?",
+    "followUp": "Ask",
+    "demo": {
+      "description": "Enter your birth date and time — the open-source engine casts the chart instantly.",
+      "note": "(This page is an engine demo; the full commercial interface is not open source, but the calculation core is.)"
+    },
+    "errors": {
+      "apiMissing": "The open-source edition does not include the AI reading endpoint (/api/interpret); you'll need to implement it yourself — see “Quick start” in the README. Casting a chart needs no API key.",
+      "failed": "The reading failed. Please try again later."
+    }
+  },
+  "form": {
+    "title": "── Birth details ──",
+    "nameLabel": "Name (optional)",
+    "namePlaceholder": "Enter a name",
+    "birthDateLabel": "Date of birth (Gregorian)",
+    "yearPlaceholder": "Year",
+    "monthPlaceholder": "Month",
+    "dayPlaceholder": "Day",
+    "optionMonth": "{n}",
+    "optionDay": "{n}",
+    "birthPlaceLabel": "Birthplace (used for true solar time correction)",
+    "placeGroup": {
+      "vn": "Vietnam",
+      "cn": "China"
+    },
+    "provincePlaceholder": "Province / Municipality",
+    "cityPlaceholder": "City",
+    "selectProvinceFirst": "Select a province first",
+    "selectCity": "(please select a city)",
+    "trueSolarHint": "* Master Ni casts charts using true solar time; filling in the birthplace lets the hour be corrected automatically.",
+    "longitude": "Longitude",
+    "timeOffset": "Time offset",
+    "minutes": "min",
+    "birthTimeLabel": "Time of birth (local clock at birthplace)",
+    "hourSuffix": "h",
+    "minuteSuffix": "min",
+    "trueSolarResult": "True solar time →",
+    "unknownTimeLabel": "Birth time unknown — cast the chart for the Zi hour (23:00–01:00)",
+    "genderLabel": "Gender",
+    "male": "♂ Male",
+    "female": "♀ Female",
+    "unknownShichen": "Birth time unknown",
+    "shichen": {
+      "zi": "Zi hour",
+      "chou": "Chou hour",
+      "yin": "Yin hour",
+      "mao": "Mao hour",
+      "chen": "Chen hour",
+      "si": "Si hour",
+      "wu": "Wu hour",
+      "wei": "Wei hour",
+      "shen": "Shen hour",
+      "you": "You hour",
+      "xu": "Xu hour",
+      "hai": "Hai hour"
+    },
+    "summary": {
+      "date": "{d}/{m}/{y}"
+    },
+    "errors": {
+      "yearRequired": "Please select a birth year",
+      "yearRange": "Year range: 1900–2026",
+      "monthRequired": "Please select a month",
+      "dayRequired": "Please select a day",
+      "dayInvalid": "Month {m} has no day {d}"
+    },
+    "submitting": "Casting the chart…",
+    "submit": "Cast my chart · Decode my destiny",
+    "calendarZone": {
+      "vn": "Vietnamese lunar calendar · UTC+7",
+      "cn": "Chinese lunar calendar · UTC+8"
+    }
+  },
+  "heming": {
+    "back": "Back",
+    "headerTitle": "Compatibility analysis",
+    "headerTags": "Romance · Business · Family · Friends",
+    "title": "Zi Wei Compatibility",
+    "description": "Enter two people's birth details and the AI, working from Ni Hai-Xia's system, analyses how well their charts match, how the relationship is likely to develop, and how best to get along.",
+    "partyA": "Party A — A",
+    "partyB": "Party B — B",
+    "panelTitle": "Compatibility analysis · HEMING",
+    "emptyLine1": "Fill in both sets of birth details, then press the button below",
+    "emptyLine2": "AI will analyse the depth of the two people's affinity through Ni Hai-Xia's system",
+    "start": "Start compatibility analysis",
+    "comparing": "Comparing both charts…",
+    "errors": {
+      "formIncomplete": "Please fill in complete birth details for both people first",
+      "apiMissing": "The open-source edition does not include the AI compatibility endpoint (/api/heming); you'll need to implement it yourself. Each person's chart can still be viewed on the Create a chart page (/chart).",
+      "unavailable": "Analysis is temporarily unavailable. Please try again."
+    },
+    "followUpTitle": "Ask more about this reading",
+    "quickQuestions": [
+      "How well do we match romantically?",
+      "Are we suited to starting a business together?",
+      "Is marriage a good fit for us?",
+      "Where are we most likely to clash?",
+      "Do our finances complement each other?"
+    ],
+    "inputPlaceholder": "Ask a follow-up, e.g. which years are pivotal for the relationship?",
+    "submit": "Ask",
+    "submitting": "Analysing…"
   },
   "disclaimer": {
     "title": "Important note",
@@ -77,5 +412,253 @@
     "huaJi": "Hua Ji",
     "daXian": "Decade cycle",
     "liuNian": "Annual cycle"
+  },
+  "knowledge": {
+    "topbar": "Ni method · Knowledge base",
+    "classicsLink": "Classics →",
+    "startChart": "Draw a chart →",
+    "home": "Home",
+    "breadcrumb": "Knowledge base",
+    "title": "Zi Wei Dou Shu Knowledge Base",
+    "stats": "14 major stars × 13 palaces = {count} topics",
+    "source": "Compiled from Ni Haixia’s Tian Ji system · with classical citations",
+    "starsHeading": "The fourteen major stars",
+    "starSuffix": " Star",
+    "starNames": {
+      "ziwei": "Zi Wei",
+      "tianji": "Tian Ji",
+      "taiyang": "Tai Yang",
+      "wuqu": "Wu Qu",
+      "tiantong": "Tian Tong",
+      "lianzhen": "Lian Zhen",
+      "tianfu": "Tian Fu",
+      "taiyin": "Tai Yin",
+      "tanlang": "Tan Lang",
+      "jumen": "Ju Men",
+      "tianxiang": "Tian Xiang",
+      "tianliang": "Tian Liang",
+      "qisha": "Qi Sha",
+      "pojun": "Po Jun"
+    },
+    "cardTag": "ZI WEI · 14 STARS",
+    "entry": "in {palace} · {topic}",
+    "enterPalace": "{star} in {palace}",
+    "palaceChip": "{palace} palace",
+    "detailEyebrow": "{topic} · Ni Haixia system",
+    "sections": {
+      "dingdiao": "One-line summary",
+      "lundian": "Core reading",
+      "yiju": "Chart basis",
+      "chuchu": "Classical source"
+    },
+    "ctaTitle": "Want to see {topic} in your own chart?",
+    "ctaSubtitle": "Enter your birth data · Ni-style reading · AI Q&A",
+    "ctaButton": "Draw my chart →",
+    "otherPalaces": "Other palaces for {star}",
+    "otherStars": "Other major stars in {palace}",
+    "classicsTitle": "Want the original texts?",
+    "classicsCta": "📜 Browse the classics library — Quan Ji / Quan Shu / Gu Sui Fu →",
+    "footerLine1": "Zi Wei Research · Ni Haixia system · For study and reference only",
+    "footerLine2": "This platform does not replace medical, investment or legal advice",
+    "topics": {
+      "overview": "Chart overview",
+      "personality": "Personality",
+      "love": "Love & marriage",
+      "career": "Career",
+      "wealth": "Wealth",
+      "health": "Health",
+      "family": "Siblings & partners",
+      "children": "Children",
+      "move": "Travel & relocation",
+      "friends": "Social circle & mentors",
+      "home": "Property & home",
+      "spirit": "Inner life & fortune",
+      "parents": "Parents & elders"
+    },
+    "palaces": {
+      "overview": "Life",
+      "personality": "Life",
+      "love": "Spouse",
+      "career": "Career",
+      "wealth": "Wealth",
+      "health": "Health",
+      "family": "Siblings",
+      "children": "Children",
+      "move": "Travel",
+      "friends": "Servants",
+      "home": "Property",
+      "spirit": "Fortune",
+      "parents": "Parents"
+    },
+    "starBriefs": {
+      "ziwei": "Zi Wei is the emperor star, ruling dignity. In the Life palace it brings leadership presence and suits large organisations and senior roles.",
+      "tianji": "Tian Ji is the star of intelligence and adaptability. In the Life palace it brings a quick, strategic mind suited to advisory and planning work.",
+      "taiyang": "Tai Yang is the noble star of public life. In the Life palace it brings openness and suits public office and reputation-building roles.",
+      "wuqu": "Wu Qu is the wealth star of resolve and decisiveness. In the Life palace it brings strong money management and suits industry and finance.",
+      "tiantong": "Tian Tong is the star of blessing and ease. In the Life palace it brings a gentle temperament and an easygoing fortune.",
+      "lianzhen": "Lian Zhen is the secondary peach-blossom star, skilled in both letters and arms. In the Life palace it brings versatility and strong feelings.",
+      "tianfu": "Tian Fu is the southern emperor and keeper of wealth. In the Life palace it brings integrity and an ability to hold on to assets.",
+      "taiyin": "Tai Yin is the moon star of wealth and property. In the Life palace it brings refined sensitivity and is especially favourable for women.",
+      "tanlang": "Tan Lang is the star of desire and sociability. In the Life palace it brings many talents and a wide social circle.",
+      "jumen": "Ju Men is the star of debate and speech. In the Life palace it brings strong argumentative skill and suits law and teaching.",
+      "tianxiang": "Tian Xiang is the supporting seal star. In the Life palace it brings honesty and suits administration and legal work.",
+      "tianliang": "Tian Liang is the elder star of protection that turns misfortune into fortune. In the Life palace it brings compassion and suits law and medicine.",
+      "qisha": "Qi Sha is the general star of solitude and bold decisions. In the Life palace it brings firmness and suits the military, police or entrepreneurship.",
+      "pojun": "Po Jun is the star of breaking and rebuilding. In the Life palace it brings pioneering change and suits specialised technical work."
+    }
+  },
+  "library": {
+    "topbar": "Classics library · CLASSICS",
+    "backHome": "← Home",
+    "startChart": "Draw a chart →",
+    "eyebrow": "NI HAI XIA · CURRICULUM",
+    "title": "Ni method · Classics library",
+    "descriptionLine1": "Full-text search of the Zi Wei Dou Shu classics",
+    "descriptionLine2": "{books} classical works · {paragraphs} selected passages",
+    "chaptersCount": "{n} chapters",
+    "paragraphsCount": "{n} passages",
+    "enter": "Open →",
+    "aboutTitle": "About this library",
+    "aboutLine1": "All texts are public-domain editions (Ming dynasty woodblock prints).",
+    "aboutLine2": "The library is being expanded; the full Quan Ji text and the Tian Ji citation index will follow.",
+    "aboutLine3": "If you spot an error, please let us know.",
+    "searchPlaceholder": "Search the original text, e.g. Qi Sha Chao Dou / Hua Ji",
+    "searchButton": "Search",
+    "bookBack": "← Classics",
+    "bookHome": "Home →",
+    "chaptersHeading": "CHAPTERS",
+    "chapterCount": "{n} passages",
+    "chapterBack": "← Contents of {book}",
+    "libraryLink": "Classics →",
+    "prevChapter": "← Previous chapter",
+    "nextChapter": "Next chapter →",
+    "translationLabel": "Plain reading",
+    "niNoteLabel": "Ni’s note",
+    "originalNote": "The text is kept in the original classical Chinese (Ming edition); plain-language notes will be added.",
+    "searchTopbar": "Search results",
+    "searchKeyword": "Search keyword",
+    "searchEmptyQuery": "(empty)",
+    "searchFound": "{n} matching passages found",
+    "searchNoResult": "No passage in the library matches this keyword",
+    "searchNoResultHint": "The library is still growing. Try:",
+    "searchSuggestions": "Qi Sha Chao Dou / Shuang Lu Chao Yuan / Hua Ji / Zi Wei / Life palace / Ji Yue Tong Liang",
+    "searchEnterQuery": "Please enter a keyword",
+    "books": {
+      "gusuifu": {
+        "title": "Gu Sui Fu (骨髓赋)",
+        "dynasty": "Ming dynasty",
+        "author": "Zi Wei Dou Shu tradition (author unknown)",
+        "intro": "The most condensed core verse of Zi Wei Dou Shu, about 1,500 characters. Cited repeatedly by Ni Haixia in Tian Ji, it is essential reading for any student.",
+        "chapters": {
+          "0": {
+            "title": "General treatise",
+            "subtitle": "The foundations of Zi Wei Dou Shu"
+          },
+          "1": {
+            "title": "On the Zi Wei star",
+            "subtitle": "Imperial dignity, noble when supported"
+          },
+          "2": {
+            "title": "On the Qi Sha star",
+            "subtitle": "A solitary general star, suited to martial work"
+          },
+          "3": {
+            "title": "The Sha Po Lang pattern",
+            "subtitle": "Pioneering, restless, a life of change"
+          },
+          "4": {
+            "title": "Ji Yue Tong Liang",
+            "subtitle": "Steady accumulation, suited to public service"
+          },
+          "5": {
+            "title": "On the four transformations",
+            "subtitle": "Good and ill of Lu, Quan, Ke and Ji"
+          },
+          "6": {
+            "title": "On Fu, Bi, Kui and Yue",
+            "subtitle": "The nobility of the six auspicious stars"
+          },
+          "7": {
+            "title": "On the six malefic stars",
+            "subtitle": "The harm of Yang, Tuo, Huo, Ling, Kong and Jie"
+          },
+          "8": {
+            "title": "On the twelve palaces",
+            "subtitle": "Meaning and fortune of each palace"
+          }
+        }
+      },
+      "quanji": {
+        "title": "Zi Wei Dou Shu Quan Ji (紫微斗数全集)",
+        "dynasty": "Ming dynasty",
+        "author": "Traditionally attributed to Chen Tuan",
+        "intro": "One of the most authoritative classics of Zi Wei Dou Shu, traditionally attributed to the Song-dynasty master Chen Tuan and a core source for Ni Haixia’s Tian Ji system.",
+        "chapters": {
+          "0": {
+            "title": "Volume 1 · General treatise",
+            "subtitle": "The basic method of Zi Wei Dou Shu"
+          },
+          "1": {
+            "title": "Volume 2 · On the Zi Wei star",
+            "subtitle": "Imperial dignity"
+          },
+          "2": {
+            "title": "Volume 3 · The six southern stars",
+            "subtitle": "Tian Fu, Tai Yin, Tan Lang, Ju Men, Tian Xiang, Tian Liang"
+          },
+          "3": {
+            "title": "Volume 4 · The six northern stars",
+            "subtitle": "Zi Wei, Tian Ji, Tai Yang, Wu Qu, Lian Zhen, Po Jun"
+          },
+          "4": {
+            "title": "Volume 5 · Transformations and patterns",
+            "subtitle": "The power of the four transformations and key patterns"
+          }
+        }
+      },
+      "quanshu": {
+        "title": "Zi Wei Dou Shu Quan Shu (紫微斗数全书)",
+        "dynasty": "Ming dynasty",
+        "author": "Compiled by Luo Hongxian",
+        "intro": "The most systematic classical work on Zi Wei Dou Shu, stressing the relationship between the twelve palaces and the four transformations. The standard textbook since the Qing dynasty.",
+        "chapters": {
+          "0": {
+            "title": "Twelve palaces · Life palace",
+            "subtitle": "The root of chart reading"
+          },
+          "1": {
+            "title": "Twelve palaces · Wealth palace",
+            "subtitle": "Where wealth comes from"
+          },
+          "2": {
+            "title": "Twelve palaces · Career palace",
+            "subtitle": "The root of a career"
+          },
+          "3": {
+            "title": "Twelve palaces · Spouse palace",
+            "subtitle": "The character of a partner"
+          },
+          "4": {
+            "title": "On the four transformations",
+            "subtitle": "Lu, Quan, Ke and Ji"
+          },
+          "5": {
+            "title": "Ji Yue Tong Liang pattern",
+            "subtitle": "A life of steady accumulation"
+          },
+          "6": {
+            "title": "Shuang Lu Chao Yuan pattern",
+            "subtitle": "Rich as Tao Zhu"
+          }
+        }
+      }
+    }
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "footerTerms": "Terms of Service",
+    "footerPrivacy": "Privacy Policy"
   }
 }

@@ -10,6 +10,14 @@ import { BRANCHES, STEMS } from './constants';
 import { schoolStarBrightness, type BrightnessSchool } from './school-data';
 import { SCHOOL_AX } from './school-tables.generated';
 import { DEFAULT_LEAP_MONTH } from './school-config';
+import {
+  solarToLunarVN,
+  leapMonthOfLunarYearVN,
+  lunarMonthDayCountVN,
+  type VietnameseLunarDate,
+} from './vn-lunar';
+import { relocateLunarDayStars } from './lunar-day-shift';
+import { type CalendarZone } from './calendar-zone';
 // 飞星派工具仅供导出，不再在排盘时调用（倪师《天纪 03》：四化星永远固定不动）
 // import { detectSelfSihua, getSiHuaByStem } from './sihua';
 
@@ -202,6 +210,68 @@ export function resolveEffectiveLunarDate(
   };
 }
 
+/**
+ * Cùng bốn cách xử lý tháng nhuận, nhưng áp lên **âm lịch Việt Nam**.
+ *
+ * Không dùng được `resolveEffectiveLunarDate` cho người sinh ở Việt Nam vì hàm đó đọc âm lịch
+ * Trung Quốc: tháng nhuận hai nước có thể đặt khác nhau (vd. 1984: Trung Quốc nhuận tháng 10,
+ * Việt Nam không nhuận), thậm chí tháng/ngày lệch một ngày ở ~4% số tháng.
+ */
+export function resolveEffectiveVietnameseLunarDate(
+  vn: VietnameseLunarDate,
+  policy: LunarMonthPolicy = 'prev-month',
+): EffectiveLunarDate {
+  if (policy !== 'split' && policy !== 'next-month' && policy !== 'prev-month' && policy !== 'origin-month') {
+    throw new RangeError(
+      `leapMonth policy must be one of 'split' | 'next-month' | 'prev-month' | 'origin-month'; received ${String(policy)}`,
+    );
+  }
+  const rawLunarMonth = vn.isLeapMonth ? -vn.lunarMonth : vn.lunarMonth;
+  const rawLunarDay = vn.lunarDay;
+
+  if (!vn.isLeapMonth) {
+    return {
+      lunarYear: vn.lunarYear,
+      lunarMonth: vn.lunarMonth,
+      lunarDay: vn.lunarDay,
+      isLeapMonth: false,
+      rawLunarMonth,
+      rawLunarDay,
+    };
+  }
+
+  let lunarYear = vn.lunarYear;
+  let lunarMonth = vn.lunarMonth;
+  let isLeapMonth = false;
+
+  if (policy === 'split') {
+    // Giống iztro: nửa đầu tháng nhuận tính theo tháng trước, nửa sau tính theo tháng sau.
+    if (rawLunarDay > 15) lunarMonth += 1;
+  } else if (policy === 'next-month') {
+    lunarMonth += 1;
+  } else if (policy === 'origin-month') {
+    isLeapMonth = true;
+  }
+
+  if (lunarMonth > 12) {
+    lunarMonth = 1;
+    lunarYear += 1;
+  }
+
+  // Ngày không tồn tại ở tháng đích (tháng 29 ngày) → kẹp về ngày cuối, như bản Trung Quốc.
+  let lunarDay = rawLunarDay;
+  const dayCount = lunarMonthDayCountVN(lunarYear, lunarMonth, isLeapMonth);
+  if (dayCount > 0 && lunarDay > dayCount) lunarDay = dayCount;
+
+  return { lunarYear, lunarMonth, lunarDay, isLeapMonth, rawLunarMonth, rawLunarDay };
+}
+
+/** Can chi của một năm âm: 4 CN = Giáp Tý. */
+export function lunarYearStemBranch(lunarYear: number): { stem: number; branch: number } {
+  const base = ((Math.trunc(lunarYear) - 4) % 60 + 60) % 60;
+  return { stem: base % 10, branch: base % 12 };
+}
+
 // ─── 农历信息（兼容保留）────────────────────────────────────────
 export function getLunarInfo(
   year: number,
@@ -209,17 +279,26 @@ export function getLunarInfo(
   day: number,
   hour?: number,
   policy: LunarMonthPolicy = 'prev-month',
+  zone: CalendarZone = 'cn',
 ): LunarInfo {
   const solar = Solar.fromYmd(year, month, day);
   const lunar = solar.getLunar();
-  const effective = resolveEffectiveLunarDate(year, month, day, policy);
   // lunar-javascript 没有 .d.ts，立春换年方法只在 runtime 上有，用 any 绕过
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const lu = lunar as any;
   // 紫微斗数排盘年（正月初一换年，与上方 astro.config:yearDivide='normal' 同口径）
   // 注意：节气四柱(下方)用 getEightChar() 精确到立春/节的时刻，八字四柱永远立春换年，跟紫微的"农历年"是两套
-  const yearStem = STEMS.indexOf(lu.getYearGan());
-  const yearBranch = BRANCHES.indexOf(lu.getYearZhi());
+  //
+  // ★ Việt Nam: năm/tháng/ngày âm lấy từ âm lịch Việt Nam (UTC+7), không lấy từ lunar-javascript (UTC+8).
+  //   Can chi năm tính thẳng từ năm âm Việt Nam — khác biệt thật: Tết 1985 Việt Nam là 21/1, Trung Quốc 20/2,
+  //   nên người sinh 1/2/1985 là năm Ất Sửu theo lịch Việt Nam nhưng vẫn còn năm Giáp Tý theo lịch Trung Quốc.
+  const vnEffective = zone === 'vn'
+    ? resolveEffectiveVietnameseLunarDate(solarToLunarVN(year, month, day), policy)
+    : null;
+  const effective = vnEffective ?? resolveEffectiveLunarDate(year, month, day, policy);
+  const vnYear = vnEffective ? lunarYearStemBranch(vnEffective.lunarYear) : null;
+  const yearStem = vnYear ? vnYear.stem : STEMS.indexOf(lu.getYearGan());
+  const yearBranch = vnYear ? vnYear.branch : BRANCHES.indexOf(lu.getYearZhi());
   // ★ 节气四柱（年柱/月柱/日柱/时柱）+ 非节气四柱（农历口径月柱）
   let fourPillars: [string, string, string, string] | undefined;
   let fourPillarsLunar: [string, string, string, string] | undefined;
@@ -473,12 +552,31 @@ export function generateChart(
   // 默认 = DEFAULT_LEAP_MONTH（2026-09-05 起 split：主流排盘默认口径「月中分界」，150 组金标准盘对照验证；倪师派归下月可经流派抽屉切 next-month）
   // 非 split 时先算农历，闰月才切 byLunar；非闰月仍走 bySolar，与 split 行为完全一致
   const leapMode = opts?.leapMonth ?? DEFAULT_LEAP_MONTH;
-  const effectiveLunar = resolveEffectiveLunarDate(year, month, day, leapMode);
+  const calendarZone = birthInfo.calendarZone ?? 'cn';
+  // ★ Việt Nam: tháng/ngày/năm âm lấy từ âm lịch Việt Nam; xem resolveEffectiveVietnameseLunarDate.
+  const vnLunar = calendarZone === 'vn'
+    ? resolveEffectiveVietnameseLunarDate(solarToLunarVN(year, month, day), leapMode)
+    : null;
+  const effectiveLunar = vnLunar ?? resolveEffectiveLunarDate(year, month, day, leapMode);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let astrolabe: any;
 
-  if (leapMode !== 'split' && effectiveLunar.rawLunarMonth < 0) {
+  if (vnLunar) {
+    // Âm lịch Việt Nam: luôn an lá số nền theo **mùng 1** của tháng âm Việt Nam.
+    //   · mùng 1 tồn tại ở cả hai lịch → tháng/năm luôn biểu diễn được trong engine;
+    //   · ~0,1% ngày âm Việt Nam (ngày 30 khi tháng Trung Quốc chỉ có 29 ngày) không tồn tại
+    //     trong lịch Trung Quốc, nên không thể truyền thẳng ngày đó vào engine;
+    //   · các sao phụ thuộc ngày được dời sang đúng ngày âm Việt Nam sau khi an xong (relocateLunarDayStars).
+    astrolabe = astro.byLunar(
+      `${vnLunar.lunarYear}-${vnLunar.lunarMonth}-1`,
+      hour,
+      iztroGender,
+      false,
+      false,
+      'zh-CN',
+    );
+  } else if (leapMode !== 'split' && effectiveLunar.rawLunarMonth < 0) {
       // 闰月生人 → 按用户选项切换月份归属
       const lunarDateStr = `${effectiveLunar.lunarYear}-${effectiveLunar.lunarMonth}-${effectiveLunar.lunarDay}`;
       astrolabe = astro.byLunar(
@@ -574,7 +672,11 @@ export function generateChart(
   });
 
   // ★ 天魁天钺对齐默认派(KY1)——用户决策 2026-05-30,实测仅辛年与现状不同(见上方函数注释)
-  const yearStemCn = (astrolabe.rawDates?.chineseDate?.yearly?.[0]) as string | undefined;
+  // ★ Việt Nam: can năm lấy từ năm âm Việt Nam (lá số nền luôn cùng năm âm nên giá trị trùng nhau,
+  //   nhưng lấy trực tiếp cho chắc — đừng phụ thuộc vào ngày đại diện).
+  const yearStemCn = vnLunar
+    ? STEMS[lunarYearStemBranch(vnLunar.lunarYear).stem]
+    : (astrolabe.rawDates?.chineseDate?.yearly?.[0]) as string | undefined;
   if (yearStemCn) applySchoolKuiyue(palaces, yearStemCn);
 
   // ── 当前年龄 & 大限 ──
@@ -582,12 +684,21 @@ export function generateChart(
   // 旧实现 `currentYear - year` 是年份差（少 1），导致大限边界年份错位 → 用户感觉
   // "大限没走对，似乎还在走上一个大限"。统一用 iztro 自身口径修复。
   let currentAge: number;
-  try {
-    const horo = (astrolabe as unknown as { horoscope: () => { age: { nominalAge: number } } }).horoscope();
-    currentAge = horo.age.nominalAge;
-  } catch {
-    // fallback：iztro 接口异常时回退到虚岁推导
-    currentAge = new Date().getFullYear() - year + 1;
+  if (vnLunar) {
+    // 虚岁 theo âm lịch Việt Nam: năm âm hiện tại − năm âm sinh + 1.
+    // Không dùng nominalAge của iztro vì nó đếm theo năm âm Trung Quốc — hai bên lệch nhau
+    // trong khoảng giữa Tết Việt Nam và Tết Trung Quốc (vd. 1985, 2030, 2053).
+    const today = new Date();
+    const todayVN = solarToLunarVN(today.getFullYear(), today.getMonth() + 1, today.getDate());
+    currentAge = todayVN.lunarYear - vnLunar.lunarYear + 1;
+  } else {
+    try {
+      const horo = (astrolabe as unknown as { horoscope: () => { age: { nominalAge: number } } }).horoscope();
+      currentAge = horo.age.nominalAge;
+    } catch {
+      // fallback：iztro 接口异常时回退到虚岁推导
+      currentAge = new Date().getFullYear() - year + 1;
+    }
   }
 
   palaces.forEach(p => {
@@ -595,6 +706,18 @@ export function generateChart(
       p.isCurrentDaXian = true;
     }
   });
+
+  // ── 关键宫支 ──
+  const mingGongBranch = BRANCHES.indexOf(astrolabe.earthlyBranchOfSoulPalace as string);
+  const shenGongBranch = BRANCHES.indexOf(astrolabe.earthlyBranchOfBodyPalace as string);
+  const wuxingJuName   = astrolabe.fiveElementsClass as string;
+  const wuxingJu       = parseWuxingJu(wuxingJuName);
+
+  // ★ Việt Nam: lá số nền an theo mùng 1 → dời các sao phụ thuộc ngày sang đúng ngày âm Việt Nam.
+  //   Phải chạy trước khối "借对宫" bên dưới, vì khối đó tính lại cung trống / sao mượn theo vị trí chính tinh.
+  if (vnLunar) {
+    relocateLunarDayStars(palaces, 1, vnLunar.lunarDay, wuxingJu, currentBrightSchool);
+  }
 
   // ── 借对宫结构化字段（codex P0：避免文案层从自然语言反查借宫信息）──
   palaces.forEach(p => {
@@ -610,12 +733,6 @@ export function generateChart(
       }
     }
   });
-
-  // ── 关键宫支 ──
-  const mingGongBranch = BRANCHES.indexOf(astrolabe.earthlyBranchOfSoulPalace as string);
-  const shenGongBranch = BRANCHES.indexOf(astrolabe.earthlyBranchOfBodyPalace as string);
-  const wuxingJuName   = astrolabe.fiveElementsClass as string;
-  const wuxingJu       = parseWuxingJu(wuxingJuName);
 
   // ── 紫微星位置 ──
   const ziweiPalace = palaces.find(p => p.stars.some(s => s.name === '紫微' && s.type === 'major'));
@@ -640,7 +757,7 @@ export function generateChart(
   );
 
   // ── 农历信息（含节气四柱）──
-  const lunarInfo = getLunarInfo(year, month, day, hour, leapMode);
+  const lunarInfo = getLunarInfo(year, month, day, hour, leapMode, calendarZone);
 
   // ★ 2026-08-14 金标准盘核对：截空/副截阴干对调 + 年支大耗 + 旬空成对副旬
   applySchoolJiekong(palaces, lunarInfo.yearStem);

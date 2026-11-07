@@ -37,6 +37,208 @@
       "subtitle": "AI 答疑 · 知行合一",
       "description": "输入出生年月日时，生成专属紫微斗数命盘 — 后续天纪、地纪、人纪学习模块陆续开放。",
       "cta": "立即起盘"
+    },
+    "philosophy": {
+      "eyebrow": "命 · 运 · 观",
+      "lines": [
+        "提前窥探命运的意义",
+        "不在于预知未来",
+        "而在于不断认识自己"
+      ],
+      "closing": "最终书写属于自己的人生剧本"
+    },
+    "curriculum": {
+      "eyebrow": "Curriculum",
+      "title": "倪师方法论 · 渐次展开",
+      "description": "从紫微入门，逐步开放天纪 / 地纪 / 人纪学习模块"
+    },
+    "sections": {
+      "ziwei": {
+        "name": "紫微",
+        "desc": "14 主星 · 13 宫位 · AI 解读",
+        "when": "5 月",
+        "note": ""
+      },
+      "tianji": {
+        "name": "天纪",
+        "desc": "紫微 · 周易 · 奇门遁甲",
+        "when": "6 月",
+        "note": ""
+      },
+      "diji": {
+        "name": "地纪",
+        "desc": "倪师未竟之业 · 后辈补注",
+        "when": "6 月",
+        "note": "遗稿研读"
+      },
+      "renji": {
+        "name": "人纪",
+        "desc": "内经 · 伤寒 · 金匮 · 针灸",
+        "when": "7 月",
+        "note": ""
+      }
+    },
+    "sectionLabels": {
+      "heading": "倪师方法论 · 学术体系",
+      "ready": "✓ 已上线",
+      "soon": "开放"
+    },
+    "features": {
+      "casting": {
+        "tag": "排盘体系",
+        "title": "倪海厦正宗\n紫微斗数",
+        "subtitle": "非简化版，严格遵循倪海厦老师传承",
+        "points": [
+          "纳音五行局起盘，不采用网络简化算法",
+          "命宫逆数生时、身宫顺数生时，严格对齐教学规则",
+          "十四主星与四化飞星按原法推演，结构完整可复核"
+        ]
+      },
+      "chartDisplay": {
+        "tag": "命盘呈现",
+        "title": "完整十四主星\n四化飞星",
+        "subtitle": "结构清晰，一眼看懂主轴与重点",
+        "points": [
+          "十四主星完整入宫，主星关系清楚可读",
+          "辅星与煞星同屏呈现，避免关键信息缺失",
+          "庙旺利陷亮度分级，快速识别强弱",
+          "点击任意主星即可查看倪海厦老师对该星的详细解读"
+        ]
+      },
+      "aiReading": {
+        "tag": "AI 解读",
+        "title": "深度解盘\n不止于算",
+        "subtitle": "倪海厦体系知识库 × Claude AI",
+        "points": [
+          "命格分析：从命宫主星出发，结合三方四正，给出全面的性格与人生格局判断",
+          "六大维度解读：事业方向、感情婚姻、财运模式、健康注意、家庭关系、子女缘分",
+          "大限流年追踪：当前10年大限重点、今年流年宫位的具体提示与行动建议",
+          "自由追问：针对你的命盘直接提问，「今年能换工作吗」「什么时候结婚运最好」"
+        ]
+      },
+      "patternDetection": {
+        "tag": "格局识别",
+        "title": "自动检测\n命盘格局",
+        "subtitle": "从星曜组合中发现你的命中注定",
+        "points": [
+          "自动识别11种经典格局：紫府同宫、杀破狼格、机月同梁、廉相格、武曲七杀等",
+          "辅弼夹命、日月夹命等特殊格局精准检测，并给出倪海厦体系下的标准解读",
+          "四化入命宫迁移宫的特殊状况自动标注，提示需关注的人生议题",
+          "格局按吉凶等级分层展示，让你一目了然自己命盘中的优势与挑战"
+        ]
+      }
+    },
+    "teachings": {
+      "mingPalace": {
+        "title": "命宫为本，三方为用",
+        "body": "倪师始终强调，看命必先看命宫。命宫主星决定一个人的基本格局与天生性格，三方（财帛、官禄、迁移）则决定此人的「用武之地」。四宫联动才是完整的人生图景。"
+      },
+      "oppositePalace": {
+        "title": "对宫借星，不可忽视",
+        "body": "倪师的独到之处在于重视「对宫」。任何宫位若为空宫，必须借对宫星曜来论断，命宫的对面是迁移宫，两者互相影响，这是很多初学者容易忽略的关键。"
+      },
+      "siHua": {
+        "title": "四化才是命运的手",
+        "body": "星曜只是基础，四化（化禄、化权、化科、化忌）才是决定运势好坏的关键。同一颗星，有化禄与有化忌，人生轨迹可以截然不同。倪师反复强调：不看四化，命盘只解了一半。"
+      },
+      "decadeCycle": {
+        "title": "大限十年，运势有节",
+        "body": "倪师将人生划分为12个大限，每个大限10年。他认为人在不同的大限宫位，际遇完全不同。了解自己现在走的是哪个大限、该宫位有何星曜，才能真正把握当下的运势。"
+      }
+    },
+    "exploreMore": "探索更多",
+    "finalCta": {
+      "eyebrow": "开始你的命盘之旅",
+      "titleLine1": "你的紫微命盘",
+      "titleLine2": "等你解读",
+      "descLine1": "输入出生年月日时，在几秒内生成你的专属命盘",
+      "descLine2": "再由 AI 按倪海厦体系为你深度解读",
+      "cta": "免费起盘",
+      "knowledge": "✦ 紫微斗数知识库 →",
+      "classics": "📜 古籍原典库 →"
+    },
+    "threeRealms": {
+      "title": "天 · 地 · 人",
+      "introLine1": "倪海厦老师的核心命运观：命运从来不是人生的全部。",
+      "introLine2": "他将影响人生的力量分为三个同等重要的维度。",
+      "cards": {
+        "heaven": {
+          "label": "先天命运",
+          "sub": "命盘 · 星曜 · 五行",
+          "desc": "紫微斗数所揭示的，是一个人的先天命盘格局——出生时间决定的星曜布局、五行局数、命宫主星。这只是命运的三分之一，是人生的底色，而非全貌。"
+        },
+        "earth": {
+          "label": "地理环境",
+          "sub": "地域 · 风水 · 环境",
+          "desc": "你所在的地理环境、城市、国家、风水格局，乃至家庭背景与社会结构，共同构成了命运的第二个维度。同一命盘，生在不同地方，际遇可以天壤之别。"
+        },
+        "human": {
+          "label": "人心意念",
+          "sub": "意志 · 选择 · 行动",
+          "desc": "个人的意志、心态、选择与行动，才是改变命运最主动的力量。倪师强调：了解命盘是为了更好地做人，而不是坐等命运安排。精进自己，是最强的破局之道。"
+        }
+      },
+      "quote": "「命运不是人生的全部，加上地理位置和人念，才是。」",
+      "attribution": "— 倪海厦"
+    },
+    "master": {
+      "heading": "倪海厦老师",
+      "tagline1": "当代华人圈最具影响力的中医与术数大家之一",
+      "tagline2": "美国汉唐中医学院创办人 ·「人纪」「天纪」两大教学体系传世",
+      "facts": {
+        "birth": {
+          "label": "生于",
+          "value": "1954年",
+          "sub": "台湾"
+        },
+        "passing": {
+          "label": "离世",
+          "value": "2012年",
+          "sub": "1月31日 · 享年58"
+        },
+        "lineage": {
+          "label": "传承",
+          "value": "紫微斗数",
+          "sub": "经方中医 · 易经"
+        }
+      },
+      "bio": {
+        "source": {
+          "label": "生平履历：",
+          "body": "倪海厦先生（1954–2012）出生于台湾，早年师承多位中医名家，专研经方派（《伤寒论》传承）。中年赴美行医，在美国创立**汉唐中医学院**，二十余年间系统传授中医与传统术数。2012 年 1 月 31 日因肝癌在台湾离世，享年 58 岁。"
+        },
+        "teaching": {
+          "label": "教学体系：",
+          "body": "倪师将毕生所学整理为两大公开教学系列。**「人纪」**涵盖《针灸大成》《神农本草经》《黄帝内经》《伤寒论》《金匮要略》——这是「人之纪」，奠定中医学习的完整路径；**「天纪」**涵盖紫微斗数与《易经》——这是「天之纪」，是术数研究的体系化成果。两者相合，是倪师留给后世最完整的传承。"
+        },
+        "stance": {
+          "label": "紫微立场：",
+          "body": "倪师在紫微斗数上明确属**南派三合派**，主张「以命宫为本、以三方四正为用、以四化为纲」。他在《天纪》课程中明言：「_飞星（四化）飞来飞去太复杂，不搞这个，毕竟大道至简_」——这一立场将其与繁琐的飞星派清晰区分。"
+        },
+        "scholarship": {
+          "label": "治学态度：",
+          "body": "倪师反对死记硬背口诀，强调「理解原理胜过背诵」「逻辑可复核胜过神秘玄学」。这种态度让紫微斗数从师徒密传的封闭体系，走向系统化、可验证、可学习的现代知识体系。"
+        },
+        "influence": {
+          "label": "当代影响：",
+          "body": "倪师的讲课视频在 B 站、YouTube 与各大平台广泛流传，是新一代命理与中医爱好者公认的入门必修。他不仅是紫微斗数的传承者，更是把传统命理与中医带入现代知识体系的关键人物之一。"
+        },
+        "disclaimer": {
+          "body": "本平台所有解读基于倪师《天纪》公开教学讲义、《紫微斗数全书》明版、传统三合派古籍整理而成，仅作文化与个人成长参考。倪师本人与本平台无任何商业关联。"
+        }
+      }
+    },
+    "hemingCta": {
+      "title": "紫微合盘",
+      "descLine1": "输入两个人的出生信息，AI 基于倪海厦体系分析夫妻宫互参、命宫兼容性与三方四正交互，",
+      "descLine2": "给出感情匹配度、合伙可行性与最佳相处建议。",
+      "tags": [
+        "感情匹配度分析",
+        "合伙创业评估",
+        "亲子缘分解读",
+        "婚前相性评估"
+      ],
+      "cta": "开始合盘分析"
     }
   },
   "chart": {
@@ -60,7 +262,140 @@
     "annual": "流年",
     "palace": "宫位",
     "majorStars": "主星",
-    "minorStars": "辅星"
+    "minorStars": "辅星",
+    "boardTitle": "紫微斗数命盘",
+    "boardCenter": "紫微斗数",
+    "currentDaXian": "当前大限",
+    "decadeWithAges": "大限 {start}–{end}",
+    "ageRange": "{start}–{end}岁",
+    "leapMonth": "闰",
+    "emptyPalace": "空宫",
+    "badges": {
+      "ming": "命",
+      "shen": "身",
+      "decade": "限",
+      "annual": "年"
+    },
+    "legend": {
+      "sanFang": "点击宫位看三方四正"
+    },
+    "overlay": {
+      "daxian": "大限·{stem}年四化：",
+      "annual": "{year}·{stem}年四化："
+    },
+    "topics": {
+      "overview": "命格",
+      "love": "感情",
+      "career": "事业",
+      "wealth": "财运",
+      "health": "健康",
+      "personality": "性格"
+    },
+    "generating": "命格解读生成中…",
+    "reading": "命理解读",
+    "followUpPlaceholder": "继续追问，如：今年适合换工作吗？",
+    "followUp": "追问",
+    "demo": {
+      "description": "输入出生年月日时，开源排盘引擎即时生成命盘。",
+      "note": "（本页为引擎 Demo，完整商业版界面不在开源范围；排盘内核完全开放。）"
+    },
+    "errors": {
+      "apiMissing": "开源版不含 AI 解读接口（/api/interpret），需要你自己实现后才能用，详见 README「快速开始」。排盘本身不需要任何 API Key。",
+      "failed": "解读失败，请稍后重试。"
+    }
+  },
+  "form": {
+    "title": "── 输入生辰八字 ──",
+    "nameLabel": "姓名（可选）",
+    "namePlaceholder": "请输入姓名",
+    "birthDateLabel": "出生日期（公历）",
+    "yearPlaceholder": "年份",
+    "monthPlaceholder": "月份",
+    "dayPlaceholder": "日期",
+    "optionMonth": "{n} 月",
+    "optionDay": "{n} 日",
+    "birthPlaceLabel": "出生地点（用于真太阳时校正）",
+    "placeGroup": {
+      "vn": "越南",
+      "cn": "中国"
+    },
+    "provincePlaceholder": "省份 / 直辖市",
+    "cityPlaceholder": "城市",
+    "selectProvinceFirst": "先选省份",
+    "selectCity": "（请选择城市）",
+    "trueSolarHint": "* 倪海厦批命用真太阳时，建议填写出生地以自动校正时辰",
+    "longitude": "经度",
+    "timeOffset": "时差",
+    "minutes": "分钟",
+    "birthTimeLabel": "出生时间（出生地钟表时间）",
+    "hourSuffix": "时",
+    "minuteSuffix": "分",
+    "trueSolarResult": "真太阳时 →",
+    "unknownTimeLabel": "不知道出生时间，以子时（23:00–01:00）起盘",
+    "genderLabel": "性别",
+    "male": "♂ 男",
+    "female": "♀ 女",
+    "unknownShichen": "时辰不详",
+    "shichen": {
+      "zi": "子时",
+      "chou": "丑时",
+      "yin": "寅时",
+      "mao": "卯时",
+      "chen": "辰时",
+      "si": "巳时",
+      "wu": "午时",
+      "wei": "未时",
+      "shen": "申时",
+      "you": "酉时",
+      "xu": "戌时",
+      "hai": "亥时"
+    },
+    "summary": {
+      "date": "{y}年{m}月{d}日"
+    },
+    "errors": {
+      "yearRequired": "请选择出生年份",
+      "yearRange": "年份范围：1900–2026",
+      "monthRequired": "请选择月份",
+      "dayRequired": "请选择日期",
+      "dayInvalid": "{m}月没有{d}日"
+    },
+    "submitting": "紫微起盘中…",
+    "submit": "立即起盘 · 解命运密码",
+    "calendarZone": {
+      "vn": "越南农历 · UTC+7",
+      "cn": "中国农历 · UTC+8"
+    }
+  },
+  "heming": {
+    "back": "返回",
+    "headerTitle": "合盘分析",
+    "headerTags": "感情 · 合伙 · 亲子 · 朋友",
+    "title": "紫微合盘",
+    "description": "输入两个人的出生信息，AI 基于倪海厦体系分析双方命盘的缘分匹配度、感情走向与相处建议",
+    "partyA": "甲方 — A",
+    "partyB": "乙方 — B",
+    "panelTitle": "合盘分析 · HEMING",
+    "emptyLine1": "填好双方出生信息后，点击下方按钮",
+    "emptyLine2": "AI 将基于倪海厦体系深度分析两人缘分匹配度",
+    "start": "开始合盘分析",
+    "comparing": "正在对比双方命盘…",
+    "errors": {
+      "formIncomplete": "请先填写双方完整出生信息",
+      "apiMissing": "开源版不含合盘 AI 分析接口（/api/heming），需要你自己实现后才能用。两人的命盘可以分别到「排盘」页（/chart）查看。",
+      "unavailable": "分析暂时不可用，请重试。"
+    },
+    "followUpTitle": "针对此次合盘继续追问",
+    "quickQuestions": [
+      "感情匹配度如何？",
+      "适合合伙创业吗？",
+      "两人结婚是否合适？",
+      "哪方面最容易产生矛盾？",
+      "财运是否互补？"
+    ],
+    "inputPlaceholder": "继续追问，如：哪几年是两人感情关键期？",
+    "submit": "继续追问",
+    "submitting": "分析中…"
   },
   "disclaimer": {
     "title": "说明",
@@ -77,5 +412,253 @@
     "huaJi": "化忌",
     "daXian": "大限",
     "liuNian": "流年"
+  },
+  "knowledge": {
+    "topbar": "倪师方法论 · 知识库",
+    "classicsLink": "古籍 →",
+    "startChart": "起盘 →",
+    "home": "首页",
+    "breadcrumb": "知识库",
+    "title": "紫微斗数知识库",
+    "stats": "14 主星 × 13 宫位 = {count} 项专题",
+    "source": "基于倪海厦《天纪》体系编纂 · 含古籍引证",
+    "starsHeading": "十四主星",
+    "starSuffix": "星",
+    "starNames": {
+      "ziwei": "紫微",
+      "tianji": "天机",
+      "taiyang": "太阳",
+      "wuqu": "武曲",
+      "tiantong": "天同",
+      "lianzhen": "廉贞",
+      "tianfu": "天府",
+      "taiyin": "太阴",
+      "tanlang": "贪狼",
+      "jumen": "巨门",
+      "tianxiang": "天相",
+      "tianliang": "天梁",
+      "qisha": "七杀",
+      "pojun": "破军"
+    },
+    "cardTag": "ZI WEI · 14 STARS",
+    "entry": "入{palace}宫 · {topic}",
+    "enterPalace": "{star}入{palace}宫",
+    "palaceChip": "{palace}宫",
+    "detailEyebrow": "{topic} · 倪海厦体系详解",
+    "sections": {
+      "dingdiao": "一句话定调",
+      "lundian": "核心论断",
+      "yiju": "命盘依据",
+      "chuchu": "经典出处"
+    },
+    "ctaTitle": "想看你自己命盘的{topic}？",
+    "ctaSubtitle": "输入生辰起盘 · 倪师正宗解读 · AI 答疑伴学",
+    "ctaButton": "立即起盘 →",
+    "otherPalaces": "{star}星的其他宫位解读",
+    "otherStars": "其他主星入{palace}宫的解读",
+    "classicsTitle": "想读原典？",
+    "classicsCta": "📜 查阅古籍原典库 — 紫微斗数全集 / 全书 / 骨髓赋 →",
+    "footerLine1": "紫微研究 · 基于倪海厦正宗体系 · 仅供学习参考",
+    "footerLine2": "本平台不构成任何医疗、投资、法律或重大决策建议",
+    "topics": {
+      "overview": "命格总览",
+      "personality": "性格特质",
+      "love": "感情婚姻",
+      "career": "事业职业",
+      "wealth": "财富运势",
+      "health": "健康状况",
+      "family": "兄弟合伙",
+      "children": "子女缘分",
+      "move": "迁移外出",
+      "friends": "人际贵人",
+      "home": "田宅不动产",
+      "spirit": "精神福德",
+      "parents": "父母长辈"
+    },
+    "palaces": {
+      "overview": "命",
+      "personality": "命",
+      "love": "夫妻",
+      "career": "官禄",
+      "wealth": "财帛",
+      "health": "疾厄",
+      "family": "兄弟",
+      "children": "子女",
+      "move": "迁移",
+      "friends": "仆役",
+      "home": "田宅",
+      "spirit": "福德",
+      "parents": "父母"
+    },
+    "starBriefs": {
+      "ziwei": "紫微为帝星，主尊贵，化气为尊。落命主有领导气场、宜大平台高位。",
+      "tianji": "天机为智慧星，主善变机灵，化气为善。落命主聪明机变、宜辅佐策划。",
+      "taiyang": "太阳为男贵星，主名誉公务，化气为贵。落命主光明磊落、宜公职名声。",
+      "wuqu": "武曲为财星，主刚毅果决，化气为财。落命主理财能力强、宜实业金融。",
+      "tiantong": "天同为福星，主温和享乐，化气为福。落命主性情温和、有福气。",
+      "lianzhen": "廉贞为次桃花星，文武兼备，化气为囚。落命主多才多艺、感情丰富。",
+      "tianfu": "天府为南帝守财星，主稳重保守，化气为令。落命主品行端正、善守财库。",
+      "taiyin": "太阴为月亮富贵星，主田宅富贵，化气为富。落命主感情细腻、女命最吉。",
+      "tanlang": "贪狼为桃花欲望星，多才多社交，化气为桃花。落命主多才艺、社交广。",
+      "jumen": "巨门为是非口才星，主辩论传媒，化气为暗。落命主口才好、宜律师教师。",
+      "tianxiang": "天相为印星辅佐，主忠厚老实，化气为印。落命主品行端正、宜行政法务。",
+      "tianliang": "天梁为老人星荫星，善逢凶化吉，化气为荫。落命主慈悲善良、宜法律医学。",
+      "qisha": "七杀为将星，主孤独果决冒险，化气为肃杀。落命主刚毅果决、宜军警创业。",
+      "pojun": "破军为破坏创新星，主六亲缘薄，化气为耗。落命主开创变动、宜技术专长。"
+    }
+  },
+  "library": {
+    "topbar": "古籍原典库 · CLASSICS",
+    "backHome": "← 返回首页",
+    "startChart": "起盘 →",
+    "eyebrow": "NI HAI XIA · CURRICULUM",
+    "title": "倪师方法论 · 古籍原典库",
+    "descriptionLine1": "紫微斗数权威古籍全文检索",
+    "descriptionLine2": "收录 {books} 部古籍 · 共 {paragraphs} 段精华",
+    "chaptersCount": "{n} 章节",
+    "paragraphsCount": "{n} 段精华",
+    "enter": "进入查阅 →",
+    "aboutTitle": "关于本库",
+    "aboutLine1": "所收录古籍均为公版（明代刊本）。",
+    "aboutLine2": "内容持续完善，未来将补全《紫微斗数全集》全本与倪海厦《天纪》引证目录。",
+    "aboutLine3": "如发现任何错误请联系我们。",
+    "searchPlaceholder": "搜索古籍原文，如：七杀朝斗 / 双禄朝垣 / 化忌",
+    "searchButton": "搜索",
+    "bookBack": "← 古籍库",
+    "bookHome": "首页 →",
+    "chaptersHeading": "CHAPTERS · 章节目录",
+    "chapterCount": "{n} 段",
+    "chapterBack": "← 《{book}》目录",
+    "libraryLink": "古籍库 →",
+    "prevChapter": "← 上一章",
+    "nextChapter": "下一章 →",
+    "translationLabel": "白话",
+    "niNoteLabel": "倪师注",
+    "originalNote": "全文保留明代刊本汉文原文；白话与注解后续补充。",
+    "searchTopbar": "搜索结果",
+    "searchKeyword": "搜索关键词",
+    "searchEmptyQuery": "（空）",
+    "searchFound": "共找到 {n} 条古籍原文匹配",
+    "searchNoResult": "暂未在已收录古籍中找到这个关键词",
+    "searchNoResultHint": "我们持续补充内容中。可尝试搜索：",
+    "searchSuggestions": "七杀朝斗 / 双禄朝垣 / 化忌 / 紫微 / 命宫 / 机月同梁",
+    "searchEnterQuery": "请输入要搜索的关键词",
+    "books": {
+      "gusuifu": {
+        "title": "骨髓赋",
+        "dynasty": "明代",
+        "author": "紫微斗数古籍传承（无确切作者）",
+        "intro": "紫微斗数最浓缩的核心口诀，全文约 1500 字。倪海厦《天纪》中多次援引此赋，是紫微学者必读经典。",
+        "chapters": {
+          "0": {
+            "title": "总论篇",
+            "subtitle": "紫微斗数的基本立论"
+          },
+          "1": {
+            "title": "紫微星论",
+            "subtitle": "帝座之尊，得辅则贵"
+          },
+          "2": {
+            "title": "七杀星论",
+            "subtitle": "将星孤独，宜武职"
+          },
+          "3": {
+            "title": "杀破狼格",
+            "subtitle": "开创闯荡，变动之命"
+          },
+          "4": {
+            "title": "机月同梁",
+            "subtitle": "稳定累积，宜公职"
+          },
+          "5": {
+            "title": "四化星论",
+            "subtitle": "化禄化权化科化忌之吉凶"
+          },
+          "6": {
+            "title": "辅弼魁钺论",
+            "subtitle": "六吉星之贵"
+          },
+          "7": {
+            "title": "六煞星论",
+            "subtitle": "羊陀火铃空劫之凶"
+          },
+          "8": {
+            "title": "十二宫论",
+            "subtitle": "各宫主象与吉凶"
+          }
+        }
+      },
+      "quanji": {
+        "title": "紫微斗数全集",
+        "dynasty": "明代",
+        "author": "相传陈抟祖师传",
+        "intro": "紫微斗数最权威的古籍之一，相传由宋代陈抟祖师传授。倪海厦《天纪》体系的核心引证来源。",
+        "chapters": {
+          "0": {
+            "title": "卷一·总论",
+            "subtitle": "紫微斗数的基本立法"
+          },
+          "1": {
+            "title": "卷二·紫微星论",
+            "subtitle": "帝座之尊"
+          },
+          "2": {
+            "title": "卷三·南斗六星论",
+            "subtitle": "天府、太阴、贪狼、巨门、天相、天梁"
+          },
+          "3": {
+            "title": "卷四·北斗六星论",
+            "subtitle": "紫微、天机、太阳、武曲、廉贞、破军"
+          },
+          "4": {
+            "title": "卷五·四化与格局论",
+            "subtitle": "四化之力与重要格局"
+          }
+        }
+      },
+      "quanshu": {
+        "title": "紫微斗数全书",
+        "dynasty": "明代",
+        "author": "罗洪先 编",
+        "intro": "紫微斗数最系统的古籍，强调十二宫与四化的关系。是清代以降紫微学者的主要教材。",
+        "chapters": {
+          "0": {
+            "title": "十二宫论·命宫",
+            "subtitle": "看命之根本"
+          },
+          "1": {
+            "title": "十二宫论·财帛宫",
+            "subtitle": "财源所在"
+          },
+          "2": {
+            "title": "十二宫论·官禄宫",
+            "subtitle": "事业之根"
+          },
+          "3": {
+            "title": "十二宫论·夫妻宫",
+            "subtitle": "配偶气场"
+          },
+          "4": {
+            "title": "四化论",
+            "subtitle": "化禄化权化科化忌"
+          },
+          "5": {
+            "title": "机月同梁格",
+            "subtitle": "稳定累积之命"
+          },
+          "6": {
+            "title": "双禄朝垣格",
+            "subtitle": "富比陶朱"
+          }
+        }
+      }
+    }
+  },
+  "legal": {
+    "backHome": "返回首页",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "footerTerms": "服务条款",
+    "footerPrivacy": "隐私政策"
   }
 }

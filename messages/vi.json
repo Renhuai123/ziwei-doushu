@@ -37,6 +37,208 @@
       "subtitle": "AI giải đáp · Tri hành hợp nhất",
       "description": "Nhập ngày giờ sinh để tạo lá số Tử Vi Đẩu Số riêng của bạn — các học phần Thiên Kỷ, Địa Kỷ, Nhân Kỷ sẽ lần lượt mở.",
       "cta": "Lập lá số ngay"
+    },
+    "philosophy": {
+      "eyebrow": "Mệnh · Vận · Quan",
+      "lines": [
+        "Ý nghĩa của việc hé nhìn vận mệnh từ sớm",
+        "Không nằm ở việc biết trước tương lai",
+        "Mà ở việc không ngừng hiểu chính mình"
+      ],
+      "closing": "Để cuối cùng tự viết nên kịch bản cuộc đời mình"
+    },
+    "curriculum": {
+      "eyebrow": "Lộ trình học",
+      "title": "Phương pháp luận của Nghê sư · Mở dần từng bước",
+      "description": "Bắt đầu từ Tử Vi, lần lượt mở các học phần Thiên Kỷ / Địa Kỷ / Nhân Kỷ"
+    },
+    "sections": {
+      "ziwei": {
+        "name": "Tử Vi",
+        "desc": "14 chính tinh · 13 cung · AI luận giải",
+        "when": "Tháng 5",
+        "note": ""
+      },
+      "tianji": {
+        "name": "Thiên Kỷ",
+        "desc": "Tử Vi · Chu Dịch · Kỳ Môn Độn Giáp",
+        "when": "Tháng 6",
+        "note": ""
+      },
+      "diji": {
+        "name": "Địa Kỷ",
+        "desc": "Sự nghiệp dang dở của Nghê sư · Hậu bối bổ chú",
+        "when": "Tháng 6",
+        "note": "Nghiên cứu di cảo"
+      },
+      "renji": {
+        "name": "Nhân Kỷ",
+        "desc": "Nội Kinh · Thương Hàn · Kim Quỹ · Châm Cứu",
+        "when": "Tháng 7",
+        "note": ""
+      }
+    },
+    "sectionLabels": {
+      "heading": "Phương pháp luận Nghê sư · Hệ thống học thuật",
+      "ready": "✓ Đã mở",
+      "soon": "Sắp mở"
+    },
+    "features": {
+      "casting": {
+        "tag": "Hệ thống lập lá số",
+        "title": "Tử Vi Đẩu Số\nchính tông Nghê Hải Hạ",
+        "subtitle": "Không phải bản rút gọn, tuân thủ nghiêm ngặt truyền thừa của thầy Nghê Hải Hạ",
+        "points": [
+          "Khởi lá số theo Nạp Âm Ngũ Hành Cục, không dùng thuật toán rút gọn trên mạng",
+          "Mệnh cung đếm nghịch theo giờ sinh, Thân cung đếm thuận theo giờ sinh, bám sát quy tắc giảng dạy",
+          "Mười bốn chính tinh và Tứ Hóa phi tinh được suy diễn theo nguyên pháp, cấu trúc đầy đủ có thể đối chiếu"
+        ]
+      },
+      "chartDisplay": {
+        "tag": "Trình bày lá số",
+        "title": "Đủ mười bốn chính tinh\nTứ Hóa phi tinh",
+        "subtitle": "Cấu trúc rõ ràng, nhìn là hiểu ngay trục chính và điểm then chốt",
+        "points": [
+          "Mười bốn chính tinh nhập cung đầy đủ, quan hệ giữa các chính tinh rõ ràng dễ đọc",
+          "Phụ tinh và sát tinh hiển thị cùng một màn hình, không bỏ sót thông tin then chốt",
+          "Phân cấp độ sáng Miếu – Vượng – Lợi – Hãm, nhận diện mạnh yếu nhanh chóng",
+          "Chạm vào bất kỳ chính tinh nào để xem luận giải chi tiết của thầy Nghê Hải Hạ về sao đó"
+        ]
+      },
+      "aiReading": {
+        "tag": "AI luận giải",
+        "title": "Luận giải sâu\nkhông chỉ là tính toán",
+        "subtitle": "Kho tri thức hệ Nghê Hải Hạ × Claude AI",
+        "points": [
+          "Phân tích mệnh cách: bắt đầu từ chính tinh tại Mệnh cung, kết hợp tam phương tứ chính, đưa ra nhận định toàn diện về tính cách và cục diện cuộc đời",
+          "Luận giải sáu chiều: hướng sự nghiệp, tình cảm hôn nhân, mô thức tài vận, lưu ý sức khỏe, quan hệ gia đình, duyên con cái",
+          "Theo dõi đại hạn lưu niên: trọng điểm của đại hạn 10 năm hiện tại, gợi ý hành động cụ thể cho cung lưu niên năm nay",
+          "Hỏi tự do: đặt câu hỏi trực tiếp về lá số của bạn — “Năm nay có đổi việc được không?”, “Khi nào vận kết hôn tốt nhất?”"
+        ]
+      },
+      "patternDetection": {
+        "tag": "Nhận diện cách cục",
+        "title": "Tự động phát hiện\ncách cục lá số",
+        "subtitle": "Khám phá định mệnh của bạn từ tổ hợp tinh tú",
+        "points": [
+          "Tự động nhận diện 11 cách cục kinh điển: Tử Phủ đồng cung, Sát Phá Lang, Cơ Nguyệt Đồng Lương, Liêm Tướng, Vũ Khúc Thất Sát…",
+          "Nhận diện chính xác các cách cục đặc biệt như Phụ Bật giáp Mệnh, Nhật Nguyệt giáp Mệnh, kèm luận giải chuẩn theo hệ Nghê Hải Hạ",
+          "Tự động đánh dấu các trường hợp đặc biệt khi Tứ Hóa nhập Mệnh cung hay Thiên Di cung, gợi ý những chủ đề cuộc đời cần quan tâm",
+          "Cách cục được hiển thị theo tầng cát hung, giúp bạn thấy ngay thế mạnh và thử thách trong lá số của mình"
+        ]
+      }
+    },
+    "teachings": {
+      "mingPalace": {
+        "title": "Mệnh cung làm gốc, tam phương làm dụng",
+        "body": "Thầy Nghê luôn nhấn mạnh: xem mệnh ắt phải xem Mệnh cung trước. Chính tinh tại Mệnh cung quyết định cục diện cơ bản và tính cách bẩm sinh của một người; tam phương (Tài Bạch, Quan Lộc, Thiên Di) quyết định “đất dụng võ” của người đó. Bốn cung liên động mới là bức tranh trọn vẹn của cuộc đời."
+      },
+      "oppositePalace": {
+        "title": "Mượn sao đối cung, không thể xem nhẹ",
+        "body": "Nét độc đáo của thầy Nghê là coi trọng “đối cung”. Bất kỳ cung nào rơi vào vô chính diệu đều phải mượn tinh tú ở đối cung để luận đoán; đối diện Mệnh cung là Thiên Di cung, hai bên ảnh hưởng lẫn nhau — đây là điểm then chốt mà nhiều người mới học thường bỏ qua."
+      },
+      "siHua": {
+        "title": "Tứ Hóa mới là bàn tay của vận mệnh",
+        "body": "Tinh tú chỉ là nền tảng; Tứ Hóa (Hóa Lộc, Hóa Quyền, Hóa Khoa, Hóa Kỵ) mới là then chốt quyết định vận thế tốt xấu. Cùng một ngôi sao, gặp Hóa Lộc hay gặp Hóa Kỵ, quỹ đạo cuộc đời có thể khác hẳn. Thầy Nghê nhắc đi nhắc lại: không xem Tứ Hóa thì lá số mới chỉ được giải một nửa."
+      },
+      "decadeCycle": {
+        "title": "Đại hạn mười năm, vận thế có tiết nhịp",
+        "body": "Thầy Nghê chia đời người thành 12 đại hạn, mỗi đại hạn 10 năm. Ông cho rằng ở mỗi cung đại hạn khác nhau, cơ duyên của con người hoàn toàn khác. Biết mình đang đi đại hạn nào, cung đó có tinh tú gì, mới thực sự nắm được vận thế hiện tại."
+      }
+    },
+    "exploreMore": "Khám phá thêm",
+    "finalCta": {
+      "eyebrow": "Bắt đầu hành trình lá số của bạn",
+      "titleLine1": "Lá số Tử Vi của bạn",
+      "titleLine2": "đang chờ được luận giải",
+      "descLine1": "Nhập ngày giờ sinh, chỉ vài giây là có lá số riêng của bạn",
+      "descLine2": "rồi để AI luận giải sâu theo hệ Nghê Hải Hạ",
+      "cta": "Lập lá số miễn phí",
+      "knowledge": "✦ Kho kiến thức Tử Vi Đẩu Số →",
+      "classics": "📜 Kho cổ tịch nguyên điển →"
+    },
+    "threeRealms": {
+      "title": "Thiên · Địa · Nhân",
+      "introLine1": "Quan niệm cốt lõi của thầy Nghê Hải Hạ về vận mệnh: vận mệnh không bao giờ là tất cả của cuộc đời.",
+      "introLine2": "Ông chia những lực lượng ảnh hưởng đến cuộc đời thành ba chiều kích quan trọng ngang nhau.",
+      "cards": {
+        "heaven": {
+          "label": "Vận mệnh bẩm sinh",
+          "sub": "Mệnh bàn · Tinh tú · Ngũ hành",
+          "desc": "Điều Tử Vi Đẩu Số hé lộ là cách cục mệnh bàn bẩm sinh của một người — bố cục tinh tú, ngũ hành cục số và chủ tinh cung Mệnh do thời điểm sinh quyết định. Đây chỉ là một phần ba của vận mệnh, là nền màu của cuộc đời chứ không phải toàn cảnh."
+        },
+        "earth": {
+          "label": "Môi trường địa lý",
+          "sub": "Địa vực · Phong thủy · Môi trường",
+          "desc": "Môi trường địa lý nơi bạn sống, thành phố, quốc gia, phong thủy, cho đến nền tảng gia đình và cấu trúc xã hội — tất cả cùng tạo nên chiều kích thứ hai của vận mệnh. Cùng một mệnh bàn, sinh ở những nơi khác nhau, cơ duyên có thể khác biệt một trời một vực."
+        },
+        "human": {
+          "label": "Nhân tâm ý niệm",
+          "sub": "Ý chí · Lựa chọn · Hành động",
+          "desc": "Ý chí, tâm thái, lựa chọn và hành động của cá nhân mới là sức mạnh chủ động nhất để thay đổi vận mệnh. Thầy Nghê nhấn mạnh: hiểu rõ mệnh bàn là để làm người tốt hơn, chứ không phải ngồi chờ vận mệnh an bài. Tu dưỡng bản thân chính là cách tốt nhất để phá giải nghịch cảnh."
+        }
+      },
+      "quote": "「Vận mệnh không phải là tất cả của cuộc đời, cộng thêm vị trí địa lý và nhân niệm, mới tạo nên trọn vẹn.」",
+      "attribution": "— Nghê Hải Hạ"
+    },
+    "master": {
+      "heading": "Thầy Nghê Hải Hạ",
+      "tagline1": "Một trong những đại sư Đông Y và Thuật số có tầm ảnh hưởng lớn nhất trong cộng đồng người Hoa đương đại",
+      "tagline2": "Người sáng lập Học viện Đông Y Hán Đường tại Mỹ · Để lại hai hệ thống giảng dạy lớn là “Nhân Kỷ” và “Thiên Kỷ”",
+      "facts": {
+        "birth": {
+          "label": "Sinh năm",
+          "value": "Năm 1954",
+          "sub": "Đài Loan"
+        },
+        "passing": {
+          "label": "Mất năm",
+          "value": "Năm 2012",
+          "sub": "Ngày 31 tháng 1 · Hưởng thọ 58 tuổi"
+        },
+        "lineage": {
+          "label": "Kế thừa",
+          "value": "Tử Vi Đẩu Số",
+          "sub": "Kinh phương Đông y · Dịch Kinh"
+        }
+      },
+      "bio": {
+        "source": {
+          "label": "Tiểu sử: ",
+          "body": "Tiên sinh Nghê Hải Hạ (1954–2012) sinh tại Đài Loan, thuở nhỏ bái sư nhiều danh y, chuyên tâm nghiên cứu phái Kinh phương (kế thừa “Thương Hàn Luận”). Tuổi trung niên, ông sang Mỹ hành nghề y, sáng lập **Học viện Đông Y Hán Đường**, hơn hai mươi năm truyền dạy bài bản Đông y và thuật số truyền thống. Ngày 31 tháng 1 năm 2012, ông qua đời tại Đài Loan do ung thư gan, hưởng thọ 58 tuổi."
+        },
+        "teaching": {
+          "label": "Hệ thống giảng dạy: ",
+          "body": "Thầy Nghê đã tổng hợp học thuật cả đời thành hai hệ thống giảng dạy công khai. **“Nhân Kỷ”** bao gồm 《Châm Cứu Đại Thành》《Thần Nông Bản Thảo Kinh》《Hoàng Đế Nội Kinh》《Thương Hàn Luận》《Kim Quỹ Yếu Lược》 — đây là “Kỷ của Người”, đặt nền móng cho lộ trình học Đông y trọn vẹn; **“Thiên Kỷ”** bao gồm Tử Vi Đẩu Số và 《Dịch Kinh》 — đây là “Kỷ của Trời”, là thành quả hệ thống hóa của nghiên cứu thuật số. Hai hệ thống kết hợp lại chính là di sản hoàn chỉnh nhất mà thầy Nghê để lại cho hậu thế."
+        },
+        "stance": {
+          "label": "Lập trường Tử Vi: ",
+          "body": "Trong Tử Vi Đẩu Số, thầy Nghê rõ ràng thuộc **Nam phái Tam hợp**, chủ trương “lấy Mệnh cung làm gốc, lấy tam phương tứ chính làm dụng, lấy Tứ Hóa làm cương lĩnh”. Trong khóa 《Thiên Kỷ》, ông nói rõ: “_Phi tinh (Tứ Hóa) bay tới bay lui quá phức tạp, không làm cái đó, rốt cuộc đại đạo chí giản_” — lập trường này phân biệt ông rõ ràng với phái Phi tinh rườm rà."
+        },
+        "scholarship": {
+          "label": "Thái độ học thuật: ",
+          "body": "Thầy Nghê phản đối lối học thuộc lòng khẩu quyết, nhấn mạnh “hiểu nguyên lý hơn học vẹt”, “logic có thể kiểm chứng hơn huyền học bí ẩn”. Thái độ ấy đã đưa Tử Vi Đẩu Số từ một hệ thống khép kín truyền thụ bí mật giữa thầy trò trở thành một hệ thống tri thức hiện đại, có hệ thống, có thể kiểm chứng và có thể học."
+        },
+        "influence": {
+          "label": "Tầm ảnh hưởng đương đại: ",
+          "body": "Video giảng dạy của thầy Nghê được lan truyền rộng rãi trên Bilibili, YouTube và các nền tảng lớn, được thế hệ mới yêu thích mệnh lý và Đông y công nhận là bài học nhập môn bắt buộc. Ông không chỉ là người kế thừa Tử Vi Đẩu Số, mà còn là một trong những nhân vật then chốt đưa mệnh lý truyền thống và Đông y vào hệ thống tri thức hiện đại."
+        },
+        "disclaimer": {
+          "body": "Mọi luận giải trên nền tảng này đều được tổng hợp dựa trên giáo trình công khai “Thiên Kỷ” của thầy Nghê, 《Tử Vi Đẩu Số Toàn Thư》 bản nhà Minh và các cổ thư của phái Tam hợp truyền thống, chỉ dùng cho mục đích tham khảo văn hóa và phát triển cá nhân. Bản thân thầy Nghê và nền tảng này không có bất kỳ mối liên hệ thương mại nào."
+        }
+      }
+    },
+    "hemingCta": {
+      "title": "Tử Vi Hợp Bàn",
+      "descLine1": "Nhập thông tin ngày sinh của hai người, AI sẽ dựa trên hệ thống của thầy Nghê Hải Hạ để phân tích sự tương tác của cung Phu Thê, mức độ tương hợp của cung Mệnh và sự giao thoa của tam phương tứ chính,",
+      "descLine2": "từ đó đưa ra mức độ phù hợp trong tình cảm, tính khả thi khi hợp tác và những lời khuyên tốt nhất để chung sống.",
+      "tags": [
+        "Phân tích mức độ hợp nhau trong tình cảm",
+        "Đánh giá khởi nghiệp hợp tác",
+        "Giải mã duyên phận cha mẹ và con cái",
+        "Đánh giá tương hợp trước hôn nhân"
+      ],
+      "cta": "Bắt đầu phân tích hợp bàn"
     }
   },
   "chart": {
@@ -60,7 +262,140 @@
     "annual": "Lưu niên",
     "palace": "Cung",
     "majorStars": "Chính tinh",
-    "minorStars": "Phụ tinh"
+    "minorStars": "Phụ tinh",
+    "boardTitle": "Lá số Tử Vi Đẩu Số",
+    "boardCenter": "Tử Vi Đẩu Số",
+    "currentDaXian": "Đại hạn hiện tại",
+    "decadeWithAges": "Đại hạn {start}–{end}",
+    "ageRange": "{start}–{end} tuổi",
+    "leapMonth": "Nhuận ",
+    "emptyPalace": "Vô chính diệu",
+    "badges": {
+      "ming": "Mệnh",
+      "shen": "Thân",
+      "decade": "Hạn",
+      "annual": "Năm"
+    },
+    "legend": {
+      "sanFang": "Chạm vào cung để xem tam phương tứ chính"
+    },
+    "overlay": {
+      "daxian": "Đại hạn · Tứ Hóa năm {stem}:",
+      "annual": "{year} · Tứ Hóa năm {stem}:"
+    },
+    "topics": {
+      "overview": "Mệnh cách",
+      "love": "Tình cảm",
+      "career": "Sự nghiệp",
+      "wealth": "Tài vận",
+      "health": "Sức khỏe",
+      "personality": "Tính cách"
+    },
+    "generating": "Đang luận giải mệnh cách…",
+    "reading": "Luận giải mệnh lý",
+    "followUpPlaceholder": "Hỏi tiếp, ví dụ: năm nay có nên đổi việc không?",
+    "followUp": "Hỏi tiếp",
+    "demo": {
+      "description": "Nhập ngày giờ sinh, bộ máy lập lá số mã nguồn mở sẽ tạo lá số ngay.",
+      "note": "(Trang này là bản demo của bộ máy; giao diện thương mại đầy đủ không nằm trong phạm vi mã nguồn mở, nhưng phần lõi lập lá số hoàn toàn mở.)"
+    },
+    "errors": {
+      "apiMissing": "Bản mã nguồn mở không kèm API luận giải bằng AI (/api/interpret), bạn cần tự triển khai mới dùng được, xem mục “Bắt đầu nhanh” trong README. Việc lập lá số không cần API Key nào.",
+      "failed": "Luận giải thất bại, vui lòng thử lại sau."
+    }
+  },
+  "form": {
+    "title": "── Nhập thông tin sinh thần ──",
+    "nameLabel": "Họ tên (không bắt buộc)",
+    "namePlaceholder": "Vui lòng nhập họ tên",
+    "birthDateLabel": "Ngày sinh (dương lịch)",
+    "yearPlaceholder": "Năm",
+    "monthPlaceholder": "Tháng",
+    "dayPlaceholder": "Ngày",
+    "optionMonth": "Tháng {n}",
+    "optionDay": "Ngày {n}",
+    "birthPlaceLabel": "Nơi sinh (dùng để hiệu chỉnh Chân thái dương thời)",
+    "placeGroup": {
+      "vn": "Việt Nam",
+      "cn": "Trung Quốc"
+    },
+    "provincePlaceholder": "Tỉnh / Thành phố",
+    "cityPlaceholder": "Thành phố",
+    "selectProvinceFirst": "Chọn tỉnh trước",
+    "selectCity": "(vui lòng chọn thành phố)",
+    "trueSolarHint": "* Thầy Nghê Hải Hạ dùng Chân thái dương thời để bình mệnh, khuyến nghị điền nơi sinh để tự động hiệu chỉnh giờ sinh.",
+    "longitude": "Kinh độ",
+    "timeOffset": "Chênh lệch giờ",
+    "minutes": "phút",
+    "birthTimeLabel": "Giờ sinh (giờ đồng hồ nơi sinh)",
+    "hourSuffix": "giờ",
+    "minuteSuffix": "phút",
+    "trueSolarResult": "Chân thái dương thời →",
+    "unknownTimeLabel": "Không rõ giờ sinh, lập lá số theo giờ Tý (23:00–01:00)",
+    "genderLabel": "Giới tính",
+    "male": "♂ Nam",
+    "female": "♀ Nữ",
+    "unknownShichen": "Không rõ giờ sinh",
+    "shichen": {
+      "zi": "Giờ Tý",
+      "chou": "Giờ Sửu",
+      "yin": "Giờ Dần",
+      "mao": "Giờ Mão",
+      "chen": "Giờ Thìn",
+      "si": "Giờ Tỵ",
+      "wu": "Giờ Ngọ",
+      "wei": "Giờ Mùi",
+      "shen": "Giờ Thân",
+      "you": "Giờ Dậu",
+      "xu": "Giờ Tuất",
+      "hai": "Giờ Hợi"
+    },
+    "summary": {
+      "date": "Ngày {d}/{m}/{y}"
+    },
+    "errors": {
+      "yearRequired": "Vui lòng chọn năm sinh",
+      "yearRange": "Phạm vi năm: 1900–2026",
+      "monthRequired": "Vui lòng chọn tháng",
+      "dayRequired": "Vui lòng chọn ngày",
+      "dayInvalid": "Tháng {m} không có ngày {d}"
+    },
+    "submitting": "Đang lập lá số…",
+    "submit": "Lập lá số ngay · Giải mã vận mệnh",
+    "calendarZone": {
+      "vn": "Âm lịch Việt Nam · UTC+7",
+      "cn": "Âm lịch Trung Quốc · UTC+8"
+    }
+  },
+  "heming": {
+    "back": "Quay lại",
+    "headerTitle": "Phân tích hợp bàn",
+    "headerTags": "Tình cảm · Hợp tác · Con cái · Bạn bè",
+    "title": "Tử Vi Hợp Bàn",
+    "description": "Nhập thông tin ngày sinh của hai người, AI dựa trên hệ thầy Nghê Hải Hạ để phân tích mức độ tương hợp duyên phận, hướng đi tình cảm và lời khuyên chung sống của hai lá số.",
+    "partyA": "Bên A — A",
+    "partyB": "Bên B — B",
+    "panelTitle": "Phân tích hợp bàn · HEMING",
+    "emptyLine1": "Điền đầy đủ thông tin sinh của hai người rồi bấm nút bên dưới",
+    "emptyLine2": "AI sẽ dựa trên hệ thầy Nghê Hải Hạ để phân tích sâu mức độ tương hợp duyên phận của hai người",
+    "start": "Bắt đầu phân tích hợp bàn",
+    "comparing": "Đang đối chiếu hai lá số…",
+    "errors": {
+      "formIncomplete": "Vui lòng điền đầy đủ thông tin sinh của cả hai người trước",
+      "apiMissing": "Bản mã nguồn mở không kèm API phân tích hợp bàn bằng AI (/api/heming), bạn cần tự triển khai mới dùng được. Lá số của hai người vẫn có thể xem riêng ở trang “Lập lá số” (/chart).",
+      "unavailable": "Phân tích tạm thời không khả dụng, vui lòng thử lại."
+    },
+    "followUpTitle": "Hỏi tiếp về lần hợp bàn này",
+    "quickQuestions": [
+      "Mức độ hợp nhau trong tình cảm thế nào?",
+      "Có phù hợp để cùng khởi nghiệp không?",
+      "Hai người có nên kết hôn không?",
+      "Khía cạnh nào dễ phát sinh mâu thuẫn nhất?",
+      "Tài vận của hai người có bù trừ cho nhau không?"
+    ],
+    "inputPlaceholder": "Hỏi tiếp, ví dụ: những năm nào là giai đoạn then chốt trong tình cảm của hai người?",
+    "submit": "Hỏi tiếp",
+    "submitting": "Đang phân tích…"
   },
   "disclaimer": {
     "title": "Lưu ý",
@@ -77,5 +412,253 @@
     "huaJi": "Hóa Kỵ",
     "daXian": "Đại hạn",
     "liuNian": "Lưu niên"
+  },
+  "knowledge": {
+    "topbar": "Phương pháp luận Nghê sư · Kho tri thức",
+    "classicsLink": "Cổ tịch →",
+    "startChart": "Lập lá số →",
+    "home": "Trang chủ",
+    "breadcrumb": "Kho tri thức",
+    "title": "Kho tri thức Tử Vi Đẩu Số",
+    "stats": "14 chính tinh × 13 cung vị = {count} chuyên đề",
+    "source": "Biên soạn theo hệ Thiên Kỷ của Nghê Hải Hạ · có dẫn chứng cổ tịch",
+    "starsHeading": "Mười bốn chính tinh",
+    "starSuffix": " tinh",
+    "starNames": {
+      "ziwei": "Tử Vi",
+      "tianji": "Thiên Cơ",
+      "taiyang": "Thái Dương",
+      "wuqu": "Vũ Khúc",
+      "tiantong": "Thiên Đồng",
+      "lianzhen": "Liêm Trinh",
+      "tianfu": "Thiên Phủ",
+      "taiyin": "Thái Âm",
+      "tanlang": "Tham Lang",
+      "jumen": "Cự Môn",
+      "tianxiang": "Thiên Tướng",
+      "tianliang": "Thiên Lương",
+      "qisha": "Thất Sát",
+      "pojun": "Phá Quân"
+    },
+    "cardTag": "TỬ VI · 14 CHÍNH TINH",
+    "entry": "nhập {palace} · {topic}",
+    "enterPalace": "{star} nhập {palace} cung",
+    "palaceChip": "{palace} cung",
+    "detailEyebrow": "{topic} · Hệ Nghê Hải Hạ chi tiết",
+    "sections": {
+      "dingdiao": "Một câu định điệu",
+      "lundian": "Luận điểm cốt lõi",
+      "yiju": "Căn cứ lá số",
+      "chuchu": "Nguồn cổ tịch"
+    },
+    "ctaTitle": "Muốn xem {topic} trong lá số của bạn?",
+    "ctaSubtitle": "Nhập ngày giờ sinh · Luận giải Nghê sư · AI hỏi đáp",
+    "ctaButton": "Lập lá số ngay →",
+    "otherPalaces": "Các cung khác của {star}",
+    "otherStars": "Các chính tinh khác nhập {palace} cung",
+    "classicsTitle": "Muốn đọc nguyên điển?",
+    "classicsCta": "📜 Tra cứu kho cổ tịch — Toàn Tập / Toàn Thư / Cốt Tủy Phú →",
+    "footerLine1": "Tử Vi nghiên cứu · Hệ Nghê Hải Hạ · Chỉ để học tập tham khảo",
+    "footerLine2": "Nền tảng không thay thế tư vấn y tế, đầu tư, pháp lý hoặc quyết định quan trọng",
+    "topics": {
+      "overview": "Tổng quan mệnh cách",
+      "personality": "Tính cách",
+      "love": "Tình cảm & hôn nhân",
+      "career": "Sự nghiệp",
+      "wealth": "Tài vận",
+      "health": "Sức khỏe",
+      "family": "Anh chị em & hợp tác",
+      "children": "Con cái",
+      "move": "Di chuyển & ra ngoài",
+      "friends": "Giao tế & quý nhân",
+      "home": "Điền trạch & bất động sản",
+      "spirit": "Tinh thần & phúc đức",
+      "parents": "Cha mẹ & bề trên"
+    },
+    "palaces": {
+      "overview": "Mệnh",
+      "personality": "Mệnh",
+      "love": "Phu Thê",
+      "career": "Quan Lộc",
+      "wealth": "Tài Bạch",
+      "health": "Tật Ách",
+      "family": "Huynh Đệ",
+      "children": "Tử Nữ",
+      "move": "Thiên Di",
+      "friends": "Nô Bộc",
+      "home": "Điền Trạch",
+      "spirit": "Phúc Đức",
+      "parents": "Phụ Mẫu"
+    },
+    "starBriefs": {
+      "ziwei": "Tử Vi là đế tinh, chủ sự tôn quý, hóa khí vi tôn. Nhập Mệnh chủ khí chất lãnh đạo, hợp môi trường lớn và vị trí cao.",
+      "tianji": "Thiên Cơ là trí tuệ tinh, chủ linh hoạt, hóa khí vi thiện. Nhập Mệnh chủ thông minh, hợp vai trò cố vấn và hoạch định.",
+      "taiyang": "Thái Dương là quý tinh của nam giới, chủ danh dự và công vụ, hóa khí vi quý. Nhập Mệnh chủ quang minh, hợp công chức và danh tiếng.",
+      "wuqu": "Vũ Khúc là tài tinh, chủ cương nghị quyết đoán, hóa khí vi tài. Nhập Mệnh chủ giỏi quản lý tài chính, hợp thực nghiệp và tài chính.",
+      "tiantong": "Thiên Đồng là phúc tinh, chủ ôn hòa hưởng thụ, hóa khí vi phúc. Nhập Mệnh chủ tính tình ôn hậu, có phúc khí.",
+      "lianzhen": "Liêm Trinh là thứ đào hoa tinh, văn võ song toàn, hóa khí vi tù. Nhập Mệnh chủ đa tài, tình cảm phong phú.",
+      "tianfu": "Thiên Phủ là nam đế thủ tài tinh, chủ trầm ổn thủ thành, hóa khí vi lệnh. Nhập Mệnh chủ phẩm hạnh đoan chính, giỏi giữ của.",
+      "taiyin": "Thái Âm là phú quý tinh (nguyệt), chủ điền trạch phú quý, hóa khí vi phú. Nhập Mệnh chủ tình cảm tinh tế, nữ mệnh rất tốt.",
+      "tanlang": "Tham Lang là đào hoa dục vọng tinh, đa tài đa giao tế, hóa khí vi đào hoa. Nhập Mệnh chủ nhiều tài lẻ, quan hệ rộng.",
+      "jumen": "Cự Môn là thị phi khẩu tài tinh, chủ biện luận và truyền thông, hóa khí vi ám. Nhập Mệnh chủ khẩu tài tốt, hợp luật sư và giáo viên.",
+      "tianxiang": "Thiên Tướng là ấn tinh phụ tá, chủ trung hậu thật thà, hóa khí vi ấn. Nhập Mệnh chủ phẩm hạnh ngay thẳng, hợp hành chính và pháp vụ.",
+      "tianliang": "Thiên Lương là lão nhân tinh che chở, hay chuyển dữ thành lành, hóa khí vi ấm. Nhập Mệnh chủ từ bi lương thiện, hợp ngành luật và y.",
+      "qisha": "Thất Sát là tướng tinh, chủ cô độc quyết đoán mạo hiểm, hóa khí vi sát. Nhập Mệnh chủ cương nghị, hợp quân đội, cảnh sát và khởi nghiệp.",
+      "pojun": "Phá Quân là phá cách sáng tạo tinh, chủ duyên lục thân mỏng, hóa khí vi hao. Nhập Mệnh chủ khai phá thay đổi, hợp chuyên môn kỹ thuật."
+    }
+  },
+  "library": {
+    "topbar": "Kho cổ tịch · CỔ TỊCH",
+    "backHome": "← Trang chủ",
+    "startChart": "Lập lá số →",
+    "eyebrow": "NGHÊ HẢI HẠ · LỘ TRÌNH",
+    "title": "Phương pháp luận Nghê sư · Kho cổ tịch",
+    "descriptionLine1": "Tra cứu toàn văn cổ tịch Tử Vi Đẩu Số",
+    "descriptionLine2": "Tuyển chọn {books} bộ cổ tịch · {paragraphs} đoạn tinh hoa",
+    "chaptersCount": "{n} chương",
+    "paragraphsCount": "{n} đoạn tinh hoa",
+    "enter": "Vào xem →",
+    "aboutTitle": "Về kho sách",
+    "aboutLine1": "Các bộ cổ tịch đều là bản công bản (khắc in thời Minh), đã hết thời hạn bảo hộ quyền tác giả.",
+    "aboutLine2": "Nội dung đang tiếp tục hoàn thiện; toàn văn Tử Vi Đẩu Số Toàn Tập và mục lục dẫn chứng Thiên Kỷ sẽ bổ sung sau.",
+    "aboutLine3": "Nếu phát hiện sai sót, vui lòng liên hệ với chúng tôi.",
+    "searchPlaceholder": "Tìm nguyên văn cổ tịch, ví dụ: Thất Sát triều đẩu / Hóa Kỵ",
+    "searchButton": "Tìm",
+    "bookBack": "← Kho cổ tịch",
+    "bookHome": "Trang chủ →",
+    "chaptersHeading": "CHAPTERS · Mục lục chương",
+    "chapterCount": "{n} đoạn",
+    "chapterBack": "← Mục lục {book}",
+    "libraryLink": "Kho cổ tịch →",
+    "prevChapter": "← Chương trước",
+    "nextChapter": "Chương sau →",
+    "translationLabel": "Bạch thoại",
+    "niNoteLabel": "Nghê sư chú",
+    "originalNote": "Toàn văn giữ nguyên Hán văn gốc (bản khắc thời Minh); phần bạch thoại và chú giải sẽ được bổ sung.",
+    "searchTopbar": "Kết quả tìm kiếm",
+    "searchKeyword": "Từ khóa tìm kiếm",
+    "searchEmptyQuery": "(trống)",
+    "searchFound": "Tìm thấy {n} đoạn khớp nguyên văn",
+    "searchNoResult": "Chưa tìm thấy từ khóa này trong kho cổ tịch đã thu thập",
+    "searchNoResultHint": "Kho đang được bổ sung. Bạn có thể thử:",
+    "searchSuggestions": "Thất Sát triều đẩu / Song Lộc triều viên / Hóa Kỵ / Tử Vi / Mệnh cung / Cơ Nguyệt Đồng Lương",
+    "searchEnterQuery": "Vui lòng nhập từ khóa cần tìm",
+    "books": {
+      "gusuifu": {
+        "title": "Cốt Tủy Phú (骨髓赋)",
+        "dynasty": "Thời Minh",
+        "author": "Truyền thừa cổ tịch Tử Vi Đẩu Số (không rõ tác giả)",
+        "intro": "Khẩu quyết cốt lõi cô đọng nhất của Tử Vi Đẩu Số, toàn văn khoảng 1.500 chữ. Được Nghê Hải Hạ trích dẫn nhiều lần trong Thiên Kỷ, là kinh điển bắt buộc đọc với người học Tử Vi.",
+        "chapters": {
+          "0": {
+            "title": "Tổng luận",
+            "subtitle": "Nền tảng lập luận của Tử Vi Đẩu Số"
+          },
+          "1": {
+            "title": "Luận về sao Tử Vi",
+            "subtitle": "Đế tọa chi tôn, được phụ thì quý"
+          },
+          "2": {
+            "title": "Luận về sao Thất Sát",
+            "subtitle": "Tướng tinh cô độc, hợp nghiệp võ"
+          },
+          "3": {
+            "title": "Cách Sát Phá Lang",
+            "subtitle": "Khai phá xông xáo, mệnh nhiều biến động"
+          },
+          "4": {
+            "title": "Cách Cơ Nguyệt Đồng Lương",
+            "subtitle": "Ổn định tích lũy, hợp công chức"
+          },
+          "5": {
+            "title": "Luận về Tứ Hóa",
+            "subtitle": "Cát hung của Hóa Lộc – Quyền – Khoa – Kỵ"
+          },
+          "6": {
+            "title": "Luận về Phụ Bật Khôi Việt",
+            "subtitle": "Sự quý của lục cát tinh"
+          },
+          "7": {
+            "title": "Luận về Lục Sát",
+            "subtitle": "Cái hung của Dương – Đà – Hỏa – Linh – Không – Kiếp"
+          },
+          "8": {
+            "title": "Luận về mười hai cung",
+            "subtitle": "Chủ tượng và cát hung của từng cung"
+          }
+        }
+      },
+      "quanji": {
+        "title": "Tử Vi Đẩu Số Toàn Tập (紫微斗数全集)",
+        "dynasty": "Thời Minh",
+        "author": "Tương truyền do Trần Đoàn tổ sư truyền lại",
+        "intro": "Một trong những cổ tịch có thẩm quyền nhất của Tử Vi Đẩu Số, tương truyền do Trần Đoàn tổ sư đời Tống truyền lại. Là nguồn dẫn chứng cốt lõi của hệ Thiên Kỷ Nghê Hải Hạ.",
+        "chapters": {
+          "0": {
+            "title": "Quyển 1 · Tổng luận",
+            "subtitle": "Nền pháp lập luận cơ bản của Tử Vi Đẩu Số"
+          },
+          "1": {
+            "title": "Quyển 2 · Luận sao Tử Vi",
+            "subtitle": "Đế tọa chi tôn"
+          },
+          "2": {
+            "title": "Quyển 3 · Luận lục tinh Nam Đẩu",
+            "subtitle": "Thiên Phủ, Thái Âm, Tham Lang, Cự Môn, Thiên Tướng, Thiên Lương"
+          },
+          "3": {
+            "title": "Quyển 4 · Luận lục tinh Bắc Đẩu",
+            "subtitle": "Tử Vi, Thiên Cơ, Thái Dương, Vũ Khúc, Liêm Trinh, Phá Quân"
+          },
+          "4": {
+            "title": "Quyển 5 · Luận Tứ Hóa và cách cục",
+            "subtitle": "Uy lực của Tứ Hóa và các cách cục quan trọng"
+          }
+        }
+      },
+      "quanshu": {
+        "title": "Tử Vi Đẩu Số Toàn Thư (紫微斗数全书)",
+        "dynasty": "Thời Minh",
+        "author": "La Hồng Tiên biên soạn",
+        "intro": "Cổ tịch có hệ thống nhất của Tử Vi Đẩu Số, nhấn mạnh quan hệ giữa mười hai cung và Tứ Hóa. Là giáo trình chính của người học Tử Vi từ thời Thanh trở đi.",
+        "chapters": {
+          "0": {
+            "title": "Mười hai cung · Mệnh cung",
+            "subtitle": "Gốc của việc xem mệnh"
+          },
+          "1": {
+            "title": "Mười hai cung · Tài Bạch cung",
+            "subtitle": "Nơi phát tài"
+          },
+          "2": {
+            "title": "Mười hai cung · Quan Lộc cung",
+            "subtitle": "Gốc của sự nghiệp"
+          },
+          "3": {
+            "title": "Mười hai cung · Phu Thê cung",
+            "subtitle": "Khí chất bạn đời"
+          },
+          "4": {
+            "title": "Luận Tứ Hóa",
+            "subtitle": "Hóa Lộc – Quyền – Khoa – Kỵ"
+          },
+          "5": {
+            "title": "Cách Cơ Nguyệt Đồng Lương",
+            "subtitle": "Mệnh ổn định tích lũy"
+          },
+          "6": {
+            "title": "Cách Song Lộc Triều Viên",
+            "subtitle": "Giàu như Đào Chu"
+          }
+        }
+      }
+    }
+  },
+  "legal": {
+    "backHome": "Về trang chủ",
+    "terms": "Điều khoản sử dụng",
+    "privacy": "Chính sách quyền riêng tư",
+    "footerTerms": "Điều khoản sử dụng",
+    "footerPrivacy": "Chính sách quyền riêng tư"
   }
 }
