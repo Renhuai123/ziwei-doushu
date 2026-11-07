@@ -8,7 +8,7 @@
  * 换日口径与 lib/ziwei/true-solar-time.ts 的 resolveZiweiDayOffset('next-day') 一致。
  */
 import assert from 'node:assert/strict';
-import { formToBirthInfo } from '../../lib/ziwei/share';
+import { formToBirthInfo, formToSearchParams, searchParamsToForm } from '../../lib/ziwei/share';
 import type { BirthFormState } from '../../components/BirthForm';
 
 function formAt(clockHour: string, clockMinute: string, longitude: number): BirthFormState {
@@ -44,5 +44,17 @@ for (const [h, mi, lon, expected, label] of cases) {
 
 const unknown = formToBirthInfo({ ...formAt('23', '30', 100), unknownTime: true });
 assert.deepEqual(pick(unknown), { year: 2000, month: 1, day: 31, hour: 0 }, '时辰不详不换日');
+
+for (const longitude of [0, -180, 180, 120, 116.4]) {
+  const form = formAt('8', '0', longitude);
+  assert.equal(searchParamsToForm(formToSearchParams(form))?.longitude, longitude, '分享链接保留有效经度');
+}
+
+for (const invalid of ['', ' ', 'Infinity', 'NaN', '116.4abc', '-181', '181']) {
+  const params = new URLSearchParams({ y: '2000', m: '1', d: '31', lo: invalid });
+  assert.equal(searchParamsToForm(params)?.longitude, 120, '无效经度使用分享链接的默认值');
+}
+
+assert.equal(formToSearchParams(formAt('8', '0', Number.NaN)).has('lo'), false);
 
 console.log('form true-solar day rollover regression passed');
