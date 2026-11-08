@@ -90,6 +90,33 @@ def main():
             if b:
                 stat['B 维持重复'] += 1
         out.append(rec)
+    # D（状态持续期间画面有变化）：起始帧 / 结束帧的印刷字与代表帧不同 → 拆出「起段」「止段」
+    # 只有起、代表、止三帧，拆分点取近似：起段 = [起秒, 代表秒)，止段 = (代表秒, 止秒]，依据里注明。
+    Dd = load('D')
+    stat['D 起段拆出'] = stat['D 止段拆出'] = stat['D 无字变化'] = 0
+    byk = {r['编号']: r for r in out}
+    for k, d in Dd.items():
+        r = byk.get(k)
+        if r is None:
+            continue
+        mid = r['代表帧号'] // 30
+        changed = False
+        for part, (lo, hi) in (('起', (r['起秒'], max(r['起秒'], mid - 1))), ('止', (min(r['止秒'], mid + 1), r['止秒']))):
+            if '不同' not in str(d.get(f'{part}始帧' if part == '起' else '结束帧') or ''):  # 子代理有写「不同」也有写「印刷字不同」
+                continue
+            cells, lines = d.get(f'{part}始帧格' if part == '起' else '结束帧格'), d.get(f'{part}始帧格外文字' if part == '起' else '结束帧格外文字')
+            if not (cells or lines):
+                continue
+            rec = {'编号': f'{k}_{part}段', '集': r['集'], '起秒': lo, '止秒': hi, '代表帧号': (lo if part == '起' else hi) * 30, '重复于': None}
+            rec['格'], rec['格外文字'] = norm_content(cells, lines)
+            rec['依据'] = f'状态内拆分（{part}帧对照代表帧修正；时间边界近似）'
+            rec['复核改动'] = d.get(f'{part}始帧不同处' if part == '起' else '结束帧不同处') or []
+            out.append(rec)
+            stat[f'D {part}段拆出'] += 1
+            changed = True
+        if not changed:
+            stat['D 无字变化'] += 1
+    out.sort(key=lambda x: (x['集'], x['起秒'], x['编号']))
     with (D / '叠图定稿-v2.jsonl').open('w') as fh:
         for r in out:
             fh.write(json.dumps(r, ensure_ascii=False) + '\n')
