@@ -41,6 +41,8 @@ This repo is an open snapshot of the engine behind [ouranic.cn](https://ouranic.
 - **Engine sync** ([PR #39](https://github.com/Renhuai123/ziwei-doushu/pull/39)): `chinaDSTSpan(year)` in `dst-cn.ts`; longitudes for province-administered county-level cities in `cities.ts`.
 - **License**: `DATASET-LICENSE` now covers v4.0; quotations from *Tian Ji* inside the readings are not covered by the dataset license.
 
+> **2026-11-08 addendum**: new public repo **[nishi-ziwei-video-reading](https://github.com/Renhuai123/nishi-ziwei-video-reading)**: reading all 1.6 million frames of the 17 *Tian Ji* Zi Wei episodes one by one with several large models. The plan, scripts, test results and mistakes are published as the work goes on; recent progress lives there.
+
 > **2026-11-02 addendum**: the late Zi hour day change now uses **true solar time**, the same clock as the hour branch (#63). With a birthplace, 23:30 by the clock at 100°E (22:10 true solar time, the Hai hour) stays on the same day instead of becoming "Hai hour of the next day"; without a birthplace there is no correction and results are unchanged, matching ouranic.cn. An invalid leap-month policy now throws instead of silently charting as "same month" (#71). Thanks to Bortlesboat and xunguangzlj-cloud for the PRs and Verchiel666 for reviewing.
 
 > **2026-10-31 addendum**: the live platform is now **OURANIC** and has moved from metisziwei.com to **[ouranic.cn](https://ouranic.cn/?from=gh-readme-en)**; old links redirect automatically. Code, datasets and licenses in this repo are unchanged.
