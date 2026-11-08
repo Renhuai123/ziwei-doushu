@@ -63,6 +63,7 @@ export default function PalaceCell({
   const majorStars = stars.filter(s => s.type === 'major');
   const luckyStars = stars.filter(s => s.type === 'lucky');
   const shaStars = stars.filter(s => s.type === 'sha');
+  const minorStars = stars.filter(s => s.type === 'minor');
 
   return (
     <motion.div
@@ -191,6 +192,17 @@ export default function PalaceCell({
           {shaStars.map(s => (
             <span key={s.name} className="text-[9px] text-red-500/60 leading-tight">
               {s.name}{s.siHua && <SiHuaBadge siHua={s.siHua} />}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* 杂曜 */}
+      {minorStars.length > 0 && (
+        <div className="flex flex-wrap gap-x-1">
+          {minorStars.map(s => (
+            <span key={s.name} className="text-[9px] leading-tight" style={{ color: 'var(--t-faint)', opacity: 0.75 }}>
+              {s.name}{s.brightnessRaw ? `[${s.brightnessRaw}]` : ''}{s.siHua && <SiHuaBadge siHua={s.siHua} />}
             </span>
           ))}
         </div>
