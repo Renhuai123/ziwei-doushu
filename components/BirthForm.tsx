@@ -97,13 +97,19 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
 
   const branch = useMemo(() => {
     if (form.unknownTime) return 0;
+    // Truyền ngày để tính cả phương trình thời gian — khớp đúng canh giờ dùng khi an lá số.
+    const date = birthYear && birthMonth && birthDay
+      ? { year: birthYear, month: birthMonth, day: birthDay }
+      : undefined;
     return calcTrueSolarBranch(
       parseInt(form.clockHour) || 0,
       parseInt(form.clockMinute) || 0,
-      form.longitude,
+      // Chưa chọn nơi sinh thì không hiệu chỉnh — khớp với formToBirthInfo.
+      form.province ? form.longitude : undefined,
       utcOffsetMinutes,
+      date,
     );
-  }, [form.clockHour, form.clockMinute, form.longitude, form.unknownTime, utcOffsetMinutes]);
+  }, [form.clockHour, form.clockMinute, form.longitude, form.province, form.unknownTime, utcOffsetMinutes, birthYear, birthMonth, birthDay]);
 
   const offsetMin = Math.round((form.longitude - meridian) * 4);
   const shichenInfo = SHICHEN[branch];

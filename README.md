@@ -296,7 +296,7 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 
 每次 push 与 PR 都会在 GitHub Actions 上跑同一套（见 [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)）。
 
-> **注意：开源版不含后端 API 路由。**排盘、命盘展示、合盘起盘都在浏览器里用本仓库的引擎完成，**不需要任何 API Key**。AI 解读（`/api/interpret`）和合盘 AI 分析（`/api/heming`）需要你自己实现接口；没实现之前，这两处会直接提示「开源版不含该接口」，配置 API Key 也不会变成可用（#30 就是这个原因）。
+> **注意：除 AI 解读外，开源版不含后端 API 路由。**排盘、命盘展示、合盘起盘都在浏览器里用本仓库的引擎完成，**不需要任何 API Key**。仓库自带 `app/api/interpret`（流式 SSE，用于 `/chart` 页右侧解读面板），填入 `GEMINI_API_KEY`（或 DeepSeek / MiMo 等 OpenAI 兼容后端）即可使用，配置项见 `.env.example`。合盘 AI 分析（`/api/heming`）仍需你自己实现接口。
 
 ---
 

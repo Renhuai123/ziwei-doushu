@@ -1,25 +1,43 @@
 import type { BirthFormState } from '@/components/BirthForm';
 import type { BirthInfo } from './types';
-import { branchFromSolarMinutes, resolveZiweiDayOffset, shiftGregorianDate } from './true-solar-time';
+import {
+  calculateTrueSolarTime,
+  resolveZiweiDayOffset,
+  shiftGregorianDate,
+  type GregorianDate,
+} from './true-solar-time';
 import { birthUtcOffsetMinutes, calendarZoneInfo, type CalendarZone, type VietnamRegion } from './calendar-zone';
 import { findProvince } from './cities';
 
 /**
- * 真太阳时时辰支 (0-11)。
+ * Canh giờ (0-11) theo giờ mặt trời thật tại nơi sinh.
  *
- * ★ 2026-11: 增加 `utcOffsetMinutes`（出生地时区的标准偏移，东正西负），
- *   经度修正改为 (经度 − utcOffsetMinutes/4) × 4 —— 越南 UTC+7 → 105°Đ.
- *   不传时仍是旧的东八区 120°Đ 口径，国内结果逐位不变。
+ * ★ 2026-11: thêm `utcOffsetMinutes` (độ lệch chuẩn tại nơi sinh, đông dương tây âm) —
+ *   hiệu chỉnh kinh độ thành (kinh độ − utcOffsetMinutes/4) × 4, tức Việt Nam lấy 105°Đ.
+ *   Không truyền thì vẫn là múi 120°Đ như cũ.
+ *
+ * ★ 2026-11 (lần 2): nhận thêm `date`. Khi có ngày, đi qua `calculateTrueSolarTime()`
+ *   để cộng cả **phương trình thời gian** (均时差, ±16 phút) — đúng như README mô tả
+ *   "真太阳时校正（经度差 + 均时差）". Nhờ vậy canh giờ hiển thị trên form khớp tuyệt đối
+ *   với canh giờ dùng để an lá số.
+ *
+ * Không có kinh độ (chưa chọn nơi sinh) → không hiệu chỉnh gì, giữ đúng quy ước
+ * "không chọn nơi sinh thì kết quả không đổi".
  */
 export function calcTrueSolarBranch(
   clockHour: number,
   clockMinute: number,
-  longitude: number,
+  longitude?: number,
   utcOffsetMinutes = 480,
+  date?: GregorianDate,
 ): number {
+  if (date) {
+    return calculateTrueSolarTime({ ...date, clockHour, clockMinute, longitude, utcOffsetMinutes }).branch;
+  }
   const clockMins = clockHour * 60 + clockMinute;
+  const hasLongitude = longitude !== undefined && Number.isFinite(longitude);
   const meridian = Number.isFinite(utcOffsetMinutes) ? utcOffsetMinutes / 4 : 120;
-  const offset = (longitude - meridian) * 4;
+  const offset = hasLongitude ? (longitude! - meridian) * 4 : 0;
   const solar = ((clockMins + offset) % 1440 + 1440) % 1440;
   if (solar >= 1380 || solar < 60) return 0;
   return Math.floor((solar - 60) / 120) + 1;
@@ -48,16 +66,24 @@ export function formToBirthInfo(form: BirthFormState): BirthInfo {
   const utcOffsetMinutes = form.province
     ? birthUtcOffsetMinutes(zone, y, m, d, region)
     : calendarZoneInfo(zone).utcOffsetMinutes;
-  const meridian = utcOffsetMinutes / 4;
 
   // 晚子时换日按真太阳时判定，与时辰支同一口径（见 true-solar-time.ts 的 resolveZiweiDayOffset）。
   // 只看钟表 23 点会和经度校正后的时辰错位：东经 100° 钟表 23:30 是真太阳时 22:10 亥时，不该换日。
   if (!form.unknownTime) {
-    const solar = (parseInt(form.clockHour) || 0) * 60 + (parseInt(form.clockMinute) || 0)
-      + (form.longitude - meridian) * 4;
-    const normalizedMinutes = ((solar % 1440) + 1440) % 1440;
-    hour = branchFromSolarMinutes(normalizedMinutes);
-    const dayOffset = resolveZiweiDayOffset({ dayOffset: Math.floor(solar / 1440), normalizedMinutes, branch: hour });
+    // Giờ mặt trời thật = giờ đồng hồ + hiệu chỉnh kinh độ + phương trình thời gian (均时差).
+    // Dùng chung một hàm với `true-solar-time.ts` để canh giờ và ngày đổi Tý luôn cùng một quy ước.
+    const solar = calculateTrueSolarTime({
+      year: y,
+      month: m,
+      day: d,
+      clockHour: parseInt(form.clockHour) || 0,
+      clockMinute: parseInt(form.clockMinute) || 0,
+      // Chưa chọn nơi sinh → không hiệu chỉnh (đúng quy ước cũ), chỉ dùng giờ đồng hồ.
+      longitude: form.province ? form.longitude : undefined,
+      utcOffsetMinutes,
+    });
+    hour = solar.branch;
+    const dayOffset = resolveZiweiDayOffset(solar);
     if (dayOffset !== 0 && y > 0 && m > 0 && d > 0) {
       ({ year: y, month: m, day: d } = shiftGregorianDate({ year: y, month: m, day: d }, dayOffset));
     }

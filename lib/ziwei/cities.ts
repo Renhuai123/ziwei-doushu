@@ -1,4 +1,5 @@
 import type { CalendarZone, VietnamRegion } from './calendar-zone';
+import { VN_DISTRICTS } from './vn-districts.generated';
 
 export interface CityInfo {
   name: string;
@@ -711,8 +712,10 @@ export const PROVINCES: ProvinceInfo[] = [
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Việt Nam — 63 tỉnh/thành (đơn vị hành chính trước 2025; giữ đủ để người sinh
- * trước đây chọn đúng nơi sinh). Kinh độ là kinh độ tỉnh lỵ, sai số ≤ 0,1° ≈ 24 giây
- * giờ mặt trời thật — thừa sức phân biệt hai canh giờ cách nhau 2 tiếng.
+ * trước đây chọn đúng nơi sinh). Mỗi tỉnh có tỉnh lỵ + toàn bộ quận/huyện/thị xã
+ * (kinh độ tâm đơn vị hành chính, xem `vn-districts.generated.ts`). Cấp huyện quan trọng
+ * vì trong cùng một tỉnh, kinh độ có thể lệch ~0,5° ≈ 2 phút, và tỉnh trải dài (Lai Châu,
+ * Điện Biên, Cà Mau…) lệch tới ~20 phút — đủ để đổi canh giờ khi sinh sát ranh giới.
  *
  * `calendarZone: 'vn'` → lá số dùng âm lịch Việt Nam (UTC+7, kinh tuyến 105°Đ).
  * `region` chỉ dùng cho độ lệch giờ lịch sử trước 1975-06-13 (xem calendar-zone.ts):
@@ -721,12 +724,31 @@ export const PROVINCES: ProvinceInfo[] = [
 const VN_NORTH: VietnamRegion = 'north';
 const VN_SOUTH: VietnamRegion = 'south';
 
+const DISTRICT_PREFIX = /^(Quận|Huyện|Thị xã|Thành phố|Thị trấn)\s+/u;
+
+/** Tên rút gọn để so trùng: bỏ tiền tố loại đơn vị, chuẩn hoá khoảng trắng quanh dấu gạch nối. */
+const shortPlaceName = (name: string) =>
+  name.normalize('NFC').replace(DISTRICT_PREFIX, '').replace(/\s*-\s*/g, '-').trim().toLowerCase();
+
+/**
+ * Tỉnh Việt Nam + danh sách quận/huyện của tỉnh đó.
+ *
+ * Tỉnh lỵ vẫn đứng đầu danh sách (giữ tên ngắn cũ) để link chia sẻ / lá số đã lưu trước đây
+ * vẫn chọn đúng; các quận/huyện còn lại lấy từ `vn-districts.generated.ts`.
+ */
 function vnProvince(name: string, capital: string, longitude: number, region: 'north' | 'south'): ProvinceInfo {
+  const seen = new Set([shortPlaceName(capital)]);
+  const districts = (VN_DISTRICTS[name] ?? []).filter((d) => {
+    const key = shortPlaceName(d.name);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   return {
     name,
     calendarZone: 'vn',
     region,
-    cities: [{ name: capital, longitude }],
+    cities: [{ name: capital, longitude }, ...districts.map((d) => ({ name: d.name, longitude: d.longitude }))],
   };
 }
 

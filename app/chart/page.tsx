@@ -70,7 +70,10 @@ export default function ChartPage() {
         }}
       >
         <ChartBoard chart={chart} onPalaceSelect={setSelectedPalace} />
-        <InsightPanel chart={chart} selectedPalace={selectedPalace} />
+        {/* Khung chat có chiều cao riêng, cuộn nội bộ — không đẩy/không cuộn theo lá số bên cạnh */}
+        <div className="h-[70vh] min-h-[420px] lg:h-[calc(100vh-190px)]">
+          <InsightPanel chart={chart} selectedPalace={selectedPalace} />
+        </div>
       </div>
     </main>
   );

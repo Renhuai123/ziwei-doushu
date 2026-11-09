@@ -15,6 +15,7 @@ import {
   calendarZoneInfo,
 } from '../../lib/ziwei/calendar-zone';
 import { calcTrueSolarBranch, formToBirthInfo } from '../../lib/ziwei/share';
+import { VN_PROVINCES } from '../../lib/ziwei/cities';
 import type { BirthFormState } from '../../components/BirthForm';
 
 let failures = 0;
@@ -52,6 +53,42 @@ check('Hà Nội 10:57 theo UTC+8 (cách tính cũ) → Tỵ (5)', calcTrueSolar
 check('Sài Gòn 1968 23:30 theo UTC+8 → Hợi (11)', calcTrueSolarBranch(23, 30, 106.70, 480), 11);
 check('Sài Gòn 1968 23:30 nếu lấy UTC+7 → Tý (0)', calcTrueSolarBranch(23, 30, 106.70, 420), 0);
 
+/* ── ③b Phương trình thời gian (均时差) ──────────────────────────────
+ * 03/11 phương trình thời gian ≈ +16,4 phút: 10:42 tại Hà Nội (hiệu chỉnh kinh độ +3,4)
+ * · chỉ hiệu chỉnh kinh độ → 10:45 = Tỵ (5);
+ * · cộng thêm phương trình thời gian → 11:01 = Ngọ (6).
+ * Đây chính là lý do form và bước an lá số phải dùng chung một hàm. */
+check('Hà Nội 10:42 ngày 3/11, chỉ hiệu chỉnh kinh độ → Tỵ (5)', calcTrueSolarBranch(10, 42, 105.85, 420), 5);
+check(
+  'Hà Nội 10:42 ngày 3/11, có phương trình thời gian → Ngọ (6)',
+  calcTrueSolarBranch(10, 42, 105.85, 420, { year: 2020, month: 11, day: 3 }),
+  6,
+);
+
+/* ── ③c Dữ liệu quận/huyện của 63 tỉnh ─────────────────────────────── */
+const placeIssues: string[] = [];
+let placeCount = 0;
+for (const province of VN_PROVINCES) {
+  if (province.calendarZone !== 'vn') placeIssues.push(`${province.name}: calendarZone`);
+  if (province.cities.length < 5) placeIssues.push(`${province.name}: chỉ ${province.cities.length} địa danh`);
+  const seen = new Set<string>();
+  for (const city of province.cities) {
+    placeCount++;
+    if (!(city.longitude >= 102 && city.longitude <= 110.6)) {
+      placeIssues.push(`${province.name}/${city.name}: kinh độ ${city.longitude}`);
+    }
+    if (seen.has(city.name)) placeIssues.push(`${province.name}: trùng tên ${city.name}`);
+    seen.add(city.name);
+  }
+}
+check('63 tỉnh: mỗi tỉnh ≥ 5 địa danh, kinh độ 102–110,6°Đ, không trùng tên', placeIssues, []);
+check('tổng số địa danh Việt Nam chọn được ≥ 650', placeCount >= 650, true);
+check(
+  'Hà Nội chọn được Quận Hoàn Kiếm (105,86°Đ)',
+  VN_PROVINCES.find((p) => p.name === 'Hà Nội')?.cities.find((c) => c.name === 'Quận Hoàn Kiếm')?.longitude,
+  105.86,
+);
+
 /* ── ④ form → BirthInfo mang theo calendarZone / độ lệch giờ / canh giờ ── */
 const baseForm: BirthFormState = {
   name: '', year: '2020', month: '5', day: '20',
@@ -65,6 +102,11 @@ const baseForm: BirthFormState = {
   check('form Hà Nội 2020: độ lệch giờ', info.utcOffsetMinutes, 420);
   check('form Hà Nội 2020: canh giờ', info.hour, 6);
   check('form Hà Nội 2020: giữ ngày', [info.year, info.month, info.day], [2020, 5, 20]);
+}
+{
+  // 3/11 10:42 tại Hà Nội: phương trình thời gian đẩy qua ranh giới Tỵ → Ngọ.
+  const info = formToBirthInfo({ ...baseForm, month: '11', day: '3', clockHour: '10', clockMinute: '42' });
+  check('form Hà Nội 3/11 10:42: canh giờ Ngọ (6)', info.hour, 6);
 }
 {
   // Sinh tại Sài Gòn 1968-03-10 23:30 (giờ đồng hồ UTC+8) → Hợi, vẫn trong ngày 10.

@@ -291,7 +291,10 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
       </div>
 
       {/* ── Messages ── */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+      <div
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto overscroll-y-contain p-4 space-y-4 min-h-0"
+      >
 
         {/* Loading state before first message */}
         {messages.length === 0 && (
