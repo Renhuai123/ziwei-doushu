@@ -1,3 +1,8 @@
+# Multi-stage pipeline for ZiweiHub.
+# Stages: static → unit → integration → e2e, with security scanning in parallel.
+# Deployment: Vercel's GitHub integration builds a preview for every PR and deploys
+# production from main; the Neon integration gives each preview its own database branch.
+# Branch protection on main requires every job here to pass before a PR can merge.
 name: CI
 
 on:
@@ -6,24 +11,99 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '22'
+  DATABASE_URL_TEST: postgresql://postgres:postgres@localhost:5432/ziwei_test
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ziwei_test
+  AUTH_SECRET: ci-only-secret
+  DATA_ENCRYPTION_KEY: ci-only-32-byte-key-000000000000
+
 jobs:
-  check:
-    name: 类型检查 + 排盘回归
+  static:
+    name: 1 · Typecheck + engine regression
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # 仓库已提交 package-lock.json：按锁定版本安装，并开 npm 缓存
       - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: npx prisma generate
+      - run: npm run typecheck
+      - run: npm test
 
-      - name: 安装依赖
-        run: npm ci --no-audit --no-fund
+  unit:
+    name: 2 · Unit tests
+    needs: static
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: npx prisma generate
+      - run: npm run test:unit -- --coverage
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: coverage, path: coverage }
 
-      - name: 类型检查
-        run: npm run typecheck
+  integration:
+    name: 3 · Integration tests (Postgres)
+    needs: unit
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: ziwei_test }
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: npx prisma migrate deploy
+      - run: npm run test:integration
 
-      - name: 排盘引擎回归
-        run: npm test
+  e2e:
+    name: 4 · E2E (Playwright)
+    needs: integration
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: ziwei_test }
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: npx prisma migrate deploy && npx prisma db seed
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with: { name: playwright-report, path: playwright-report }
+
+  security:
+    name: Security scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: Dependency audit (high and critical)
+        run: npm audit --omit=dev --audit-level=high
+      - name: Secret scanning
+        uses: gitleaks/gitleaks-action@v2
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
