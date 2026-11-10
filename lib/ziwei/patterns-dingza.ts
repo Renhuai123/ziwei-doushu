@@ -122,6 +122,7 @@ const liuNianGrade = (c: ZiweiChart, age: number): Grade => {
   if (hasLu || jiCountIn(c, sf) >= 2) return 'ji';
   return 'ping';
 };
+
 // ────────────────── 类型 ──────────────────
 
 export interface DingZaGe {
