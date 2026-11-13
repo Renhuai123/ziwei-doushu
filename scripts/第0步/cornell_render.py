@@ -245,31 +245,88 @@ def print_report(report):
 
 # ───────────────────────── 命盘重排 ─────────────────────────
 
+def parse_cell(items):
+    main, aux, misc, shen = [], [], [], False
+    for x in dict.fromkeys(items):
+        if x == "身宫":
+            shen = True
+            continue
+        m = STAR_RE.fullmatch(x)
+        if not m or re.search(r"[\d□]", x):
+            continue
+        name = m.group(1)
+        (main if name in MAIN else aux if name in AUX else misc).append(m.groups())
+    main.sort(key=lambda s: MAIN.index(s[0]))
+    aux.sort(key=lambda s: AUX.index(s[0]))
+    return main, aux, misc, shen
+
+
 def chart_cells(overlay, a, b):
-    """这个命例时间段里每个宫格最常见的那种写法（优先不带 □ 的）。"""
-    seen = defaultdict(Counter)
+    """这个命例时间段里每个地支格的写法：每个宫名取最常见的那种写法（优先不带 □ 的）。
+    11-13 P29 补检加了三条，只处理剪辑把一格原样贴到别的宫位上演示的情况（P29 例一续把命宫那一格
+    贴到父母、兄弟两格上演示，例三把夫妻那一格贴成「命宫」演示）。原先演示格不带 □、真格的岁数串常带 □，
+    演示就盖过了真格；同一地支两个宫名时后出现的直接覆盖前面的，例三的盘名因此错用了演示格的宫名。
+      1. 宫名带 □ 的（如「疾厄□子」）并进同地支唯一对得上的不带 □ 的宫名；
+      2. 同一地支有几个宫名时，去掉「这个宫名贴得最久的是别的地支」的那个（演示借名），其余照旧取后出现的；
+      3. 一个宫名下有几种主星辅星组合时，去掉「这个组合贴得最久的是别的地支」的（从别格搬来的演示），
+         剩下的先取星名里没有 □ 的组合，再取贴出秒数最多的组合（例三有一格的化忌，识别时一半落在一颗星、
+         一半落在另一颗星，按条数会选错；对照视频原帧，按秒数选对）；
+      4. 选定组合里照旧取最常见、优先整串不带 □ 的那一串出图。
+    每个宫名只有一种主辅星组合、每个地支只有一个宫名时，结果与原先相同；其余各集若重新渲染，
+    命盘格会有变动（见私有终检记录「11-13 P29 补检」），重渲前要逐格核。"""
+    secs = defaultdict(lambda: defaultdict(Counter))    # 地支 → 宫名干支 → {整串: 秒数}
+    cnt = defaultdict(lambda: defaultdict(Counter))     # 同上，按条数
     for o in overlay:
         if a <= o["起秒"] < b:
+            dur = o["止秒"] - o["起秒"] + 1
             for k, v in o["格"].items():
-                seen[k][tuple(v)] += 1
+                secs[k[-1]][k][tuple(v)] += dur
+                cnt[k[-1]][k][tuple(v)] += 1
+
+    def sig_of(t):
+        main, aux, _, _ = parse_cell(t)
+        return tuple(main + aux)
+
+    def partial(t):   # 星名里有认不出的字（岁数串里的 □ 不算）
+        return any("□" in x and re.search(r"[\u4e00-\u9fff]", x) for x in t)
+
+    alias = {}
+    sig_secs, name_secs = defaultdict(Counter), defaultdict(Counter)
+    for z, keys in secs.items():
+        clean_keys = [k for k in keys if "□" not in k]
+        for k, c in keys.items():
+            hit = [x for x in clean_keys if len(x) == len(k) and re.fullmatch(re.escape(k).replace("□", "."), x)] \
+                if "□" in k else [k]
+            alias[z, k] = hit[0] if len(hit) == 1 else k
+            for t, s in c.items():
+                if sig_of(t):
+                    sig_secs[sig_of(t)][z] += s
+            if "□" not in alias[z, k][:-2]:
+                name_secs[alias[z, k][:-2]][z] += sum(c.values())
+    sig_home = {s: c.most_common(1)[0][0] for s, c in sig_secs.items()}
+    name_home = {n: c.most_common(1)[0][0] for n, c in name_secs.items()}
+
     cells = {}
-    for k, c in seen.items():
+    for z, keys in secs.items():
+        names = list(dict.fromkeys(alias[z, k] for k in keys))
+        names = [k for k in names if name_home.get(k[:-2], z) == z] or names
+        best = names[-1]
+        pool_s, pool_n = Counter(), Counter()
+        for k in keys:
+            if alias[z, k] == best:
+                pool_s.update(secs[z][k])
+                pool_n.update(cnt[z][k])
+        by_sig = defaultdict(list)
+        for t in pool_n:
+            by_sig[sig_of(t)].append(t)
+        sig = max(by_sig, key=lambda g: (not g or sig_home[g] == z,
+                                         any(not partial(t) for t in by_sig[g]),
+                                         sum(pool_s[t] for t in by_sig[g])))
+        c = Counter({t: pool_n[t] for t in by_sig[sig]})
         clean = Counter({t: m for t, m in c.items() if not any("□" in x for x in t)}) or c
-        items = clean.most_common(1)[0][0]
-        main, aux, misc, shen = [], [], [], False
-        for x in dict.fromkeys(items):
-            if x == "身宫":
-                shen = True
-                continue
-            m = STAR_RE.fullmatch(x)
-            if not m or re.search(r"[\d□]", x):
-                continue
-            name = m.group(1)
-            (main if name in MAIN else aux if name in AUX else misc).append(m.groups())
-        main.sort(key=lambda s: MAIN.index(s[0]))
-        aux.sort(key=lambda s: AUX.index(s[0]))
-        cells[k[-1]] = {"宫": k[:-2], "干支": k[-2:], "主": main, "辅": aux, "杂": misc, "身": shen,
-                        "次数": sum(c.values())}
+        main, aux, misc, shen = parse_cell(clean.most_common(1)[0][0])
+        cells[z] = {"宫": best[:-2], "干支": best[-2:], "主": main, "辅": aux, "杂": misc, "身": shen,
+                    "次数": sum(cnt[z][k][t] for k in keys if alias[z, k] == best for t in cnt[z][k])}
     return cells
 
 
