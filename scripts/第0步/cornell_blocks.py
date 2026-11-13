@@ -17,9 +17,11 @@ import os
 import subprocess
 import sys
 
-from join_sentences import FPS, LEGEND, load_frames, load_overlay, render, tc
+from join_sentences import FPS, LEGEND, load_frames, load_overlay, merge_config, render, tc
 
 # 命例边界（秒）与每个命例切几块。依据：逐帧层的擦板段 + 叠图里命盘换了一张。
+# 每条 = (标签, 起秒, 止秒或 None, 切几块)。试点两集写在代码里；其余各集写进 第0步/全量配置/PLAN.json，
+# 那里每条也可以直接贴分段读手回的「大段」对象（键 标签 / 起秒 / 止秒 / 切几块，多余的键如 边界依据 不管）。
 PLAN = {
     "P17": [
         # 命例之间的边界直接给到那句话的起秒（看过原句定的）：33:24「那还有呢」、40:49「下面有个很好玩的八字的」
@@ -36,6 +38,7 @@ PLAN = {
         ("诸星（下）：南斗起，天府、太阴、天梁、天相", 2877.4, None, 2),
     ],
 }
+PLAN = merge_config(PLAN, "PLAN")
 CTX_SEC = 20          # 前后文各带多少秒
 SNAP_SEC = 15         # 边界吸附范围
 GAP_MERGE = 60        # 写段：间隙不超过这么多帧就并成一段
@@ -108,6 +111,25 @@ def plain(rows):
     return [f"[{r['序号']:04d} {r['时间码']}] {r['字幕']}｜语音：{r['语音'] or '—'}" for r in rows]
 
 
+def plan_of(ep):
+    """取一集的 PLAN，统一成 [(标签, 起秒, 止秒或 None, 切几块)]，顺手查一下明显填错的地方。"""
+    if ep not in PLAN:
+        raise SystemExit(f"PLAN 里没有 {ep}：先在 第0步/全量配置/PLAN.json 加一条（格式见该文件的 _说明）")
+    out = []
+    for x in PLAN[ep]:
+        if isinstance(x, dict):
+            x = (x["标签"], x["起秒"], x["止秒"], x["切几块"])
+        out.append(tuple(x))
+    for k, (name, a, b, n) in enumerate(out):
+        if not isinstance(n, int) or n < 1:
+            raise SystemExit(f"{ep} PLAN 第 {k + 1} 段「{name}」切几块应是正整数：{n}")
+        if k and a <= out[k - 1][1]:
+            raise SystemExit(f"{ep} PLAN 第 {k + 1} 段「{name}」起秒 {a} 没有比上一段大")
+        if b is None and k + 1 < len(out):
+            raise SystemExit(f"{ep} PLAN 第 {k + 1} 段「{name}」不是最后一段，止秒不能是 null")
+    return out
+
+
 def main(ep):
     rows = [json.loads(l) for l in open(f"按句拼接/试点/{ep}.jsonl")]
     frames, _, _ = load_frames(ep)
@@ -115,7 +137,7 @@ def main(ep):
     end_sec = rows[-1]["管到帧"] / FPS
 
     # 1. 定边界（句下标）
-    plan = PLAN[ep]
+    plan = plan_of(ep)
     cuts = [(0, plan[0][0])]
     for pi, (name, a, b, n) in enumerate(plan):
         b = end_sec if b is None else b

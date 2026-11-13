@@ -10,7 +10,11 @@
 
 用法（在 第0步/ 下）：
   ../.venv-vision/bin/python join_sentences.py P17
-输出：
+输入（11-12 起 17 集通用）：
+  逐帧层：先找 逐帧层/试点/<集>.jsonl（P17、P05），没有就读 逐帧层/全量/<集>.jsonl（其余 15 集；两边格式相同，11-12 核过）
+  指代题：指代层/试点/<集>/题目清单.json（没有再找 指代层/全量/<集>/）；盲标结果读 盲标/结果/批*.json，
+          试点批 = 批01–批30，全量批 = 批<集>-NN（如 批P11-03）；题号带集号（P17-D001），各集不会串
+输出（目录名虽叫「试点」，17 集都放这里；下游提示词模板和 cornell_* 都依赖这个路径，别改）：
   按句拼接/试点/P17.jsonl        每句一行
   按句拼接/试点/P17-可读.md      给人 / 给写笔记的模型看的版本
   按句拼接/试点/P17-统计.json    覆盖数字
@@ -22,6 +26,32 @@ import os
 import sys
 
 FPS = 30
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def frames_path(ep):
+    """逐帧层文件：试点两集在 逐帧层/试点/，其余 15 集在 逐帧层/全量/。"""
+    p = f"逐帧层/试点/{ep}.jsonl"
+    return p if os.path.exists(p) else f"逐帧层/全量/{ep}.jsonl"
+
+
+def first_existing(*paths):
+    return next((p for p in paths if os.path.exists(p)), None)
+
+
+def merge_config(base, name):
+    """代码里原有的条目 + 第0步/全量配置/<name>.json 合并（以后每集只往 json 里加一条）。
+    json 里以 _ 开头的键是说明，跳过；同一集两边都有时以 json 为准，并在 stderr 提示。"""
+    out = dict(base)
+    p = os.path.join(HERE, "全量配置", f"{name}.json")
+    if os.path.exists(p):
+        for k, v in json.load(open(p)).items():
+            if k.startswith("_"):
+                continue
+            if k in base:
+                print(f"注意：全量配置/{name}.json 覆盖了代码里的 {k}", file=sys.stderr)
+            out[k] = v
+    return out
 
 
 def tc(sec: float) -> str:
@@ -32,8 +62,11 @@ def tc(sec: float) -> str:
 def load_frames(ep):
     """逐帧层：按窗号去重（补跑会有重复行），失败窗跳过。返回 {帧号: 行}"""
     wins, failed = {}, set()
-    for line in open(f"逐帧层/试点/{ep}.jsonl"):
+    for line in open(frames_path(ep)):
         d = json.loads(line)
+        for r in d.get("行") or []:
+            if "动作" not in r and "動作" in r:   # 全量 P01 有 12 行模型把键写成繁体「動作」
+                r["动作"] = r.pop("動作")
         if d.get("行"):
             wins[d["窗"]] = d
             failed.discard(d["窗"])
@@ -77,14 +110,18 @@ def load_overlay(ep):
 
 
 def load_deixis(ep):
-    qs = json.load(open(f"指代层/试点/{ep}/题目清单.json"))
+    qp = first_existing(f"指代层/试点/{ep}/题目清单.json", f"指代层/全量/{ep}/题目清单.json")
+    if not qp:
+        raise SystemExit(f"{ep} 还没有指代题目清单（指代层/试点/{ep}/题目清单.json）：先跑 pilot_deixis.py 出题 {ep}")
+    qs = json.load(open(qp))
     blind = {}
-    for f in sorted(glob.glob("指代层/试点/盲标/结果/批*.json")):
+    # 试点批 批01–批30、全量批 批<集>-NN 都在 结果/ 里，glob 一起读；题号带集号，不会串集
+    for f in sorted(glob.glob("指代层/试点/盲标/结果/批*.json")) + sorted(glob.glob("指代层/全量/盲标/结果/批*.json")):
         for x in json.load(open(f)):
             blind[x["题号"]] = x
     kimi = {}
-    p = f"指代层/试点/{ep}/Kimi-v2.jsonl"
-    if os.path.exists(p):
+    p = first_existing(f"指代层/试点/{ep}/Kimi-v2.jsonl", f"指代层/全量/{ep}/Kimi-v2.jsonl")
+    if p:
         for line in open(p):
             d = json.loads(line)
             kimi[d["题号"]] = d.get("答") or {}
@@ -162,6 +199,14 @@ def render(rows, ov_by_id, after=None):
 
 
 def main(ep):
+    miss = [p for p in (f"../字幕/苹果识别/{ep}.jsonl", f"../字幕/语音/{ep}-字词.json", frames_path(ep),
+                        "叠图转写/叠图定稿-v2.jsonl") if not os.path.exists(p)]
+    if not first_existing(f"指代层/试点/{ep}/题目清单.json", f"指代层/全量/{ep}/题目清单.json"):
+        miss.append(f"指代层/试点/{ep}/题目清单.json（pilot_deixis.py 出题 {ep}）")
+    if miss:
+        raise SystemExit(f"{ep} 缺输入，先补齐：" + "、".join(miss))
+    if not any(os.path.exists(f"姿态/{ep}-{x}.jsonl") for x in ("上", "下")):
+        print(f"注意：{ep} 没有 姿态/{ep}-上/下.jsonl，「切镜头」全记 0", file=sys.stderr)
     subs = [json.loads(l) for l in open(f"../字幕/苹果识别/{ep}.jsonl")]
     words = json.load(open(f"../字幕/语音/{ep}-字词.json"))["transcription"]
     frames, n_win, failed = load_frames(ep)

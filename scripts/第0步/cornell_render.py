@@ -25,13 +25,16 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from join_sentences import FPS, load_overlay, tc
+from join_sentences import FPS, load_overlay, merge_config, tc
 
 BV = "BV1KJsLekEfA"
+# p = B 站合辑分 P 号（= 集号数字）；标题取自 审计/BV1KJsLekEfA-view.json 的分 P 标题。
+# 试点两集写在代码里；其余各集写进 第0步/全量配置/EP_INFO.json（以后每集只往 json 里加一条）。
 EP_INFO = {
     "P17": {"p": 17, "标题": "9 上：再婚改运法 / 挑子女时间 / 中年丧偶面相 / 化忌冲命"},
     "P05": {"p": 5, "标题": "3 上：四化星 / 北斗星系 / 南斗星系"},
 }
+EP_INFO = merge_config(EP_INFO, "EP_INFO")
 TAGS = {"口述": "t-say", "叠图": "t-ov", "板书": "t-chalk", "指代": "t-point", "推断": "t-infer"}
 MARGIN = 600       # 条目帧号允许越出本块多少帧（前后文各约 20 秒）
 NEAR = 450         # 引文在所引帧范围前后多少帧内找
@@ -47,6 +50,7 @@ FRAME_RE = re.compile(r"第\s*(\d+)\s*(?:[–—\-~～至到]\s*(\d+)\s*)?帧")
 # ───────────────────────── 读数据 ─────────────────────────
 
 def load(ep):
+    # 「按句拼接/试点/」是 join_sentences / cornell_blocks 的输出目录，17 集（含全量 15 集）都在这里，不是只给试点用
     base = f"按句拼接/试点/{ep}-笔记块"
     blocks = json.load(open(f"{base}/分块.json"))
     rows = [json.loads(l) for l in open(f"按句拼接/试点/{ep}.jsonl")]
@@ -180,9 +184,9 @@ def check(ep, blocks, rows, notes, overlay):
                         prob.append((n, "板书帧不在清单", f"第 {a}–{e} 帧（最近的图是第 {near} 帧）｜{text[:40]}"))
                 elif tag == "指代":
                     ok = [x for f, x in deixis if a - 90 <= f <= e + 90
-                          and x["盲标"].get("是指代") == "是" and x["盲标"].get("把握") == "确定"]
+                          and (x["盲标"] or {}).get("是指代") == "是" and (x["盲标"] or {}).get("把握") == "确定"]
                     if not ok:
-                        got = [f"{x['词']}@{f}:{x['盲标'].get('是指代')}/{x['盲标'].get('把握')}"
+                        got = [f"{x['词']}@{f}:{(x['盲标'] or {}).get('是指代')}/{(x['盲标'] or {}).get('把握')}"
                                for f, x in deixis if a - 300 <= f <= e + 300]
                         prob.append((n, "指代没依据", f"第 {a}–{e} 帧｜{text[:50]}｜附近的题：{got or '无'}"))
                 elif tag == "叠图":
@@ -316,7 +320,8 @@ def chart_md(cells, title):
 # ───────────────────────── 渲染 ─────────────────────────
 
 def burl(ep, frame):
-    return f"https://www.bilibili.com/video/{BV}/?p={EP_INFO[ep]['p']}&t={int(frame / FPS)}"
+    p = EP_INFO[ep].get("p") or int(ep[1:])   # 分 P 号 = 集号数字（11-12 对过 B 站快照）
+    return f"https://www.bilibili.com/video/{BV}/?p={p}&t={int(frame / FPS)}"
 
 
 def span(a, b):
@@ -440,6 +445,8 @@ def pick_summary(base, notes):
 
 
 def render(ep, base, blocks, rows, notes, overlay, tot, today):
+    if not (EP_INFO.get(ep) or {}).get("标题"):
+        raise SystemExit(f"EP_INFO 里没有 {ep} 的标题：先在 第0步/全量配置/EP_INFO.json 补上（--check 不需要）")
     info = EP_INFO[ep]
     last = blocks[-1]["止帧"]
     title = f"{ep} · {info['标题']}"
