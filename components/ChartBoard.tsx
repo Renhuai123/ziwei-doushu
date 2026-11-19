@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
+import { boshiShenName, jiangQianShenName, suiQianShenName } from '@/lib/ziwei/shier-shen';
 import PalaceCell from './PalaceCell';
 import TimeNav, { type TimeView, getYearStemIndex, buildSiHuaOverlay } from './TimeNav';
 
@@ -74,6 +75,13 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
   })();
   const overlayLabel = timeView === 'daxian' ? '限' : timeView === 'liunian' ? '年' : undefined;
 
+  // 十二神煞只在展示层计算：岁前/将前按当前视图支，博士始终按生年干与性别。
+  const shierShenAnchor = timeView === 'liunian'
+    ? (((liunianYear - 4) % 12) + 12) % 12
+    : timeView === 'daxian' && currentDx
+    ? currentDx.palaceBranch
+    : chart.lunarInfo.yearBranch;
+
   const handlePalaceClick = (branch: number) => {
     const isDeselecting = selectedBranch === branch;
     setSelectedBranch(prev => prev === branch ? null : branch);
@@ -132,6 +140,11 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
             <div key={branch} style={{ gridRow: row, gridColumn: col, background: 'var(--t-bg)' }}>
               <PalaceCell
                 palace={palace}
+                shierShen={{
+                  boshi: boshiShenName(chart.lunarInfo.yearStem, chart.birthInfo.gender, branch),
+                  jiangQian: jiangQianShenName(shierShenAnchor, branch),
+                  suiQian: suiQianShenName(shierShenAnchor, branch),
+                }}
                 onClick={() => handlePalaceClick(branch)}
                 onStarClick={(star) => onStarSelect?.(star, palace)}
                 isSelected={selectedBranch === branch}

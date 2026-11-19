@@ -4,8 +4,15 @@ import type { Palace, Star } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES } from '@/lib/ziwei/constants';
 import clsx from 'clsx';
 
+interface ShierShenDisplay {
+  boshi: string;
+  jiangQian: string;
+  suiQian: string;
+}
+
 interface PalaceCellProps {
   palace: Palace;
+  shierShen?: ShierShenDisplay;
   onClick?: () => void;
   onStarClick?: (star: Star) => void;
   isSelected?: boolean;
@@ -55,7 +62,7 @@ const SiHuaBadge = ({
 
 export default function PalaceCell({
   palace, onClick, onStarClick, isSelected, isSanFang, delay = 0,
-  overlayStarSiHua, overlayLabel, onSiHuaClick,
+  overlayStarSiHua, overlayLabel, onSiHuaClick, shierShen,
 }: PalaceCellProps) {
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
   const ganzhi = `${STEMS[stem]}${BRANCHES[branch]}`;
@@ -205,6 +212,18 @@ export default function PalaceCell({
               {s.name}{s.brightnessRaw ? `[${s.brightnessRaw}]` : ''}{s.siHua && <SiHuaBadge siHua={s.siHua} />}
             </span>
           ))}
+        </div>
+      )}
+
+      {/* 宫底左下角竖排：博士、将前、岁前；三组数据均由 ChartBoard 按当前视图计算。 */}
+      {shierShen && (
+        <div
+          className="flex flex-col items-start mt-1 pt-0.5 text-[8px] leading-tight"
+          style={{ borderTop: '1px dashed var(--t-border)', color: 'var(--t-faint)' }}
+        >
+          <span data-shier-shen="boshi" className="text-violet-500/70">{shierShen.boshi}</span>
+          <span data-shier-shen="jiangQian">{shierShen.jiangQian}</span>
+          <span data-shier-shen="suiQian">{shierShen.suiQian}</span>
         </div>
       )}
 
