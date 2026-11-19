@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 [![Dataset: CC BY 4.0](https://img.shields.io/badge/dataset-CC%20BY%204.0-green.svg)](./DATASET-LICENSE)
 
-**中文** · [English](./README.en.md) · [日本語](./README.ja.md)
+**简体中文** · [繁體中文](./README.zh-Hant.md) · [English](./README.en.md) · [日本語](./README.ja.md)
 
 </div>
 
@@ -68,6 +68,8 @@
 **4. 写明片源上限** —— 视频本身给不出的三项：「这里 / 这个」约四成看不出指哪（全量 2,805 题里 42.5%）；粉笔板书六成多认不出（小考样本 228 个字位里 64%）；最清楚的电子叠图只占全片 29.1% 时长（全量）。详见[第五·新章](#五新160-万帧逐帧精读2026-11-13)。
 
 **5. 目录与边界** —— [`research/nishi-video-reading/`](./research/nishi-video-reading/README.md) 里是方案与两轮独立终审、小考五个实验的设计与成绩、全部脚本和提示词、按时间的工作记录（每个数字的出处）和公开摘要；不含视频画面、帧图片和讲课原话的整段转写。`tsconfig.json` 已把 `research/` 排除在类型检查之外。许可见[第九章](#九协议)。
+
+> **2026-11-19 补充**：新增 [繁體中文](./README.zh-Hant.md) 与 [日本語](./README.ja.md) 说明页。日文版由 @eltociear 贡献（#76）；繁体版由本页按 ouranic.cn 繁体模式同一套规则转换。
 
 ### 上一轮更新（2026-10-15）
 

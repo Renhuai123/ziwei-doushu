@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 [![Dataset: CC BY 4.0](https://img.shields.io/badge/dataset-CC%20BY%204.0-green.svg)](./DATASET-LICENSE)
 
-[中文](./README.md) · **English** · [日本語](./README.ja.md)
+[简体中文](./README.md) · [繁體中文](./README.zh-Hant.md) · **English** · [日本語](./README.ja.md)
 
 </div>
 
@@ -43,6 +43,8 @@ The frame-by-frame reading of Ni Haixia's *Tian Ji* Zi Wei lectures is finished 
 - **Public summaries**: 344 key points for the 17 episodes in [`research/nishi-video-reading/summaries/`](./research/nishi-video-reading/summaries/README.md) (in Chinese), one file per episode; every point has a timestamp that jumps to that second of the Bilibili video. Quotes are kept to short phrases and there are no screenshots.
 - **Limits of the source, stated openly**: three things the video itself cannot give. About two in five "here / this" cannot be resolved (42.5% of 2,805 questions, full run); nearly two thirds of chalk characters are unreadable (64% of 228 character positions, pilot sample only); the printed chart overlays added in editing, the clearest source, cover only 29.1% of running time (full run). See [1.6 million frames, read frame by frame](#16-million-frames-read-frame-by-frame-2026-11-13).
 - **What the directory holds**: the plan and two rounds of independent review, design and results of five pilot experiments, all scripts and prompts, a dated work log giving the source of every number, and the public summaries. It contains no video footage, frame images or full transcripts of the lectures. `tsconfig.json` now excludes `research/` from type checking. See [License](#license).
+
+> **2026-11-19 addendum**: added [Traditional Chinese](./README.zh-Hant.md) and [Japanese](./README.ja.md) READMEs. The Japanese one was contributed by @eltociear (#76); the Traditional Chinese one is converted from the Simplified Chinese README with the same rules as the Traditional Chinese mode on ouranic.cn.
 
 ### Previous update (2026-10-15)
 
