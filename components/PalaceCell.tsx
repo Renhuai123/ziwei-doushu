@@ -4,8 +4,15 @@ import type { Palace, Star } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES } from '@/lib/ziwei/constants';
 import clsx from 'clsx';
 
+interface ShierShenDisplay {
+  boshi: string;
+  jiangQian: string;
+  suiQian: string;
+}
+
 interface PalaceCellProps {
   palace: Palace;
+  shierShen?: ShierShenDisplay;
   onClick?: () => void;
   onStarClick?: (star: Star) => void;
   isSelected?: boolean;
@@ -55,7 +62,7 @@ const SiHuaBadge = ({
 
 export default function PalaceCell({
   palace, onClick, onStarClick, isSelected, isSanFang, delay = 0,
-  overlayStarSiHua, overlayLabel, onSiHuaClick,
+  overlayStarSiHua, overlayLabel, onSiHuaClick, shierShen,
 }: PalaceCellProps) {
   const { branch, stem, name, stars, daXianAge, isCurrentDaXian, isMingGong, isShenGong } = palace;
   const ganzhi = `${STEMS[stem]}${BRANCHES[branch]}`;
@@ -63,6 +70,7 @@ export default function PalaceCell({
   const majorStars = stars.filter(s => s.type === 'major');
   const luckyStars = stars.filter(s => s.type === 'lucky');
   const shaStars = stars.filter(s => s.type === 'sha');
+  const minorStars = stars.filter(s => s.type === 'minor');
 
   return (
     <motion.div
@@ -196,15 +204,26 @@ export default function PalaceCell({
         </div>
       )}
 
-      {/* 宫底十二神煞：博士（不跟随运限）· 岁前 · 将前（运限视图下由 ChartBoard 覆盖） */}
-      {(palace.boshiShen || palace.suiQianShen || palace.jiangQianShen) && (
+      {/* 杂曜 */}
+      {minorStars.length > 0 && (
+        <div className="flex flex-wrap gap-x-1">
+          {minorStars.map(s => (
+            <span key={s.name} className="text-[9px] leading-tight" style={{ color: 'var(--t-faint)', opacity: 0.75 }}>
+              {s.name}{s.brightnessRaw ? `[${s.brightnessRaw}]` : ''}{s.siHua && <SiHuaBadge siHua={s.siHua} />}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* 宫底左下角竖排：博士、将前、岁前；三组数据均由 ChartBoard 按当前视图计算。 */}
+      {shierShen && (
         <div
-          className="flex items-center justify-between gap-1 mt-1 pt-0.5 text-[8px] leading-tight"
+          className="flex flex-col items-start mt-1 pt-0.5 text-[8px] leading-tight"
           style={{ borderTop: '1px dashed var(--t-border)', color: 'var(--t-faint)' }}
         >
-          <span className="text-violet-500/70">{palace.boshiShen}</span>
-          <span>{palace.suiQianShen}</span>
-          <span>{palace.jiangQianShen}</span>
+          <span data-shier-shen="boshi" className="text-violet-500/70">{shierShen.boshi}</span>
+          <span data-shier-shen="jiangQian">{shierShen.jiangQian}</span>
+          <span data-shier-shen="suiQian">{shierShen.suiQian}</span>
         </div>
       )}
 

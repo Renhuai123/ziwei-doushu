@@ -1,0 +1,11 @@
+*.key
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.mp4
+*.mp3
+*.wav
+__pycache__/
+.DS_Store
+!docs/update-*.png

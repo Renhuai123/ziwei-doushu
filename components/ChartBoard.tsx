@@ -3,10 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
-import {
-  SUI_QIAN_SHEN, JIANG_QIAN_SHEN,
-  suiQianShenByBranch, jiangQianShenByBranch,
-} from '@/lib/ziwei/shier-shen';
+import { boshiShenName, jiangQianShenName, suiQianShenName } from '@/lib/ziwei/shier-shen';
 import PalaceCell from './PalaceCell';
 import TimeNav, { type TimeView, getYearStemIndex, buildSiHuaOverlay } from './TimeNav';
 
@@ -78,15 +75,12 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
   })();
   const overlayLabel = timeView === 'daxian' ? '限' : timeView === 'liunian' ? '年' : undefined;
 
-  // 岁前/将前十二神跟随运限（主流排盘默认口径）：大限按大限宫支、流年按流年支、本命按生年支。
-  // 博士十二神不跟随运限，直接用 palace.boshiShen（排盘时已按生年干填好）。
+  // 十二神煞只在展示层计算：岁前/将前按当前视图支，博士始终按生年干与性别。
   const shierShenAnchor = timeView === 'liunian'
     ? (((liunianYear - 4) % 12) + 12) % 12
     : timeView === 'daxian' && currentDx
     ? currentDx.palaceBranch
     : chart.lunarInfo.yearBranch;
-  const suiQianArr = suiQianShenByBranch(shierShenAnchor);
-  const jiangQianArr = jiangQianShenByBranch(shierShenAnchor);
 
   const handlePalaceClick = (branch: number) => {
     const isDeselecting = selectedBranch === branch;
@@ -142,16 +136,15 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
           const [row, col] = BRANCH_GRID_POS[branch];
           const palace = palaceMap[branch];
           if (!palace) return null;
-          // 运限视图下覆盖岁前/将前十二神（仅展示层，chart 数据仍为本命层，AI 拿到的也是本命层）
-          const displayPalace: Palace = {
-            ...palace,
-            suiQianShen: SUI_QIAN_SHEN[suiQianArr[branch]],
-            jiangQianShen: JIANG_QIAN_SHEN[jiangQianArr[branch]],
-          };
           return (
             <div key={branch} style={{ gridRow: row, gridColumn: col, background: 'var(--t-bg)' }}>
               <PalaceCell
-                palace={displayPalace}
+                palace={palace}
+                shierShen={{
+                  boshi: boshiShenName(chart.lunarInfo.yearStem, chart.birthInfo.gender, branch),
+                  jiangQian: jiangQianShenName(shierShenAnchor, branch),
+                  suiQian: suiQianShenName(shierShenAnchor, branch),
+                }}
                 onClick={() => handlePalaceClick(branch)}
                 onStarClick={(star) => onStarSelect?.(star, palace)}
                 isSelected={selectedBranch === branch}

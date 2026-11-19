@@ -3,7 +3,7 @@
  *
  * 背景：`BirthFormState → BirthInfo` 的转换在本仓库里必须只有一处实现——
  * `lib/ziwei/share.ts` 的 `formToBirthInfo()`，它负责「晚子时换日」：
- * 23:00–23:59 出生按**次日**排盘。这条规则是三处规格共同确定的：
+ * 真太阳时 23:00–23:59 出生按**次日**排盘。这条规则是三处规格共同确定的：
  *   · `lib/ziwei/types.ts` 声明 `BirthInfo.year` 是「已经过子时换日修正后的排盘日」；
  *   · `README.md` 时辰对照表下一行：「23:00–23:59 出生（晚子时）按次日排盘、时辰取 0」；
  *   · `scripts/regression/iztro-time-index-boundary.test.ts` 已把它钉成断言。
@@ -16,7 +16,7 @@
  *
  * 本回归钉住三件事：
  *   1. BirthForm 必须复用 `formToBirthInfo`，不得自行拼装 BirthInfo；
- *   2. BirthForm 不得再带一份自己的 `calcTrueSolarBranch`（真太阳时只有一处实现）；
+ *   2. BirthForm 必须复用 `formToTrueSolarTime`（真太阳时只有一处实现）；
  *   3. `formToBirthInfo` 的晚子时 / 早子时边界行为，含跨月与跨年进位。
  *
  * 第 1、2 条走源码解析（组件是 .tsx，仓库没有 DOM 测试环境），
@@ -43,10 +43,10 @@ assert.equal(
 );
 
 // ── 2) 真太阳时时辰只有一处实现 ─────────────────────────────────
-assert.equal(
-  /function\s+calcTrueSolarBranch\s*\(/.test(src),
-  false,
-  'BirthForm 不得重复实现 calcTrueSolarBranch，请复用 lib/ziwei/share.ts 的同名导出',
+assert.match(
+  src,
+  /import\s*\{[^}]*\bformToTrueSolarTime\b[^}]*\}\s*from\s*'@\/lib\/ziwei\/share'/,
+  'BirthForm 必须复用 share.ts 的 formToTrueSolarTime，预览与提交共用完整修正',
 );
 
 // ── 3) formToBirthInfo 的边界行为 ───────────────────────────────
@@ -105,7 +105,7 @@ assert.deepEqual(
 assert.deepEqual(
   pick(formToBirthInfo(formAt('2000', '1', '31', '23', '0'))),
   { year: 2000, month: 2, day: 1, hour: 0 },
-  '23:00 整点即进入晚子时',
+  '未填出生地不校正，23:00 整点即进入晚子时',
 );
 
 // 早子时与 22:xx：不换日
