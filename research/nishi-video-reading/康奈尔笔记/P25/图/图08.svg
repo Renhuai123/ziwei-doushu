@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">一侧住人</title>
+  <desc id="desc">两幅房屋俯视图都以南北为轴。左图三间卧房集中在轴的一侧，另一侧是客厅、餐厅、厨房；右图改为南北分隔，三间卧房排在北边，南北轴的东西两侧都有卧房。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+
+    <g text-anchor="middle" font-size="27" font-weight="600">
+      <text x="246" y="48">一侧住人</text>
+      <text x="714" y="48">这就不叫做一侧住人</text>
+    </g>
+
+    <g fill="#efefec">
+      <rect x="72" y="118" width="174" height="204"/>
+      <rect x="540" y="118" width="348" height="102"/>
+    </g>
+
+    <g fill="none" stroke="#373737" stroke-linejoin="round">
+      <rect x="72" y="118" width="348" height="204" stroke-width="2.8"/>
+      <path d="M246 118V322 M72 186H246 M72 254H246" stroke-width="2"/>
+      <rect x="540" y="118" width="348" height="204" stroke-width="2.8"/>
+      <path d="M540 220H888 M656 118V220 M772 118V220" stroke-width="2"/>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="5 4">
+      <path d="M246 96V118 M246 322V344"/>
+      <path d="M714 96V344"/>
+    </g>
+
+    <g text-anchor="middle" font-size="18" fill="#555">
+      <text x="246" y="90">北</text>
+      <text x="246" y="364">南</text>
+      <text x="45" y="227">西</text>
+      <text x="447" y="227">东</text>
+      <text x="714" y="90">北</text>
+      <text x="714" y="364">南</text>
+      <text x="513" y="227">西</text>
+      <text x="915" y="227">东</text>
+    </g>
+
+    <g text-anchor="middle" font-size="23" font-weight="500">
+      <text x="159" y="160">卧房</text>
+      <text x="159" y="228">卧房</text>
+      <text x="159" y="296">卧房</text>
+      <text x="598" y="177">卧房</text>
+      <rect x="686" y="151" width="56" height="34" fill="#efefec"/>
+      <text x="714" y="177">卧房</text>
+      <text x="830" y="177">卧房</text>
+    </g>
+    <g text-anchor="middle" font-size="22" fill="#494949">
+      <text x="333" y="192">客厅</text>
+      <text x="333" y="228">餐厅</text>
+      <text x="333" y="264">厨房</text>
+    </g>
+
+    <path d="M84 333V340H234V333" fill="none" stroke="#777" stroke-width="1.4"/>
+    <text x="159" y="365" text-anchor="middle" font-size="18">人住在一边</text>
+
+    <g fill="none" stroke="#ccc" stroke-width="1">
+      <path d="M58 393H434 M526 393H902"/>
+    </g>
+    <g text-anchor="middle" font-size="19">
+      <text x="246" y="427">一侧住人的房子一定要规定在南北向</text>
+      <text x="246" y="462">南北向这边是东西，这才叫做一侧住人</text>
+      <text x="246" y="500" font-size="22" font-weight="600">是以南北为轴</text>
+
+      <text x="714" y="427">如果是这样子三间房间，南北这样子分开</text>
+      <text x="714" y="462">以南北来说的话</text>
+      <text x="714" y="500" font-size="22" font-weight="600">两边都有卧房</text>
+    </g>
+  </g>
+</svg>
