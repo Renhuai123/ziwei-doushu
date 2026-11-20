@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">禄逢忌是非财</title>
+  <desc id="desc">左侧上下两圈分别写「禄」和「忌」，一条连线将两圈合在一起，指向右侧的「是非财」。其中「财」字单独圈出。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#686868" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M291 164 C346 164 322 270 377 270 C322 270 346 376 291 376"/>
+    <path d="M377 270 H476 M464 262 L476 270 L464 278"/>
+  </g>
+
+  <g fill="#fff" stroke="#343434" stroke-width="2.8">
+    <circle cx="245" cy="203" r="69"/>
+    <circle cx="245" cy="337" r="69"/>
+    <circle cx="725" cy="270" r="59"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="54" font-weight="500" text-anchor="middle" fill="#242424">
+    <text x="245" y="222">禄</text>
+    <text x="245" y="356">忌</text>
+    <text x="590" y="289" letter-spacing="3">是非</text>
+    <text x="725" y="289">财</text>
+  </g>
+</svg>
