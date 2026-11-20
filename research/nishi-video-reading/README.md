@@ -118,14 +118,14 @@ flowchart TD
 
 ## 用到的模型和工具
 
-DeepSeek（deepseek-flash）、Kimi（kimi-k3.1-pro）、Grok 4.7（经 Cursor 命令行）、Claude（Opus 5.5 / Fable 5.1）、苹果系统文字识别（Vision）、MediaPipe、whisper.cpp（large-v3-turbo）、ffmpeg、OpenCV。Kimi、Grok 只用在小考和重测，全量没有用。
+DeepSeek（deepseek-flash）、Kimi（kimi-k3.1-pro）、Grok 4.7（经 Cursor 命令行）、Claude（Opus 5.5 / Fable 5.1）、苹果系统文字识别（Vision）、MediaPipe、whisper.cpp（large-v3-turbo）、ffmpeg、OpenCV。Kimi、Grok 只用在小考和重测，全量没有用；另外，重画的命盘由 Astra（gpt-6.2-astra）和 Grok 4.7 各自核过一遍。
 
 各家接口的钥匙都从本机文件读取，不在仓库里。脚本里的路径按我们本机的目录写，复现时请改成自己的。
 
 ## 版权与隐私
 
 - 视频画面和讲课内容的著作权属于原权利人；本仓库只放我们自己写的方法、代码和统计结果。
-- 笔记公开版只引短句，配图用「跳到 B 站原视频那一秒」的链接，不放截图。
+- 笔记公开版只引短句，不放视频截图。命例的命盘按视频里贴出的那张盘逐格重画，是我们自己画的图，放在 `康奈尔笔记/Pxx/图/命盘-*.svg`，同名 json 是每格数据（宫名、宫干支、身宫、主星、辅星、杂曜）。宫名、宫干支、主星、辅星取逐帧核过的「据视频叠图重排」表，杂曜取同一格的叠图转写；同一个人的几段合成一张。每张都由 Astra 和 Grok 各自对着视频帧核过。其余地方配的是「跳到 B 站原视频那一秒」的链接。
 - 视频里的命例都是真人，我们不公开由命盘反推出的生辰。
 
 ## 许可
