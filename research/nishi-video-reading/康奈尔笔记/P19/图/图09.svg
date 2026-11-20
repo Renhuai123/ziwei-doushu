@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">承浆</title>
+  <desc id="desc">下半脸正面示意图。朱红点标出下唇与下巴之间的承浆，点下方的灰色晕染表示倪师口述「黑黑的青青的」时所指的区域。</desc>
+  <defs>
+    <radialGradient id="chin-shade">
+      <stop offset="0" stop-color="#595959" stop-opacity=".66"/>
+      <stop offset=".5" stop-color="#707070" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#888" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 下半脸轮廓从两颊收至颏部。 -->
+    <path d="M165 84
+             C171 159 192 231 228 296
+             C251 337 282 367 317 394
+             C335 408 352 419 375 419
+             C398 419 415 408 433 394
+             C468 367 499 337 522 296
+             C558 231 579 159 585 84"
+          stroke="#393939" stroke-width="2.8"/>
+
+    <!-- 鼻翼、鼻底和人中。 -->
+    <g stroke="#777" stroke-width="1.8">
+      <path d="M329 103 C320 114 321 126 333 130
+               M417 130 C429 126 430 114 421 103"/>
+      <path d="M333 128 C340 122 348 125 355 132
+               C366 143 384 143 395 132
+               C402 125 410 122 417 128"/>
+      <path d="M367 151 Q367 166 360 178
+               M383 151 Q383 166 390 178" stroke="#bbb"/>
+    </g>
+
+    <!-- 唇峰、口缝、下唇缘。 -->
+    <path d="M287 210
+             C311 206 335 192 355 187
+             C363 185 369 192 375 192
+             C381 192 387 185 395 187
+             C415 192 439 206 463 210
+             C437 218 417 239 393 242
+             Q375 245 357 242
+             C333 239 313 218 287 210Z"
+          fill="#f6f6f5" stroke="#666" stroke-width="1.8"/>
+    <path d="M287 210 C313 207 338 209 357 212
+             Q375 216 393 212 C412 209 437 207 463 210"
+          stroke="#363636" stroke-width="2.3"/>
+
+    <!-- 唇下凹陷及其下方，分别对应点位与口述所指的范围。 -->
+    <path d="M345 268 Q375 277 405 268" stroke="#bababa" stroke-width="1.5"/>
+    <ellipse cx="375" cy="315" rx="50" ry="28" fill="url(#chin-shade)"/>
+
+    <g stroke="#777" stroke-width="1.4">
+      <path d="M383 272 L590 240 H640"/>
+      <path d="M397 316 L590 351 H640"/>
+    </g>
+  </g>
+
+  <circle cx="375" cy="272" r="6" fill="#b43b30" stroke="#fff" stroke-width="1.6"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="657" y="249" font-size="26" font-weight="600">承浆</text>
+    <text x="657" y="359" font-size="23">黑黑的青青的</text>
+  </g>
+</svg>

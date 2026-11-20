@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">福德宫遇廉破</title>
+  <desc id="desc">左图按本例盘位标出未宫主小肠、酉宫主肾，酉位的福德宫写有廉贞、破军。右图呈现倪师对本例女命的讲法：太阳也代表丈夫，福德宫遇廉破时，他以「太阳就不见了」推到「冲夫妻」，再分出生离、死别。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 9 10" refX="8" refY="5" markerWidth="8" markerHeight="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L8 5 L1 9" fill="none" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <!-- 命盘只在本例所讲的两格落字。 -->
+    <g>
+      <rect x="36" y="54" width="480" height="432" fill="#fff"/>
+      <path d="M276 54 H396 V162 H276 Z M396 162 H516 V270 H396 Z" fill="#f4f4f2"/>
+      <g fill="none" stroke="#c2c2be" stroke-width="1.3">
+        <rect x="36" y="54" width="480" height="432"/>
+        <path d="M156 54 V486 M396 54 V486 M36 162 H516 M36 378 H516"/>
+        <path d="M276 54 V162 M276 378 V486 M36 270 H156 M396 270 H516"/>
+      </g>
+      <path d="M276 54 H396 V162 H276 Z M396 162 H516 V270 H396 Z" fill="none" stroke="#585855" stroke-width="1.6"/>
+
+      <text x="276" y="278" text-anchor="middle" font-size="21" fill="#747471" letter-spacing="2">整个盘局</text>
+
+      <g text-anchor="middle">
+        <text x="336" y="94" font-size="23" font-weight="600">未宫</text>
+        <text x="336" y="138" font-size="21">小肠</text>
+      </g>
+      <path d="M336 102 V114" fill="none" stroke="#888884" stroke-width="1.3"/>
+
+      <text x="413" y="191" font-size="21" font-weight="600">酉宫</text>
+      <path d="M461 184 H475" fill="none" stroke="#888884" stroke-width="1.3"/>
+      <text x="482" y="191" font-size="20">肾</text>
+
+      <path d="M407 202 H505" fill="none" stroke="#cacac6" stroke-width="1"/>
+      <text x="456" y="226" text-anchor="middle" font-size="18">福德宫</text>
+      <g text-anchor="middle" font-size="19" font-weight="600" fill="#a3392d">
+        <text x="431" y="254">廉贞</text>
+        <text x="481" y="254">破军</text>
+      </g>
+    </g>
+
+    <!-- 太阳的两重指代。 -->
+    <text x="798" y="69" text-anchor="middle" font-size="27" font-weight="600">太阳</text>
+    <g fill="none" stroke="#737370" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M798 81 V99 M724 113 V99 H872 V113"/>
+    </g>
+    <g text-anchor="middle" font-size="22">
+      <text x="724" y="143">爸爸</text>
+      <text x="872" y="143">丈夫</text>
+    </g>
+
+    <!-- 从酉位福德宫的两颗星引出本例婚姻推断。 -->
+    <path d="M517 247 H707" fill="none" stroke="#505050" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text x="611" y="233" text-anchor="middle" font-size="15" fill="#5c5c59">不用管她夫妻宫有多好</text>
+    <rect x="719" y="222" width="182" height="50" rx="3" fill="#fff" stroke="#505050" stroke-width="1.5"/>
+    <text x="810" y="255" text-anchor="middle" font-size="23" font-weight="600">太阳就不见了</text>
+
+    <path d="M810 273 V322" fill="none" stroke="#505050" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="810" y="355" text-anchor="middle" font-size="24" font-weight="600">冲夫妻</text>
+
+    <g fill="none" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M810 368 V393"/>
+      <path d="M810 393 H742 V420" marker-end="url(#arrow)"/>
+      <path d="M810 393 H878 V420" marker-end="url(#arrow)"/>
+    </g>
+    <g text-anchor="middle" font-size="23">
+      <text x="742" y="455">生离</text>
+      <text x="878" y="455">死别</text>
+    </g>
+  </g>
+</svg>

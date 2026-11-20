@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">英星入庙与太阴化禄</title>
+  <desc id="desc">上半图把板书中的午宫与口述的子宫并列为两种情况，合到「英星入庙」，再分出倪师对男人和女人的两种说法。下半图单列本例女命在32至41岁的宫格，圈出「化禄」，连到倪师对这段年龄的解读。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="48" y="38" width="196" height="165" fill="#fff" stroke="#515151" stroke-width="1.7"/>
+    <g text-anchor="middle">
+      <text x="95" y="87" font-size="29" font-weight="600">破军</text>
+      <text x="94" y="120" font-size="21">禄存</text>
+      <text x="205" y="70" font-size="19" fill="#555">红鸾</text>
+    </g>
+    <path d="M62 149 H230" fill="none" stroke="#d2d2d2" stroke-width="1"/>
+    <text x="65" y="182" font-size="17" fill="#555">2-11</text>
+    <text x="147" y="182" font-size="19">命宫</text>
+    <text x="204" y="183" font-size="24" font-weight="600">午</text>
+
+    <text x="146" y="253" text-anchor="middle" font-size="21">或者破军在子宫</text>
+    <g fill="none" stroke="#848484" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M245 120 H274 V245 H232"/>
+      <path d="M274 170 H306"/>
+    </g>
+    <text x="322" y="179" font-size="28" font-weight="600">英星入庙</text>
+
+    <g fill="none" stroke="#656565" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M449 170 H479 M479 85 V224 M479 85 H502 M479 224 H502"/>
+    </g>
+    <g font-size="20" fill="#555">
+      <text x="516" y="92">男人</text>
+      <text x="516" y="231">女人</text>
+    </g>
+    <g font-size="28" font-weight="600">
+      <text x="584" y="94">发武官</text>
+      <text x="584" y="233">比较孤单</text>
+    </g>
+    <g font-size="20">
+      <text x="584" y="130">军人、警察、法官、外交官</text>
+      <text x="584" y="269">个性上来说会非常的孤僻</text>
+    </g>
+
+    <path d="M48 310 H912" fill="none" stroke="#d2d2d2" stroke-width="1"/>
+
+    <rect x="145" y="343" width="208" height="151" fill="#fff" stroke="#515151" stroke-width="1.7"/>
+    <text x="164" y="382" font-size="26" font-weight="600">太阴</text>
+    <ellipse cx="294" cy="373" rx="40" ry="22" fill="none" stroke="#ac4436" stroke-width="2"/>
+    <text x="294" y="382" text-anchor="middle" font-size="25" font-weight="600">化禄</text>
+    <g font-size="18" fill="#555">
+      <text x="165" y="415">天钺</text>
+      <text x="165" y="439">火星</text>
+    </g>
+    <path d="M160 450 H338" fill="none" stroke="#d2d2d2" stroke-width="1"/>
+    <text x="331" y="479" text-anchor="end" font-size="21">32-41</text>
+
+    <path d="M354 419 H452 M445 413 L452 419 L445 425" fill="none" stroke="#656565" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="476" y="395" font-size="20" fill="#555">这个是一个女人的命</text>
+    <text x="476" y="437" font-size="27" font-weight="600">女人在赚钱，不需要男人</text>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">子女宫贪狼化禄</title>
+  <desc id="desc">命盘左列第二格是子女宫。两条线分别对应倪师对这张盘的解读：贪狼代表男命的一个儿子，化禄是财星，说的是这个儿子做生意当老板。左上格夫妻宫有红鸾星，是倪师说这张盘最累之处；右列第二格福德宫有天同星。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 9 10" refX="7" refY="5" markerWidth="7" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 5 L1 9" fill="none" stroke="#676767" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="#f6f6f4">
+    <rect x="48" y="38" width="216" height="232"/>
+    <rect x="696" y="154" width="216" height="116"/>
+  </g>
+
+  <g fill="none" stroke="#c4c4c0" stroke-width="1.3">
+    <path d="M264 38 V502 M696 38 V502"/>
+    <path d="M480 38 V154 M480 386 V502"/>
+    <path d="M48 154 H912 M48 386 H912"/>
+    <path d="M48 270 H264 M696 270 H912"/>
+    <rect x="48" y="38" width="864" height="464" stroke="#676763" stroke-width="1.8"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g font-size="20" font-weight="600">
+      <text x="68" y="72">夫妻宫</text>
+      <text x="68" y="186">子女宫</text>
+      <text x="716" y="186">福德宫</text>
+    </g>
+
+    <text x="242" y="72" text-anchor="end" font-size="18" fill="#555">最累</text>
+    <text x="156" y="122" text-anchor="middle" font-size="27">红鸾星</text>
+    <text x="804" y="237" text-anchor="middle" font-size="27">天同星</text>
+
+    <g fill="none" stroke-width="1.6">
+      <ellipse cx="158" cy="207" rx="40" ry="18" stroke="#666"/>
+      <ellipse cx="158" cy="247" rx="40" ry="18" stroke="#ae4034"/>
+    </g>
+    <g text-anchor="middle" font-size="23">
+      <text x="158" y="215">贪狼</text>
+      <text x="158" y="255" fill="#ae4034">化禄</text>
+    </g>
+
+    <g fill="none" stroke="#676767" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M204 207 H290"/>
+      <path d="M204 247 H290"/>
+      <path d="M365 247 H405"/>
+    </g>
+    <g font-size="23">
+      <text x="302" y="215">男的一个儿子</text>
+      <text x="302" y="255">财星</text>
+      <text x="417" y="255">做生意当老板</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">中庭短</title>
+  <desc id="desc">正面脸图以额头、眉毛、鼻底和下巴为界，右侧依次标出上、中、下三段。眉毛到鼻底的一段较短，用朱红线标出。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="46" y="36" width="140" height="48" rx="3" fill="none" stroke="#555" stroke-width="1.4"/>
+    <text x="116" y="68" text-anchor="middle" font-size="24" font-weight="600" letter-spacing="2">中庭短</text>
+
+    <g fill="none" stroke="#383838" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M466 45
+               C392 45 341 91 330 165
+               C322 214 326 274 340 329
+               C353 381 377 427 414 458
+               C434 475 450 482 466 482
+               C482 482 498 475 518 458
+               C555 427 579 381 592 329
+               C606 274 610 214 602 165
+               C591 91 540 45 466 45Z"/>
+      <path d="M336 199
+               Q353 168 362 120
+               Q364 103 377 97
+               C406 92 437 104 466 104
+               C495 104 526 92 555 97
+               Q568 103 570 120
+               Q579 168 596 199" stroke="#626262" stroke-width="2"/>
+      <path d="M363 239 Q389 227 425 237
+               M507 237 Q543 227 569 239" stroke-width="3.6"/>
+      <path d="M456 248 C455 264 451 280 446 292
+               Q442 299 448 303 Q453 306 457 303
+               Q466 312 475 303 Q481 306 485 302 Q489 299 486 292
+               C481 278 477 263 476 248" stroke-width="2"/>
+      <path d="M461 320 Q461 333 457 342
+               M471 320 Q471 333 475 342" stroke="#777" stroke-width="1.6"/>
+      <path d="M425 366
+               Q442 360 453 356 Q459 354 466 358
+               Q473 354 479 356 Q490 360 507 366
+               Q490 382 466 383 Q442 382 425 366Z" stroke-width="1.9"/>
+      <path d="M426 366 Q446 365 466 368 Q486 365 506 366" stroke-width="1.4"/>
+    </g>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.1" stroke-dasharray="5 6">
+      <path d="M473 104 H701"/>
+      <path d="M574 237 H701"/>
+      <path d="M473 307 H701"/>
+      <path d="M473 482 H701"/>
+    </g>
+
+    <g fill="none" stroke-width="2" stroke-linecap="square">
+      <path d="M705 104 H718 V237 H705" stroke="#555"/>
+      <path d="M705 307 H718 V482 H705" stroke="#555"/>
+      <path d="M705 237 H718 V307 H705" stroke="#ac4033" stroke-width="3"/>
+    </g>
+    <g font-size="23" text-anchor="middle" dominant-baseline="central">
+      <text x="750" y="170.5">上</text>
+      <text x="750" y="272" fill="#ac4033">中</text>
+      <text x="750" y="394.5">下</text>
+    </g>
+
+    <g fill="none" stroke="#898989" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M243 155 H302 L396 148"/>
+      <path d="M243 237 H355"/>
+      <path d="M243 294 H382 L439 299"/>
+      <path d="M243 334 H449"/>
+      <path d="M243 379 H378 L419 367"/>
+    </g>
+    <g font-size="19" text-anchor="end" dominant-baseline="central">
+      <text x="230" y="155">额头</text>
+      <text x="230" y="237">眉毛</text>
+      <text x="230" y="294">鼻子</text>
+      <text x="230" y="334">人中</text>
+      <text x="230" y="379">嘴巴</text>
+    </g>
+  </g>
+</svg>

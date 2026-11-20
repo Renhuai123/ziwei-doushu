@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">阳宅与雷天大壮</title>
+  <desc id="desc">按这段口述，命与阳宅各占三分之一。阳宅图下排从左至右为三子、次子、长子，朱红框标出长子所住的西北角；倪师把这个角称为夫位，儿子住在爸爸的位置，卦名为雷天大壮。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="66" y="86" font-size="38" font-weight="600">阳宅</text>
+
+    <g font-size="20">
+      <text x="484" y="68">命只有1/3</text>
+      <text x="708" y="68">阳宅又占了1/3</text>
+    </g>
+    <g fill="#e2e2e2">
+      <path d="M484 83h52v6h-52z M540 83h52v6h-52z M596 83h52v6h-52z"/>
+      <path d="M708 83h52v6h-52z M764 83h52v6h-52z M820 83h52v6h-52z"/>
+    </g>
+    <path d="M484 83h52v6h-52z M708 83h52v6h-52z" fill="#575757"/>
+
+    <g stroke-linejoin="round">
+      <rect x="66" y="158" width="450" height="294" fill="#fafaf9" stroke="#414141" stroke-width="2.4"/>
+      <path d="M67.2 368H515v82.8H67.2z" fill="#fff"/>
+      <path d="M66 368h450 M216 368v84 M366 368v84" fill="none" stroke="#555" stroke-width="1.8"/>
+      <rect x="366" y="368" width="150" height="84" fill="#fff" stroke="#ad4033" stroke-width="3.5"/>
+    </g>
+    <g text-anchor="middle" font-size="25">
+      <text x="141" y="419">三子</text>
+      <text x="291" y="419">次子</text>
+      <text x="441" y="419" font-weight="600">长子</text>
+    </g>
+
+    <path d="M518 410h24l40-156h29" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="625" y="262" font-size="29" font-weight="600">西北角</text>
+    <path d="M730 240v24" stroke="#bdbdbd" stroke-width="1.4"/>
+    <text x="750" y="261" font-size="23">夫位</text>
+
+    <text x="625" y="323" font-size="23">儿子住在爸爸的位置</text>
+    <path d="M634 344v31m-6-7 6 7 6-7" fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="625" y="428" font-size="35" font-weight="600">雷天大壮</text>
+  </g>
+</svg>

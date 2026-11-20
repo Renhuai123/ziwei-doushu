@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">化权在财帛宫</title>
+  <desc id="desc">上排画倪师所说的一般情形：化权、化科或化禄在财帛宫，一般在私人企业上班。下排画本例的财帛宫，太阴旁圈出「权」；倪师以「只有权没有禄」断为只能在私人企业里面上班，掌权做个主管。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L10 6 L2 10.5" fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g text-anchor="middle">
+      <text x="184" y="107" font-size="28" font-weight="600">财帛宫</text>
+      <text x="184" y="149" font-size="23">不管是化权化科化禄</text>
+      <text x="459" y="105" font-size="21" fill="#555">一般来说</text>
+    </g>
+    <path d="M334 126 H581" fill="none" stroke="#555" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <text x="616" y="136" font-size="28">私人企业里面上班</text>
+
+    <path d="M56 213 H904" fill="none" stroke="#dededb" stroke-width="1"/>
+
+    <rect x="82" y="263" width="204" height="204" fill="#fff" stroke="#444" stroke-width="2"/>
+    <rect x="83" y="410" width="202" height="56" fill="#f4f4f2"/>
+    <path d="M83 410 H285" fill="none" stroke="#aaa" stroke-width="1"/>
+    <text x="109" y="350" font-size="32">太阴</text>
+    <circle cx="221" cy="338" r="29" fill="none" stroke="#ad4033" stroke-width="2.6"/>
+    <text x="221" y="349" text-anchor="middle" font-size="31">权</text>
+    <text x="184" y="447" text-anchor="middle" font-size="25" font-weight="600">财帛宫</text>
+
+    <text x="449" y="327" text-anchor="middle" font-size="23">只有权没有禄</text>
+    <path d="M307 350 H581" fill="none" stroke="#555" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <text x="616" y="341" font-size="24">只能在私人企业里面上班</text>
+    <text x="616" y="389" font-size="31" font-weight="600">掌权做个主管</text>
+  </g>
+</svg>

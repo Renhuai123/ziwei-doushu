@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">分金煞</title>
+  <desc id="desc">双圈的外环平分为二十四格，每格为一宫。朱红色坐向线斜穿圆心，在两端都与相邻两格之间的分隔线重合，表示坐向正在分金煞上。</desc>
+
+  <defs>
+    <path id="divider-pair" d="M138 0H192 M-138 0H-192"/>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <rect x="46" y="36" width="132" height="49" rx="3" fill="none" stroke="#444" stroke-width="1.5"/>
+    <text x="112" y="69" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">分金煞</text>
+
+    <g transform="translate(420 272)">
+      <circle r="192" fill="#f5f5f3"/>
+      <circle r="138" fill="#fff"/>
+
+      <g fill="none" stroke="#737370" stroke-width="1.5">
+        <use href="#divider-pair"/>
+        <use href="#divider-pair" transform="rotate(15)"/>
+        <use href="#divider-pair" transform="rotate(30)"/>
+        <use href="#divider-pair" transform="rotate(45)"/>
+        <use href="#divider-pair" transform="rotate(60)"/>
+        <use href="#divider-pair" transform="rotate(75)"/>
+        <use href="#divider-pair" transform="rotate(90)"/>
+        <use href="#divider-pair" transform="rotate(105)"/>
+        <use href="#divider-pair" transform="rotate(120)"/>
+        <use href="#divider-pair" transform="rotate(135)"/>
+        <use href="#divider-pair" transform="rotate(150)"/>
+        <use href="#divider-pair" transform="rotate(165)"/>
+      </g>
+
+      <g fill="none" stroke="#383836" stroke-width="2">
+        <circle r="138"/>
+        <circle r="192"/>
+      </g>
+
+      <g transform="rotate(-45)" fill="none" stroke="#ae392e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-258 0H258"/>
+        <path d="M-245 -6L-258 0L-245 6 M245 -6L258 0L245 6"/>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#777774" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M558 137L622 164H662"/>
+      <path d="M584 294L639 312H662"/>
+    </g>
+
+    <text x="614" y="89" font-size="22">坐向</text>
+    <text x="674" y="171" font-size="20">两个坐山中间那个线</text>
+    <text x="674" y="319" font-size="20">宫</text>
+  </g>
+</svg>

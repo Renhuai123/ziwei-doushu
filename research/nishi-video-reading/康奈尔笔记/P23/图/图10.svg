@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">田宅宫化忌</title>
+  <desc id="desc">左侧田宅宫格里圈出「忌」，右侧照板书画出正面可见的两个大鼻孔，两边指向倪师所述的相书断语「主破祖业」。下方从田宅宫引出他举的例子：她不会防人，可能会拿自己的不动产帮相信的人作保。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#646464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#282828">
+    <g stroke="#454545" stroke-width="1.8">
+      <rect x="69" y="100" width="162" height="182" fill="#fff"/>
+      <path d="M70 231 H230 V281 H70Z" fill="#f5f5f3" stroke="none"/>
+      <path d="M69 231 H231" fill="none"/>
+    </g>
+    <circle cx="150" cy="166" r="38" fill="none" stroke="#ac3e32" stroke-width="2.8"/>
+    <text x="150" y="180" font-size="40" fill="#ac3e32">忌</text>
+    <text x="150" y="266" font-size="25" font-weight="600">田宅</text>
+
+    <g fill="none" stroke="#646464" stroke-width="1.7" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M247 167 H365"/>
+      <path d="M690 167 H595"/>
+    </g>
+    <text x="480" y="180" font-size="38" font-weight="600">主破祖业</text>
+    <text x="480" y="224" font-size="21" fill="#505050">会把父母亲的财产耗出去</text>
+
+    <g fill="none" stroke="#303030" stroke-width="3.2" stroke-linecap="round">
+      <path d="M716 171 C717 132 753 104 795 104 C837 104 873 132 874 171"/>
+      <ellipse cx="758" cy="161" rx="21" ry="23"/>
+      <ellipse cx="832" cy="161" rx="21" ry="23"/>
+      <path d="M789 193 V216 M801 193 V216"/>
+    </g>
+    <text x="795" y="265" font-size="23">两个鼻孔对着你</text>
+
+    <path d="M150 283 V384" fill="none" stroke="#777" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <g font-size="23">
+      <text x="150" y="429">她不会防人</text>
+      <text x="438" y="429">可能会拿她的不动产</text>
+      <text x="772" y="429">去帮她相信的人作保</text>
+    </g>
+    <g fill="none" stroke="#646464" stroke-width="1.7" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M227 420 H311"/>
+      <path d="M565 420 H644"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">福德宫廉破</title>
+  <desc id="desc">破军、廉贞竖排在福德宫同一格内，括线将两颗星连到倪师口述的合称“廉破”。福德下方一格标为田宅。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g stroke-linejoin="round">
+    <rect x="238" y="270" width="252" height="216" fill="#fafafa" stroke="#aaa" stroke-width="1.5"/>
+    <rect x="238" y="54" width="252" height="216" fill="#fff" stroke="#393939" stroke-width="2"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <g fill="#242424" font-size="35" font-weight="500">
+      <text x="321" y="109">破<tspan x="321" dy="41">军</tspan></text>
+      <text x="407" y="109">廉<tspan x="407" dy="41">贞</tspan></text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M321 165 V175 H407 V165"/>
+      <path d="M364 175 V190 H574 L592 172 H625"/>
+    </g>
+    <text x="679" y="183" font-size="35" font-weight="600" fill="#ab392f">廉破</text>
+
+    <text x="364" y="248" font-size="27" font-weight="600" fill="#242424">福德</text>
+    <text x="364" y="464" font-size="25" fill="#707070">田宅</text>
+  </g>
+</svg>

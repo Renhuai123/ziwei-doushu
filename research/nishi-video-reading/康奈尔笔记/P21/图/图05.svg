@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">命宫在巳</title>
+  <desc id="desc">左侧取黑板上的一格，圈出命、巳和禄存。由巳引出“早上9-11点很热”，再与同宫的太阳两线汇合，指向倪师所说的“很燥热的命”。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <rect x="72" y="144" width="252" height="252" fill="#fafaf9" stroke="#454545" stroke-width="2"/>
+
+    <g text-anchor="middle">
+      <text x="133" y="208" font-size="32" font-weight="600">太阳</text>
+      <ellipse cx="133" cy="246" rx="38" ry="20" fill="none" stroke="#999" stroke-width="1.4"/>
+      <text x="133" y="253" font-size="20" fill="#666">禄存</text>
+
+      <g fill="none" stroke="#555" stroke-width="1.7">
+        <circle cx="132" cy="338" r="27"/>
+        <circle cx="255" cy="338" r="27"/>
+      </g>
+      <text x="132" y="348" font-size="29">命</text>
+      <text x="255" y="348" font-size="29">巳</text>
+    </g>
+
+    <g fill="none" stroke="#707070" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M180 197 H651 Q663 197 663 209 V267"/>
+      <path d="M282 338 H371 M592 338 H651 Q663 338 663 326 V267"/>
+      <path d="M663 267 H710 M701 261 L710 267 L701 273"/>
+    </g>
+
+    <text x="482" y="345" text-anchor="middle" font-size="24">早上9-11点很热</text>
+    <text x="734" y="278" font-size="32" font-weight="600" fill="#a6382d">很燥热的命</text>
+  </g>
+</svg>

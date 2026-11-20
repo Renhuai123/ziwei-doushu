@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾坐命</title>
+  <desc id="desc">左格圈出命宫中的红鸾，下接倪师所引的「女招贵夫」。右格列出男命的条件「红鸾星或天喜星」，下接「男人招美妻」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#454545" stroke-width="1.8">
+    <rect x="173" y="72" width="214" height="214"/>
+    <rect x="573" y="72" width="214" height="214"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#262626">
+    <ellipse cx="280" cy="151" rx="55" ry="33" fill="none" stroke="#ac4134" stroke-width="2.8"/>
+    <text x="280" y="162" font-size="31" font-weight="600">红鸾</text>
+    <text x="680" y="160" font-size="25" font-weight="600">红鸾星或天喜星</text>
+
+    <g font-size="23" fill="#555">
+      <text x="280" y="259">命宫</text>
+      <text x="680" y="259">命宫</text>
+    </g>
+
+    <g fill="none" stroke="#686868" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 287 V360 M273 352 L280 360 L287 352"/>
+      <path d="M680 287 V360 M673 352 L680 360 L687 352"/>
+    </g>
+
+    <g font-size="34" font-weight="600">
+      <text x="280" y="419">女招贵夫</text>
+      <text x="680" y="419">男人招美妻</text>
+    </g>
+  </g>
+</svg>

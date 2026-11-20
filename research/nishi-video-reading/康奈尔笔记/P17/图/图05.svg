@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">流年虚岁</title>
+  <desc id="desc">命盘的一个方格内，上方写「兄弟」，下方列出民国80年（1991）和虚岁。朱红圈标出倪师随后采用的37岁。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <rect x="242" y="64" width="476" height="412" fill="none" stroke="#444" stroke-width="2"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#262626">
+    <text x="480" y="131" font-size="30" font-weight="600" letter-spacing="3">兄弟</text>
+    <path d="M452 157 H508" fill="none" stroke="#aaa" stroke-width="1.5"/>
+    <text x="480" y="230" font-size="34">民国80年（1991）</text>
+    <text x="480" y="306" font-size="22" fill="#555">虚岁</text>
+    <ellipse cx="480" cy="379" rx="72" ry="49" fill="none" stroke="#ae4033" stroke-width="2.8"/>
+    <text x="480" y="395" font-size="44" font-weight="600">37岁</text>
+  </g>
+</svg>

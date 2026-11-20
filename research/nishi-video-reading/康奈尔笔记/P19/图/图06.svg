@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">朋友宫巨门化忌</title>
+  <desc id="desc">左侧单画例一女命的朋友宫，格内标出巨门星化忌。按倪师对此例的说法，若跟朋友合伙，会有许多是非纠纷，最后官司收场。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <rect x="48" y="163" width="192" height="194" fill="#fff" stroke="#424242" stroke-width="2"/>
+    <rect x="49" y="301" width="190" height="55" fill="#f4f4f2"/>
+    <path d="M48 301 H240" fill="none" stroke="#777" stroke-width="1.2"/>
+    <text x="144" y="243" font-size="27" font-weight="600">巨门星<tspan fill="#ad392e">化忌</tspan></text>
+    <text x="144" y="337" font-size="23">朋友宫</text>
+
+    <text x="369" y="245" font-size="22">如果跟朋友合伙的话</text>
+    <g fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M256 269 H481 M471 263 L481 269 L471 275"/>
+      <path d="M682 269 H739 M729 263 L739 269 L729 275"/>
+    </g>
+
+    <text x="581" y="278" font-size="26">是非纠纷很多</text>
+    <text x="835" y="279" font-size="32" font-weight="600">官司收场</text>
+  </g>
+</svg>

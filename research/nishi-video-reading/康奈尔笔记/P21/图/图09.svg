@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">几岁再婚</title>
+  <desc id="desc">沿年龄线读出例三的婚姻次序：28岁第一次结婚，29岁离婚，34岁再婚。34岁处用箭头把口述的「红鸾星又进来了」连到子女宫，宫格内保留板书的「太阴·化忌」「天喜」和「33-42」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <path d="M178 94 V346" fill="none" stroke="#a5a5a5" stroke-width="2"/>
+    <g fill="#fff" stroke="#4a4a4a" stroke-width="2">
+      <circle cx="178" cy="94" r="6"/>
+      <circle cx="178" cy="156" r="6"/>
+    </g>
+    <circle cx="178" cy="346" r="7" fill="#b43b30"/>
+
+    <g text-anchor="end" font-size="30" font-weight="600">
+      <text x="146" y="105">28岁</text>
+      <text x="146" y="167">29岁</text>
+      <text x="146" y="357">34岁</text>
+    </g>
+    <g font-size="26">
+      <text x="211" y="104">第一个婚姻</text>
+      <text x="211" y="166">离婚</text>
+      <text x="211" y="356">红鸾星又进来了</text>
+    </g>
+
+    <g fill="none" stroke="#595959" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M414 346 H565 M557 340 L565 346 L557 352"/>
+    </g>
+
+    <rect x="578" y="228" width="284" height="184" fill="#fff" stroke="#494949" stroke-width="2"/>
+    <path d="M579 229 H861 V282 H579 Z" fill="#f5f5f3"/>
+    <path d="M578 282 H862" fill="none" stroke="#b0b0b0" stroke-width="1"/>
+    <text x="720" y="265" text-anchor="middle" font-size="26" font-weight="600">子女宫</text>
+    <text x="601" y="335" font-size="23">太阴·化忌</text>
+    <text x="780" y="335" font-size="23">天喜</text>
+    <text x="601" y="386" font-size="20" fill="#626262">33-42</text>
+
+    <path d="M720 413 V445 M714 437 L720 445 L726 437" fill="none" stroke="#595959" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="720" y="486" text-anchor="middle" font-size="29" font-weight="600">还是会再结婚</text>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">杀有两种状况</title>
+  <desc id="desc">命格中以折线将廉贞、破军合指为杀星。两条支线分列课中所讲的两种状况：一条讲早年武官星进来与父母离异，另一条讲孩子本身有灾星时，倪师所说的表现与判断。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g fill="none" stroke="#565656" stroke-width="1.6">
+      <rect x="52" y="97" width="264" height="350"/>
+      <path d="M52 345H316"/>
+    </g>
+
+    <g x="0" font-size="27" font-weight="500">
+      <text x="81" y="158">廉贞</text>
+      <text x="81" y="216">破军</text>
+    </g>
+    <g font-size="23" fill="#555">
+      <text x="81" y="281">文曲</text>
+      <text x="265" y="322">命</text>
+      <text x="81" y="405">右弼</text>
+    </g>
+
+    <path d="M153 148L188 177L153 206" fill="none" stroke="#505050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="209" y="187" font-size="29" font-weight="600" fill="#a43b30">杀星</text>
+
+    <g fill="none" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M282 177H373 M373 112V319 M373 112H420 M373 319H420"/>
+      <path d="M413 107L420 112L413 117 M413 314L420 319L413 324"/>
+    </g>
+
+    <g font-size="27" font-weight="600">
+      <text x="443" y="121">第一种</text>
+      <text x="443" y="328">第二种</text>
+    </g>
+    <text x="550" y="326" font-size="22" fill="#555">她本身的杀</text>
+
+    <g font-size="22">
+      <text x="444" y="167">早年的时候</text>
+      <text x="444" y="201">这武官星进来</text>
+      <text x="444" y="380">如果小时候善知人意</text>
+      <text x="444" y="414">小时候小孩子有大人的状态的话</text>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M452 215V238 M447 233L452 238L457 233"/>
+      <path d="M452 428V451 M447 446L452 451L457 446"/>
+    </g>
+    <g font-size="24" font-weight="500">
+      <text x="443" y="273">父母亲要离异变成独立发展</text>
+      <text x="443" y="486">本身就很危险</text>
+    </g>
+  </g>
+</svg>

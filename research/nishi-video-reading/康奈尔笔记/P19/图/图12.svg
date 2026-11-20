@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">七杀对面化忌来冲</title>
+  <desc id="desc">七杀与化忌分居命盘相对的两格，箭头从化忌指向标有 26-35 的七杀一格。右侧画出倪师读事业时的判断：感情纠纷使人难以专心定下来，遇到这种流年，事倍功半。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="56" y="67" font-size="29" font-weight="600">读事业</text>
+
+    <g transform="translate(56 103)">
+      <rect width="392" height="392" fill="#fff" stroke="#767676" stroke-width="1.6"/>
+      <g fill="none" stroke="#b5b5b5" stroke-width="1.2">
+        <path d="M98 0V392 M294 0V392 M0 98H392 M0 294H392"/>
+        <path d="M196 0V98 M196 294V392 M0 196H98 M294 196H392"/>
+      </g>
+
+      <g fill="#f4f4f2" stroke="#505050" stroke-width="1.7">
+        <rect x="98" width="98" height="98"/>
+        <rect x="196" y="294" width="98" height="98"/>
+      </g>
+
+      <g text-anchor="middle">
+        <text x="147" y="46" font-size="29" font-weight="600">七杀</text>
+        <text x="147" y="76" font-size="21">26-35</text>
+        <text x="245" y="354" font-size="29" font-weight="600">化忌</text>
+      </g>
+
+      <g fill="none" stroke="#ae4135" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M228.7 293L163.5 100"/>
+        <path d="M161.7 114L163.5 100L173.7 109.7"/>
+      </g>
+      <text x="210" y="198" font-size="20">来冲</text>
+    </g>
+
+    <g transform="translate(524 0)">
+      <text x="0" y="162" font-size="28">感情的纠纷</text>
+      <path d="M14 180V217 M8 210L14 217L20 210" fill="none" stroke="#777" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="260" font-size="28">没有办法专心定下来</text>
+      <path d="M14 279V317 M8 310L14 317L20 310" fill="none" stroke="#777" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="363" font-size="21" fill="#555">遇到这种流年</text>
+      <text x="0" y="418" font-size="44" font-weight="600">事倍功半</text>
+    </g>
+  </g>
+</svg>

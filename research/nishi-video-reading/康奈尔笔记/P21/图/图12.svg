@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">三停面相</title>
+  <desc id="desc">两张正面脸图以眉毛和鼻子下端为界，依次标出上停、中停、下停。左图依课堂所画，上停和中停较长，下巴较短，朱红横线标在鼻子下端；右图画出倪师所说的三停相等。</desc>
+
+  <defs>
+    <g id="eyes" fill="none" stroke="#363636" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-75 2 Q-55 -2 -30 0 M30 0 Q55 -2 75 2" stroke-width="3.2"/>
+      <path d="M-71 18 Q-54 12 -34 18 Q-49 30 -71 18 Z
+               M34 18 Q54 12 71 18 Q49 30 34 18 Z" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+
+    <g fill="none" stroke="#c4c4c4" stroke-width="1.2" stroke-dasharray="4 5">
+      <path d="M133 72 H278 M133 214 H201 M133 356 H189 M133 435 H278"/>
+      <path d="M677 72 H824 M754 193 H824 M771 314 H824 M677 435 H824"/>
+    </g>
+
+    <g fill="none" stroke="#383838" stroke-width="2.8" stroke-linejoin="round">
+      <path d="M278 72
+               C210 72 161 119 161 194
+               C161 253 170 311 189 356
+               C208 401 246 435 278 435
+               C310 435 348 401 367 356
+               C386 311 395 253 395 194
+               C395 119 346 72 278 72 Z"/>
+      <path d="M677 72
+               C609 72 560 119 560 194
+               C560 251 569 302 585 345
+               C604 396 644 435 677 435
+               C710 435 750 396 769 345
+               C785 302 794 251 794 194
+               C794 119 745 72 677 72 Z"/>
+    </g>
+
+    <path d="M278 73 V356" fill="none" stroke="#aaa" stroke-width="1.3"/>
+    <use href="#eyes" transform="translate(278 214)"/>
+    <use href="#eyes" transform="translate(677 193)"/>
+
+    <g fill="none" stroke="#383838" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M278 255 L253 356 H303 Z"/>
+      <path d="M677 234 L652 314 H702 Z"/>
+    </g>
+
+    <path d="M189 356 H367" fill="none" stroke="#ae4235" stroke-width="2.8" stroke-linecap="round"/>
+
+    <g fill="none" stroke="#666" stroke-width="1.5">
+      <path d="M133 72 V435 M125 72 H141 M125 214 H141 M125 356 H141 M125 435 H141"/>
+      <path d="M824 72 V435 M816 72 H832 M816 193 H832 M816 314 H832 M816 435 H832"/>
+    </g>
+
+    <g font-size="22" dominant-baseline="central">
+      <g x="0" text-anchor="end">
+        <text x="111" y="143">上停</text>
+        <text x="111" y="285">中停</text>
+        <text x="111" y="395.5">下停</text>
+      </g>
+      <text x="846" y="132.5">上停</text>
+      <text x="846" y="253.5">中停</text>
+      <text x="846" y="374.5">下停</text>
+    </g>
+
+    <g text-anchor="middle" font-size="25" font-weight="600">
+      <text x="278" y="491">下巴比较短</text>
+      <text x="677" y="491">三停相等</text>
+    </g>
+  </g>
+</svg>

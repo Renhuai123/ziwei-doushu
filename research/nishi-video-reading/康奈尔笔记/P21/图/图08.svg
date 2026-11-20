@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">巳年生，红鸾在哪里</title>
+  <desc id="desc">上排「命」字右边圈出二十五，箭头引向盘外，接着数二十六、二十七、二十八岁。右侧田宅格标出红鸾。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="120" y="110" width="720" height="392" stroke="#484848" stroke-width="2"/>
+    <path d="M120 208H840 M120 404H840
+             M300 110V502 M660 110V502
+             M480 110V208 M480 404V502
+             M120 306H300 M660 306H840"
+          stroke="#888" stroke-width="1.5"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="480" y="317" text-anchor="middle" font-size="31" fill="#555">巳年</text>
+
+    <text x="521" y="169" text-anchor="middle" font-size="28">命</text>
+    <circle cx="600" cy="159" r="29" fill="none" stroke="#b43b30" stroke-width="2.5"/>
+    <text x="600" y="169" text-anchor="middle" font-size="29" font-weight="600" fill="#b43b30">25</text>
+
+    <path d="M614 132 L649 69 Q653 62 661 62 H681 M673 56 L681 62 L673 68"
+          fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <g font-size="25">
+      <text x="696" y="71">26</text>
+      <text x="752" y="71">27</text>
+      <text x="808" y="71">28岁</text>
+    </g>
+
+    <text x="678" y="333" font-size="19" fill="#555">田宅</text>
+    <text x="750" y="376" text-anchor="middle" font-size="29">红鸾</text>
+  </g>
+</svg>

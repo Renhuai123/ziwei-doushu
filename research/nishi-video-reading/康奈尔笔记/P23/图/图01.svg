@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">半空折翅</title>
+  <desc id="desc">命盘左上格的巨门化忌斜冲右下命宫，命宫没有吉星，倪师称为半空折翅，以四十岁为界，应在四十岁之前。上排财帛格内圈出小限一岁的起点，向左的箭头表示本例女孩小限逆行。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <!-- 外围十二格，中央留通。 -->
+    <rect x="44" y="46" width="520" height="448" fill="#fff" stroke="#555" stroke-width="1.8"/>
+    <path d="M174 46V494 M434 46V494 M304 46V158 M304 382V494
+             M44 158H564 M44 382H564 M44 270H174 M434 270H564"
+          fill="none" stroke="#aaa" stroke-width="1.2"/>
+
+    <!-- 从左上化忌指向对角命宫。 -->
+    <g fill="none" stroke="#474747" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M137 144L482 409"/>
+      <path d="M469 407L482 409L477 397"/>
+    </g>
+    <g transform="translate(304 272) rotate(37.5)">
+      <rect x="-43" y="-17" width="86" height="34" fill="#fff"/>
+      <text x="0" y="7" text-anchor="middle" font-size="20" letter-spacing="2">对冲命</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="109" y="87" font-size="24">巨门</text>
+      <text x="109" y="131" font-size="24">化忌</text>
+      <ellipse cx="109" cy="122" rx="39" ry="22" fill="none" stroke="#ad4032" stroke-width="2.6"/>
+
+      <text x="499" y="443" font-size="26" font-weight="600">命宫</text>
+      <text x="499" y="474" font-size="19">没有吉星</text>
+    </g>
+
+    <!-- 财帛格内圈一，沿上排向左走。 -->
+    <circle cx="369" cy="86" r="20" fill="none" stroke="#393939" stroke-width="1.8"/>
+    <text x="369" y="94" text-anchor="middle" font-size="24">1</text>
+    <path d="M341 86H218 M227 79L218 86L227 93" fill="none" stroke="#454545"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="239" y="132" text-anchor="middle" font-size="17">女孩子是逆转</text>
+    <text x="369" y="132" text-anchor="middle" font-size="22">财帛</text>
+
+    <!-- 开圆点标出四十岁界限，加粗的一段止于界限之前。 -->
+    <text x="618" y="226" font-size="42" font-weight="600" letter-spacing="3">半空折翅</text>
+    <text x="618" y="287" font-size="23">一定在40岁之前</text>
+    <path d="M618 317H911" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+    <path d="M618 317H840" fill="none" stroke="#535353" stroke-width="3"/>
+    <circle cx="846" cy="317" r="6" fill="#fff" stroke="#535353" stroke-width="2"/>
+    <text x="846" y="351" text-anchor="middle" font-size="20">40岁</text>
+  </g>
+</svg>

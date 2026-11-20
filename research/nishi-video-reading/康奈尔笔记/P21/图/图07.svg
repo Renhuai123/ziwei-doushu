@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">例三的子女宫</title>
+  <desc id="desc">图中放大例三的子女宫，格内并列写着太阴与化忌，朱红椭圆圈出化忌。箭头从这一宫格指向倪师对此例的判断「无子」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <rect x="108" y="114" width="330" height="312" fill="#fff" stroke="#424242" stroke-width="2"/>
+    <path d="M109 115 H437 V181 H109 Z" fill="#f5f5f3"/>
+    <path d="M108 182 H438" fill="none" stroke="#aaa" stroke-width="1.2"/>
+    <text x="136" y="158" font-size="28" font-weight="600">子女宫</text>
+
+    <g text-anchor="middle" font-size="36">
+      <text x="202" y="282">太阴</text>
+      <text x="340" y="282">化忌</text>
+    </g>
+    <ellipse cx="340" cy="269" rx="59" ry="35" fill="none" stroke="#ad3e32" stroke-width="2.6"/>
+    <text x="273" y="386" text-anchor="middle" font-size="23" fill="#656565">33-42</text>
+
+    <path d="M464 269 H651 M640 259 L652 269 L640 279" fill="none" stroke="#555" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="698" y="289" font-size="56" font-weight="600">无子</text>
+  </g>
+</svg>

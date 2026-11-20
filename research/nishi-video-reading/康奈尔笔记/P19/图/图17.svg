@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">官相与眉位</title>
+  <desc id="desc">两幅正面头像采用相同的发际和眼睛高度。左图用向上箭头表现倪师所说的反复抬眉，右图用两段等长的刻度标出他所说的眉位，在发际与眼睛的正中央。</desc>
+
+  <defs>
+    <g id="head" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-98 247 C-116 236 -124 250 -119 269 C-116 284 -109 297 -96 296
+               M98 247 C116 236 124 250 119 269 C116 284 109 297 96 296"
+            fill="#fff" stroke="#414141" stroke-width="2.5"/>
+      <path d="M0 114 C-63 114 -99 150 -100 209
+               C-102 242 -101 279 -94 308 C-88 336 -70 363 -44 382
+               C-26 395 -13 401 0 401 C13 401 26 395 44 382
+               C70 363 88 336 94 308 C101 279 102 242 100 209
+               C99 150 63 114 0 114Z"
+            fill="#fff" stroke="#353535" stroke-width="2.7"/>
+      <path d="M-99 198 C-94 144 -58 115 0 115 C58 115 94 144 99 198
+               C79 178 58 170 30 170 H-30 C-58 170 -79 178 -99 198Z"
+            fill="#ededeb"/>
+      <path d="M-99 198 C-79 178 -58 170 -30 170 H30 C58 170 79 178 99 198"
+            fill="none" stroke="#555" stroke-width="2.3"/>
+      <g fill="#fff" stroke="#383838" stroke-width="2.4">
+        <ellipse cx="-43" cy="290" rx="26" ry="3.8"/>
+        <ellipse cx="43" cy="290" rx="26" ry="3.8"/>
+      </g>
+    </g>
+    <g id="brows" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round">
+      <path d="M-69 0 Q-45 -2 -18 0 M18 0 Q45 -2 69 0"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <g font-size="25" font-weight="600" text-anchor="middle">
+      <text x="257" y="76">官越干越大了</text>
+      <text x="610" y="76">最好的眉</text>
+    </g>
+
+    <use href="#head" transform="translate(257 0)"/>
+    <use href="#brows" transform="translate(257 196)" color="#303030"/>
+    <g fill="none" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M214 249 V209 M208 216 L214 209 L220 216"/>
+      <path d="M300 249 V209 M294 216 L300 209 L306 216"/>
+    </g>
+
+    <use href="#head" transform="translate(610 0)"/>
+    <g fill="none" stroke="#ababab" stroke-width="1.2" stroke-dasharray="4 5">
+      <path d="M637 170 H775 M683 230 H775 M683 290 H775"/>
+    </g>
+    <use href="#brows" transform="translate(610 230)" color="#ad3d32"/>
+    <g fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round">
+      <path d="M775 170 V290 M768 170 H782 M768 230 H782 M768 290 H782"/>
+      <path d="M771 203 L779 197 M771 263 L779 257"/>
+    </g>
+    <g x="795" font-size="20">
+      <text x="795" y="177">发际</text>
+      <text x="795" y="237">眉</text>
+      <text x="795" y="297">眼睛</text>
+    </g>
+
+    <g font-size="22" text-anchor="middle">
+      <text x="257" y="465">他一直抬眉</text>
+      <text x="610" y="465">发际和眼睛的正中央是眉</text>
+    </g>
+  </g>
+</svg>

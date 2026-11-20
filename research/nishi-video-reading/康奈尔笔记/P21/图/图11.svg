@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">改东宫后31岁结婚</title>
+  <desc id="desc">左侧命盘标出倪师指过的天机，横向箭头表示他在此例中的说法：男孩子30岁时改东宫，刚好一年，31岁结婚。右侧从「紫微破军化科」引出倪师对太太的描述。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+
+    <g text-anchor="middle">
+      <text x="203" y="87" font-size="39" font-weight="600">30岁</text>
+      <text x="454" y="57" font-size="24" font-weight="600">改东宫</text>
+      <path d="M280 76 H625 M614 69 L625 76 L614 83" fill="none" stroke="#424242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="454" y="108" font-size="19" fill="#585858">刚好一年</text>
+      <text x="758" y="88" font-size="40" font-weight="600" fill="#a6382d">31岁结婚</text>
+      <text x="758" y="122" font-size="19" fill="#585858">按照运走</text>
+    </g>
+
+    <text x="203" y="182" text-anchor="middle" font-size="22" font-weight="600">天相星入命的男孩子</text>
+    <g transform="translate(59 201)">
+      <rect x="144" y="216" width="72" height="72" fill="#f1f1ef"/>
+      <g fill="none" stroke="#989895" stroke-width="1.35">
+        <rect width="288" height="288"/>
+        <path d="M72 0 V288 M216 0 V288 M144 0 V72 M144 216 V288
+                 M0 72 H288 M0 216 H288 M0 144 H72 M216 144 H288"/>
+      </g>
+      <g text-anchor="middle" font-size="18" fill="#50504e">
+        <ellipse cx="180" cy="22" rx="21" ry="14" fill="none" stroke="#70706d" stroke-width="1.4"/>
+        <text x="180" y="28">25</text>
+        <text x="180" y="58">命</text>
+        <text x="252" y="103">武曲</text>
+        <text x="252" y="129">七杀</text>
+        <text x="180" y="207">30</text>
+      </g>
+      <text x="180" y="261" text-anchor="middle" font-size="23" font-weight="600">天机</text>
+    </g>
+
+    <text x="490" y="184" font-size="22">太太进来是</text>
+    <text x="490" y="235" font-size="36" font-weight="600">紫微破军化科</text>
+    <g fill="none" stroke="#90908d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M500 254 V466 H526 M500 288 H526 M500 332 H526 M500 376 H526 M500 420 H526"/>
+    </g>
+    <g x="545" font-size="23">
+      <text x="545" y="296">同行的人</text>
+      <text x="545" y="340">想法都相同</text>
+      <text x="545" y="384">瘦瘦高高的</text>
+      <text x="545" y="428">专科技术专长</text>
+      <text x="545" y="474">将来在事业上帮助很大</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾天喜在对宫</title>
+  <desc id="desc">方格命盘只示意两星的相对位置。天喜星与红鸾星所在的两格关于盘心对称，虚线连接两格，表示两星一定在对宫。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="#f3f3f1">
+    <rect x="152" y="46" width="164" height="112"/>
+    <rect x="644" y="382" width="164" height="112"/>
+  </g>
+
+  <g fill="none" stroke="#858582" stroke-width="1.5">
+    <path d="M152 158H808 M152 382H808"/>
+    <path d="M316 46V494 M644 46V494"/>
+    <path d="M480 46V158 M480 382V494"/>
+    <path d="M152 270H316 M644 270H808"/>
+  </g>
+  <rect x="152" y="46" width="656" height="448" fill="none" stroke="#383836" stroke-width="2.2"/>
+
+  <g stroke="#aa4036" fill="none" stroke-width="1.8" stroke-linecap="round">
+    <path d="M265 123.2L695 416.8" stroke-dasharray="6 6"/>
+  </g>
+  <g fill="#aa4036">
+    <circle cx="265" cy="123.2" r="4.2"/>
+    <circle cx="695" cy="416.8" r="4.2"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#292927">
+    <g font-size="30" font-weight="600">
+      <text x="234" y="104">天喜星</text>
+      <text x="726" y="461">红鸾星</text>
+    </g>
+    <rect x="402" y="245" width="156" height="50" fill="#fff"/>
+    <text x="480" y="279" font-size="26" font-weight="500">一定在对宫</text>
+  </g>
+</svg>

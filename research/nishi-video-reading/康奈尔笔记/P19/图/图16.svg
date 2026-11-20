@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">书桌朝向与禄忌</title>
+  <desc id="desc">上方画延年方取向与脚朝方向，并划去朝化忌的选择。左侧用同一支箭头表示本例书桌的「面朝东」与「面朝辰」，右侧从命盘中宫画箭头指向圈有「禄」的父母格，表示生意人的桌子朝财星。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8.5 5 L2 8.5" fill="none" stroke="#454545" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g>
+      <rect x="48" y="29" width="104" height="43" rx="3" fill="none" stroke="#555" stroke-width="1.4"/>
+      <text x="100" y="58" text-anchor="middle" font-size="22" font-weight="600">延年方</text>
+      <text x="182" y="58" font-size="21">脚朝的方向</text>
+      <path d="M302 50 H344" fill="none" stroke="#454545" stroke-width="1.7" marker-end="url(#arrow)"/>
+      <text x="363" y="58" font-size="21">身体健康的方位</text>
+      <g fill="none" stroke="#555" stroke-width="1.8">
+        <circle cx="811" cy="50" r="11"/>
+        <path d="M803 58 L819 42"/>
+      </g>
+      <text x="835" y="57" font-size="20">朝化忌</text>
+    </g>
+
+    <path d="M48 94 H912 M480 122 V497" fill="none" stroke="#d6d6d3" stroke-width="1.2"/>
+
+    <text x="48" y="147" font-size="27" font-weight="600">科甲考试</text>
+    <text x="518" y="147" font-size="27" font-weight="600">做生意的老板</text>
+
+    <g>
+      <text x="254" y="189" text-anchor="middle" font-size="18" fill="#666">S</text>
+      <rect x="75" y="201" width="358" height="210" fill="#fff" stroke="#393939" stroke-width="2.2"/>
+      <path d="M76 202 H277 V326 H76 Z" fill="#f5f5f3"/>
+      <path d="M277 201 V326 H75 M311 411 V339 H433" fill="none" stroke="#737373" stroke-width="1.5"/>
+      <text x="91" y="231" font-size="19" font-weight="600">东宫位置</text>
+
+      <g stroke="#555" stroke-linejoin="round">
+        <rect x="190" y="247" width="31" height="65" rx="2" fill="#fff" stroke-width="1.7"/>
+        <rect x="230" y="264" width="23" height="31" rx="5" fill="#e6e6e3" stroke-width="1.4"/>
+        <path d="M254 265 Q260 279.5 254 294" fill="none" stroke-width="2"/>
+      </g>
+      <path d="M183 279 H94" fill="none" stroke="#454545" stroke-width="2" marker-end="url(#arrow)"/>
+      <g text-anchor="middle" font-size="19">
+        <text x="136" y="266">面朝东</text>
+        <text x="136" y="306">面朝辰</text>
+      </g>
+
+      <g text-anchor="middle" fill="#575757">
+        <text x="372" y="367" font-size="18">西北角</text>
+        <text x="372" y="393" font-size="16">你不要去住</text>
+      </g>
+      <text x="254" y="437" text-anchor="middle" font-size="18" fill="#666">N</text>
+    </g>
+
+    <g>
+      <path d="M548 201 H713 V411 H548 Z" fill="#f7f7f5"/>
+      <g fill="none" stroke-linecap="square">
+        <path d="M548 411 V201 H894 M548 306 H894 M713 201 V411 M548 411 H713" stroke="#454545" stroke-width="1.8"/>
+        <path d="M867 201 V306" stroke="#777" stroke-width="1.4"/>
+      </g>
+
+      <text x="564" y="231" font-size="20" font-weight="600">父母</text>
+      <text x="564" y="260" font-size="18">天梁</text>
+      <text x="564" y="288" font-size="18">天钺</text>
+      <circle cx="670" cy="242" r="18" fill="none" stroke="#b54032" stroke-width="2.4"/>
+      <text x="670" y="249" text-anchor="middle" font-size="20" font-weight="600" fill="#b54032">禄</text>
+      <text x="670" y="289" text-anchor="middle" font-size="17" fill="#555">16-25</text>
+
+      <text x="564" y="347" font-size="19">天相</text>
+      <text x="632" y="347" font-size="19">左辅</text>
+      <text x="564" y="388" font-size="17" fill="#555">6-15</text>
+
+      <path d="M807 373 L690 294" fill="none" stroke="#454545" stroke-width="2.1" marker-end="url(#arrow)"/>
+      <text x="818" y="387" font-size="17" fill="#555">51.</text>
+      <text x="849" y="387" font-size="17" fill="#555">男</text>
+    </g>
+
+    <g font-size="22">
+      <text x="75" y="491" font-weight="600">读书书桌</text>
+      <path d="M182 483 H219" fill="none" stroke="#454545" stroke-width="1.7" marker-end="url(#arrow)"/>
+      <text x="239" y="491">朝着化科的方位</text>
+
+      <text x="548" y="491" font-weight="600">桌子</text>
+      <path d="M612 483 H649" fill="none" stroke="#454545" stroke-width="1.7" marker-end="url(#arrow)"/>
+      <text x="669" y="491">面朝禄的方位</text>
+    </g>
+  </g>
+</svg>

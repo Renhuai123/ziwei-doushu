@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾天喜星来会</title>
+  <desc id="desc">左侧两条引线标出倪师指的两处：25岁在左列第二宫外侧，27岁指向左下田宅。右列夫妻宫标出23–32岁这十年，左列圈出天喜，标题用朱红点出倪师强调的红鸾。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g>
+      <text x="144" y="60" font-size="24">23-32十年中间</text>
+      <path d="M343 35 V64" fill="none" stroke="#b8b8b8" stroke-width="1.4"/>
+      <text x="369" y="61" font-size="31" font-weight="600"><tspan fill="#ad392f">红鸾</tspan>天喜星来会</text>
+    </g>
+
+    <rect x="144" y="92" width="752" height="416" fill="#fff"/>
+    <rect x="708" y="196" width="188" height="104" fill="#f5f5f3"/>
+    <g fill="none" stroke="#999" stroke-width="1.3">
+      <path d="M144 196 H896 M144 404 H896"/>
+      <path d="M332 92 V508 M708 92 V508"/>
+      <path d="M520 92 V196 M520 404 V508"/>
+      <path d="M144 300 H332 M708 300 H896"/>
+    </g>
+    <rect x="144" y="92" width="752" height="416" fill="none" stroke="#494949" stroke-width="1.8"/>
+
+    <g text-anchor="middle" fill="#626262" font-size="18">
+      <text x="426" y="139">天府　武曲</text>
+      <text x="426" y="170" font-size="16">53-62</text>
+      <text x="614" y="139">太阴　太阳</text>
+      <text x="614" y="170" font-size="16">43-52</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="238" y="235" font-size="19">破军　文昌</text>
+      <circle cx="238" cy="268" r="16" fill="none" stroke="#777" stroke-width="1.4"/>
+      <text x="238" y="275" font-size="19">科</text>
+
+      <ellipse cx="238" cy="352" rx="43" ry="23" fill="none" stroke="#515151" stroke-width="1.7"/>
+      <text x="238" y="360" font-size="24" font-weight="500">天喜</text>
+      <text x="238" y="464" font-size="24" font-weight="500">田宅</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="520" y="256" font-size="25" font-weight="600">民国55年</text>
+      <text x="491" y="293" font-size="21">午年属马</text>
+      <path d="M547 276 V294" fill="none" stroke="#b5b5b5" stroke-width="1.2"/>
+      <text x="572" y="293" font-size="21">女</text>
+      <path d="M455 319 H585" fill="none" stroke="#c5c5c5" stroke-width="1.2"/>
+      <text x="520" y="357" font-size="23">81年　流年27岁</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="778" y="228" font-size="18">巨门　天机</text>
+      <circle cx="856" cy="221" r="15" fill="none" stroke="#666" stroke-width="1.4"/>
+      <text x="856" y="228" font-size="18">权</text>
+      <text x="802" y="260" font-size="20">23-32</text>
+      <text x="802" y="286" font-size="22" font-weight="600">夫妻</text>
+    </g>
+
+    <g fill="none" stroke="#686868" stroke-width="1.4" stroke-linecap="round">
+      <path d="M94 248 H143 M94 456 H143"/>
+    </g>
+    <g fill="#505050">
+      <circle cx="144" cy="248" r="3.3"/>
+      <circle cx="144" cy="456" r="3.3"/>
+    </g>
+    <g text-anchor="end" font-size="23" font-weight="500">
+      <text x="84" y="256">25岁</text>
+      <text x="84" y="464">27岁</text>
+    </g>
+  </g>
+</svg>

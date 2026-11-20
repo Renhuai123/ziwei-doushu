@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眼尾、奸门与眉上</title>
+  <desc id="desc">正面示意，以鼻子为中线，两眼的眼尾都向外下垂。画面右侧标出奸门的黑点，并以空心圈指示人物左眉上方，下方并列呈现课中对33岁所说的命相同参。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 两眼以鼻子为中线互为镜像，外眼角明显低于内眼角。 -->
+    <g id="eye">
+      <path d="M421 225 C399 210 378 205 356 211 C333 217 318 236 301 254"
+            stroke="#282828" stroke-width="3.8"/>
+      <path d="M421 225 C401 237 380 240 358 237 C333 234 317 245 301 254"
+            stroke="#454545" stroke-width="2.4"/>
+      <path d="M365 210 C361 220 365 231 374 233 C383 235 392 226 390 212"
+            stroke="#555" stroke-width="2"/>
+      <circle cx="377" cy="220" r="4.3" fill="#353535"/>
+    </g>
+    <use href="#eye" transform="translate(960 0) scale(-1 1)"/>
+
+    <!-- 保留板书用来区分左右眼的三角鼻形。 -->
+    <path d="M480 242 Q468 270 452 309 Q449 315 455 315
+             L505 315 Q511 315 508 309 Q492 270 480 242Z"
+          stroke="#777" stroke-width="2.4"/>
+
+    <!-- 正面观看时，人物左眉位于画面右侧。 -->
+    <path d="M542 180 C565 163 594 158 618 163 Q634 166 646 174"
+          stroke="#343434" stroke-width="3.5"/>
+    <ellipse cx="638" cy="150" rx="12" ry="10" stroke="#555" stroke-width="2"/>
+
+    <!-- 引线停在相应特征旁，避免和眼尾或黑点相连。 -->
+    <g stroke="#888" stroke-width="1.4">
+      <path d="M152 297 H245 L294 260"/>
+      <path d="M643 100 H671 L647 138"/>
+      <path d="M713 233 H749"/>
+      <path d="M515 310 H553"/>
+    </g>
+  </g>
+
+  <g fill="#282828">
+    <circle cx="678" cy="233" r="2.9"/>
+    <circle cx="686" cy="225" r="2.3"/>
+    <circle cx="689" cy="239" r="2.7"/>
+    <circle cx="697" cy="230" r="3"/>
+    <circle cx="702" cy="241" r="2.2"/>
+    <circle cx="681" cy="246" r="2.3"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g font-size="21">
+      <text x="632" y="107" text-anchor="end">左眉毛的上方</text>
+      <text x="152" y="328">眼尾是这样下来的</text>
+      <text x="760" y="240">很多黑点在奸门</text>
+      <text x="564" y="317">鼻子</text>
+    </g>
+
+    <path d="M96 374 H864" fill="none" stroke="#dededb" stroke-width="1"/>
+
+    <g fill="none" stroke="#999" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M292 449 H324 L347 426 H375 M324 449 L347 472 H375"/>
+      <path d="M523 426 H551 L574 449 H608 M523 472 H551 L574 449"/>
+    </g>
+    <text x="276" y="457" text-anchor="end" font-size="25">33岁</text>
+    <g text-anchor="middle" font-size="20">
+      <text x="449" y="433">相上面也有</text>
+      <text x="449" y="479">命上面也有</text>
+    </g>
+    <text x="625" y="457" font-size="24" font-weight="600">命相同参</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">睡到东宫</title>
+  <desc id="desc">儿子从西北角搬到客厅，倪师称为「睡到东宫」。爸爸妈妈搬到西北角，原房空出。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 10 6 2 10.5" fill="none" stroke="#484848" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="62" y="28" width="88" height="40" rx="2" fill="none" stroke="#484848" stroke-width="1.4"/>
+    <text x="106" y="56" text-anchor="middle" font-size="23" font-weight="600">阳宅</text>
+
+    <g transform="translate(86 86)">
+      <path d="M566 52 H788 V186 H566 Z" fill="#f6f6f5"/>
+      <path d="M566 186 H788 V284 H566 Z" fill="#f6f6f5"/>
+      <g fill="none" stroke-linecap="square">
+        <path d="M0 186 H788 M268 186 V284 M566 0 V284 M566 52 H788" stroke="#949494" stroke-width="1.5"/>
+        <path d="M0 0 H788 V284 H0 Z" stroke="#343434" stroke-width="2.4"/>
+      </g>
+
+      <g text-anchor="middle">
+        <text x="191" y="98" font-size="34" font-weight="600">客厅</text>
+        <text x="191" y="136" font-size="23" fill="#a33c31">睡到东宫</text>
+        <text x="677" y="113" font-size="22" fill="#5e5e5e">这房间空出来</text>
+        <text x="677" y="232" font-size="26" font-weight="600">爸爸妈妈</text>
+        <text x="677" y="263" font-size="20">西北角</text>
+      </g>
+
+      <path d="M587 224 C511 224 483 112 290 112" fill="none" stroke="#fff" stroke-width="7"/>
+      <path d="M587 224 C511 224 483 112 290 112" fill="none" stroke="#484848" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="432" y="124" text-anchor="middle" font-size="23">儿子</text>
+
+      <path d="M677 133 V199" fill="none" stroke="#fff" stroke-width="7"/>
+      <path d="M677 133 V199" fill="none" stroke="#484848" stroke-width="2" marker-end="url(#arrow)"/>
+    </g>
+
+    <path d="M62 400 H898" stroke="#d2d2d0" stroke-width="1"/>
+    <g font-size="22">
+      <text x="86" y="449">儿子一睡上去</text>
+      <text x="86" y="491">爸妈一下来</text>
+    </g>
+    <g fill="none" stroke="#484848" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M236 441 H281 L306 462 M236 483 H281 L306 462"/>
+      <path d="M306 462 H391" marker-end="url(#arrow)"/>
+    </g>
+    <text x="420" y="472" font-size="29" font-weight="600">归妹卦</text>
+  </g>
+</svg>
