@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">夫妻两个人是同行</title>
+  <desc id="desc">命盘右上格标出先生命宫的七杀，右列中间格标出夫妻宫的武曲。两格分别连到先生和太太，再由括线合到倪师对这对夫妻的判断「同行」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g transform="translate(46 54)">
+    <g fill="#f3f3f1">
+      <rect x="324" y="0" width="108" height="108"/>
+      <rect x="324" y="216" width="108" height="108"/>
+    </g>
+    <g fill="none" stroke="#c5c5c1" stroke-width="1.4">
+      <rect width="432" height="432"/>
+      <path d="M108 0V432 M324 0V432 M216 0V108 M216 324V432"/>
+      <path d="M0 108H432 M0 324H432 M0 216H108 M324 216H432"/>
+    </g>
+    <g fill="none" stroke="#565653" stroke-width="1.8">
+      <rect x="324" y="0" width="108" height="108"/>
+      <rect x="324" y="216" width="108" height="108"/>
+    </g>
+    <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+      <text x="378" y="65" fill="#252525" font-size="31" font-weight="600">七杀</text>
+      <text x="378" y="254" fill="#595956" font-size="18">夫妻宫</text>
+      <text x="378" y="294" fill="#252525" font-size="31" font-weight="600">武曲</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#666663" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M479 108H518 M479 324H518"/>
+    <path d="M709 108H737Q745 108 745 116V316Q745 324 737 324H709"/>
+    <path d="M745 216H774"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <g fill="#252525" font-size="30" font-weight="600">
+      <text x="538" y="119">先生</text>
+      <text x="538" y="335">太太</text>
+    </g>
+    <g fill="#52524f" font-size="20">
+      <text x="538" y="155">七杀朝斗</text>
+      <text x="538" y="185">紫府做垣</text>
+    </g>
+    <text x="796" y="231" fill="#a63d32" font-size="44" font-weight="600">同行</text>
+  </g>
+</svg>

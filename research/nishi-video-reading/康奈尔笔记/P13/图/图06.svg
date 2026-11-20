@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">曲昌同宫</title>
+  <desc id="desc">左盘从未宫的文曲、文昌指向对面丑宫的太阳、太阴，右盘画出四星同在丑宫的情形。下方依口述列出有科、再加禄时的说法。</desc>
+  <defs>
+    <g id="chart" fill="none" stroke="#b9b9b6" stroke-width="1.25">
+      <rect width="416" height="296"/>
+      <path d="M0 74H416 M0 222H416 M104 0V296 M312 0V296
+               M208 0V74 M208 222V296 M0 148H104 M312 148H416"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#50504d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="44" y="52" font-size="29" font-weight="600">曲昌同宫</text>
+
+    <g transform="translate(44 78)">
+      <rect x="208" width="104" height="74" fill="#f3f3f1"/>
+      <rect x="104" y="222" width="104" height="74" fill="#f3f3f1"/>
+      <use href="#chart"/>
+      <g fill="none" stroke="#555552" stroke-width="1.65">
+        <rect x="208" width="104" height="74"/>
+        <rect x="104" y="222" width="104" height="74"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="260" y="24" font-size="16" fill="#555552">未宫</text>
+        <text x="260" y="54" font-size="20" font-weight="600">文曲<tspan dx="6">文昌</tspan></text>
+        <text x="156" y="247" font-size="16" fill="#555552">丑宫</text>
+        <text x="156" y="277" font-size="20" font-weight="600">太阳<tspan dx="6">太阴</tspan></text>
+      </g>
+      <path d="M257 80L159 216" fill="none" stroke="#50504d" stroke-width="1.9" marker-end="url(#arrow)"/>
+      <text x="220" y="161" font-size="20">对面</text>
+    </g>
+
+    <g transform="translate(500 78)">
+      <rect x="104" y="222" width="104" height="74" fill="#f3f3f1"/>
+      <use href="#chart"/>
+      <rect x="104" y="222" width="104" height="74" fill="none" stroke="#555552" stroke-width="1.65"/>
+      <g text-anchor="middle">
+        <text x="208" y="145" font-size="20">四个在一个宫</text>
+        <path d="M208 158L158 216" fill="none" stroke="#50504d" stroke-width="1.6" marker-end="url(#arrow)"/>
+        <text x="156" y="240" font-size="15" fill="#555552">丑宫</text>
+        <text x="156" y="264" font-size="19" font-weight="600">文曲<tspan dx="6">文昌</tspan></text>
+        <text x="156" y="287" font-size="19" font-weight="600">太阳<tspan dx="6">太阴</tspan></text>
+      </g>
+    </g>
+
+    <path d="M44 407H916" fill="none" stroke="#cececa" stroke-width="1.2"/>
+    <g text-anchor="middle">
+      <text x="75" y="464" font-size="23">科</text>
+      <text x="204" y="464" font-size="23">再加个禄</text>
+      <text x="475" y="464" font-size="27" font-weight="600" fill="#a83b30">日月科禄丑未中</text>
+      <text x="780" y="464" font-size="25" font-weight="600">定为方伯公</text>
+      <text x="780" y="496" font-size="17" fill="#565653">不一定是当大官的</text>
+    </g>
+    <g fill="none" stroke="#50504d" stroke-width="1.5" marker-end="url(#arrow)">
+      <path d="M99 455H137"/>
+      <path d="M269 455H351"/>
+      <path d="M599 455H692"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">命宫坐天相</title>
+  <desc id="desc">命盘上排第三格写「天相」，下方圈出「命」。从这一格引出两组标注，一组画出倪师以天上的宰相比喻天相的讲法，另一组列出他所说的性情和体型。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="56" y="77" font-size="32" font-weight="600">女孩子是天相星最好</text>
+
+    <g stroke-linejoin="round">
+      <rect x="56" y="132" width="352" height="352" fill="#fff" stroke="#777" stroke-width="1.6"/>
+      <path d="M144 132V484 M320 132V484 M56 220H408 M56 396H408
+               M232 132V220 M232 396V484 M56 308H144 M320 308H408"
+            fill="none" stroke="#aaa" stroke-width="1.2"/>
+      <rect x="232" y="132" width="88" height="88" fill="#f5f5f3" stroke="#454545" stroke-width="1.8"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="276" y="166" font-size="25" font-weight="600">天相</text>
+      <circle cx="276" cy="192" r="16" fill="#fff" stroke="#ae4033" stroke-width="2"/>
+      <text x="276" y="199" font-size="20">命</text>
+    </g>
+
+    <g fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M320 176H523 M474 176V349H523"/>
+    </g>
+    <circle cx="474" cy="176" r="3" fill="#555"/>
+
+    <text x="544" y="186" font-size="30" font-weight="600">天上的宰相</text>
+    <path d="M549 205V268 M549 226H569 M549 268H569"
+          fill="none" stroke="#aaa" stroke-width="1.4"/>
+    <text x="584" y="234" font-size="24">辅佐的人才</text>
+    <text x="584" y="276" font-size="24">位高无权</text>
+
+    <text x="544" y="359" font-size="30" font-weight="600">命宫坐天相的人</text>
+    <path d="M549 378V441 M549 399H569 M549 441H569"
+          fill="none" stroke="#aaa" stroke-width="1.4"/>
+    <text x="584" y="407" font-size="24">她从来不去想权位</text>
+    <text x="584" y="449" font-size="24">瘦高型</text>
+  </g>
+</svg>

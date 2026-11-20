@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">半空折翅</title>
+  <desc id="desc">灰线把右上角的命宫与巨门、落陷的太阳连成三角，朱红箭头从对面的化忌指向命宫。倪师以巨门、太阳为例，也提到擎羊、陀罗或其他不利的星；配合对面化忌来冲、三方四正没有吉星来会，称为「半空折翅」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="112" y="65" font-size="32" font-weight="600" letter-spacing="3">半空折翅</text>
+    <text x="848" y="64" text-anchor="end" font-size="20" fill="#555">三方四正</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="112" y="92" width="736" height="400" stroke="#666" stroke-width="1.6"/>
+      <path d="M296 92V492 M664 92V492 M112 192H848 M112 392H848
+               M480 92V192 M480 392V492 M112 292H296 M664 292H848"
+            stroke="#c4c4c1" stroke-width="1.2"/>
+    </g>
+
+    <path d="M756 151 L230 247 L572 424 Z" fill="none" stroke="#575754"
+          stroke-width="2.2" stroke-linejoin="round"/>
+    <g fill="#575754" stroke="#fff" stroke-width="1.5">
+      <circle cx="230" cy="247" r="4.6"/>
+      <circle cx="572" cy="424" r="4.6"/>
+      <circle cx="756" cy="151" r="4.6"/>
+    </g>
+
+    <g transform="translate(204 438) rotate(-27.47)">
+      <path d="M0 0H610" fill="none" stroke="#fff" stroke-width="6"/>
+      <path d="M0 0H602" fill="none" stroke="#ad4034" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M599 -5.5 L612 0 L599 5.5Z" fill="#ad4034"/>
+    </g>
+
+    <g font-size="25" text-anchor="middle">
+      <text x="756" y="135" font-weight="600">命</text>
+      <text x="206" y="232">巨门</text>
+      <text x="572" y="463">太阳星落陷</text>
+      <text x="204" y="475">化忌</text>
+    </g>
+  </g>
+</svg>

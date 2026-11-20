@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">疾厄脏腑与日月反背</title>
+  <desc id="desc">命盘左列按本例口述标出廉贪落陷所指的脾、辰宫太阴化忌所指的胃，以及寅宫疾厄所指的肺与右脚。盘心把辰宫太阴的“白天出月亮”与右列的“太阳在夜间”连在一起，示意日月反背。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g stroke="#a4a4a0" stroke-width="1.4" fill="none">
+    <rect x="48" y="38" width="864" height="464" fill="#fff" stroke="#454542" stroke-width="2"/>
+    <path d="M264 38V502 M696 38V502 M480 38V154 M480 376V502"/>
+    <path d="M48 154H912 M48 376H912 M48 265H264 M696 265H912"/>
+  </g>
+
+  <g fill="none" stroke="#686865" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M174 97H201 M195 92L201 97L195 102"/>
+    <path d="M132 237H158 M152 232L158 237L152 242"/>
+    <path d="M264 205H292 M422 205Q447 205 459 235"/>
+    <path d="M501 295Q513 325 538 325 M674 325H696"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252523">
+    <g>
+      <text x="70" y="105" font-size="23">廉贪落陷</text>
+      <text x="213" y="107" font-size="28" font-weight="600">脾</text>
+    </g>
+
+    <g>
+      <text x="70" y="180" font-size="17" fill="#60605c">辰宫</text>
+      <text x="70" y="212" font-size="25" font-weight="600">太阴星</text>
+      <text x="70" y="244" font-size="21">化忌</text>
+      <text x="170" y="246" font-size="27" font-weight="600">胃</text>
+    </g>
+
+    <text x="70" y="327" font-size="18" fill="#666662">卯</text>
+
+    <g>
+      <text x="70" y="405" font-size="22" font-weight="600">疾厄宫</text>
+      <text x="242" y="404" text-anchor="end" font-size="17" fill="#60605c">寅宫</text>
+      <text x="70" y="433" font-size="18">陀罗星落陷带铃星</text>
+      <path d="M70 446H242" fill="none" stroke="#cececa" stroke-width="1.2"/>
+      <text x="70" y="477" font-size="16" fill="#60605c">内脏</text>
+      <text x="110" y="479" font-size="24" font-weight="600">肺</text>
+      <text x="153" y="477" font-size="16" fill="#60605c">外科</text>
+      <text x="192" y="479" font-size="24" font-weight="600" fill="#aa392e">右脚</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="357" y="212" font-size="21">白天出月亮</text>
+      <text x="480" y="276" font-size="31" font-weight="600" letter-spacing="2">日月反背</text>
+      <text x="606" y="332" font-size="21">太阳在夜间</text>
+      <text x="804" y="333" font-size="26" font-weight="600">太阳</text>
+    </g>
+  </g>
+</svg>

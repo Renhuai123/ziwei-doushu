@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">鼻头上的纹子</title>
+  <desc id="desc">上图在眉眼下画出鼻形，两侧鼻孔内各有一道相向的弯纹，倪师讲到「水中作冢」时指在鼻头下缘。标有「水」的箭头向左指入廉貞、破軍所在的一格，下图另画鼻子中间的两道直纹作对照。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 只取板书箭头所指的一格。 -->
+    <rect x="92" y="166" width="206" height="108" stroke="#666" stroke-width="1.7"/>
+
+    <!-- 眉眼只给出正面位置，纹路留作画面重点。 -->
+    <g stroke="#707070">
+      <path d="M444 91 Q477 75 518 88 M647 88 Q686 75 721 91" stroke-width="2.8"/>
+      <path d="M449 116 Q480 99 516 113 Q487 131 449 116Z
+               M649 113 Q686 99 716 116 Q679 131 649 113Z" stroke-width="1.8"/>
+    </g>
+
+    <!-- 上下鼻形共用同一轮廓，方便直接比较纹路。 -->
+    <defs>
+      <path id="nose" d="M556 132
+        C552 152 543 176 528 202
+        Q519 218 533 224
+        Q552 231 565 225
+        Q583 237 601 225
+        Q614 231 633 224
+        Q647 218 638 202
+        C623 176 614 152 610 132"/>
+    </defs>
+    <use href="#nose" stroke="#333" stroke-width="2.8"/>
+    <path d="M549 166 C570 168 573 194 561 207 Q555 214 546 214
+             M617 166 C596 168 593 194 605 207 Q611 214 620 214"
+          stroke="#ac4036" stroke-width="3.5"/>
+
+    <!-- 板上「水」旁的箭头向左。 -->
+    <path d="M514 210 C461 233 381 235 276 229 M287 223 L276 229 L286 236"
+          stroke="#606060" stroke-width="1.8"/>
+
+    <!-- 指代落在鼻头下缘。 -->
+    <path d="M589 234 L615 258 H691" stroke="#888" stroke-width="1.3"/>
+
+    <use href="#nose" transform="translate(0 211)" stroke="#333" stroke-width="2.8"/>
+    <path d="M577 371 V421 M589 371 V421" stroke="#333" stroke-width="2.8"/>
+    <path d="M596 394 H692" stroke="#888" stroke-width="1.3"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g x="195" text-anchor="middle" font-size="24" letter-spacing="3">
+      <text x="195" y="208">廉貞</text>
+      <text x="195" y="249">破軍</text>
+    </g>
+    <text x="410" y="212" text-anchor="middle" font-size="21">水</text>
+    <text x="707" y="266" font-size="24">水中作冢</text>
+    <text x="707" y="402" font-size="22">直线在中间</text>
+  </g>
+</svg>

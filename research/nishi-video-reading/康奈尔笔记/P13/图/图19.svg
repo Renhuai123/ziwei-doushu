@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">英星入庙</title>
+  <desc id="desc">左图画紫微、天府在申的课堂命盘，破军在午，斜线连接相对的午宫与子宫。右图将破军在午、破军在子两种情形并列，归入同一格名，再分列倪师对男人、女人的讲法。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <text x="40" y="60" font-size="25" font-weight="600">紫微星在申</text>
+
+    <g stroke-linejoin="round">
+      <rect x="40" y="85" width="464" height="392" fill="#fff" stroke="#444" stroke-width="1.8"/>
+      <path d="M156 86 H272 V183 H156 Z M272 379 H388 V476 H272 Z" fill="#f4f4f2"/>
+      <path d="M40 183 H504 M40 379 H504
+               M156 85 V477 M388 85 V477
+               M272 85 V183 M272 379 V477
+               M40 281 H156 M388 281 H504"
+            fill="none" stroke="#777" stroke-width="1.25"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="214" y="126" font-size="25" font-weight="600">破军</text>
+      <circle cx="214" cy="158" r="17" fill="none" stroke="#4f4f4f" stroke-width="1.4"/>
+      <text x="214" y="165" font-size="20">午</text>
+
+      <g font-size="21">
+        <text x="420" y="133">紫微</text>
+        <text x="472" y="133">天府</text>
+        <text x="446" y="164">申</text>
+        <text x="98" y="438">七杀</text>
+      </g>
+
+      <path d="M221 175 L323 411" fill="none" stroke="#626262" stroke-width="1.6"/>
+      <circle cx="330" cy="428" r="18" fill="none" stroke="#4f4f4f" stroke-width="1.4"/>
+      <text x="330" y="435" font-size="20">子</text>
+
+      <rect x="183" y="264" width="178" height="35" fill="#fff"/>
+      <text x="272" y="289" font-size="20">子和午是相对的</text>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="23">
+        <text x="632" y="124">破军星在午宫</text>
+        <text x="848" y="124">破军星在子宫</text>
+      </g>
+      <path d="M632 141 V164 H848 V141 M740 164 V190"
+            fill="none" stroke="#666" stroke-width="1.5"/>
+
+      <text x="740" y="233" font-size="37" font-weight="600" letter-spacing="3" fill="#a43c31">英星入庙</text>
+
+      <path d="M740 251 V279 M632 302 V279 H848 V302"
+            fill="none" stroke="#666" stroke-width="1.5"/>
+
+      <g font-size="24" font-weight="600">
+        <text x="632" y="335">男人</text>
+        <text x="848" y="335">女人</text>
+      </g>
+      <g font-size="21">
+        <text x="632" y="381">发武官</text>
+        <text x="632" y="418">非常的英挺</text>
+        <text x="632" y="455">威震边疆</text>
+
+        <text x="848" y="381">瘦小型的体格</text>
+        <text x="848" y="418">比较孤僻</text>
+        <text x="848" y="455">不容易相处</text>
+      </g>
+    </g>
+  </g>
+</svg>

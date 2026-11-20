@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">贪狼入命</title>
+  <desc id="desc">十二宫格中，上排圈出午，标明本例贪狼入命。虚线穿过盘心，连接对面的子宫，紫微星在此。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g stroke-linejoin="round">
+    <rect x="160" y="38" width="640" height="464" fill="#fff" stroke="#525252" stroke-width="2"/>
+    <g fill="#f4f4f2">
+      <rect x="321" y="39" width="158" height="114"/>
+      <rect x="481" y="387" width="158" height="114"/>
+    </g>
+    <path d="M160 154H800 M160 386H800
+             M160 270H320 M640 270H800
+             M320 38V502 M640 38V502
+             M480 38V154 M480 386V502"
+          fill="none" stroke="#777" stroke-width="1.5"/>
+  </g>
+
+  <g fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round">
+    <path d="M426.67 154L468.5 245 M491.5 295L533.33 386" stroke-dasharray="5 6"/>
+    <g fill="#777" stroke="none">
+      <circle cx="426.67" cy="154" r="3"/>
+      <circle cx="533.33" cy="386" r="3"/>
+    </g>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#252525">
+    <text x="400" y="86" font-size="28" font-weight="600">贪狼入命</text>
+    <circle cx="400" cy="120" r="19" fill="none" stroke="#ad4135" stroke-width="2"/>
+    <text x="400" y="128" font-size="23">午</text>
+    <text x="480" y="278" font-size="22" fill="#535353">对面</text>
+    <text x="560" y="438" font-size="28" font-weight="600">紫微星</text>
+    <text x="560" y="478" font-size="23">子宫</text>
+  </g>
+</svg>

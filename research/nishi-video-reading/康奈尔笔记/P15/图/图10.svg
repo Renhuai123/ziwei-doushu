@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">目不见日月</title>
+  <desc id="desc">戊子年生的男命从右列的三十七岁顺盘向下数，到左上格为虚岁四十四。盘内斜箭头表示对宫来会，右图画出倪师把太阳看成月亮、闭眼不见日月的取象。</desc>
+  <defs>
+    <marker id="turn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="across" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#777" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="64" y="52" font-size="25" font-weight="600">戊子年生</text>
+
+    <g stroke-linejoin="round">
+      <path d="M64 80H204V175H64Z M484 365H624V460H484Z" fill="#f4f4f2"/>
+      <rect x="64" y="80" width="560" height="380" fill="none" stroke="#383838" stroke-width="1.8"/>
+      <path d="M204 80V460 M484 80V460 M344 80V175 M344 365V460
+               M64 175H624 M64 365H624 M64 270H204 M484 270H624"
+            fill="none" stroke="#777" stroke-width="1.3"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="100" y="115" font-size="17">80年</text>
+      <text x="157" y="117" font-size="25" font-weight="600">44岁</text>
+      <text x="134" y="151" font-size="20">太阳</text>
+    </g>
+
+    <g text-anchor="middle">
+      <ellipse cx="514" cy="294" rx="21" ry="17" fill="none" stroke="#444" stroke-width="1.6"/>
+      <text x="514" y="301" font-size="20" font-weight="600">37</text>
+      <text x="558" y="301" font-size="18">49</text>
+      <text x="602" y="301" font-size="18">戊</text>
+      <text x="554" y="332" font-size="19">13-22岁</text>
+      <text x="527" y="355" font-size="17">父母宫</text>
+      <text x="589" y="355" font-size="16" fill="#626262">贵人</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="554" y="390" font-size="17">对宫</text>
+      <text x="554" y="416" font-size="20">23-32</text>
+      <text x="523" y="445" font-size="19">天机</text>
+      <text x="583" y="445" font-size="19" font-weight="600" fill="#ad3d31">化忌</text>
+      <ellipse cx="583" cy="438" rx="27" ry="16" fill="none" stroke="#ad3d31" stroke-width="1.5"/>
+    </g>
+
+    <path d="M490 369 199 172" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#across)"/>
+    <rect x="264" y="243" width="163" height="34" rx="3" fill="#fff"/>
+    <text x="345" y="267" text-anchor="middle" font-size="21" font-weight="600">对面有杀星来会</text>
+    <text x="225" y="344" font-size="17" fill="#515151">未来十年又没有大运</text>
+
+    <g fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M625 294H642V360" marker-end="url(#turn)"/>
+      <path d="M642 366V477Q642 483 636 483H353" marker-end="url(#turn)"/>
+      <path d="M345 483H47Q41 483 41 477V277" marker-end="url(#turn)"/>
+      <path d="M41 269V134Q41 128 47 128H60" marker-end="url(#turn)"/>
+    </g>
+    <text x="344" y="515" text-anchor="middle" font-size="19">顺转</text>
+
+    <g text-anchor="middle">
+      <text x="795" y="113" font-size="22" font-weight="600">本宫今年</text>
+      <g fill="none" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="733" cy="192" r="18"/>
+        <path d="M733 162V157 M733 222V227 M703 192H698 M763 192H768
+                 M712 171 708 167 M754 213 758 217 M712 213 708 217 M754 171 758 167"/>
+        <path d="M781 192H812" stroke-width="1.5" marker-end="url(#turn)"/>
+        <path d="M865 169C851 172 842 185 845 199C848 214 863 222 877 215
+                 C864 215 854 205 854 192C854 182 858 174 865 169Z" fill="#f4f4f2"/>
+      </g>
+      <text x="733" y="256" font-size="19">太阳</text>
+      <text x="860" y="256" font-size="19">看成月亮</text>
+
+      <path d="M795 279V311" fill="none" stroke="#777" stroke-width="1.4" marker-end="url(#across)"/>
+      <g fill="none" stroke="#404040" stroke-width="2" stroke-linecap="round">
+        <path d="M757 337Q795 368 833 337"/>
+        <path d="M768 345 764 351 M780 351 778 358 M795 353V360 M810 351 812 358 M822 345 826 351"/>
+      </g>
+      <text x="795" y="393" font-size="18">眼睛闭到了</text>
+      <text x="795" y="445" font-size="27" font-weight="600" letter-spacing="2">目不见日月</text>
+    </g>
+  </g>
+</svg>

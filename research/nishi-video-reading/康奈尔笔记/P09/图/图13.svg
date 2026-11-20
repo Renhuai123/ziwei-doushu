@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">两种大限的算法</title>
+  <desc id="desc">上方并列两种算法，分别指向今年和前一年。下方命盘以长箭头从右侧的「34到43」指回夫妻宫下方圈住的「41」，旁列倪师对这一年及以后的说法。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#505050" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="46" y="53" font-size="27" font-weight="600">两种大限的算法</text>
+
+    <g font-size="21">
+      <text x="46" y="105">未来十年无大运</text>
+      <text x="278" y="105" font-weight="600">大限在今年</text>
+      <text x="518" y="105">一年无大运</text>
+      <text x="713" y="105" font-weight="600">大限在前一年</text>
+    </g>
+    <g fill="none" stroke="#505050" stroke-width="1.6" marker-end="url(#arrow)">
+      <path d="M210 97 H259"/>
+      <path d="M641 97 H694"/>
+    </g>
+    <path d="M475 78 V115 M46 137 H914" fill="none" stroke="#d6d6d6" stroke-width="1.2"/>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="46" y="170" width="600" height="334" stroke="#555" stroke-width="1.8"/>
+      <path d="M46 244 H646 M46 428 H646
+               M196 170 V504 M496 170 V504
+               M346 170 V244 M346 428 V504
+               M46 336 H196 M496 336 H646"
+            stroke="#aaa" stroke-width="1.3"/>
+    </g>
+
+    <g text-anchor="middle" font-size="21">
+      <g fill="#626262">
+        <text x="121" y="215">39</text>
+        <text x="271" y="215">38</text>
+        <text x="421" y="215">37</text>
+      </g>
+      <circle cx="421" cy="207" r="21" fill="none" stroke="#777" stroke-width="1.4"/>
+
+      <circle cx="121" cy="267" r="18" fill="none" stroke="#696969" stroke-width="1.4"/>
+      <text x="121" y="274" font-size="19">40</text>
+      <ellipse cx="121" cy="308" rx="48" ry="18" fill="none" stroke="#696969" stroke-width="1.4"/>
+      <text x="121" y="315" font-size="19">夫妻宫</text>
+
+      <text x="571" y="292">34到43</text>
+      <path d="M548 305 Q390 319 151 364" fill="none" stroke="#505050" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)"/>
+      <text x="350" y="325" font-size="18">冲回来</text>
+
+      <circle cx="121" cy="369" r="22" fill="none" stroke="#af3c30" stroke-width="2.4"/>
+      <text x="121" y="377" fill="#af3c30" font-size="23" font-weight="600">41</text>
+      <text x="121" y="416" font-size="19">子女宫是空的</text>
+    </g>
+
+    <g transform="translate(686 0)">
+      <text y="265" font-size="18" fill="#626262">41岁的那一年</text>
+      <text y="301" font-size="23" font-weight="600">太阳星在子女宫降落</text>
+      <path d="M10 323 V355" fill="none" stroke="#505050" stroke-width="1.6" marker-end="url(#arrow)"/>
+      <text y="394" font-size="18" fill="#626262">41岁以后</text>
+      <text y="430" font-size="23" font-weight="600">太阳星看不到了</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">地劫孤星独守</title>
+  <desc id="desc">命盘下排的本宫圈出独守的地劫，上排的对宫圈出「未」。斜箭头从地劫指向未，表示流年走到未时，对面的地劫来会。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g stroke-linejoin="round">
+    <rect x="80" y="54" width="800" height="432" fill="#fff" stroke="#626262" stroke-width="1.8"/>
+    <g fill="#f5f5f3">
+      <rect x="480" y="55" width="200" height="107"/>
+      <rect x="280" y="378" width="200" height="107"/>
+    </g>
+    <path d="M280 54V486 M680 54V486 M80 162H880 M80 378H880
+             M480 54V162 M480 378V486 M80 270H280 M680 270H880"
+          fill="none" stroke="#969693" stroke-width="1.4"/>
+  </g>
+
+  <g fill="none" stroke="#454545" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M354 408L607 130"/>
+    <path d="M596 134L607 130L604 142"/>
+  </g>
+
+  <ellipse cx="332" cy="432" rx="39" ry="26" fill="#fff" stroke="#b43b30" stroke-width="2.8"/>
+  <circle cx="628" cy="108" r="27" fill="#fff" stroke="#454545" stroke-width="1.8"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <g text-anchor="middle" font-size="26" font-weight="600">
+      <text x="332" y="441">地劫</text>
+      <text x="628" y="117">未</text>
+    </g>
+
+    <text x="387" y="424" font-size="21" font-weight="600">本宫</text>
+    <text x="387" y="451" font-size="19">孤星独守</text>
+
+    <text x="502" y="101" font-size="21" font-weight="600">对宫</text>
+    <text x="502" y="129" font-size="19">流年</text>
+
+    <text x="500" y="283" font-size="20">来会</text>
+  </g>
+</svg>

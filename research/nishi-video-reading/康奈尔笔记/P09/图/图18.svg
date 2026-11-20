@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">择方怀孕</title>
+  <desc id="desc">按倪师讲课时指的位置，竖框从上到下依次为长女、长子、三子。右侧连线呈现他在这段课里的说法：长女一格对应东往南，长子、三子两格合看，对应东往北。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="108" y="90" width="182" height="360" fill="#f7f7f5" stroke="#383838" stroke-width="2.4"/>
+    <path d="M108 210 H290 M108 330 H290" stroke="#555" stroke-width="1.6"/>
+
+    <g stroke="#666" stroke-width="1.8" stroke-linecap="round">
+      <path d="M290 150 H407"/>
+      <path d="M290 270 H344 V390 H290 M344 330 H407"/>
+    </g>
+
+    <g stroke="#383838" stroke-width="2" stroke-linecap="round">
+      <path d="M632 150 H698 M688 143 L698 150 L688 157"/>
+      <path d="M632 330 H698 M688 323 L698 330 L688 337"/>
+    </g>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g text-anchor="middle" font-size="32">
+      <text x="199" y="161">长女</text>
+      <text x="199" y="281">长子</text>
+      <text x="199" y="401">三子</text>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="21" fill="#595959">
+        <text x="516" y="119">东往南</text>
+        <text x="516" y="299">东往北</text>
+      </g>
+      <g font-size="28">
+        <text x="516" y="160">东南边来怀孕</text>
+        <text x="516" y="340">东往北怀孕</text>
+      </g>
+    </g>
+
+    <g x="727" font-size="34" font-weight="600">
+      <text x="727" y="162">女孩子</text>
+      <text x="727" y="342">男的</text>
+    </g>
+  </g>
+</svg>

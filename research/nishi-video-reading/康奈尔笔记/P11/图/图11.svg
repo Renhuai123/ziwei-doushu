@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微在寅</title>
+  <desc id="desc">左盘以折线点出方阵四角，命宫在左下寅宫，紫微、天府同宫，与右上的七杀相对。右盘把命宫定在七杀一侧，从命宫沿上排向左数过三格取财帛，实线连接命宫、财帛、官禄，虚线连接命宫与对面的迁移。</desc>
+  <defs>
+    <g id="chart" fill="none" stroke-linejoin="round">
+      <rect width="384" height="384" fill="#fff" stroke="#444" stroke-width="1.8"/>
+      <path d="M96 0V384 M288 0V384 M0 96H384 M0 288H384
+               M192 0V96 M192 288V384 M0 192H96 M288 192H384"
+            stroke="#aaa" stroke-width="1.2"/>
+    </g>
+    <path id="corner" d="M7 26V7H26" fill="none" stroke="#555" stroke-width="2.5"/>
+    <marker id="arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1L6 4L1 7" fill="none" stroke="#777" stroke-width="1.3" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#262626">
+    <g font-size="29" font-weight="600" letter-spacing="2">
+      <text x="240" y="59">紫府作垣</text>
+      <text x="720" y="59">七杀朝斗</text>
+    </g>
+
+    <g transform="translate(48 90)">
+      <use href="#chart"/>
+      <use href="#corner"/>
+      <use href="#corner" transform="translate(384 0) rotate(90)"/>
+      <use href="#corner" transform="translate(384 384) rotate(180)"/>
+      <use href="#corner" transform="translate(0 384) rotate(270)"/>
+
+      <path d="M82 302L302 82" fill="none" stroke="#777" stroke-width="1.7" stroke-dasharray="7 6"/>
+      <g fill="#fff" stroke="#666" stroke-width="1.6">
+        <circle cx="82" cy="302" r="3.8"/>
+        <circle cx="302" cy="82" r="3.8"/>
+      </g>
+
+      <text x="336" y="58" font-size="23">七杀</text>
+      <text x="47" y="314" font-size="16" fill="#555">命宫</text>
+      <g font-size="21" font-weight="600">
+        <text x="26" y="344">紫微</text>
+        <text x="70" y="344">天府</text>
+      </g>
+      <text x="48" y="370" font-size="16" fill="#555">寅宫</text>
+    </g>
+    <text x="240" y="512" font-size="19">这四个角就是那个垣</text>
+
+    <g transform="translate(528 90)">
+      <use href="#chart"/>
+
+      <g fill="#666" font-size="17">
+        <text x="240" y="46">1</text>
+        <text x="144" y="46">2</text>
+        <text x="48" y="46">3</text>
+      </g>
+      <path d="M282 58H60Q48 58 48 70V108" fill="none" stroke="#777" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <path d="M302 82L82 302" fill="none" stroke="#777" stroke-width="1.7" stroke-dasharray="7 6"/>
+      <path d="M302 82L85 146L240 301Z" fill="none" stroke="#333" stroke-width="2.2" stroke-linejoin="round"/>
+      <g fill="#fff" stroke="#444" stroke-width="1.6">
+        <circle cx="85" cy="146" r="3.8"/>
+        <circle cx="240" cy="301" r="3.8"/>
+        <circle cx="82" cy="302" r="3.8"/>
+      </g>
+      <circle cx="302" cy="82" r="5.4" fill="#ad4035" stroke="#fff" stroke-width="1.5"/>
+
+      <text x="336" y="39" font-size="23" font-weight="600">命宫</text>
+      <text x="336" y="68" font-size="20">七杀</text>
+      <text x="45" y="153" font-size="22">财帛</text>
+      <text x="240" y="349" font-size="22">官禄</text>
+      <text x="48" y="332" font-size="22">迁移</text>
+      <g font-size="18" fill="#555">
+        <text x="26" y="360">紫微</text>
+        <text x="70" y="360">天府</text>
+      </g>
+    </g>
+    <text x="591" y="512" font-size="19" font-weight="600">三方四正</text>
+    <text x="792" y="512" font-size="19">跳三个过来选一个</text>
+  </g>
+</svg>

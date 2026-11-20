@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">40岁值令哪一宫</title>
+  <desc id="desc">命盘左侧的勾标出此例四十岁值令夫妻宫，盘心偏右圈出“四十”，下写“大限”。盘外另画假设情形：若当年值令兄弟宫，太阳星所指的人就可能是兄弟。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g stroke-linejoin="round">
+      <rect x="82" y="42" width="796" height="314" fill="#fff" stroke="#888" stroke-width="1.6"/>
+      <g fill="none" stroke="#c3c3c3" stroke-width="1.3">
+        <path d="M281 42V356 M679 42V356"/>
+        <path d="M480 42V110 M480 284V356"/>
+        <path d="M82 110H878 M82 284H878"/>
+        <path d="M82 203H281 M679 203H878"/>
+      </g>
+      <rect x="82" y="110" width="199" height="93" fill="#f5f5f3" stroke="#555" stroke-width="1.8"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="172" y="143" font-size="23">40</text>
+      <path d="M195 132l5 6 13-16" fill="none" stroke="#af392e" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="181.5" y="182" font-size="29" font-weight="600">夫妻宫</text>
+    </g>
+
+    <g fill="none" stroke="#575757" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M282 159H471"/>
+      <path d="M461 153l10 6-10 6"/>
+    </g>
+    <ellipse cx="531" cy="159" rx="41" ry="29" fill="#fff" stroke="#373737" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="531" y="170" font-size="33" font-weight="600">40</text>
+      <text x="531" y="234" font-size="30" font-weight="600">大限</text>
+    </g>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M82 400v91"/>
+      <path d="M303 467H435" stroke-dasharray="5 6"/>
+      <path d="M426 461l9 6-9 6"/>
+    </g>
+    <text x="103" y="427" font-size="20" fill="#626262">如果40岁值令那年呢</text>
+    <text x="103" y="478" font-size="30">兄弟宫</text>
+    <text x="463" y="476" font-size="26">这太阳星可能指的是兄弟天折</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微星化科</title>
+  <desc id="desc">左侧田宅一格标出紫微星化科，落在33-42大限。由同一格分出两条读法：做官的看科甲旺，做生意的看名气很大、声名远播。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g>
+      <rect x="66" y="160" width="220" height="220" fill="#fff" stroke="#393939" stroke-width="2"/>
+      <path d="M67 318 H285 V379 H67 Z" fill="#f5f5f3"/>
+      <path d="M67 318 H285" fill="none" stroke="#aaa" stroke-width="1.2"/>
+      <text x="101" y="250" font-size="30">紫微星化科</text>
+      <circle cx="236" cy="239" r="20" fill="none" stroke="#ad4034" stroke-width="2.4"/>
+      <text x="85" y="358" font-size="23">田宅</text>
+      <text x="267" y="358" text-anchor="end" font-size="25" font-weight="600">33-42</text>
+    </g>
+
+    <g fill="none" stroke="#626262" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M286 270 H352 M352 270 V160 H404 M352 270 V380 H404"/>
+      <path d="M396 155 L404 160 L396 165 M396 375 L404 380 L396 385"/>
+    </g>
+
+    <g text-anchor="middle" font-size="27">
+      <text x="491" y="170">做官的</text>
+      <text x="491" y="390">做生意的</text>
+    </g>
+
+    <g fill="none" stroke="#626262" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M574 160 H646 M638 155 L646 160 L638 165"/>
+      <path d="M574 380 H646 M638 375 L646 380 L638 385"/>
+    </g>
+
+    <text x="680" y="172" font-size="34" font-weight="600">科甲旺</text>
+
+    <path d="M672 343 H664 V417 H672" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="680" y="371" font-size="34" font-weight="600">名气很大</text>
+    <text x="680" y="412" font-size="28">声名远播</text>
+  </g>
+</svg>

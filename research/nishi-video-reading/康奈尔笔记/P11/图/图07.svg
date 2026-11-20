@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">夫妻的位置</title>
+  <desc id="desc">依倪师这段口述，西北方是夫妻的位置，作客厅时主夫妻生离，作厨房时主死别。厨房一侧并列画出菜刀板上的肉和手术台上躺着的人，呈现他用「刀子下去」所作的类比。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M480 91 V112 M246 137 V112 H714 V137"/>
+    <path d="M241 132 L246 138 L251 132 M709 132 L714 138 L719 132"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626" text-anchor="middle">
+    <rect x="322" y="36" width="316" height="54" rx="3" fill="#fff" stroke="#444" stroke-width="1.6"/>
+    <text x="480" y="72" font-size="27" font-weight="600">西北方是夫妻的位置</text>
+
+    <g font-size="27" font-weight="600">
+      <text x="246" y="178">客厅</text>
+      <text x="714" y="178">厨房</text>
+    </g>
+
+    <!-- 客厅：一张双人沙发。 -->
+    <g stroke="#414141" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="160" y="236" width="172" height="65" rx="11" fill="#f5f5f3"/>
+      <path d="M246 241 V274" fill="none" stroke="#999" stroke-width="1.4"/>
+      <rect x="164" y="275" width="164" height="23" rx="7" fill="#fff"/>
+      <path d="M246 277 V295" fill="none" stroke="#999" stroke-width="1.4"/>
+      <path d="M159 292 V270 Q159 264 153 264 H147 Q141 264 141 270 V306 Q141 313 148 313 H344 Q351 313 351 306 V270 Q351 264 345 264 H339 Q333 264 333 270 V292 Q333 297 327 297 H165 Q159 297 159 292Z" fill="#eaeae7"/>
+      <path d="M152 314 V322 H160 L163 314 M329 314 L332 322 H340 V314" fill="#fff"/>
+    </g>
+
+    <!-- 厨房：相同朝向的短箭头表示两幅小图共同的“刀子下去”。 -->
+    <g stroke="#414141" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(599 250) rotate(-17)">
+        <path d="M-25 -14 H19 V9 Q-2 14 -25 9Z" fill="#ededeb"/>
+        <path d="M19 -13 H43 Q46 -13 46 -10 V-7 Q46 -4 43 -4 H19Z" fill="#666"/>
+      </g>
+      <path d="M573 301 Q577 288 589 287 Q598 279 611 285 Q624 287 632 299 Q632 303 626 304 H578 Q573 304 573 301Z" fill="#e2e2df"/>
+      <path d="M582 298 Q590 288 601 291 Q610 293 615 299" fill="none" stroke="#888" stroke-width="1.3"/>
+      <rect x="540" y="305" width="119" height="10" rx="3" fill="#f5f5f3"/>
+
+      <g transform="translate(823 250) rotate(-21)">
+        <path d="M-20 4 Q-14 6 -5 3 L8 -3 L5 -7 L-7 -2Z" fill="#ededeb"/>
+        <path d="M5 -7 L34 -15 Q38 -16 39 -12 Q40 -9 36 -8 L8 -2Z" fill="#666"/>
+      </g>
+      <rect x="758" y="305" width="145" height="8" rx="3" fill="#ededeb"/>
+      <path d="M777 314 V327 M883 314 V327" fill="none"/>
+      <path d="M763 303 Q766 297 785 298 L791 304Z" fill="#f0f0ed" stroke="#888" stroke-width="1.3"/>
+      <path d="M768 293 Q767 286 774 284 Q781 282 785 286 L789 287 L788 290 Q792 294 788 297 Q784 301 776 299 Q770 298 768 293Z" fill="#fff"/>
+      <path d="M789 300 Q796 289 809 289 Q820 289 833 294 L853 294 Q871 296 882 299 L892 300 L895 304 H789Z" fill="#e2e2df"/>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M609 266 V278 M605 274 L609 279 L613 274"/>
+      <path d="M832 260 V278 M828 274 L832 279 L836 274"/>
+    </g>
+    <g font-size="18" fill="#494949">
+      <text x="600" y="356">菜刀板上</text>
+      <text x="831" y="356">手术台上</text>
+    </g>
+    <path d="M600 368 V378 H658 M831 368 V378 H770" fill="none" stroke="#aaa" stroke-width="1.3"/>
+    <text x="714" y="385" font-size="19">刀子下去</text>
+
+    <g fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M246 405 V432 M241 427 L246 433 L251 427"/>
+      <path d="M714 405 V432 M709 427 L714 433 L719 427"/>
+    </g>
+    <g font-size="31" font-weight="600">
+      <text x="246" y="486">夫妻生离</text>
+      <text x="714" y="486">死别</text>
+    </g>
+  </g>
+</svg>

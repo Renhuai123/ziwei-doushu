@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">武曲七杀在福德宫</title>
+  <desc id="desc">命盘右侧中间的一格用朱红细框点出。格内并列的武曲、七杀和格下的福德宫均据口述标示。引线从这一格通向「顾名思义」，点明倪师讲这两颗星在一起时的读法。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#aaa" stroke-width="1.5" stroke-linejoin="round">
+    <rect x="72" y="78" width="520" height="368"/>
+    <path d="M202 78V446 M462 78V446
+             M332 78V170 M332 354V446
+             M72 170H592 M72 354H592
+             M72 262H202 M462 262H592"/>
+  </g>
+
+  <rect x="462" y="170" width="130" height="92" fill="#fff" stroke="#ad4033" stroke-width="2.5"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424" text-anchor="middle">
+    <g font-size="24" font-weight="600">
+      <text x="497" y="225">武曲</text>
+      <text x="557" y="225">七杀</text>
+    </g>
+
+    <path d="M527 263V277" fill="none" stroke="#555" stroke-width="1.3"/>
+    <text x="527" y="304" font-size="21">福德宫</text>
+
+    <g fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M603 216H685 M678 210L685 216L678 222"/>
+    </g>
+    <text x="792" y="227" font-size="33" font-weight="600" letter-spacing="2">顾名思义</text>
+  </g>
+</svg>

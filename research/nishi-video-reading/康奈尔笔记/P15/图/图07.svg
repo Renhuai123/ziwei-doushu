@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">权禄相逢</title>
+  <desc id="desc">左侧画出财帛宫一格，保留板书可辨的「太阴」，用朱红括线将同在这一宫的「化权」和「禄存」连在一起。箭头上标出倪师所说的「权禄相逢」，向右引出他的断语「一定会做事业当老板」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <rect x="62" y="143" width="254" height="254" fill="#fff" stroke="#393939" stroke-width="2"/>
+    <text x="84" y="185" font-size="23" fill="#555">太阴</text>
+
+    <g text-anchor="middle" font-size="31" font-weight="600">
+      <text x="133" y="265">化权</text>
+      <text x="245" y="265">禄存</text>
+    </g>
+    <path d="M133 279 V288 H245 V279" fill="none" stroke="#ad4034" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <ellipse cx="189" cy="354" rx="65" ry="26" fill="#f6f6f4" stroke="#555" stroke-width="1.5"/>
+    <text x="189" y="363" text-anchor="middle" font-size="25">财帛宫</text>
+
+    <text x="453" y="250" text-anchor="middle" font-size="28" font-weight="600">权禄相逢</text>
+    <path d="M343 270 H563 M552 262 L563 270 L552 278" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="602" y="282" font-size="34" font-weight="600">一定会做事业当老板</text>
+  </g>
+</svg>

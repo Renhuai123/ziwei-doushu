@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">把几颗星合在一起讲</title>
+  <desc id="desc">左侧用括线把若干未具名的星归在一起，表示合在一起讲。向右读，十二章讲完就会批，以后讲例子也能跟得上。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <g text-anchor="middle">
+      <text x="179" y="180" font-size="23">一些星</text>
+
+      <g fill="#f5f5f3" stroke="#454545" stroke-width="2">
+        <circle cx="104" cy="239" r="17"/>
+        <circle cx="158" cy="239" r="17"/>
+        <circle cx="254" cy="239" r="17"/>
+      </g>
+      <g fill="#888">
+        <circle cx="195" cy="239" r="2"/>
+        <circle cx="206" cy="239" r="2"/>
+        <circle cx="217" cy="239" r="2"/>
+      </g>
+
+      <path d="M82 273 V282 Q82 287 88 287 H164 Q175 287 179 297 Q183 287 194 287 H270 Q276 287 276 282 V273"
+            fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="179" y="337" font-size="26" font-weight="600">联合在一起</text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M301 239 H385 M377 232 L385 239 L377 246"/>
+      <path d="M575 239 H659 M651 232 L659 239 L651 246"/>
+    </g>
+
+    <text x="480" y="250" text-anchor="middle" font-size="32">12章讲完</text>
+    <text x="787" y="250" text-anchor="middle" font-size="32" font-weight="600">就会批了嘛</text>
+
+    <path d="M787 273 V310" fill="none" stroke="#aaa" stroke-width="1.4"/>
+    <text x="787" y="346" text-anchor="middle" font-size="22">以后讲例子你都会了</text>
+  </g>
+</svg>

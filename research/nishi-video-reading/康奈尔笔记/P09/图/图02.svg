@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">火贪格与火贵格</title>
+  <desc id="desc">仿板书方格，把「火」「贪」并列写在同一格中。右侧并列列出「火贪格」「火贵格」两个称呼，由箭头引出倪师所说的「武贵」「武官」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="56" y="118" width="336" height="304" stroke="#a3a3a0" stroke-width="1.6"/>
+    <path d="M56 194 H392 M56 346 H392
+             M140 118 V422 M308 118 V422
+             M224 118 V194 M224 346 V422
+             M56 270 H140 M308 270 H392"
+          stroke="#bdbdba" stroke-width="1.4"/>
+    <rect x="140" y="194" width="168" height="152" fill="#f6f6f4" stroke="#434340" stroke-width="2"/>
+    <path d="M308 270 H465" stroke="#585855" stroke-width="1.8"/>
+    <circle cx="308" cy="270" r="4" fill="#434340" stroke="none"/>
+    <path d="M478 221 H465 V319 H478" stroke="#585855" stroke-width="1.8"/>
+    <path d="M638 221 H651 V319 H638 M651 270 H737 M727 263 L737 270 L727 277"
+          stroke="#585855" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#272725">
+    <g font-size="42" font-weight="600">
+      <text x="188" y="285">火</text>
+      <text x="260" y="285">贪</text>
+    </g>
+    <g font-size="34" font-weight="550">
+      <text x="558" y="233">火贪格</text>
+      <text x="558" y="331">火贵格</text>
+    </g>
+    <text x="824" y="270" font-size="46" font-weight="600">武贵</text>
+    <text x="824" y="315" font-size="26" fill="#565653">武官</text>
+  </g>
+</svg>

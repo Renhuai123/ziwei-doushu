@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微在戌</title>
+  <desc id="desc">紫微星在戌宫时，太阳与太阴同在上排第三格，两星并列书写。贪狼在右上格，廉贞在左下格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <rect x="480" y="46" width="184" height="112" fill="#f4f4f2"/>
+
+  <g fill="none" stroke-linecap="square">
+    <rect x="112" y="46" width="736" height="448" stroke="#454545" stroke-width="2"/>
+    <path d="M296 46V494 M664 46V494
+             M112 158H848 M112 382H848
+             M480 46V158 M480 382V494
+             M112 270H296 M664 270H848"
+          stroke="#858585" stroke-width="1.5"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <g font-size="29" font-weight="600">
+      <text aria-label="太阳"><tspan x="548" y="92">太</tspan><tspan x="548" y="127">阳</tspan></text>
+      <text aria-label="太阴"><tspan x="596" y="92">太</tspan><tspan x="596" y="127">阴</tspan></text>
+    </g>
+    <text x="756" y="112" font-size="28">贪狼</text>
+    <text x="756" y="324" font-size="29" font-weight="600">紫微星</text>
+    <text x="756" y="355" font-size="20" fill="#606060">戌宫</text>
+    <text x="204" y="448" font-size="28">廉贞</text>
+  </g>
+</svg>

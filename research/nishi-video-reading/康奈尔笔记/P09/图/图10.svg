@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">子女宫的对宫</title>
+  <desc id="desc">本例子女宫为空，沿斜箭头看向对宫。对宫右栏的「太阳」下方圈着「化忌」，倪师据此断本例「没有儿子」。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#494949" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="68" y="62" width="576" height="416" fill="#fafafa" stroke="#b0b0b0" stroke-width="1.5"/>
+    <rect x="212" y="166" width="288" height="208" fill="#fff"/>
+    <path d="M212 62 V478 M500 62 V478 M356 62 V166 M356 374 V478
+             M68 166 H644 M68 374 H644 M68 270 H212 M500 270 H644"
+          stroke="#c2c2c2" stroke-width="1.3"/>
+    <rect x="68" y="270" width="144" height="104" fill="#fff" stroke="#484848" stroke-width="2"/>
+    <rect x="500" y="166" width="144" height="104" fill="#fff" stroke="#484848" stroke-width="2"/>
+  </g>
+
+  <g fill="none" stroke="#494949" stroke-width="1.8" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M219 303 L491 237"/>
+    <path d="M645 238 H720"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <text x="140" y="310" font-size="26" font-weight="600">子女宫</text>
+    <text x="140" y="348" font-size="23" fill="#555">空的</text>
+
+    <text transform="translate(353 255) rotate(-13.6)" font-size="21">一定要看对宫</text>
+
+    <text x="572" y="204" font-size="24">太阳</text>
+    <ellipse cx="572" cy="238" rx="44" ry="22" fill="none" stroke="#ad3c31" stroke-width="2.2"/>
+    <text x="572" y="246" font-size="24" font-weight="600" fill="#ad3c31">化忌</text>
+
+    <text x="818" y="249" font-size="32" font-weight="600">没有儿子</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">看左右</title>
+  <desc id="desc">以圈起的午为中间格，向左右看。左边巳位的兄弟宫有太阴，星名旁的耳朵记号表示陷地；右边父母宫有天同、巨门，巨门化禄。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <text x="480" y="88" text-anchor="middle" font-size="34" font-weight="600" letter-spacing="3">看左右</text>
+
+    <g fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M405 123 H224 M233 118 L224 123 L233 128"/>
+      <path d="M555 123 H736 M727 118 L736 123 L727 128"/>
+    </g>
+
+    <g fill="none" stroke="#494949" stroke-width="2">
+      <rect x="96" y="155" width="768" height="256"/>
+      <path d="M352 155 V411 M608 155 V411"/>
+    </g>
+
+    <text x="122" y="198" font-size="23" fill="#555">巳</text>
+    <text x="155" y="277" font-size="38" font-weight="600">太阴</text>
+
+    <g fill="none" stroke="#ad4033" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M253 249 C253 239 267 235 274 242 C281 249 277 257 271 262 C267 265 268 273 262 275 C258 277 254 273 255 270"/>
+      <path d="M258 250 C259 245 266 244 269 248 C272 252 268 255 264 258"/>
+    </g>
+    <path d="M269 273 L283 294 H291" fill="none" stroke="#888" stroke-width="1.3" stroke-linecap="round"/>
+    <text x="297" y="301" font-size="19">陷地</text>
+
+    <circle cx="480" cy="283" r="32" fill="none" stroke="#737373" stroke-width="1.7"/>
+    <text x="480" y="294" text-anchor="middle" font-size="29">午</text>
+
+    <g text-anchor="middle">
+      <text x="680" y="277" font-size="38" font-weight="600">天同</text>
+      <text x="792" y="277" font-size="38" font-weight="600">巨门</text>
+      <path d="M792 289 V302" fill="none" stroke="#888" stroke-width="1.3"/>
+      <text x="792" y="330" font-size="23">化禄</text>
+    </g>
+
+    <g fill="#f4f4f2">
+      <rect x="97" y="355" width="254" height="55"/>
+      <rect x="609" y="355" width="254" height="55"/>
+    </g>
+    <path d="M97 355 H351 M609 355 H863" fill="none" stroke="#999" stroke-width="1.2"/>
+    <g text-anchor="middle" font-size="26" font-weight="500" letter-spacing="2">
+      <text x="224" y="392">兄弟宫</text>
+      <text x="736" y="392">父母宫</text>
+    </g>
+  </g>
+</svg>

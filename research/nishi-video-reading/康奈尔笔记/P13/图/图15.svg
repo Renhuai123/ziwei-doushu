@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">亥时子时沾桃花</title>
+  <desc id="desc">时间带上相邻的两段分别标出亥时的晚上9-11点和子时的11-1点。下方括线将两段合在一起，对应口述中的「那晚上的时候才会有桃花」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424" text-anchor="middle">
+    <text x="480" y="87" font-size="32" font-weight="600">为什么在亥时子时沾桃花</text>
+
+    <rect x="120" y="173" width="720" height="140" fill="#f6f6f5" stroke="#505050" stroke-width="1.6"/>
+    <path d="M480 173V313" fill="none" stroke="#505050" stroke-width="1.6"/>
+
+    <g font-size="30" font-weight="600">
+      <text x="300" y="231">亥时</text>
+      <text x="660" y="231">子时</text>
+    </g>
+    <g font-size="23" fill="#454545">
+      <text x="300" y="277">晚上9-11点</text>
+      <text x="660" y="277">11-1点</text>
+    </g>
+
+    <path d="M120 329V339Q120 347 128 347H466Q480 347 480 361Q480 347 494 347H832Q840 347 840 339V329"
+          fill="none" stroke="#747474" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <text x="480" y="422" font-size="28">那晚上的时候才会有<tspan fill="#a93d32" font-weight="600">桃花</tspan></text>
+    <text x="480" y="465" font-size="21" fill="#505050">那就叫做睡觉泛水桃花</text>
+  </g>
+</svg>

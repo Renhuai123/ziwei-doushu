@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">水澄桂萼</title>
+  <desc id="desc">左图在命盘下排的子宫标出太阴星。右图以子时为景，月亮正在人头顶上方，表现倪师所说的清明与明亮。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <rect x="58" y="37" width="158" height="48" rx="3" fill="none" stroke="#444" stroke-width="1.5"/>
+    <text x="137" y="69" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">水澄桂萼</text>
+
+    <!-- 中央大格下方靠右的一格为本段所指。 -->
+    <g transform="translate(58 126)">
+      <rect x="180" y="240" width="90" height="80" fill="#f2f2ef"/>
+      <g fill="none" stroke="#999" stroke-width="1.5">
+        <path d="M90 0 V320 M270 0 V320 M0 80 H360 M0 240 H360"/>
+        <path d="M180 0 V80 M180 240 V320 M0 160 H90 M270 160 H360"/>
+      </g>
+      <rect width="360" height="320" fill="none" stroke="#444" stroke-width="2"/>
+      <rect x="180" y="240" width="90" height="80" fill="none" stroke="#444" stroke-width="2"/>
+      <text x="225" y="274" text-anchor="middle" font-size="22" font-weight="600" fill="#a83a30">太阴星</text>
+      <text x="225" y="302" text-anchor="middle" font-size="18">子宫</text>
+    </g>
+
+    <!-- 月心与下方仰观者的头顶对齐。 -->
+    <g>
+      <circle cx="641" cy="179" r="52" fill="#f6f6f4"/>
+      <circle cx="641" cy="179" r="39" fill="#fff" stroke="#555" stroke-width="1.8"/>
+      <path d="M618 187 Q623 204 640 207" fill="none" stroke="#d1d1cd" stroke-width="2" stroke-linecap="round"/>
+      <path d="M641 238 V318" fill="none" stroke="#999" stroke-width="1.4" stroke-dasharray="5 6"/>
+
+      <g fill="#f7f7f5" stroke="#484848" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M631 366 V373 Q626 377 614 380 Q600 384 597 398 H685 Q682 384 668 380 Q656 377 651 373 V366"/>
+        <path d="M641 327 C630 327 623 335 624 347 C625 360 631 370 641 370 C651 370 657 360 658 347 C659 335 652 327 641 327Z"/>
+      </g>
+
+      <g fill="none" stroke="#888" stroke-width="1.2" stroke-linecap="round">
+        <path d="M683 160 L702 146 H723"/>
+        <path d="M650 276 H686"/>
+      </g>
+      <text x="732" y="152" font-size="19">非常的清明非常的亮</text>
+      <text x="699" y="284" font-size="23">月亮正当头</text>
+
+      <text x="641" y="446" text-anchor="middle" font-size="23" font-weight="600">子时<tspan dx="13" font-size="20" font-weight="400">晚上11-1点</tspan></text>
+    </g>
+  </g>
+</svg>

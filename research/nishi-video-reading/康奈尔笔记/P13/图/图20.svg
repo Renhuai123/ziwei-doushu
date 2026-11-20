@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">一辈子爵禄荣昌</title>
+  <desc id="desc">命盘左下格的「紫府坐桓」与右上格的「七杀朝斗」斜向相对。倪师说两个格是一样的，都主「一辈子爵禄荣昌」，爵代表社会地位，禄代表财禄。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525" text-anchor="middle">
+    <g stroke-linejoin="round">
+      <path d="M48 374 H152 V478 H48 Z M360 62 H464 V166 H360 Z" fill="#f1f1ee"/>
+      <g fill="none" stroke="#b6b6b2" stroke-width="1.4">
+        <path d="M152 62 V478 M360 62 V478 M48 166 H464 M48 374 H464"/>
+        <path d="M256 62 V166 M256 374 V478 M48 270 H152 M360 270 H464"/>
+      </g>
+      <rect x="48" y="62" width="416" height="416" fill="none" stroke="#565653" stroke-width="1.8"/>
+      <path d="M48 374 H152 V478 H48 Z M360 62 H464 V166 H360 Z" fill="none" stroke="#565653" stroke-width="1.8"/>
+    </g>
+
+    <g fill="none" stroke="#858580" stroke-width="1.8" stroke-linecap="round">
+      <path d="M152 374 L235 291 M277 249 L360 166"/>
+    </g>
+    <g font-size="21" font-weight="600">
+      <text x="100" y="434">紫府坐桓</text>
+      <text x="412" y="122">七杀朝斗</text>
+    </g>
+    <text x="256" y="278" font-size="22">两个格是一样的</text>
+
+    <g fill="none" stroke="#62625e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M464 270 H526 M519 264 L526 270 L519 276"/>
+    </g>
+
+    <rect x="558" y="219" width="352" height="102" rx="3" fill="#f7f7f5" stroke="#565653" stroke-width="1.6"/>
+    <text x="734" y="281" font-size="32" font-weight="600">一辈子爵禄荣昌</text>
+
+    <path d="M734 321 V347 M634 365 V347 H834 V365" fill="none" stroke="#858580" stroke-width="1.5" stroke-linejoin="round"/>
+    <g font-size="21">
+      <text x="634" y="397">爵代表社会地位</text>
+      <text x="834" y="397">禄代表财禄</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">日月并明</title>
+  <desc id="desc">命盘右列的短箭头表示太阴星上移一格。由下排命宫引出的两条线分别会到左上格的太阳星和右列的太阴星，构成日月并明；右侧标出明珠出海格也属此类，以及倪师所说「一世荣华」的缘由。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#626262" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g fill="#f5f5f3">
+      <rect x="48" y="58" width="132" height="106"/>
+      <rect x="444" y="164" width="132" height="106"/>
+      <rect x="180" y="376" width="132" height="106"/>
+    </g>
+    <g fill="none" stroke-linejoin="round">
+      <rect x="48" y="58" width="528" height="424" stroke="#515151" stroke-width="1.8"/>
+      <path d="M180 58 V482 M444 58 V482 M48 164 H576 M48 376 H576
+               M312 58 V164 M312 376 V482 M48 270 H180 M444 270 H576"
+            stroke="#949490" stroke-width="1.2"/>
+    </g>
+
+    <path d="M510 323 V242" fill="none" stroke="#626262" stroke-width="1.6" stroke-dasharray="5 5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <path d="M121 132 L246 415 L488 233" fill="none" stroke="#454545" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#454545">
+      <circle cx="121" cy="132" r="3.3"/>
+      <circle cx="488" cy="233" r="3.3"/>
+    </g>
+    <circle cx="246" cy="415" r="6" fill="#b43b30" stroke="#fff" stroke-width="1.6"/>
+
+    <g text-anchor="middle">
+      <text x="114" y="116" font-size="25" font-weight="600">太阳星</text>
+      <text x="510" y="220" font-size="25" font-weight="600">太阴星</text>
+      <text x="246" y="454" font-size="25" font-weight="600">命宫</text>
+      <text x="303" y="257" font-size="22">三方四正</text>
+    </g>
+
+    <g fill="none" stroke="#626262" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M592 264 H679"/>
+      <path d="M780 160 V222"/>
+      <path d="M780 301 V393"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="780" y="143" font-size="25">明珠出海格</text>
+      <text x="780" y="276" font-size="36" font-weight="600">日月并明</text>
+      <text x="780" y="440" font-size="29" font-weight="600">一世荣华</text>
+    </g>
+    <text x="797" y="354" font-size="19" fill="#555">非常的明</text>
+  </g>
+</svg>

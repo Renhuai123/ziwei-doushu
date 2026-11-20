@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">无子宅：缺东宫</title>
+  <desc id="desc">房屋俯视图按板书分为左右两格，图左为东。从房屋中心点向左看，正东是客厅或餐厅，倪师在这段课里称这种格局为“缺东宫”。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g font-size="28" font-weight="600">
+      <text x="72" y="80">①</text>
+      <text x="112" y="80">无子宅</text>
+    </g>
+
+    <rect x="204" y="138" width="310" height="260" fill="#f4f4f2"/>
+    <rect x="204" y="138" width="620" height="260" fill="none" stroke="#303030" stroke-width="2.6"/>
+    <path d="M514 138 V398" fill="none" stroke="#555" stroke-width="1.8"/>
+
+    <text x="168" y="278" text-anchor="middle" font-size="29">东</text>
+
+    <g fill="none" stroke="#424242" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M514 268 H358"/>
+      <path d="M369 261 L358 268 L369 275"/>
+    </g>
+    <text x="359" y="241" text-anchor="middle" font-size="28" font-weight="500">客厅或餐厅</text>
+
+    <path d="M521 273 L545 292" fill="none" stroke="#888" stroke-width="1.3"/>
+    <circle cx="514" cy="268" r="6" fill="#ac3c30" stroke="#fff" stroke-width="1.5"/>
+    <text x="552" y="302" font-size="19" fill="#505050">中心点</text>
+
+    <path d="M359 398 V425" fill="none" stroke="#777" stroke-width="1.4"/>
+    <text x="359" y="464" text-anchor="middle" font-size="29" font-weight="600">缺东宫</text>
+  </g>
+</svg>

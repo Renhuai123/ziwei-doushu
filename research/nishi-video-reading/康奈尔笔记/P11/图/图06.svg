@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">生离还是死别</title>
+  <desc id="desc">左侧命盘圈出「男」，表示倪师将本例更正为男命。右侧按课堂说法并列三幅阳宅简图：西南角厨房断「死妻」，西北角厨房断「死先生」，同在西北角，换作客厅则断「他本人跟她生离」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="48" y="84" font-size="34" font-weight="600">生离还是死别</text>
+    <path d="M48 108 H912" fill="none" stroke="#d5d5d5" stroke-width="1.2"/>
+
+    <g text-anchor="middle">
+      <text x="136" y="171" font-size="21">第二个八字是男的</text>
+      <text x="594" y="171" font-size="25" font-weight="600">決定在阳宅</text>
+    </g>
+
+    <!-- 只保留命盘格线及板书中央圈起的「男」。 -->
+    <g fill="none" stroke-linejoin="round">
+      <rect x="50" y="231" width="172" height="172" stroke="#666" stroke-width="1.8"/>
+      <path d="M93 231 V403 M179 231 V403 M50 274 H222 M50 360 H222
+               M136 231 V274 M136 360 V403 M50 317 H93 M179 317 H222"
+            stroke="#aaa" stroke-width="1.2"/>
+      <circle cx="136" cy="317" r="30" stroke="#383838" stroke-width="2"/>
+    </g>
+    <text x="136" y="329" text-anchor="middle" font-size="33" font-weight="600">男</text>
+    <path d="M251 199 V455" fill="none" stroke="#ddd" stroke-width="1.2"/>
+
+    <!-- 同一西北角并列两图，房间的位置和大小相同。 -->
+    <g fill="none" stroke="#aaa" stroke-width="1.2">
+      <path d="M297 244 V235 H444 V244"/>
+      <path d="M515 244 V235 H880 V244"/>
+    </g>
+    <g text-anchor="middle" font-size="22">
+      <text x="370.5" y="221">西南角</text>
+      <text x="697.5" y="221">西北角</text>
+    </g>
+
+    <!-- 沿用板书中右上、右下的相对位置。 -->
+    <g stroke-linejoin="round">
+      <g fill="#f0f0ee">
+        <rect x="364" y="260" width="80" height="58"/>
+        <rect x="582" y="327" width="80" height="58"/>
+        <rect x="800" y="327" width="80" height="58"/>
+      </g>
+      <g fill="none" stroke="#474747" stroke-width="2">
+        <rect x="297" y="260" width="147" height="125"/>
+        <rect x="515" y="260" width="147" height="125"/>
+        <rect x="733" y="260" width="147" height="125"/>
+      </g>
+      <g fill="none" stroke="#666" stroke-width="1.5">
+        <path d="M364 260 V318 H444"/>
+        <path d="M582 385 V327 H662"/>
+        <path d="M800 385 V327 H880"/>
+      </g>
+    </g>
+    <g text-anchor="middle" font-size="22">
+      <text x="404" y="297">厨房</text>
+      <text x="622" y="364">厨房</text>
+      <text x="840" y="364">客厅</text>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M370.5 397 V418 m-5-5 5 5 5-5"/>
+      <path d="M588.5 397 V418 m-5-5 5 5 5-5"/>
+      <path d="M806.5 397 V418 m-5-5 5 5 5-5"/>
+    </g>
+    <ellipse cx="370.5" cy="455" rx="43" ry="24" fill="none" stroke="#aa4033" stroke-width="2"/>
+    <g text-anchor="middle" font-size="25" font-weight="600">
+      <text x="370.5" y="464">死妻</text>
+      <text x="588.5" y="464">死先生</text>
+      <text x="806.5" y="464">他本人跟她生离</text>
+    </g>
+  </g>
+</svg>

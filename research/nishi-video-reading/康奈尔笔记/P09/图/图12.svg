@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">流年怎么数</title>
+  <desc id="desc">这张命盘沿外圈逆数，34岁在事业宫，35岁经过田宅宫，37岁到未宫，40岁到夫妻宫。田宅宫内另标34至43岁的大限，以及同宫的太阳、化忌。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#626262" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <rect x="64" y="34" width="832" height="472" fill="none" stroke="#444" stroke-width="2"/>
+    <path d="M272 34V506 M688 34V506 M480 34V152 M480 388V506
+             M64 152H896 M64 388H896 M64 270H272 M688 270H896"
+          fill="none" stroke="#999" stroke-width="1.25"/>
+
+    <g fill="none" stroke="#626262" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M840 314V240"/>
+      <path d="M840 178V115"/>
+      <path d="M805 83H620"/>
+      <path d="M548 83H410"/>
+      <path d="M342 83H202"/>
+      <path d="M168 110V176"/>
+    </g>
+
+    <g text-anchor="middle" font-size="31" font-weight="600">
+      <text x="168" y="94">39</text>
+      <text x="376" y="94">38</text>
+      <text x="584" y="94">37</text>
+      <text x="840" y="94">36</text>
+      <text x="840" y="220">35</text>
+      <circle cx="840" cy="346" r="26" fill="none" stroke="#ad392e" stroke-width="2"/>
+      <text x="840" y="357" fill="#ad392e">34</text>
+      <circle cx="168" cy="207" r="24" fill="none" stroke="#555" stroke-width="1.5"/>
+      <text x="168" y="218">40</text>
+    </g>
+
+    <g text-anchor="middle" font-size="17" fill="#555">
+      <text x="584" y="59">未宫</text>
+      <text x="551" y="132">25岁</text>
+      <text x="617" y="132">49岁</text>
+    </g>
+
+    <text x="168" y="257" text-anchor="middle" font-size="22" font-weight="600">夫妻宫</text>
+
+    <g text-anchor="start">
+      <text x="706" y="183" font-size="23" font-weight="600">田宅宫</text>
+      <text x="707" y="210" font-size="20">34-43</text>
+      <text x="706" y="249" font-size="18" fill="#494949">太阳</text>
+      <text x="754" y="249" font-size="18" fill="#494949">化忌</text>
+      <text x="706" y="352" font-size="23" font-weight="600">事业宫</text>
+      <text x="707" y="378" font-size="17" fill="#555">戌</text>
+    </g>
+
+    <g font-size="23">
+      <text x="449" y="256" text-anchor="end">男孩子</text>
+      <text x="511" y="256">顺转</text>
+      <text x="449" y="304" text-anchor="end">女孩子</text>
+      <text x="511" y="304" font-weight="600">逆转</text>
+    </g>
+  </g>
+</svg>
