@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">化忌主劫杀与想不开</title>
+  <desc id="desc">上方将化忌分为劫杀与想不开，并列出课中归入劫杀的三件事。下方依板书并列两张正面脸形，左脸大而五官集中，右脸双眉舒展，眉位在额头与眼睛之间，耳朵上缘高于眼睛。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g fill="none" stroke="#656565" stroke-width="1.6" stroke-linejoin="round">
+      <circle cx="93" cy="83" r="41"/>
+      <path d="M134 83 H159 M159 54 V112 M159 54 H185 M159 112 H185"/>
+      <path d="M293 54 H332"/>
+    </g>
+    <text x="93" y="92" text-anchor="middle" font-size="27" font-weight="600">化忌</text>
+    <g font-size="25" font-weight="600">
+      <text x="195" y="63">①劫杀</text>
+      <text x="195" y="121">②想不开</text>
+    </g>
+    <g font-size="21">
+      <text x="349" y="62">意外横祸</text>
+      <text x="469" y="62">官司纠纷</text>
+      <text x="589" y="62">破财</text>
+    </g>
+    <g fill="#a0a0a0">
+      <circle cx="450" cy="54" r="2"/>
+      <circle cx="570" cy="54" r="2"/>
+    </g>
+
+    <!-- 第二项下方的大脸。五官只占脸中央的一小块。 -->
+    <g fill="#fff" stroke="#353535" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M119 283 C98 272 95 296 102 314 Q109 332 122 327
+               M368 283 C389 272 392 296 385 314 Q378 332 366 327"/>
+      <path d="M244 151 C168 150 118 199 116 280
+               C113 350 145 414 201 434
+               C227 444 261 444 287 434
+               C343 414 375 350 372 280
+               C370 199 320 150 244 151 Z"/>
+      <g fill="none">
+        <path d="M211 278 Q222 277 237 284 M251 284 Q265 277 277 278" stroke-width="3.7"/>
+        <path d="M215 294 Q224 286 234 294 Q225 300 215 294 Z
+                 M254 294 Q264 286 273 294 Q264 300 254 294 Z" stroke-width="1.9"/>
+        <path d="M242 299 Q239 308 239 312 Q244 316 250 312"/>
+        <path d="M233 328 Q243 324 255 328 Q245 335 233 328 Z" stroke-width="1.9"/>
+      </g>
+    </g>
+    <text x="244" y="486" text-anchor="middle" font-size="23">五官都皱在一起</text>
+
+    <!-- 对照脸。发际中央、双眉和眼睛依次在 y=247、282、317 附近。 -->
+    <g fill="#fff" stroke="#353535" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M529 296 C510 281 503 297 508 316 Q514 337 531 339
+               M699 296 C718 281 725 297 720 316 Q714 337 697 339"/>
+      <path d="M614 198 C565 198 529 229 526 283
+               C522 328 536 383 570 411
+               Q614 448 658 411 C692 383 706 328 702 283
+               C699 229 663 198 614 198 Z"/>
+      <path d="M527 285 Q543 273 554 247 Q583 253 614 247
+               Q643 243 668 239 Q679 267 701 285" fill="none" stroke="#777" stroke-width="1.8"/>
+      <g fill="none">
+        <path d="M550 283 Q567 274 592 282 M636 282 Q661 274 678 283" stroke-width="3.7"/>
+        <path d="M550 317 Q571 305 591 317 Q571 327 550 317 Z
+                 M637 317 Q657 305 678 317 Q657 327 637 317 Z" stroke-width="1.9"/>
+        <path d="M612 326 Q608 340 608 345 Q614 350 622 345" stroke-width="2"/>
+        <path d="M597 369 Q613 366 631 369 Q615 377 597 369 Z" stroke-width="1.9"/>
+      </g>
+    </g>
+
+    <!-- 额头至眼睛的两段等高刻度，及耳缘与眼睛的水平参照。 -->
+    <g fill="none" stroke="#999" stroke-width="1.2" stroke-linecap="round">
+      <path d="M615 249 V315" stroke-dasharray="3 4"/>
+      <path d="M611 247 H619 M609 282 H621 M611 317 H619"/>
+      <path d="M718 291 H746 M682 317 H746" stroke-dasharray="4 4"/>
+      <path d="M742 291 V317 M738 291 H746 M738 317 H746"/>
+      <path d="M678 280 L726 250 H751"/>
+    </g>
+    <g font-size="19">
+      <text x="761" y="256">要把眉毛打开来</text>
+      <text x="761" y="312">耳朵会比眼高</text>
+    </g>
+    <text x="614" y="486" text-anchor="middle" font-size="23">非富即贵</text>
+  </g>
+</svg>

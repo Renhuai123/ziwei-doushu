@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">兄弟宫化忌</title>
+  <desc id="desc">命盘左列第二格为兄弟宫，格内用细朱红圈标出倪师口述的“凶星”。左侧引线将“兄弟宫化忌”的讲解连到这一格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <!-- 命盘外围十二格，中央留空。 -->
+  <g fill="none" stroke="#999" stroke-width="1.5">
+    <rect x="486" y="62" width="416" height="416" stroke="#555" stroke-width="2"/>
+    <path d="M590 62V478 M798 62V478
+             M694 62V166 M694 374V478
+             M486 166H902 M486 374H902
+             M486 270H590 M798 270H902"/>
+  </g>
+
+  <!-- 黑板左列第二格。宫名和星的称呼均取自口述。 -->
+  <rect x="486" y="166" width="104" height="104" fill="#f7f7f5" stroke="#444" stroke-width="2"/>
+  <path d="M296 218H485" fill="none" stroke="#777" stroke-width="1.5"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="62" y="230" font-size="36" font-weight="600">兄弟宫化忌</text>
+    <text x="63" y="277" font-size="24">有凶星在兄弟宫</text>
+
+    <g text-anchor="middle">
+      <text x="538" y="197" font-size="19">兄弟宫</text>
+      <ellipse cx="538" cy="235" rx="34" ry="22" fill="#fff" stroke="#ac4135" stroke-width="1.8"/>
+      <text x="538" y="243" font-size="23" font-weight="600">凶星</text>
+    </g>
+  </g>
+</svg>

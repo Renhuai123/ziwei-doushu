@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">渡河之喻</title>
+  <desc id="desc">人群站在下方岸边，一艘名叫「文字就是书」的小船停在他们面前的河上。箭头从船头指向对岸，对岸的名字叫「真理」。</desc>
+  <defs>
+    <g id="person" fill="#fff" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cy="-44" r="6"/>
+      <path d="M-6-33 Q0-37 6-33 Q10-31 10-25 L11-14 Q11-11 8-11 L6-12 L6 0 H2 L0-16 L-2 0 H-6 L-6-12 L-8-11 Q-11-11-11-14 L-10-25 Q-10-31-6-33Z"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <rect x="56" y="144" width="848" height="220" fill="#f5f5f3"/>
+  <g fill="none" stroke="#414141" stroke-width="2" stroke-linecap="round">
+    <path d="M56 144 H904"/>
+    <path d="M56 364 H904"/>
+  </g>
+
+  <g fill="none" stroke="#c5c5bf" stroke-width="1.4" stroke-linecap="round">
+    <path d="M127 247 q9 4 18 0 t18 0 M143 254 q7 3 14 0"/>
+    <path d="M678 287 q10 4 20 0 t20 0 M700 294 q7 3 14 0"/>
+    <path d="M813 196 q8 3 16 0 t16 0"/>
+  </g>
+
+  <g fill="none" stroke="#737373" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M480 245 V129" stroke-dasharray="5 7"/>
+    <path d="M473 137 L480 127 L487 137"/>
+  </g>
+
+  <g stroke-linejoin="round">
+    <path d="M480 253 C498 274 508 305 505 332 Q504 348 497 361 Q480 368 463 361 Q456 348 455 332 C452 305 462 274 480 253Z" fill="#fff" stroke="#333" stroke-width="2.5"/>
+    <path d="M480 265 Q499 300 498 328 Q497 345 492 355 Q480 359 468 355 Q463 341 462 328 Q461 300 480 265Z" fill="#f2f2ef" stroke="#999" stroke-width="1.2"/>
+    <path d="M464 314 H496 V321 H464Z" fill="#fff" stroke="#777" stroke-width="1.2"/>
+  </g>
+
+  <g>
+    <use href="#person" transform="translate(451 428)"/>
+    <use href="#person" transform="translate(509 426) scale(.95)"/>
+    <use href="#person" transform="translate(478 441) scale(1.07)"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g text-anchor="middle">
+      <text x="480" y="59" font-size="21">对岸</text>
+      <text x="480" y="106" font-size="38" font-weight="600" fill="#a33b30">真理</text>
+      <text x="480" y="483" font-size="24">人类</text>
+    </g>
+    <text x="225" y="219" font-size="26">河</text>
+    <path d="M502 303 L530 286 H551" fill="none" stroke="#777" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="565" y="292" font-size="25">文字就是书</text>
+  </g>
+</svg>

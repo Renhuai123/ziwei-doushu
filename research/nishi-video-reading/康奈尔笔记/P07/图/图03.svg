@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">晚子时和早子时</title>
+  <desc id="desc">以半夜12点为换日界线。左弧从11点到12点，是前一天的晚子时；右弧从12点到1点，是第二天的早子时。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#272727">
+    <g font-size="23">
+      <text x="480" y="119">半夜</text>
+      <text x="300" y="165">前一天</text>
+      <text x="660" y="165">第二天</text>
+    </g>
+
+    <g fill="none" stroke="#363636" stroke-width="2.2" stroke-linecap="round">
+      <path d="M149 201 H449 M511 201 H811"/>
+      <path d="M120 226 C120 267 209 299 300 299 C391 299 464 265 480 232"/>
+      <path d="M480 232 C496 265 569 299 660 299 C751 299 840 267 840 226"/>
+    </g>
+
+    <circle cx="480" cy="201" r="30" fill="#fff" stroke="#ad4032" stroke-width="2.5"/>
+    <g font-size="32" font-weight="500">
+      <text x="120" y="212">11</text>
+      <text x="480" y="212">12</text>
+      <text x="840" y="212">1</text>
+    </g>
+
+    <g font-size="27" font-weight="500">
+      <text x="300" y="343"><tspan>晚</tspan><tspan x="300" dy="34">子</tspan><tspan x="300" dy="34">时</tspan></text>
+      <text x="660" y="343"><tspan>早</tspan><tspan x="660" dy="34">子</tspan><tspan x="660" dy="34">时</tspan></text>
+    </g>
+  </g>
+</svg>

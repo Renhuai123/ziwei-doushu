@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">三方四正</title>
+  <desc id="desc">左盘以巳为命宫，实线连起巳、酉、丑，虚线从巳指向盘上正对的亥。右盘换到卯，箭头示意先看对面的酉，再看老师点出的未；下方依口述次序列出十二宫名。</desc>
+  <defs>
+    <g id="grid" fill="none" stroke-linejoin="round">
+      <rect width="352" height="280" stroke="#454545" stroke-width="1.8"/>
+      <path d="M88 0V280 M264 0V280 M0 70H352 M0 210H352
+               M176 0V70 M176 210V280 M0 140H88 M264 140H352"
+            stroke="#999" stroke-width="1.2"/>
+    </g>
+    <g id="branches" text-anchor="middle" font-size="24">
+      <text x="44" y="44">巳</text>
+      <text x="132" y="44">午</text>
+      <text x="220" y="44">未</text>
+      <text x="308" y="44">申</text>
+      <text x="308" y="114">酉</text>
+      <text x="308" y="184">戌</text>
+      <text x="308" y="254">亥</text>
+      <text x="220" y="254">子</text>
+      <text x="132" y="254">丑</text>
+      <text x="44" y="254">寅</text>
+      <text x="44" y="184">卯</text>
+      <text x="44" y="114">辰</text>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1 1.5L8 5L1 8.5" fill="none" stroke="#494949"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <path id="next" d="M-5 0H5 M2-3L5 0L2 3" fill="none" stroke="#999"
+          stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="48" y="60" font-size="34" font-weight="600" letter-spacing="3">三方四正</text>
+    <g font-size="17" fill="#555">
+      <text x="912" y="56" text-anchor="end">一个地支呢代表两个小时</text>
+      <path d="M476 42V59" stroke="#ccc"/>
+      <text x="456" y="56" text-anchor="end">12个地支</text>
+      <text x="496" y="56">一天24小时</text>
+    </g>
+    <path d="M48 80H912" stroke="#bcbcbc"/>
+
+    <text x="248" y="120" text-anchor="middle" font-size="21" font-weight="500">把本宫算进去就是四正</text>
+    <g transform="translate(72 143)">
+      <path d="M0 0H88V70H0Z M264 70H352V140H264Z
+               M88 210H176V280H88Z M264 210H352V280H264Z" fill="#f4f4f2"/>
+      <use href="#grid"/>
+      <path d="M79 62L273 103L132 218Z" fill="#ededeb" fill-opacity=".65"
+            stroke="#555" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M79 62L273 218" fill="none" stroke="#707070" stroke-width="1.6" stroke-dasharray="6 5"/>
+      <use href="#branches"/>
+      <g fill="#fff" stroke="#555" stroke-width="1.6">
+        <circle cx="273" cy="103" r="3.8"/>
+        <circle cx="132" cy="218" r="3.8"/>
+        <circle cx="273" cy="218" r="3.8"/>
+      </g>
+      <circle cx="79" cy="62" r="5" fill="#ad4035" stroke="#fff" stroke-width="1.4"/>
+      <text x="44" y="63" text-anchor="middle" font-size="14">命宫</text>
+    </g>
+
+    <g text-anchor="middle" font-size="21" font-weight="500">
+      <text x="648" y="120">先看对面</text>
+      <text x="797" y="120">然后这边再看</text>
+    </g>
+    <use href="#next" transform="translate(708 113) scale(1.4)"/>
+    <g transform="translate(536 143)">
+      <path d="M0 140H88V210H0Z M264 70H352V140H264Z M176 0H264V70H176Z" fill="#f4f4f2"/>
+      <use href="#grid"/>
+      <path d="M79 178L278 100" fill="none" stroke="#494949" stroke-width="2.3" marker-end="url(#arrow)"/>
+      <path d="M79 178L219 56" fill="none" stroke="#656565" stroke-width="1.7"
+            stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+      <use href="#branches"/>
+      <circle cx="79" cy="178" r="4" fill="#494949" stroke="#fff" stroke-width="1.2"/>
+      <text x="44" y="203" text-anchor="middle" font-size="14">命宫</text>
+    </g>
+
+    <path d="M48 457H912" stroke="#bcbcbc"/>
+    <g font-size="16" text-anchor="middle">
+      <text x="70" y="499" font-weight="600">命宫</text>
+      <text x="144" y="499">兄弟宫</text>
+      <text x="218" y="499">夫妻宫</text>
+      <text x="292" y="499">子女宫</text>
+      <text x="366" y="499">财帛宫</text>
+      <text x="440" y="499">疾厄宫</text>
+      <text x="514" y="499">迁移宫</text>
+      <text x="588" y="499">仆役宫</text>
+      <text x="662" y="499">官禄宫</text>
+      <text x="736" y="499">田宅宫</text>
+      <text x="810" y="499">福德宫</text>
+      <text x="884" y="499">父母宫</text>
+    </g>
+    <g transform="translate(0 493)">
+      <use href="#next" x="104"/><use href="#next" x="181"/><use href="#next" x="255"/>
+      <use href="#next" x="329"/><use href="#next" x="403"/><use href="#next" x="477"/>
+      <use href="#next" x="551"/><use href="#next" x="625"/><use href="#next" x="699"/>
+      <use href="#next" x="773"/><use href="#next" x="847"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微帝星</title>
+  <desc id="desc">正面和侧面画的是同一张宽方脸。侧面能看清耳朵上下细长，转到正面，两耳只在脸的两侧露出一点边缘。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="48" y="36" width="138" height="48" rx="3" fill="none" stroke="#414141" stroke-width="1.5"/>
+    <text x="117" y="68" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">紫微星</text>
+    <text x="213" y="67" font-size="22">帝星</text>
+    <path d="M278 47 V74" stroke="#bcbcbc" stroke-width="1"/>
+    <text x="300" y="67" font-size="22">北斗星君</text>
+
+    <!-- 正面。先画耳，再用脸的轮廓遮住耳廓，只留两道窄边。 -->
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <g fill="#f1f1ef" stroke="#595959" stroke-width="1.8">
+        <path d="M229 256 C220 249 214 254 215 267 C215 284 217 307 220 325 C221 334 225 337 230 330 Z"/>
+        <path d="M437 256 C446 249 452 254 451 267 C451 284 449 307 446 325 C445 334 441 337 436 330 Z"/>
+      </g>
+      <path d="M333 139
+               C285 139 247 151 230 180
+               C220 197 218 222 219 252
+               L222 312
+               C223 340 226 364 237 382
+               C247 397 265 406 286 412
+               C309 418 357 418 380 412
+               C401 406 419 397 429 382
+               C440 364 443 340 444 312
+               L447 252
+               C448 222 446 197 436 180
+               C419 151 381 139 333 139 Z"
+            fill="#fafaf9" stroke="#353535" stroke-width="2.6"/>
+      <g fill="none" stroke="#505050" stroke-width="2">
+        <path d="M252 251 Q272 242 296 249 M370 249 Q394 242 414 251"/>
+        <path d="M253 267 Q274 258 295 266 Q276 274 253 267 Z"/>
+        <path d="M371 266 Q392 258 413 267 Q390 274 371 266 Z"/>
+        <path d="M327 277 C326 289 322 302 319 310 Q319 316 326 317 M326 317 Q333 321 340 317 Q346 317 347 313"/>
+        <path d="M302 354 Q317 354 327 352 Q333 354 339 352 Q349 354 364 354"/>
+        <path d="M313 360 Q333 368 353 360" stroke-width="1.5"/>
+      </g>
+      <g fill="#454545">
+        <circle cx="275" cy="266" r="2.4"/>
+        <circle cx="391" cy="266" r="2.4"/>
+      </g>
+    </g>
+
+    <!-- 侧面。同一高度的耳廓从眉眼旁向下延伸。 -->
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M627 249
+               C626 228 625 207 632 187
+               C643 155 677 139 716 139
+               C762 138 797 158 810 192
+               C824 228 822 267 811 298
+               C806 314 798 327 789 337
+               C782 348 782 365 784 381
+               M627 249
+               Q621 255 626 263
+               C625 275 616 291 606 303
+               Q602 309 609 312 L623 315
+               Q626 318 622 325
+               Q618 332 625 335
+               Q632 338 625 343
+               Q621 347 626 353
+               Q632 357 631 369
+               C630 385 643 397 661 399
+               C689 400 723 385 749 363"
+            fill="none" stroke="#353535" stroke-width="2.6"/>
+      <g fill="none" stroke="#505050" stroke-width="2">
+        <path d="M629 251 Q639 245 653 248"/>
+        <path d="M629 265 Q638 262 649 266 Q639 271 630 268"/>
+        <path d="M614 310 Q618 307 623 310" stroke-width="1.4"/>
+        <path d="M625 335 Q632 336 638 334" stroke-width="1.5"/>
+      </g>
+      <path d="M737 253
+               C748 247 756 255 755 269
+               C754 285 747 303 744 316
+               C742 326 739 333 733 333
+               C727 332 727 325 729 315
+               C731 303 727 293 726 281
+               C724 268 728 258 737 253 Z"
+            fill="#f1f1ef" stroke="#414141" stroke-width="2.1"/>
+      <path d="M732 276 C732 266 739 259 745 263 C751 268 745 280 740 288 Q735 295 736 305"
+            fill="none" stroke="#858585" stroke-width="1.5"/>
+    </g>
+
+    <g fill="none" stroke="#858585" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M63 357 H169 L228 365"/>
+      <path d="M217 288 L181 312 V437 H255"/>
+      <path d="M749 298 L784 315 H818"/>
+    </g>
+    <text x="63" y="345" font-size="20">脸宽宽的方方的</text>
+    <text x="333" y="470" text-anchor="middle" font-size="23" font-weight="600">正面不见耳最好</text>
+    <text x="826" y="322" font-size="20">耳朵长长的</text>
+  </g>
+</svg>

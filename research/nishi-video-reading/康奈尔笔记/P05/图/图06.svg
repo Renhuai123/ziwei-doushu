@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眉毛太浓了</title>
+  <desc id="desc">正面脸形，两侧露出耳朵，头顶用一道弧线勾出头发。两道横眉粗而浓实，左侧箭头指向其中一道眉毛。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g stroke="#454545" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#fff" d="M433 228 C419 213 405 224 408 247 C410 270 420 290 438 295 Z"/>
+    <path fill="#fff" d="M691 228 C705 213 719 224 716 247 C714 270 704 290 686 295 Z"/>
+    <path fill="#fff" d="M562 65
+      C488 65 432 110 432 194
+      C432 237 433 278 441 317
+      C450 360 469 399 498 427
+      C521 449 544 464 562 464
+      C580 464 603 449 626 427
+      C655 399 674 360 683 317
+      C691 278 692 237 692 194
+      C692 110 636 65 562 65 Z"/>
+    <path fill="#eeedeb" d="M432 199
+      C436 136 483 80 562 80
+      C641 80 688 136 692 199
+      L692 194 C692 110 636 65 562 65
+      C488 65 432 110 432 194 Z"/>
+  </g>
+
+  <g fill="#242424">
+    <path d="M446 210
+      Q458 202 478 201 Q508 200 540 206
+      Q546 207 547 212 L548 225
+      Q548 229 543 229 Q516 226 490 224
+      Q463 221 447 218 Q441 216 446 210 Z"/>
+    <path d="M678 210
+      Q666 202 646 201 Q616 200 584 206
+      Q578 207 577 212 L576 225
+      Q576 229 581 229 Q608 226 634 224
+      Q661 221 677 218 Q683 216 678 210 Z"/>
+  </g>
+
+  <text x="174" y="191" fill="#242424" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" font-size="26">眉毛太浓了</text>
+  <g fill="none" stroke="#565656" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M176 205 H320 L441 214"/>
+    <path d="M432 208.5 L441 214 L431.5 218"/>
+  </g>
+</svg>

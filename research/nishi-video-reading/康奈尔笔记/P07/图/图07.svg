@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">戌宫起子</title>
+  <desc id="desc">命盘以朱红细框标出未、辰、丑、戌四宫，右列的戌字另加一圈。引线从戌宫指向右侧的子字，十二地支依口述次序分三行排列。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g fill="none" stroke="#626262" stroke-linejoin="round">
+      <rect x="74" y="46" width="448" height="448" stroke-width="1.8"/>
+      <path d="M186 46V494 M410 46V494
+               M74 158H522 M74 382H522
+               M298 46V158 M298 382V494
+               M74 270H186 M410 270H522" stroke-width="1.4"/>
+    </g>
+
+    <g fill="#fcf5f3" stroke="#b43b30" stroke-width="2">
+      <rect x="302" y="50" width="104" height="104"/>
+      <rect x="78" y="162" width="104" height="104"/>
+      <rect x="190" y="386" width="104" height="104"/>
+      <rect x="414" y="274" width="104" height="104"/>
+    </g>
+
+    <g text-anchor="middle" font-size="33">
+      <text x="130" y="114">巳</text>
+      <text x="242" y="114">午</text>
+      <text x="354" y="114">未</text>
+      <text x="466" y="114">申</text>
+      <text x="130" y="226">辰</text>
+      <text x="466" y="226">酉</text>
+      <text x="130" y="338">卯</text>
+      <text x="466" y="338" font-weight="600">戌</text>
+      <text x="130" y="450">寅</text>
+      <text x="242" y="450">丑</text>
+      <text x="354" y="450">子</text>
+      <text x="466" y="450">亥</text>
+    </g>
+
+    <circle cx="466" cy="326" r="33" fill="none" stroke="#b43b30" stroke-width="2.4"/>
+    <text text-anchor="middle" font-size="26" font-weight="500"><tspan x="298" y="226">戌</tspan><tspan x="298" y="261">宫</tspan><tspan x="298" y="296">起</tspan><tspan x="298" y="331">子</tspan></text>
+
+    <g fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M499 326H573Q579 326 579 320V201Q579 195 585 195H638"/>
+      <path d="M631 190L638 195L631 200"/>
+    </g>
+
+    <g font-size="32" text-anchor="middle">
+      <text y="207" x="668 728 788 848">子丑寅卯</text>
+      <text y="282" x="668 728 788 848">辰巳午未</text>
+      <text y="357" x="668 728 788 848">申酉戌亥</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">犀牛骨</title>
+  <desc id="desc">两幅正面图对照倪师的画法。左图用朱红细线标出两眉上方横贯的骨头隆起，眉毛另用灰线画出。右图同处平坦，两道短眉下画大椭圆眼，对应课中所说的师爷。</desc>
+
+  <defs>
+    <g id="face" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-91 116 C-101 107-108 113-106 128 C-104 144-97 153-88 155
+               M91 116 C101 107 108 113 106 128 C104 144 97 153 88 155"
+            fill="#fafafa" stroke="#777" stroke-width="2"/>
+      <path d="M0 0 C-56 0-89 35-93 88 C-96 129-88 173-72 204
+               C-53 238-25 259 0 259 C25 259 53 238 72 204
+               C88 173 96 129 93 88 C89 35 56 0 0 0Z"
+            fill="#fff" stroke="#393939" stroke-width="2.4"/>
+      <path d="M-3 130 Q-5 148-12 162 Q-3 167 9 163"
+            stroke="#777" stroke-width="1.8"/>
+      <path d="M-18 198 Q0 202 18 198" stroke="#888" stroke-width="1.7"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g text-anchor="middle" font-size="27" font-weight="600">
+      <text x="284" y="78">犀牛骨</text>
+      <text x="660" y="78">有科没有权</text>
+    </g>
+
+    <g transform="translate(284 120)">
+      <use href="#face"/>
+      <path d="M-76 94 Q-46 85 0 87 Q46 85 76 94
+               Q70 101 58 104 Q32 99 0 101 Q-32 99-58 104 Q-70 101-76 94Z"
+            fill="#e8e7e4"/>
+      <path d="M-75 94 Q-43 88 0 89 Q43 88 75 94"
+            fill="none" stroke="#af4034" stroke-width="3.8" stroke-linecap="round"/>
+      <g fill="none" stroke="#626262" stroke-width="3" stroke-linecap="round">
+        <path d="M-65 114 Q-47 107-26 112"/>
+        <path d="M26 112 Q47 107 65 114"/>
+      </g>
+      <g fill="none" stroke="#454545" stroke-width="2">
+        <ellipse cx="-45" cy="131" rx="19" ry="6.5"/>
+        <ellipse cx="45" cy="131" rx="19" ry="6.5"/>
+      </g>
+    </g>
+
+    <g transform="translate(660 120)">
+      <use href="#face"/>
+      <g fill="none" stroke="#454545" stroke-linecap="round">
+        <path d="M-51 109 Q-45 107-39 108 M39 108 Q45 107 51 109" stroke-width="4"/>
+        <ellipse cx="-45" cy="131" rx="25" ry="11.5" stroke-width="2.1"/>
+        <ellipse cx="45" cy="131" rx="25" ry="11.5" stroke-width="2.1"/>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#888" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M49 190 H166 L216 211"/>
+      <path d="M798 170 H768 L721 209"/>
+      <path d="M798 222 H756 L715 228"/>
+      <path d="M798 276 H763 L734 254"/>
+    </g>
+    <g font-size="19">
+      <text x="48" y="180">整个骨头上凸出来</text>
+      <text x="809" y="176">扁扁的</text>
+      <text x="809" y="228">短短一点点</text>
+      <text x="809" y="282">眼睛很大</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="284" y="446" font-size="24">掌权</text>
+      <text x="660" y="446" font-size="24">师爷</text>
+      <text x="660" y="479" font-size="18" fill="#555">做参谋</text>
+    </g>
+  </g>
+</svg>

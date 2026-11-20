@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眼袋看子女</title>
+  <desc id="desc">正面简笔脸用两道饱满的弧线画出眼袋。上方引线将眼袋连到倪师所说的「他以他子女为荣」，下方引线从脸颊标出他形容的油黄光泽。</desc>
+  <defs>
+    <linearGradient id="fullness" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ededeb"/>
+      <stop offset=".48" stop-color="#fafaf9"/>
+      <stop offset="1" stop-color="#e5e5e2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 正面脸形 -->
+    <path d="M146 222 C140 172 146 124 176 94
+             C204 66 242 58 280 58 C318 58 356 66 384 94
+             C414 124 420 172 414 222
+             C410 278 398 328 366 371
+             C341 404 308 428 280 432
+             C252 428 219 404 194 371 C162 328 150 278 146 222Z"
+          stroke="#626260" stroke-width="2.5"/>
+
+    <!-- 眉与眼 -->
+    <g stroke="#393937">
+      <path d="M173 181 Q204 163 244 179 M316 179 Q356 163 387 181" stroke-width="3.8"/>
+      <path d="M174 204 Q207 182 243 204 Q211 217 174 204Z
+               M317 204 Q353 182 386 204 Q349 217 317 204Z"
+            stroke-width="2.2"/>
+    </g>
+    <g fill="#393937">
+      <circle cx="209" cy="201" r="5"/>
+      <circle cx="351" cy="201" r="5"/>
+    </g>
+
+    <!-- 下睑下方，两侧眼袋等量隆起 -->
+    <g fill="url(#fullness)">
+      <path d="M173 213 Q208 224 245 213
+               C241 230 227 242 209 243 C191 243 178 232 173 213Z"/>
+      <path d="M315 213 Q352 224 387 213
+               C382 232 369 243 351 243 C333 242 319 230 315 213Z"/>
+    </g>
+    <path d="M173 214 C178 232 191 243 209 243 C226 243 240 231 245 215
+             M315 215 C320 231 334 243 351 243 C369 243 382 232 387 214"
+          stroke="#494947" stroke-width="2.6"/>
+
+    <!-- 鼻与嘴只作定位 -->
+    <path d="M276 214 Q273 244 260 271
+             Q258 277 265 278 Q271 277 276 281 Q280 284 285 281
+             Q290 277 296 278 Q303 277 299 268"
+          stroke="#858582" stroke-width="2"/>
+    <path d="M246 331 Q262 333 273 330 Q279 329 280 331
+             Q284 329 290 331 Q303 334 314 331
+             M264 343 Q280 348 296 343"
+          stroke="#858582" stroke-width="1.8"/>
+
+    <!-- 引线分指眼袋与脸颊 -->
+    <g stroke="#888885" stroke-width="1.4">
+      <path d="M367 239 L471 164 H534"/>
+      <path d="M366 299 L468 359 H534"/>
+    </g>
+    <circle cx="367" cy="239" r="4.8" fill="#ad4033" stroke="#fff" stroke-width="1.4"/>
+    <circle cx="366" cy="299" r="2.6" fill="#888885"/>
+    <path d="M564 189 V218 M558 211 L564 218 L570 211"
+          stroke="#666663" stroke-width="1.6"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292928">
+    <text x="550" y="174" font-size="29" font-weight="600">眼袋下面饱饱满满的</text>
+    <text x="550" y="257" font-size="30" font-weight="600">他以他子女为荣</text>
+    <text x="550" y="368" font-size="27">油黄</text>
+    <text x="550" y="404" font-size="21" fill="#595956">好像珍珠的那种</text>
+  </g>
+</svg>

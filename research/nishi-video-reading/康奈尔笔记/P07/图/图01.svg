@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">日月夹财</title>
+  <desc id="desc">三个宫格横向相邻。中格圈出「命 丑」，太阳在左，太阴在右，左右夹住命宫。右格底部标「子」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="60" y="48" width="168" height="48" rx="3" fill="none" stroke="#444" stroke-width="1.5"/>
+    <text x="144" y="81" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">日月夹财</text>
+
+    <g fill="none" stroke="#484848" stroke-width="2">
+      <rect x="60" y="152" width="840" height="256"/>
+      <path d="M340 152V408 M620 152V408"/>
+    </g>
+
+    <g font-size="34" font-weight="500">
+      <text x="92" y="218">太阳</text>
+      <text x="652" y="218">太阴</text>
+    </g>
+
+    <ellipse cx="480" cy="348" rx="78" ry="36" fill="none" stroke="#ad4034" stroke-width="2.4"/>
+    <g text-anchor="middle" font-size="32">
+      <text x="457" y="360" font-weight="600">命</text>
+      <text x="503" y="360">丑</text>
+      <text x="760" y="360">子</text>
+    </g>
+  </g>
+</svg>

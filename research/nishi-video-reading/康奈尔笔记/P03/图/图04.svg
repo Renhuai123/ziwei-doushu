@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眉相气色</title>
+  <desc id="desc">正面脸图按被画者自身分左右。按课中说法，画面左边的断眉对应姐妹、眼袋对应女儿，画面右边的断眉对应兄弟、眼袋对应儿子。右栏另画过粗的眉毛，并对照母亲眼袋上枯黑的皱纹与暗而无光的横条。</desc>
+  <defs>
+    <g id="eye" fill="white" stroke="#383838" stroke-width="2.2">
+      <ellipse cx="0" cy="0" rx="31" ry="12"/>
+      <path d="M-28 13 C-17 30 15 32 28 13" fill="none"/>
+    </g>
+    <g id="broken-brow" fill="#383838">
+      <path d="M-43 1 Q-31-9-12-11 L-18 4 Q-32 5-42 9 Q-46 9-43 1Z"/>
+      <path d="M-5-12 Q12-14 34-7 Q40-5 39 2 L38 7 Q15 1-12 3Z"/>
+    </g>
+    <g id="detail-eye" fill="none" stroke-linecap="round">
+      <ellipse cx="0" cy="0" rx="46" ry="14" fill="#fff" stroke="#383838" stroke-width="2.1"/>
+      <path d="M-42 14 C-26 37 25 37 42 14" stroke="#626262" stroke-width="1.8"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <rect x="39" y="34" width="169" height="47" rx="3" fill="none" stroke="#444" stroke-width="1.5"/>
+    <text x="123.5" y="65" text-anchor="middle" font-size="24" font-weight="600">面相分左右</text>
+
+    <g fill="none" stroke="#454545" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M131 254 C118 239 107 248 109 267 C111 285 121 298 135 298"/>
+      <path d="M421 254 C434 239 445 248 443 267 C441 285 431 298 417 298"/>
+      <path d="M276 105 C188 105 129 163 129 239
+               C129 322 167 401 222 433 C241 444 259 450 276 450
+               C293 450 311 444 330 433 C385 401 423 322 423 239
+               C423 163 364 105 276 105Z"/>
+    </g>
+    <path d="M276 106 V450" fill="none" stroke="#a4a4a4" stroke-width="1.4"/>
+    <g text-anchor="middle" font-size="22" fill="#555">
+      <text x="211" y="167">右</text>
+      <text x="341" y="167">左</text>
+    </g>
+
+    <use href="#broken-brow" transform="translate(210 213)"/>
+    <use href="#broken-brow" transform="translate(342 213) scale(-1 1)"/>
+    <use href="#eye" transform="translate(210 250)"/>
+    <use href="#eye" transform="translate(342 250)"/>
+    <g fill="none" stroke="#636363" stroke-width="2" stroke-linecap="round">
+      <path d="M323 272 l3 5 3-3 M332 276 l3 6 3-5 M341 277 l3 5 3-5 M351 275 l3 3 3-6"/>
+    </g>
+
+    <g fill="none" stroke="#898989" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M87 196 H151 L196 208 M465 196 H401 L356 208"/>
+      <path d="M87 321 H150 L203 277 M465 321 H402 L352 282"/>
+    </g>
+    <g font-size="22">
+      <text x="78" y="203" text-anchor="end">姐妹</text>
+      <text x="474" y="203">兄弟</text>
+      <text x="78" y="328" text-anchor="end">女儿</text>
+      <text x="474" y="328">儿子</text>
+    </g>
+    <text x="276" y="498" text-anchor="middle" font-size="21">男左女右</text>
+
+    <path d="M557 36 V502" fill="none" stroke="#d3d3d3" stroke-width="1.2"/>
+
+    <text x="594" y="67" font-size="24" font-weight="600">眉毛太粗</text>
+    <path d="M597 106 Q620 86 659 88 Q684 88 703 97
+             Q707 100 706 109 L704 117 Q674 109 649 110
+             Q620 111 599 119 Q592 120 597 106Z" fill="#383838"/>
+    <text x="735" y="114" font-size="21">主独子</text>
+
+    <path d="M594 151 H918" fill="none" stroke="#d3d3d3" stroke-width="1.2"/>
+    <text x="594" y="195" font-size="24" font-weight="600">看他妈妈的眼袋</text>
+
+    <use href="#detail-eye" transform="translate(650 266)"/>
+    <g fill="none" stroke="#393939" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M617 282 l5 8 4-4 5 9 M630 286 l5 5 3-4 6 11
+               M644 288 l5 6 4-5 5 8 M659 288 l4 4 4-5 4 3 7-9" stroke-width="2.5"/>
+      <path d="M626 296 q7-2 13 3 M647 301 q7-4 14-2" stroke-width="1.4"/>
+    </g>
+    <text x="720" y="258" font-size="19">皱纹都黑黑的</text>
+    <text x="720" y="294" font-size="22" font-weight="600">已经发生</text>
+
+    <path d="M594 336 H918" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+    <use href="#detail-eye" transform="translate(650 403)"/>
+    <path d="M613 417 Q648 429 687 417 L684 424
+             Q650 438 616 425Z" fill="#88784c"/>
+    <text x="720" y="396" font-size="19">枯黄色的</text>
+    <text x="720" y="432" font-size="22" font-weight="600">刚发生两个礼拜</text>
+  </g>
+</svg>

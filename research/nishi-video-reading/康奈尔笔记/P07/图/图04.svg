@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">命里有哪几种局</title>
+  <desc id="desc">命盘中央按板书分两列，左列自上而下为水二局、木三局、金四局，右列为土五局、火六局。盘下两句口述提醒，排盘时会列出这些局，不用特意去记。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#999" stroke-width="1.5" stroke-linejoin="round">
+    <rect x="128" y="40" width="704" height="380"/>
+    <path d="M128 112H832 M128 348H832
+             M256 40V420 M704 40V420
+             M480 40V112 M480 348V420
+             M128 230H256 M704 230H832"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <g fill="#666" font-size="23">
+      <text x="368" y="84">午</text>
+      <text x="592" y="84">未</text>
+      <text x="192" y="179">辰</text>
+      <text x="192" y="297">卯</text>
+      <text x="192" y="393">寅</text>
+    </g>
+
+    <g fill="#252525" font-size="36" font-weight="500" letter-spacing="2">
+      <text x="380" y="179">水二局</text>
+      <text x="380" y="244">木三局</text>
+      <text x="380" y="309">金四局</text>
+      <text x="580" y="179">土五局</text>
+      <text x="580" y="244">火六局</text>
+    </g>
+
+    <g fill="#444" font-size="23">
+      <text x="480" y="466" font-weight="600">诸位不用去记</text>
+      <text x="480" y="500">为什么排的时候统统会有</text>
+    </g>
+  </g>
+</svg>
