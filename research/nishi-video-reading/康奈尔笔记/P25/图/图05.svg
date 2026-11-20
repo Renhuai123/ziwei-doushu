@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">主卧房住西北角</title>
+  <desc id="desc">方框上南下北、左东右西。右下角隔出的小格标为主卧房，倪师讲到这个西北角时提到「风天小畜卦」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="156" y="100" width="500" height="340" fill="#fff" stroke="#343434" stroke-width="2.5"/>
+    <rect x="476" y="316" width="180" height="124" fill="#fcf4f1" stroke="#a43d30" stroke-width="2.5"/>
+
+    <g fill="#494949" font-size="24" text-anchor="middle">
+      <text x="406" y="78">南</text>
+      <text x="406" y="481">北</text>
+      <text x="123" y="279">东</text>
+      <text x="689" y="279">西</text>
+    </g>
+
+    <g fill="#a43d30" text-anchor="middle">
+      <text x="566" y="365" font-size="19">西北角</text>
+      <text x="566" y="405" font-size="30" font-weight="600">主卧房</text>
+    </g>
+    <path d="M657.5 378 H710" fill="none" stroke="#777" stroke-width="1.5"/>
+    <text x="727" y="387" fill="#343434" font-size="25">风天小畜卦</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">手相入后天八卦</title>
+  <desc id="desc">手掌正面朝向读者，指尖向上，拇指在左。指根下方从左到右是巽、离、坤，掌心两侧是震、兑，近腕处是艮、坎、乾，正中圈出明堂。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <g transform="translate(48 39)">
+      <rect width="222" height="48" rx="3" fill="none" stroke="#555" stroke-width="1.4"/>
+      <text x="111" y="32" text-anchor="middle" font-size="23" font-weight="600">文王的后天八卦</text>
+    </g>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M431 506
+               C431 482 425 469 407 455
+               C381 435 362 411 345 380
+               L298 300
+               C289 285 285 273 291 266
+               C298 257 311 260 322 268
+               C338 278 350 296 363 313
+               C374 328 382 333 388 326
+               C393 319 393 303 393 286
+               L390 113
+               C390 97 397 87 408 86
+               C420 85 428 95 429 111
+               L436 219
+               C437 229 440 233 443 229
+               C446 226 446 219 446 210
+               L447 57
+               C447 42 454 32 466 32
+               C479 32 486 42 486 58
+               L488 209
+               C488 218 490 223 493 223
+               C496 223 498 218 499 210
+               L507 81
+               C508 66 516 57 528 58
+               C540 59 546 69 545 85
+               L539 226
+               C538 238 540 245 544 246
+               C548 247 552 240 555 231
+               L586 150
+               C591 136 600 131 610 134
+               C622 138 625 148 621 163
+               L600 248
+               C596 265 597 285 597 304
+               C598 348 595 387 584 417
+               C578 435 568 451 559 465
+               C552 477 550 491 550 506"
+            stroke="#343434" stroke-width="2.6"/>
+      <g stroke="#b7b7b3" stroke-width="1.3">
+        <path d="M399 250 C439 250 474 260 505 273 C532 284 559 289 582 288"/>
+        <path d="M394 294 C431 310 455 331 465 360"/>
+        <path d="M391 320 C419 339 439 366 444 393 C449 417 445 438 436 454"/>
+      </g>
+    </g>
+
+    <g text-anchor="middle" font-size="26">
+      <text x="425" y="282">巽</text>
+      <text x="492" y="264">离</text>
+      <text x="559" y="277">坤</text>
+
+      <text x="408" y="359">震</text>
+      <text x="565" y="359">兑</text>
+
+      <text x="425" y="419">艮</text>
+      <text x="490" y="443">坎</text>
+      <text x="553" y="419">乾</text>
+    </g>
+
+    <ellipse cx="490" cy="350" rx="43" ry="32" fill="#fff" stroke="#ae4035" stroke-width="1.8"/>
+    <text x="490" y="359" text-anchor="middle" font-size="25" font-weight="600">明堂</text>
+  </g>
+</svg>

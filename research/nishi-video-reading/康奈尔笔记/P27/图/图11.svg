@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾天喜星</title>
+  <desc id="desc">命盘右上格圈出板书中的「天喜」，左侧保留可辨的「疾厄」「天同」和「64-73」。盘外的向下箭头表示本例流年往下走，第一次会到红鸾天喜星是在54-63岁。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="64" y="66" font-size="30" font-weight="600">红鸾天喜星</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="64" y="105" width="480" height="376" stroke="#454545" stroke-width="2"/>
+      <path d="M184 105V481 M424 105V481
+               M304 105V199 M304 387V481
+               M64 199H544 M64 387H544
+               M64 293H184 M424 293H544"
+            stroke="#858585" stroke-width="1.4"/>
+    </g>
+
+    <ellipse cx="484" cy="152" rx="43" ry="28" fill="none" stroke="#353535" stroke-width="2.2"/>
+    <text x="484" y="161" text-anchor="middle" font-size="26" font-weight="600">天喜</text>
+
+    <g text-anchor="middle">
+      <text x="124" y="321" font-size="21">天同</text>
+      <text x="124" y="348" font-size="18" fill="#505050">64-73</text>
+      <text x="124" y="376" font-size="17" fill="#505050">疾厄</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="743" y="166" font-size="27" font-weight="600">流年</text>
+      <path d="M743 184V285 M734 273L743 285L752 273"
+            fill="none" stroke="#484848" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="766" y="243" text-anchor="start" font-size="20" fill="#505050">往下走</text>
+      <text x="743" y="337" font-size="23">第一次会到的时候</text>
+      <text x="743" y="405" font-size="57" font-weight="600" fill="#ae382d">54-63</text>
+    </g>
+  </g>
+</svg>

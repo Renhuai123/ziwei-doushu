@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">卯宫侧会兄弟宫</title>
+  <desc id="desc">左下的卯宫内并列武曲、七杀，岁数刻线上点出三十八岁在三十五至四十四岁之间。箭头从卯宫指向兄弟宫，表示倪师所说的「侧会回来」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#262626">
+    <rect x="86" y="184" width="324" height="268" fill="#fff" stroke="#454545" stroke-width="2"/>
+    <rect x="87" y="185" width="322" height="58" fill="#f4f4f2"/>
+    <path d="M87 244 H409" fill="none" stroke="#aaa" stroke-width="1.2"/>
+    <text x="248" y="225" font-size="29" font-weight="600">卯宫</text>
+
+    <g font-size="32" font-weight="500">
+      <text x="185" y="301">武曲</text>
+      <text x="311" y="301">七杀</text>
+    </g>
+
+    <text x="248" y="361" font-size="23">35-44</text>
+    <path d="M128 374 V384 M128 379 H368 M368 374 V384" fill="none" stroke="#686868" stroke-width="1.6"/>
+    <circle cx="208" cy="379" r="5.5" fill="#b43b30"/>
+    <text x="208" y="416" font-size="24" font-weight="600" fill="#b43b30">38岁</text>
+
+    <g fill="none" stroke="#454545" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M410 289 C506 289 556 159 681 159"/>
+      <path d="M668 152 L681 159 L668 166"/>
+    </g>
+    <text x="516" y="196" font-size="23">侧会回来</text>
+
+    <rect x="692" y="113" width="186" height="92" fill="#f4f4f2" stroke="#454545" stroke-width="2"/>
+    <text x="785" y="170" font-size="31" font-weight="600">兄弟宫</text>
+  </g>
+</svg>

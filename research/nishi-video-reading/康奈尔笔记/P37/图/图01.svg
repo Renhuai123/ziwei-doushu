@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眼睛下角的纹</title>
+  <desc id="desc">左图画出双眼和鼻子，标出眼下靠鼻的子女位置，以及两边眼角的凹处。右图对照同一眼下连贯和断续的两种纹路，箭头标明倪师将断续的纹称为勾陈，并以停滞不前解释它。</desc>
+
+  <defs>
+    <g id="eye" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 -20 Q30 -38 68 -29 Q85 -26 99 -19" stroke="#777" stroke-width="2"/>
+      <path d="M0 0 C16 -6 29 -18 52 -17 C72 -17 89 -8 101 1
+               C78 10 63 15 44 13 C24 12 10 6 0 0Z"
+            fill="#fff" stroke="#333" stroke-width="2.4"/>
+      <path d="M38 -15 C33 -6 36 7 46 11 C58 16 71 2 65 -15"
+            stroke="#555" stroke-width="1.9"/>
+      <circle cx="51" cy="-3" r="5" fill="#444"/>
+    </g>
+
+    <path id="broken" d="M8 18 Q16 23 23 25 M33 28 Q43 31 52 30
+                         M63 30 Q71 30 77 28 M87 25 L94 22"
+          fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+
+    <g id="face-eye">
+      <path d="M-16 -5 Q-8 2 0 1 Q-7 9 -10 24 Q-18 16 -16 -5Z" fill="#e6e6e3"/>
+      <path d="M-15 -3 Q-8 4 -2 2 Q-9 10 -10 19"
+            fill="none" stroke="#858582" stroke-width="1.6" stroke-linecap="round"/>
+      <use href="#eye"/>
+      <use href="#broken" color="#484848"/>
+    </g>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#555" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="46" y="36" width="206" height="48" rx="3" fill="none" stroke="#4b4b4b" stroke-width="1.5"/>
+    <text x="149" y="68" text-anchor="middle" font-size="24" font-weight="600">眼睛下角的纹</text>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.8" stroke-linecap="round">
+      <path d="M92 137 C78 169 78 221 86 258 Q91 282 104 303"/>
+      <path d="M440 137 C454 169 454 221 446 258 Q441 282 428 303"/>
+    </g>
+    <use href="#face-eye" transform="translate(116 207)"/>
+    <use href="#face-eye" transform="translate(416 207) scale(-1 1)"/>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M246 197 C247 219 242 246 235 263 Q230 276 242 278
+               M286 197 C285 219 290 246 297 263 Q302 276 290 278"
+            stroke="#707070" stroke-width="1.9"/>
+      <path d="M241 273 Q247 268 253 276 Q266 286 279 276 Q285 268 291 273"
+            stroke="#555" stroke-width="2"/>
+    </g>
+
+    <g fill="none" stroke="#888" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M104 219 L132 264 V337"/>
+      <path d="M212 244 L230 308 Q233 318 244 318 H302 L315 337"/>
+    </g>
+    <g font-size="21" text-anchor="middle">
+      <text x="132" y="367">眼角凹下去一块</text>
+      <text x="336" y="367">子女的位置</text>
+    </g>
+    <path d="M132 382 V408" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="132" y="443" text-anchor="middle" font-size="21">代表妻子通通散</text>
+
+    <use href="#eye" transform="translate(548 164) scale(1.43)"/>
+    <path d="M8 18 Q48 41 94 22" transform="translate(548 164) scale(1.43)"
+          fill="none" stroke="#424242" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M676 198 H716" fill="none" stroke="#999" stroke-width="1.2"/>
+    <text x="732" y="205" font-size="22">连贯在一起</text>
+
+    <use href="#eye" transform="translate(548 302) scale(1.43)"/>
+    <use href="#broken" transform="translate(548 302) scale(1.43)" color="#ad4033"/>
+    <path d="M690 334 H716" fill="none" stroke="#999" stroke-width="1.2"/>
+    <text x="732" y="342" font-size="22">断断续续的</text>
+
+    <g fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M786 357 V384"/>
+      <path d="M786 430 V454"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="786" y="414" font-size="25" font-weight="600">勾陈</text>
+      <text x="786" y="487" font-size="23">停滞不前</text>
+    </g>
+  </g>
+</svg>

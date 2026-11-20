@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">地支对冲</title>
+  <desc id="desc">命盘左侧的辰与右侧的戌隔着盘心相对，一条斜线连接两字，朱红圈标出讲解起点戌。底行的丑依板书用淡灰圈出。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <text x="480" y="58" fill="#242424" font-size="30" font-weight="600">对冲的一定是相尅的</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="184" y="92" width="592" height="408" stroke="#555" stroke-width="2"/>
+      <path d="M332 92V500 M628 92V500 M184 194H776 M184 398H776
+               M480 92V194 M480 398V500 M184 296H332 M628 296H776"
+            stroke="#aaa" stroke-width="1.4"/>
+    </g>
+
+    <path d="M282 250.5L674 340.6" fill="none" stroke="#454545" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="702" cy="347" r="29" fill="#fff" stroke="#b43b30" stroke-width="3"/>
+    <circle cx="406" cy="449" r="24" fill="none" stroke="#aaa" stroke-width="1.4"/>
+
+    <g fill="#686868" font-size="26">
+      <text x="406" y="152">午</text>
+      <text x="554" y="152">未</text>
+      <text x="702" y="152">申</text>
+      <text x="702" y="254">酉</text>
+      <text x="258" y="356">卯</text>
+      <text x="258" y="458">寅</text>
+      <text x="406" y="458">丑</text>
+    </g>
+    <g fill="#242424" font-size="33" font-weight="600">
+      <text x="258" y="257">辰</text>
+      <text x="702" y="359">戌</text>
+    </g>
+  </g>
+</svg>

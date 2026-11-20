@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眉毛与十年大运</title>
+  <desc id="desc">上图并排画出她宽厚浓密的眉毛，以及倪师所说细长、根根见底的眉形。下图从命宫、身宫同在的子宫起画，实线向左指向她十五至二十四岁所走的丑宫，虚线向右画出倪师假设阳女反过来走的次序。</desc>
+
+  <defs>
+    <g id="dense-brow">
+      <path d="M0 1 C22 -4 46 -15 71 -15 C92 -15 113 -7 132 0
+               C139 3 140 11 133 15 C126 19 116 16 105 12
+               C88 6 76 4 61 4 C39 4 17 5 0 1Z" fill="#343434"/>
+      <g fill="none" stroke="#626262" stroke-width="1.1" stroke-linecap="round">
+        <path d="M132 12 Q127 5 121 0 M124 13 Q117 4 108 -1
+                 M111 10 Q103 2 93 -3 M97 6 Q89 -1 78 -5
+                 M81 3 Q72 -2 62 -4 M62 2 Q53 -1 44 0"/>
+      </g>
+    </g>
+
+    <g id="fine-brow" fill="none" stroke="#393939" stroke-linecap="round">
+      <path stroke-width="1.65" d="
+        M155 7 Q153 2 148 -2
+        M150 8 Q146 2 140 -2
+        M144 8 Q139 1 132 -3
+        M137 7 Q131 0 124 -4
+        M130 6 Q123 -1 115 -5
+        M122 4 Q114 -2 106 -6
+        M114 2 Q106 -4 97 -7
+        M105 0 Q97 -5 87 -8
+        M96 -2 Q87 -7 77 -9
+        M86 -4 Q77 -8 66 -9
+        M76 -5 Q66 -8 55 -8
+        M65 -6 Q55 -8 44 -7
+        M54 -6 Q44 -7 33 -5
+        M43 -5 Q32 -5 22 -3
+        M31 -4 Q18 -2 8 0"/>
+      <path stroke-width="1.15" d="M20 -2 Q10 0 0 2"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <text x="48" y="53" font-size="26" font-weight="600">眉毛</text>
+
+    <use href="#dense-brow" transform="translate(85 117)"/>
+    <use href="#dense-brow" transform="translate(393 117) scale(-1 1)"/>
+    <use href="#fine-brow" transform="translate(539 117)"/>
+    <use href="#fine-brow" transform="translate(889 117) scale(-1 1)"/>
+
+    <g text-anchor="middle">
+      <g font-size="22" font-weight="600">
+        <text x="239" y="175">很宽厚的浓</text>
+        <text x="714" y="175">细细长长的</text>
+      </g>
+      <g font-size="18" fill="#515151">
+        <text x="239" y="207">看不到她眉底</text>
+        <text x="665" y="207">根根见底</text>
+        <text x="763" y="207">浓淡适宜</text>
+      </g>
+    </g>
+
+    <path d="M48 239 H912" fill="none" stroke="#d5d5d2" stroke-width="1.2"/>
+    <text x="48" y="285" font-size="26" font-weight="600">十年大运</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="52" y="371" width="150" height="116" rx="3" stroke="#545454" stroke-width="1.6"/>
+      <rect x="387" y="371" width="156" height="116" rx="3" stroke="#545454" stroke-width="1.6"/>
+      <rect x="756" y="315" width="156" height="172" rx="3" stroke="#888" stroke-width="1.4"/>
+      <path d="M756 400 H912" stroke="#b6b6b6" stroke-width="1.2"/>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="24" font-weight="600">
+        <text x="127" y="405">丑</text>
+        <text x="465" y="405">子</text>
+      </g>
+      <g font-size="18">
+        <text x="127" y="437">父母</text>
+        <text x="440" y="437">命宫</text>
+        <text x="490" y="437">身宫</text>
+      </g>
+      <g font-size="20">
+        <text x="127" y="470">15-24</text>
+        <text x="465" y="470">5-14</text>
+        <text x="824" y="364">25-34</text>
+        <text x="824" y="450">15-24</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#343434" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M375 443 H215"/>
+      <path d="M227 435 L215 443 L227 451"/>
+    </g>
+    <text x="295" y="426" text-anchor="middle" font-size="21" font-weight="600">阴女</text>
+
+    <g fill="none" stroke="#777" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M555 443 H743" stroke-dasharray="7 6"/>
+      <path d="M733 436 L743 443 L733 450"/>
+      <path d="M876 443 Q891 443 891 428 V366" stroke-dasharray="7 6"/>
+      <path d="M885 374 L891 365 L897 374"/>
+    </g>
+    <g text-anchor="middle" fill="#555">
+      <text x="649" y="401" font-size="21" font-weight="600">阳女</text>
+      <text x="649" y="426" font-size="17">这是我假设的</text>
+    </g>
+  </g>
+</svg>

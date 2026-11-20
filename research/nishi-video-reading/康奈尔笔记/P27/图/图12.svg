@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">这个人的阳宅</title>
+  <desc id="desc">房屋方框的右下角单独隔出一小格，朱红点标出倪师说「就住这里」时所指的位置。旁注连起他口述的两层意思：她婚前住在这里，再加上她的命是孤鸾，倪师称为「加凶」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="172" y="94" font-size="26" font-weight="600">这个人的阳宅</text>
+
+    <rect x="172" y="122" width="312" height="312" fill="#fff"/>
+    <rect x="380" y="330" width="104" height="104" fill="#f3f3f1"/>
+    <path d="M380 434 V330 H484" fill="none" stroke="#444" stroke-width="2.2"/>
+    <rect x="172" y="122" width="312" height="312" fill="none" stroke="#303030" stroke-width="2.8"/>
+
+    <path d="M432 382 L529 285 H562" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="432" cy="382" r="6.5" fill="#b43b30" stroke="#fff" stroke-width="1.5"/>
+
+    <text x="580" y="250" font-size="19" fill="#555">婚前</text>
+    <text x="578" y="295" font-size="34" font-weight="600">就住这里</text>
+    <text x="580" y="341" font-size="22">再加上她的命是孤鸾</text>
+  </g>
+</svg>

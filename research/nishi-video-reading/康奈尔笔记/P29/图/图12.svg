@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">掌上八卦位</title>
+  <desc id="desc">左图标出掌上离、坤、震三处。右图用掌面轮廓画出倪师对离卦高低、大小及坤卦凹凸的讲法，下方并列男看震宫、女看坤宫的口述。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L6.5 4 L1 7" fill="none" stroke="#555" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <!-- 掌面朝前，拇指在画面左侧。 -->
+    <path d="M145 494
+             C146 474 144 459 133 446
+             C112 423 96 396 82 365
+             C70 340 55 319 40 301
+             C30 289 31 278 40 274
+             C51 269 66 279 79 292
+             L103 316
+             C110 323 116 319 117 309
+             C119 284 115 252 112 221
+             L102 109
+             C101 94 106 85 116 84
+             C127 83 134 92 136 106
+             L153 215
+             C155 229 163 228 163 215
+             L160 70
+             C160 54 165 44 176 43
+             C188 42 195 53 196 68
+             L205 207
+             C206 222 214 223 216 209
+             L224 90
+             C225 74 231 66 242 67
+             C253 68 258 78 257 93
+             L251 225
+             C250 239 257 243 262 229
+             L287 154
+             C292 140 298 134 307 137
+             C317 140 319 150 315 165
+             L295 248
+             C290 271 292 292 288 326
+             C284 365 273 407 253 440
+             C242 459 240 476 241 494"
+          fill="#fafaf9" stroke="#373737" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="none" stroke="#d2d2ce" stroke-width="1.4" stroke-linecap="round">
+      <path d="M119 319 C145 340 157 374 150 408"/>
+      <path d="M151 261 C174 272 192 280 217 284 C240 289 263 292 283 300"/>
+    </g>
+    <g fill="#fff" stroke="#999" stroke-width="1.25">
+      <ellipse cx="192" cy="251" rx="32" ry="21"/>
+      <ellipse cx="256" cy="269" rx="29" ry="20"/>
+      <ellipse cx="146" cy="308" rx="29" ry="20"/>
+    </g>
+    <g text-anchor="middle" font-size="19" font-weight="600">
+      <text x="192" y="258">离卦</text>
+      <text x="256" y="276">坤卦</text>
+      <text x="146" y="315">震宫</text>
+    </g>
+
+    <g stroke="#d5d5d1" stroke-width="1">
+      <path d="M354 40 V500"/>
+      <path d="M385 198 H922 M385 379 H922"/>
+    </g>
+
+    <!-- 离卦的挺高与所占宽度分开表示。 -->
+    <g font-size="25" font-weight="600">
+      <text x="390" y="66">离卦</text>
+      <text x="390" y="246">坤卦</text>
+    </g>
+    <g font-size="20" fill="#555">
+      <text x="390" y="96">官禄</text>
+      <text x="390" y="276">子息</text>
+    </g>
+
+    <g fill="#f1f1ef">
+      <path d="M499 126 C521 126 528 120 539 102 C550 84 558 77 571 77 C584 77 594 87 604 104 C614 120 621 126 645 126 Z"/>
+      <path d="M707 126 C731 126 742 119 759 99 C773 83 790 77 812 77 C834 77 852 83 866 99 C883 119 894 126 917 126 Z"/>
+    </g>
+    <g fill="none" stroke="#aaa" stroke-width="1.1" stroke-dasharray="4 4">
+      <path d="M499 126 H645 M707 126 H917"/>
+    </g>
+    <g fill="none" stroke="#373737" stroke-width="2.2" stroke-linecap="round">
+      <path d="M499 126 C521 126 528 120 539 102 C550 84 558 77 571 77 C584 77 594 87 604 104 C614 120 621 126 645 126"/>
+      <path d="M707 126 C731 126 742 119 759 99 C773 83 790 77 812 77 C834 77 852 83 866 99 C883 119 894 126 917 126"/>
+    </g>
+    <g fill="none" stroke="#555" stroke-width="1.3">
+      <path d="M571 121 V85" marker-end="url(#arrow)"/>
+      <path d="M747 115 H877" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="572" y="61" font-size="17" fill="#555">越挺越高</text>
+      <text x="572" y="164" font-size="22">从官得禄</text>
+      <text x="812" y="164" font-size="22">官位越大</text>
+    </g>
+
+    <!-- 坤卦的两种掌面轮廓，共用同一虚线高度。 -->
+    <g text-anchor="middle" font-size="17" fill="#555">
+      <text x="572" y="242">低低的凹陷扁扁的</text>
+      <text x="812" y="242">膨起来</text>
+    </g>
+    <g fill="#f1f1ef">
+      <path d="M490 290 C516 290 527 294 541 299 C555 304 589 304 603 299 C617 294 628 290 654 290 V311 H490 Z"/>
+      <path d="M730 290 C755 290 764 284 779 270 C791 259 800 255 812 255 C824 255 833 259 845 270 C860 284 869 290 894 290 V311 H730 Z"/>
+    </g>
+    <g fill="none" stroke="#aaa" stroke-width="1.1" stroke-dasharray="4 4">
+      <path d="M490 290 H654 M730 290 H894"/>
+    </g>
+    <g fill="none" stroke="#373737" stroke-width="2.2" stroke-linecap="round">
+      <path d="M490 290 C516 290 527 294 541 299 C555 304 589 304 603 299 C617 294 628 290 654 290"/>
+      <path d="M730 290 C755 290 764 284 779 270 C791 259 800 255 812 255 C824 255 833 259 845 270 C860 284 869 290 894 290"/>
+    </g>
+    <g text-anchor="middle" font-size="22">
+      <text x="572" y="347">毫无子息</text>
+      <text x="812" y="347">子息贵</text>
+    </g>
+
+    <g font-size="21">
+      <text x="390" y="431" font-weight="600">男孩子</text>
+      <text x="390" y="486" font-weight="600">女孩子</text>
+      <text x="498" y="431">震宫</text>
+      <text x="498" y="486">坤宫</text>
+      <text x="635" y="431">青黑</text>
+      <text x="635" y="486">黑</text>
+      <text x="823" y="431">妻损</text>
+      <text x="823" y="486">夫损</text>
+    </g>
+    <g stroke="#555" stroke-width="1.3" fill="none" marker-end="url(#arrow)">
+      <path d="M713 424 H793"/>
+      <path d="M713 479 H793"/>
+    </g>
+  </g>
+</svg>

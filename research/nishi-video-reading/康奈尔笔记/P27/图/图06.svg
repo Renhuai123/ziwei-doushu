@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天文地理一起参照</title>
+  <desc id="desc">命盘中宫放大画出阳宅。本人住在宅图右上，两间浴室厕所在其正下方；下排按板书和口述标出厨房、女和儿子。自命宫引出的线用朱红端点标出改正后的财帛宫落点。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <text x="64" y="52" font-size="27" font-weight="600">天文地理一起参照</text>
+
+    <!-- 外圈十二宫，中宫留给宅图。 -->
+    <rect x="64" y="78" width="832" height="420" fill="#fafafa" stroke="#565656" stroke-width="1.8"/>
+    <rect x="272" y="138" width="416" height="270" fill="#fff"/>
+    <g fill="none" stroke="#929292" stroke-width="1.3">
+      <path d="M272 78V498 M688 78V498"/>
+      <path d="M64 138H896 M64 408H896"/>
+      <path d="M480 78V138 M480 408V498"/>
+      <path d="M64 273H272 M688 273H896"/>
+    </g>
+
+    <!-- 宅图。两枚叉号各占一格，与下排居住位置分开。 -->
+    <rect x="313" y="161" width="334" height="208" fill="#fff" stroke="#343434" stroke-width="2.3"/>
+    <g fill="#f4f4f2">
+      <rect x="524" y="163" width="121" height="77"/>
+      <rect x="524" y="242" width="121" height="49"/>
+    </g>
+    <g fill="none" stroke="#454545" stroke-width="1.8">
+      <path d="M523 161V292 M523 241H647 M585 241V292"/>
+      <path d="M313 292H647 M423 292V369 M530 292V369"/>
+    </g>
+    <g fill="none" stroke="#737373" stroke-width="1.65" stroke-linecap="round">
+      <path d="M547 260L559 272 M559 260L547 272"/>
+      <path d="M610 260L622 272 M622 260L610 272"/>
+    </g>
+
+    <g text-anchor="middle" font-size="22">
+      <text x="585" y="210" font-weight="600">本人</text>
+      <text x="368" y="339">厨房</text>
+      <text x="476" y="339">女</text>
+      <text x="588" y="339">儿子</text>
+    </g>
+    <text x="334" y="273" font-size="18">两个浴室厕所</text>
+    <path d="M451 266H513" fill="none" stroke="#888" stroke-width="1.2"/>
+
+    <!-- 只示意口述改正的这一条连线。 -->
+    <g fill="none" stroke="#676767" stroke-width="1.8" stroke-linecap="round">
+      <path d="M178 353L765 455"/>
+    </g>
+    <circle cx="178" cy="353" r="3.2" fill="#676767"/>
+    <circle cx="765" cy="455" r="5.8" fill="#ae4035" stroke="#fff" stroke-width="1.5"/>
+    <text x="178" y="337" text-anchor="middle" font-size="23">命</text>
+    <text x="584" y="479" text-anchor="middle" font-size="21" fill="#555">子女宫</text>
+    <text x="782" y="463" font-size="23" font-weight="600">财帛宫</text>
+  </g>
+</svg>

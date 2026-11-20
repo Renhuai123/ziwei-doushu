@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天罗纹与脸上的纹</title>
+  <desc id="desc">正面脸形图在画面左眉上方的额角画出交叉斜纹，向额顶延伸，示意倪师以天罗纹谈男人太太过世的说法。右侧用疏密两组线条，对照他所讲的看纹原则。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <g font-size="25" font-weight="600">
+      <rect x="46" y="36" width="138" height="48" rx="3" fill="none" stroke="#505050" stroke-width="1.4"/>
+      <text x="115" y="68" text-anchor="middle">天罗纹</text>
+      <text x="616" y="68">脸上的纹</text>
+    </g>
+
+    <path d="M575 111 V474" fill="none" stroke="#dededb" stroke-width="1.2"/>
+
+    <g fill="none" stroke="#393939" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M166 267
+               C160 232 160 190 171 159
+               C184 122 219 100 263 100
+               C309 100 345 120 361 157
+               C375 189 374 232 367 269
+               C363 307 357 352 338 384
+               C320 412 289 440 269 442
+               C247 443 216 420 196 392
+               C176 364 169 316 166 267Z"/>
+      <path d="M165 274 C154 262 147 273 151 292 C154 312 160 326 171 327
+               M366 274 C378 261 385 274 380 294 C377 312 371 325 361 327"/>
+      <path d="M166 215 C174 192 178 163 198 145
+               C219 126 240 121 263 121
+               C296 121 324 132 343 154
+               C355 171 361 192 369 215" stroke="#777" stroke-width="1.6"/>
+
+      <path d="M182 249 Q203 235 224 241 Q236 244 244 247
+               M287 247 Q301 241 314 240 Q332 238 349 249" stroke-width="3"/>
+      <path d="M184 268 Q208 250 240 267 Q214 282 190 272
+               M291 267 Q319 251 345 268 Q321 281 296 271" stroke-width="1.8"/>
+      <g fill="#393939" stroke="none">
+        <circle cx="214" cy="265" r="3.7"/>
+        <circle cx="318" cy="265" r="3.7"/>
+      </g>
+      <path d="M258 276 C257 293 255 310 249 320
+               M247 326 Q251 330 256 328 Q265 336 274 328 Q280 330 285 325
+               M235 364 Q251 361 264 363 Q278 360 296 364
+               M249 374 Q266 380 282 373" stroke-width="1.7"/>
+    </g>
+
+    <g fill="none" stroke="#ad3e31" stroke-width="2.7" stroke-linecap="round">
+      <path d="M184 207 Q207 179 237 149
+               M185 223 Q216 188 250 153
+               M200 225 Q231 191 257 164"/>
+      <path d="M187 194 Q199 202 210 214
+               M198 180 Q211 189 224 201
+               M211 166 Q225 176 238 187
+               M225 153 Q239 162 250 173"/>
+    </g>
+
+    <g fill="none" stroke="#858585" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 217 H150 L179 211"/>
+      <path d="M251 147 L282 133 H317"/>
+    </g>
+    <g font-size="19">
+      <text x="90" y="223" text-anchor="end">额角</text>
+      <text x="326" y="139">天顶上</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="266" y="489" font-size="20">男人</text>
+    </g>
+    <path d="M260 170 L301 186 H406" fill="none" stroke="#858585" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="418" y="193" font-size="22">太太过世</text>
+
+    <g fill="none" stroke="#464646" stroke-width="2.3" stroke-linecap="round">
+      <path d="M643 164 C692 166 748 157 805 143
+               M657 187 C711 188 766 178 823 163"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="735" y="232" font-size="22">要清晰</text>
+      <text x="735" y="265" font-size="19">要少不要太多</text>
+    </g>
+
+    <g fill="none" stroke="#464646" stroke-width="2.1" stroke-linecap="round">
+      <path d="M677 363 Q720 351 767 335
+               M680 370 Q721 358 772 339
+               M682 377 Q730 362 778 345
+               M689 382 Q735 367 784 351
+               M697 385 Q744 370 780 359
+               M697 346 Q720 357 742 379
+               M709 341 Q732 354 753 375
+               M722 338 Q745 351 765 370
+               M736 335 Q757 347 776 365"/>
+    </g>
+    <text x="735" y="435" text-anchor="middle" font-size="21">集中在一起都不好</text>
+  </g>
+</svg>

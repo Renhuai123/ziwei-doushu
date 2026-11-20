@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">油、气与戒</title>
+  <desc id="desc">左侧用等号和圈中的“气”表示倪师所说的身上的油与气的关系。右侧另起一张命盘，在盘中央标出“戒”，下方写明这句警戒送给谁。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <path d="M463 62 V478" fill="none" stroke="#dededb" stroke-width="1"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525" text-anchor="middle">
+    <g font-size="21" fill="#555">
+      <text x="134" y="194">相书里面</text>
+      <text x="361" y="194">在中医讲的</text>
+    </g>
+
+    <text x="134" y="293" font-size="39" font-weight="500">身上的油</text>
+    <path d="M238 270 H270 M238 281 H270" fill="none" stroke="#424242" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="361" cy="275" r="55" fill="none" stroke="#414141" stroke-width="2"/>
+    <text x="361" y="293" font-size="49" font-weight="500">气</text>
+
+    <text x="707" y="57" font-size="23" font-weight="500">这个八字</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="507" y="79" width="400" height="328" stroke="#474747" stroke-width="1.8"/>
+      <path d="M607 79 V407 M807 79 V407
+               M507 161 H907 M507 325 H907
+               M707 79 V161 M707 325 V407
+               M507 243 H607 M807 243 H907"
+            stroke="#90908b" stroke-width="1.2"/>
+    </g>
+
+    <g font-size="18" fill="#484848">
+      <text x="657" y="126">巨门</text>
+      <text x="857" y="103">天同</text>
+      <text x="857" y="126">天梁</text>
+      <text x="857" y="149">禄存</text>
+      <text x="857" y="185">武曲</text>
+      <text x="857" y="208">七杀</text>
+      <text x="857" y="231">擎羊</text>
+      <text x="857" y="276">太阳</text>
+      <text x="857" y="300">文昌</text>
+    </g>
+
+    <text x="707" y="265" font-size="62" font-weight="500" fill="#ad392e">戒</text>
+    <text x="707" y="459" font-size="23">送给全天下做妈妈的人</text>
+  </g>
+</svg>

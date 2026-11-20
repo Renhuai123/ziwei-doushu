@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">父母宫是空的</title>
+  <desc id="desc">命盘右上格框出「4-13」和「命」，下方依次标出「14-23」「24-33」。箭头从框中引出，表示从这段岁数开始，第一个流年就会到太阳；倪师指出太阳在陷地，说「看不到太阳」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="64" y="64" font-size="30" font-weight="600">父母宫是空的</text>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.5">
+      <rect x="64" y="104" width="416" height="384"/>
+      <path d="M168 104V488 M376 104V488 M64 200H480 M64 392H480"/>
+      <path d="M272 104V200 M272 392V488 M64 296H168 M376 296H480"/>
+    </g>
+
+    <g text-anchor="middle">
+      <rect x="384" y="112" width="88" height="80" rx="3" fill="#fff" stroke="#ad4034" stroke-width="2.5"/>
+      <text x="428" y="146" font-size="24" font-weight="600">4-13</text>
+      <text x="428" y="177" font-size="23" font-weight="600">命</text>
+      <g fill="#666" font-size="21">
+        <text x="428" y="256">14-23</text>
+        <text x="428" y="352">24-33</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#484848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M473 152H566 M557 145L566 152L557 159"/>
+    </g>
+    <text x="590" y="162" font-size="28" font-weight="600">第一个流年就会到太阳</text>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M604 184V227Q604 236 613 236H635"/>
+      <path d="M604 225V313Q604 322 613 322H635"/>
+    </g>
+    <text x="652" y="245" font-size="25">太阳星<tspan dx="14" font-weight="600">陷地</tspan></text>
+    <text x="652" y="331" font-size="25">看不到太阳</text>
+  </g>
+</svg>

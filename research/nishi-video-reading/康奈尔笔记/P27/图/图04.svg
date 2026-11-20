@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">18岁早婚</title>
+  <desc id="desc">左侧以黑板上的疾厄宫方格定位，格内写天府，圈出12至21岁这段中的18岁。右侧把倪师说的天喜红鸾星与“会早婚的”相连，下方另以箭头标出他所说的父母在婚事中的介入。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g text-anchor="middle">
+      <path d="M76 109 V101 H153 M247 101 H324 V109" fill="none" stroke="#999" stroke-width="1.4"/>
+      <text x="200" y="109" font-size="25">12-21</text>
+    </g>
+
+    <rect x="76" y="135" width="248" height="248" fill="#fafaf9" stroke="#444" stroke-width="2"/>
+    <text x="98" y="178" font-size="26">天府</text>
+    <circle cx="200" cy="259" r="45" fill="#fff" stroke="#b43b30" stroke-width="3"/>
+    <text x="200" y="275" text-anchor="middle" font-size="46" font-weight="600">18</text>
+    <text x="200" y="361" text-anchor="middle" font-size="25">疾厄</text>
+
+    <path d="M324 259 H687" fill="none" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="506" y="238" text-anchor="middle" font-size="29">天喜红鸾星</text>
+    <text x="796" y="272" text-anchor="middle" font-size="38" font-weight="600">会早婚的</text>
+
+    <path d="M796 369 V298" fill="none" stroke="#555" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text x="796" y="411" text-anchor="middle" font-size="25">父母在旁边搅和</text>
+  </g>
+</svg>

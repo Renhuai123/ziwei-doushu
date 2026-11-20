@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">太阴化忌</title>
+  <desc id="desc">左侧节绘黑板命盘右列三格，从「22-31」引出倪师口述的「太阴化忌」。右侧顺着例二的讲述，画出太太出事后，他与母亲相抗的心理、母子各自的话，以及他随后开始作奸犯科的经过。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#696969" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g stroke="#555" stroke-width="1.5">
+      <rect x="54" y="54" width="244" height="396" fill="#fff"/>
+      <rect x="55" y="319" width="242" height="130" fill="#f5f5f3" stroke="none"/>
+      <path d="M54 186 H298 M54 318 H298" fill="none"/>
+    </g>
+
+    <g font-size="21">
+      <text x="76" y="90">天同</text>
+      <text x="76" y="122">天梁</text>
+      <text x="76" y="154">禄存</text>
+      <circle cx="145" cy="82" r="17" fill="none" stroke="#666" stroke-width="1.4"/>
+      <text x="145" y="89" text-anchor="middle">科</text>
+      <text x="264" y="123" text-anchor="end">2-11</text>
+      <text x="218" y="159">命</text>
+      <text x="254" y="159">身</text>
+
+      <text x="76" y="228">武曲</text>
+      <text x="76" y="263">七杀</text>
+      <circle cx="145" cy="220" r="17" fill="none" stroke="#666" stroke-width="1.4"/>
+      <text x="145" y="227" text-anchor="middle">权</text>
+      <text x="275" y="289" text-anchor="end">12-21</text>
+
+      <circle cx="98" cy="351" r="17" fill="none" stroke="#666" stroke-width="1.4"/>
+      <text x="98" y="358" text-anchor="middle">禄</text>
+      <ellipse cx="247" cy="361" rx="23" ry="17" fill="none" stroke="#666" stroke-width="1.4"/>
+      <text x="247" y="368" text-anchor="middle">25</text>
+      <text x="275" y="424" text-anchor="end" font-size="26" font-weight="600">22-31</text>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M279 416 H324 L349 391"/>
+      <path d="M465 382 H494 V185 H553" marker-end="url(#arrow)"/>
+    </g>
+    <text x="341" y="389" font-size="28" font-weight="600" fill="#ad402f">太阴化忌</text>
+
+    <text x="576" y="88" font-size="27">他太太一出事</text>
+    <path d="M590 105 V148" fill="none" stroke="#696969" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="576" y="196" font-size="29" font-weight="600">跟他妈妈相抗</text>
+
+    <path d="M590 219 V346" fill="none" stroke="#c4c4c0" stroke-width="2"/>
+    <g font-size="21">
+      <text x="612" y="246" fill="#626262">他妈妈说</text>
+      <text x="612" y="280">你不能犯法你不能做</text>
+      <text x="612" y="337" font-size="25" font-weight="600">我就要犯法</text>
+    </g>
+    <path d="M590 359 V402" fill="none" stroke="#696969" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="576" y="450" font-size="27">他就开始作奸犯科了</text>
+  </g>
+</svg>

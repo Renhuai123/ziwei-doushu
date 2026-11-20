@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">阳宅改宅</title>
+  <desc id="desc">左右两图用相同的灰色扇区标出黑板上所指的西北角。原先卧房、走道和厨房各占一部分；改宅时将厕所移到右侧、厨房改成长条，原来的卧房加大到原厨房约一半处，覆盖整个扇区。</desc>
+
+  <defs>
+    <g id="sector">
+      <path d="M126 164 L64 340 H167 Z" fill="#e9e9e6"/>
+      <path d="M64 340 L126 164 L167 340" fill="none" stroke="#989894" stroke-width="1.3" stroke-dasharray="5 5"/>
+    </g>
+    <g id="shell" fill="none" stroke-linejoin="round">
+      <rect x="0" y="0" width="252" height="340" stroke="#30302e" stroke-width="2.8"/>
+      <path d="M0 101 H252 M126 0 V101" stroke="#62625e" stroke-width="1.8"/>
+    </g>
+    <circle id="center" cx="126" cy="164" r="3.6" fill="white" stroke="#767672" stroke-width="1.4"/>
+  </defs>
+
+  <rect width="960" height="540" fill="white"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292927" text-anchor="middle">
+    <g font-size="25" font-weight="600">
+      <text x="255" y="57">阳宅</text>
+      <text x="705" y="57">房间加大</text>
+    </g>
+
+    <g transform="translate(129 85)">
+      <use href="#sector"/>
+      <use href="#shell"/>
+      <g fill="none" stroke="#535350" stroke-width="1.9" stroke-linejoin="round">
+        <path d="M0 164 H100 V340 M0 229 H100"/>
+        <path d="M145 340 V218 H252 M170 218 V164 H252"/>
+      </g>
+      <use href="#center"/>
+      <g font-size="19">
+        <text x="48" y="203">房间</text>
+        <text x="48" y="292">卧房</text>
+        <text x="122" y="264"><tspan x="122">走</tspan><tspan x="122" dy="24">道</tspan></text>
+        <text x="211" y="198">厕所</text>
+        <text x="202" y="292">厨房</text>
+      </g>
+    </g>
+
+    <path d="M422 255 H529 M517 244 L529 255 L517 266" fill="none" stroke="#73736e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(579 85)">
+      <use href="#sector"/>
+      <use href="#shell"/>
+      <g fill="none" stroke="#535350" stroke-width="1.9" stroke-linejoin="round">
+        <path d="M0 164 H252 M100 164 V229 H0"/>
+        <path d="M198 164 V340 M198 218 H252"/>
+      </g>
+      <use href="#center"/>
+      <g font-size="19">
+        <text x="48" y="203">房间</text>
+        <text x="225" y="198">厕所</text>
+        <text x="225" y="269"><tspan x="225">厨</tspan><tspan x="225" dy="24">房</tspan></text>
+        <text x="95" y="292" fill="#a43d32" font-weight="600">卧房</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#989894" stroke-width="1.2">
+      <path d="M242 425 V451"/>
+      <path d="M692 425 V451"/>
+    </g>
+    <g font-size="20">
+      <text x="242" y="480">卧房也沾到</text>
+      <text x="692" y="480">满在西北角上面</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">男命婚姻</title>
+  <desc id="desc">命盘左下格标出化忌，朱红圈出四十岁。右侧对照同在三十三至四十二岁之间的两年：三十四岁有天钺、红鸾，夫妻有争执还有贵人来解；四十岁进入化忌，又会到天喜、红鸾，是倪师提醒要注意婚姻的一年。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g stroke="#555" stroke-width="1.6" fill="none" stroke-linejoin="round">
+      <rect x="54" y="111" width="320" height="320"/>
+      <path d="M54 191H374 M54 351H374
+               M134 111V431 M294 111V431
+               M214 111V191 M214 351V431
+               M54 271H134 M294 271H374"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="94" y="378" font-size="20">化忌</text>
+      <ellipse cx="94" cy="403" rx="26" ry="17" fill="none" stroke="#ad392e" stroke-width="2.6"/>
+      <text x="94" y="411" font-size="23" font-weight="600">40</text>
+    </g>
+
+    <text x="432" y="91" font-size="34" font-weight="600">33-42</text>
+    <path d="M446 110V337 M446 158H476 M446 337H476" fill="none" stroke="#858585" stroke-width="1.5"/>
+
+    <g font-size="31" font-weight="600">
+      <text x="490" y="169">34岁</text>
+      <text x="490" y="348">40岁</text>
+    </g>
+
+    <g font-size="22">
+      <text x="609" y="166">天钺星</text>
+      <text x="703" y="166">本身有红鸾</text>
+      <text x="609" y="213">夫妻之间有争执</text>
+      <path d="M619 228V249L613 243 M619 249L625 243" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="609" y="282" font-weight="600">还有贵人来解</text>
+
+      <text x="609" y="345">进入这个化忌的时候</text>
+      <text x="609" y="386">天喜红鸾星来会到</text>
+      <path d="M619 401V422L613 416 M619 422L625 416" fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="609" y="455" font-weight="600">要注意的事情</text>
+    </g>
+  </g>
+</svg>

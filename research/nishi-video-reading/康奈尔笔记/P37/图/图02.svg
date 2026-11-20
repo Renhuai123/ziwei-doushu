@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">三世相法延伸</title>
+  <desc id="desc">十二格命盘以申格的命宫为起点。沿盘看，酉格的父母宫一侧依次延伸到祖父祖母、曾祖父曾祖母，另一侧经过兄弟宫、夫妻，从子女依次延伸到孙、曾孙。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <!-- 外圈十二格，中央留作题名。 -->
+  <rect x="269" y="153" width="422" height="234" fill="#f7f7f5"/>
+  <g fill="none" stroke-linejoin="round">
+    <rect x="58" y="36" width="844" height="468" stroke="#363636" stroke-width="2"/>
+    <path d="M269 36 V504 M691 36 V504
+             M480 36 V153 M480 387 V504
+             M58 153 H902 M58 387 H902
+             M58 270 H269 M691 270 H902"
+          stroke="#999996" stroke-width="1.2"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="480" y="282" text-anchor="middle" fill="#292929" font-size="31" font-weight="600" letter-spacing="2">三世相法延伸</text>
+
+    <g fill="#666663" font-size="19">
+      <text x="74" y="65">巳</text>
+      <text x="285" y="65">午</text>
+      <text x="496" y="65">未</text>
+      <text x="707" y="65">申</text>
+      <text x="74" y="182">辰</text>
+      <text x="707" y="182">酉</text>
+      <text x="74" y="299">卯</text>
+      <text x="707" y="299">戌</text>
+      <text x="74" y="416">寅</text>
+      <text x="285" y="416">丑</text>
+      <text x="707" y="416">亥</text>
+    </g>
+
+    <g text-anchor="middle" fill="#262626" font-size="25">
+      <text x="164" y="108">子女</text>
+      <text x="375" y="108">夫妻</text>
+      <text x="586" y="108">兄弟宫</text>
+      <text x="797" y="108" fill="#a63b30" font-weight="600">命宫</text>
+
+      <text x="164" y="225">孙</text>
+      <text x="164" y="342">曾孙</text>
+
+      <text x="797" y="225">父母宫</text>
+      <text x="797" y="342">祖父祖母</text>
+      <text x="797" y="459">曾祖父曾祖母</text>
+    </g>
+  </g>
+
+  <!-- 箭头跨过格线，标明沿盘读下去的次序。 -->
+  <g fill="none" stroke="#fff" stroke-width="7">
+    <path d="M710 99 H671 M499 99 H460 M288 99 H249"/>
+    <path d="M164 134 V172 M164 251 V289
+             M797 134 V172 M797 251 V289 M797 368 V406"/>
+  </g>
+  <g fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M708 99 H674"/>
+    <path d="M497 99 H463"/>
+    <path d="M286 99 H252"/>
+    <path d="M164 136 V169"/>
+    <path d="M164 253 V286"/>
+    <path d="M797 136 V169"/>
+    <path d="M797 253 V286"/>
+    <path d="M797 370 V403"/>
+  </g>
+</svg>

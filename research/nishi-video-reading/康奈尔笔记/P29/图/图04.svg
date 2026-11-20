@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">例二灾年</title>
+  <desc id="desc">左图沿命盘右侧读到34至43岁。倪师把「侧会兄弟」与「38岁太阳星又不亮」合起来，断为「兄弟要走」。右图重画他讲到49岁时所画的阳宅，保留左上、右下两小格，厨房在图的右下格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g font-size="26" font-weight="600">
+      <text x="52" y="67">37岁38岁</text>
+      <circle cx="610" cy="57" r="25" fill="none" stroke="#363636" stroke-width="2"/>
+      <text x="610" y="66" text-anchor="middle">49</text>
+      <text x="650" y="66">她跟她先生的阳宅</text>
+    </g>
+
+    <!-- 命盘的中部留空。右列依板面次序读至本段所讲的34-43。 -->
+    <g stroke-linejoin="round">
+      <rect x="52" y="104" width="456" height="248" fill="#fff"/>
+      <rect x="394" y="290" width="114" height="62" fill="#efefec"/>
+      <path d="M166 104 V166 M280 104 V166 M394 104 V352
+               M52 166 H508 M52 228 H166 M394 228 H508 M52 290 H508
+               M166 166 V352 M280 290 V352"
+            fill="none" stroke="#aaa" stroke-width="1.4"/>
+      <rect x="52" y="104" width="456" height="248" fill="none" stroke="#383838" stroke-width="2"/>
+    </g>
+
+    <g text-anchor="middle" font-size="18" fill="#555">
+      <text x="451" y="130">4-13</text>
+      <text x="451" y="153">命</text>
+      <text x="451" y="204">14-23</text>
+      <text x="451" y="247">天同</text>
+      <text x="451" y="278">24-33</text>
+    </g>
+    <text x="451" y="330" text-anchor="middle" font-size="25" font-weight="600">34-43</text>
+
+    <!-- 两条口述依据在盘外汇合，以免把判断文字误放到某一宫。 -->
+    <g fill="none" stroke="#858585" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M451 353 V374"/>
+      <path d="M165 411 V425 H451 V411 M308 425 V445"/>
+    </g>
+    <g text-anchor="middle" font-size="22">
+      <text x="165" y="399">38岁太阳星又不亮</text>
+      <text x="451" y="399">侧会兄弟</text>
+      <text x="308" y="485" font-size="29" font-weight="600" fill="#ad392e">兄弟要走</text>
+    </g>
+
+    <!-- 依黑板保留对角两格；左上格的字迹不辨，留白。 -->
+    <g stroke-linejoin="round">
+      <rect x="586" y="104" width="312" height="303" fill="#fff"/>
+      <rect x="786" y="311" width="112" height="96" fill="#f3f3f0"/>
+      <path d="M688 104 V200 H586 M786 407 V311 H898"
+            fill="none" stroke="#555" stroke-width="1.8"/>
+      <rect x="586" y="104" width="312" height="303" fill="none" stroke="#383838" stroke-width="2.2"/>
+    </g>
+    <text x="842" y="368" text-anchor="middle" font-size="25">厨房</text>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">当年几岁</title>
+  <desc id="desc">十二格命盘中，能辨认的星曜和宫位依板书位置排布。中宫并列女命的「17年」和当年的算式：38 减 17，再加 1，得 22 岁。朱红标出倪师口述强调的「加一」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="56" y="48" font-size="25" font-weight="600">从大陆上来台湾的</text>
+
+    <rect x="268" y="176" width="424" height="224" fill="#f7f7f5"/>
+    <g fill="none" stroke-linejoin="round">
+      <rect x="56" y="72" width="848" height="436" stroke="#454545" stroke-width="1.8"/>
+      <path d="M268 72V508 M692 72V508 M56 176H904 M56 400H904
+               M480 72V176 M480 400V508 M56 288H268 M692 288H904"
+            stroke="#858585" stroke-width="1.25"/>
+    </g>
+
+    <g font-size="21">
+      <text x="76" y="110">巨门</text>
+      <text x="144" y="110">禄存</text>
+      <text x="712" y="110">七杀</text>
+
+      <text x="76" y="216">贪狼</text>
+      <text x="144" y="216">右弼</text>
+      <text x="712" y="216">天同</text>
+
+      <text x="76" y="330">太阴</text>
+      <text x="712" y="330">武曲</text>
+
+      <text x="76" y="439">紫微</text>
+      <text x="137" y="439">天府</text>
+      <text x="198" y="439">天马</text>
+      <text x="288" y="439">天机</text>
+      <circle cx="349" cy="431" r="14" fill="none" stroke="#555" stroke-width="1.3"/>
+      <text x="349" y="437" text-anchor="middle" font-size="17">忌</text>
+      <text x="390" y="439">天魁</text>
+      <text x="500" y="439">破军</text>
+    </g>
+
+    <g fill="#595959" font-size="17">
+      <text x="76" y="154">5-14</text>
+      <text x="76" y="265">15-24</text>
+      <text x="247" y="265" text-anchor="end">兄弟宫</text>
+      <text x="76" y="377">25-34</text>
+      <text x="76" y="485">35-44</text>
+      <text x="288" y="485">45-54</text>
+      <text x="459" y="485" text-anchor="end">财帛</text>
+    </g>
+
+    <g>
+      <text x="302" y="274" font-size="35" font-weight="600">17年</text>
+      <g font-size="21" fill="#555">
+        <text x="304" y="312">女</text>
+        <text x="350" y="312">辰</text>
+      </g>
+
+      <text x="473" y="225" font-size="20" fill="#555">38年的时候</text>
+      <text x="470" y="282" font-size="39" font-weight="600">38-17<tspan fill="#aa392d">+1</tspan></text>
+      <path d="M470 300H648" fill="none" stroke="#555" stroke-width="1.6"/>
+      <text x="648" y="354" text-anchor="end" font-weight="600" font-size="45">22<tspan dx="4" font-size="26">岁</tspan></text>
+    </g>
+  </g>
+</svg>

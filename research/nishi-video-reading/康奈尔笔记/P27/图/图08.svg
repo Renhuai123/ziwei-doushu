@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc" font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+  <title id="title">颧大压鼻</title>
+  <desc id="desc">正面脸廓向下收窄。两眼下方各以一个大圆圈表示颧骨，小鼻子位于两圈之间，嘴在鼻子下方。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="#242424">
+    <rect x="46" y="36" width="160" height="49" rx="3" fill="none" stroke="#444" stroke-width="1.5"/>
+    <text x="126" y="69" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">颧大压鼻</text>
+  </g>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M480 54
+             C390 54 322 110 319 204
+             C317 260 329 311 353 356
+             C377 401 418 441 458 463
+             Q480 475 502 463
+             C542 441 583 401 607 356
+             C631 311 643 260 641 204
+             C638 110 570 54 480 54Z"
+          fill="#fff" stroke="#414141" stroke-width="2.6"/>
+
+    <g fill="#fff" stroke="#4a4a4a" stroke-width="2.1">
+      <path d="M369 199 Q395 176 426 198 Q401 217 369 199Z"/>
+      <path d="M534 198 Q565 176 591 199 Q559 217 534 198Z"/>
+    </g>
+    <g fill="#414141">
+      <circle cx="399" cy="198" r="4.8"/>
+      <circle cx="561" cy="198" r="4.8"/>
+    </g>
+
+    <g fill="#f1f1ef" stroke="#424242" stroke-width="2.8">
+      <circle cx="402" cy="275" r="56"/>
+      <circle cx="558" cy="275" r="56"/>
+    </g>
+
+    <path d="M480 264 Q480 272 477 278
+             Q474 283 478 285 Q482 288 487 284"
+          fill="none" stroke="#292929" stroke-width="2.6"/>
+
+    <path d="M455 352 Q480 361 505 352"
+          fill="none" stroke="#555" stroke-width="2.2"/>
+
+    <g fill="none" stroke="#777" stroke-width="1.3">
+      <path d="M292 275 H345"/>
+      <path d="M491 285 L514 338 H685"/>
+    </g>
+  </g>
+
+  <g fill="#303030" font-size="20">
+    <text x="280" y="282" text-anchor="end">两个颧骨很大</text>
+    <text x="697" y="345">鼻子在中间小小小的</text>
+  </g>
+</svg>

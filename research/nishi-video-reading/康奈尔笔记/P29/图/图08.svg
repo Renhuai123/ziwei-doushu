@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">六亲不靠</title>
+  <desc id="desc">左格的太阴陷配上午出月亮，右格的太阳陷配晚上出太阳，两条线汇向倪师口述的「父母看不见」。盘心保留板书「领养」，盘下用箭头连接「父母和兄弟呢带杀」与「六亲不靠」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="56" y="32" width="848" height="408" stroke="#484848" stroke-width="1.8"/>
+    <path d="M268 32V440 M692 32V440
+             M480 32V134 M480 338V440
+             M56 134H904 M56 338H904
+             M56 236H268 M692 236H904"
+          stroke="#929292" stroke-width="1.25"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#282828">
+    <g transform="translate(374 0)">
+      <text y="58" font-size="16" fill="#595959">事业宫</text>
+      <text y="92" font-size="26">巨门</text>
+      <text y="119" font-size="17" fill="#595959">46-55</text>
+    </g>
+
+    <g transform="translate(162 0)">
+      <text y="164" font-size="17" fill="#595959">辰宫</text>
+      <text y="195" font-size="27" font-weight="600">太阴陷</text>
+      <text y="222" font-size="18">上午7-9点出月亮</text>
+    </g>
+
+    <g transform="translate(798 0)">
+      <text y="266" font-size="17" fill="#595959">财帛宫</text>
+      <text y="297" font-size="27" font-weight="600">太阳陷</text>
+      <text y="324" font-size="18">晚上7-9点<tspan dx="7">出太阳</tspan></text>
+    </g>
+
+    <g fill="none" stroke="#737373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 186H310L342 217H396 M389 213L396 217L389 221"/>
+      <path d="M680 288H657L599 217H564 M571 213L564 217L571 221"/>
+    </g>
+    <text x="480" y="225" font-size="25">父母看不见</text>
+    <text x="480" y="297" font-size="39" font-weight="600" fill="#a43d32">领养</text>
+
+    <g transform="translate(162 0)">
+      <text y="274" font-size="17" fill="#595959">父母宫</text>
+      <text y="310" font-size="26">天府</text>
+      <text y="376" font-size="17" fill="#595959">命宫</text>
+      <text y="412" font-size="26">地空</text>
+    </g>
+    <g transform="translate(374 0)">
+      <text y="376" font-size="17" fill="#595959">兄弟宫</text>
+      <text y="412" font-size="26">化忌</text>
+    </g>
+
+    <text x="447" y="503" text-anchor="end" font-size="23">父母和兄弟呢带杀</text>
+    <path d="M467 495H524 M516 490L524 495L516 500" fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="546" y="504" text-anchor="start" font-size="27" font-weight="600">六亲不靠</text>
+  </g>
+</svg>

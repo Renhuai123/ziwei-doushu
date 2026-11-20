@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">流年的因与果</title>
+  <desc id="desc">上方单列本步大限。左侧是今年的决策，右侧是明年的果，回向左侧的箭头表示根据明年的好结果，答复当事人「去做没错」。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#292929">
+    <text x="480" y="81" font-size="28" fill="#555">62–71</text>
+
+    <g font-size="26" font-weight="600">
+      <text x="235" y="171">今年</text>
+      <text x="725" y="171">明年</text>
+    </g>
+    <g fill="none" stroke="#555" stroke-width="2">
+      <circle cx="235" cy="250" r="46"/>
+      <circle cx="725" cy="250" r="46"/>
+      <path d="M294 250H665" marker-end="url(#arrow)"/>
+    </g>
+    <g font-size="40" font-weight="600">
+      <text x="235" y="264">因</text>
+      <text x="725" y="264">果</text>
+    </g>
+    <g font-size="24">
+      <text x="235" y="351">今年有什么决策</text>
+      <text x="725" y="351">明年的果是<tspan fill="#ad3d32" font-weight="600">好</tspan></text>
+    </g>
+
+    <path d="M725 373V448H310" fill="none" stroke="#555" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <text x="235" y="457" font-size="27" font-weight="600">去做没错</text>
+  </g>
+</svg>

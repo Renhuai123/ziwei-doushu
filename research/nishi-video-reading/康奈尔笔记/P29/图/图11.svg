@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">掌上乾位与坎卦</title>
+  <desc id="desc">左图依黑板标出掌根中间的坎与右下角的乾，男女都看左手。右图用轮廓对照倪师所说的乾位丰满与陷落，再画出他伸手示范时坎位两边凸起、中间凹下的样子。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <rect x="43" y="36" width="210" height="48" rx="3" fill="none" stroke="#454545" stroke-width="1.5"/>
+    <text x="148" y="68" text-anchor="middle" font-size="24" font-weight="600">男女都看左手</text>
+
+    <!-- 取黑板掌图的中下部，保留明堂与掌根三位的相对位置。 -->
+    <path d="M48 152
+             C46 209 48 260 61 305
+             C73 347 89 377 115 400
+             C146 424 184 433 224 433
+             C271 433 310 422 336 398
+             C366 370 380 325 388 280
+             C394 242 397 199 398 156"
+          fill="none" stroke="#383838" stroke-width="2.6" stroke-linecap="round"/>
+    <g fill="none" stroke="#b2b2ae" stroke-width="1.5" stroke-linecap="round">
+      <path d="M53 167 C112 167 164 189 191 222"/>
+      <path d="M79 142 C106 161 129 190 142 222"/>
+    </g>
+    <ellipse cx="180" cy="257" rx="57" ry="47" fill="#f7f7f5" stroke="#aaa9a5" stroke-width="1.4"/>
+    <text x="180" y="265" text-anchor="middle" font-size="22" fill="#60605c">明堂</text>
+
+    <text x="98" y="357" text-anchor="middle" font-size="24" fill="#666">艮</text>
+    <circle cx="207" cy="394" r="28" fill="#f4f4f2" stroke="#686865" stroke-width="1.6"/>
+    <text x="207" y="403" text-anchor="middle" font-size="25">坎</text>
+    <circle cx="319" cy="366" r="29" fill="#fff" stroke="#a53e31" stroke-width="2.3"/>
+    <text x="319" y="375" text-anchor="middle" font-size="26" font-weight="600" fill="#a53e31">乾</text>
+
+    <!-- 乾的两种形态使用同一尺度、同一基线。 -->
+    <text x="442" y="68" font-size="29" font-weight="600">乾位</text>
+    <path d="M523 57 H550" stroke="#92928e" stroke-width="1.4"/>
+    <text x="568" y="66" font-size="22">祖宗</text>
+    <circle cx="626" cy="58" r="2" fill="#999"/>
+    <text x="641" y="66" font-size="22">父母</text>
+
+    <g fill="none" stroke="#b9b9b5" stroke-width="1.1" stroke-dasharray="4 5">
+      <path d="M445 175 H605"/>
+      <path d="M445 291 H605"/>
+    </g>
+    <g stroke="#383838" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M449 175 C463 175 474 172 485 159
+               C497 144 506 132 524 132
+               C543 132 553 147 565 160
+               C575 171 587 175 601 175"
+            fill="#f4f4f2"/>
+      <path d="M449 291 C466 287 479 288 494 292
+               C511 297 536 297 553 293
+               C570 289 586 288 601 291"
+            fill="none"/>
+    </g>
+    <g text-anchor="middle" font-size="19">
+      <text x="525" y="114">挺起来丰满</text>
+      <text x="525" y="266">陷落扁扁的</text>
+    </g>
+    <g font-size="21">
+      <text x="642" y="146">受到祖先的庇荫</text>
+      <text x="642" y="177">祖上的风水很好</text>
+      <text x="642" y="257">父母相克</text>
+      <text x="642" y="287" font-size="18">跟父母亲处得非常不好</text>
+      <text x="642" y="315" font-size="18">可能他们就不在了</text>
+    </g>
+
+    <path d="M442 344 H915" stroke="#d3d3cf" stroke-width="1.2"/>
+
+    <!-- 坎的示范保留两边的隆起，使中央凹处清楚可见。 -->
+    <text x="442" y="390" font-size="29" font-weight="600">坎卦</text>
+    <path d="M523 379 H550" stroke="#92928e" stroke-width="1.4"/>
+    <text x="568" y="387" font-size="22">一个人的祖业</text>
+
+    <path d="M449 469
+             C460 468 467 444 484 444
+             C501 444 506 475 525 475
+             C544 475 550 444 567 444
+             C584 444 590 468 601 469
+             L601 486 H449Z" fill="#f4f4f2"/>
+    <path d="M449 469
+             C460 468 467 444 484 444
+             C501 444 506 475 525 475
+             C544 475 550 444 567 444
+             C584 444 590 468 601 469"
+          fill="none" stroke="#383838" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="642" y="453" font-size="20">我的坎卦就是陷落</text>
+    <text x="642" y="486" font-size="21" font-weight="600">没有祖业</text>
+  </g>
+</svg>

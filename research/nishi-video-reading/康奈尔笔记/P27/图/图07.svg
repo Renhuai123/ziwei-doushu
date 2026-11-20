@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">只有一个化忌</title>
+  <desc id="desc">上行画例三的34-43岁，倪师将这一个化忌解释为婚姻的忌。下行画他接着说的未来十年有吉星、没有杀星，两行合看得出他对此例的判断。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 146 V347" stroke="#c4c4c4" stroke-width="2"/>
+    <g fill="#fff" stroke="#505050" stroke-width="2">
+      <circle cx="82" cy="146" r="6"/>
+      <circle cx="82" cy="347" r="6"/>
+    </g>
+
+    <path d="M237 146 H290 M237 347 H290" stroke="#aaa" stroke-width="1.5"/>
+    <path d="M481 164 V193 H499" stroke="#888" stroke-width="1.5"/>
+
+    <path d="M610 146 H632 V347 H610 M632 247 H667 M660 241 L667 247 L660 253"
+          stroke="#505050" stroke-width="1.8"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g x="0" font-size="28" font-weight="600">
+      <text x="108" y="156">34-43</text>
+      <text x="108" y="357">未来十年</text>
+    </g>
+
+    <text x="312" y="156" font-size="34">只有一个<tspan fill="#ad392f" font-weight="600">化忌</tspan></text>
+    <text x="510" y="201" font-size="21" fill="#535353">婚姻的忌</text>
+
+    <g font-size="30">
+      <text x="312" y="334">是吉星</text>
+      <text x="312" y="386">没有杀星</text>
+    </g>
+
+    <text x="689" y="258" font-size="33" font-weight="600">这个不会死</text>
+    <text x="689" y="299" font-size="20" fill="#5a5a5a">你不要给她乱批哈</text>
+  </g>
+</svg>
