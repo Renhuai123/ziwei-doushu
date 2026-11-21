@@ -6,12 +6,7 @@ import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
 import HashHighlight from './HashHighlight';
 import { notFound } from 'next/navigation';
-import { ALL_BOOKS, getChapter } from '@/lib/classics';
-
-/** 只接受规范写法的章节号（"0"、"12"）；"1.5"、"01" 之类不再渲染成同一章的另一个网址。 */
-function parseChapterIndex(raw: string): number {
-  return /^(0|[1-9]\d*)$/.test(raw) ? Number(raw) : NaN;
-}
+import { ALL_BOOKS, getChapter, parseChapterIndex } from '@/lib/classics';
 
 export async function generateStaticParams() {
   return ALL_BOOKS.flatMap(b =>
