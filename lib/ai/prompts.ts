@@ -6,6 +6,7 @@ import {
   STAR_IN_FUQI_GU,
 } from '../ziwei/heming-knowledge';
 import type { Star, ZiweiChart } from '../ziwei/types';
+import { palaceLabel } from './chart-context';
 
 const GROUNDING_RULES = `## 依据与边界
 - 只依据下面“命盘”文本里出现的星曜、宫位、亮度、四化、大限和格局作断。文本没有的信息（流年、流月、具体日期、外部事件）不要编造；需要这些信息才能回答时，直说需要补充什么。
@@ -63,7 +64,7 @@ ${knowledge}`;
 }
 
 function fuqiStars(chart: ZiweiChart): { names: string[]; borrowed: boolean; allStars: Star[] } {
-  const palace = chart.palaces.find((p) => p.name === '夫妻宫');
+  const palace = chart.palaces.find((p) => palaceLabel(p.name) === '夫妻宫');
   if (!palace) return { names: [], borrowed: false, allStars: [] };
   const major = palace.stars.filter((s) => s.type === 'major').map((s) => s.name);
   if (major.length) return { names: major, borrowed: false, allStars: palace.stars };

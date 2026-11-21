@@ -28,6 +28,11 @@ function lunarDayName(day: number): string {
   return `${LUNAR_TENS[Math.floor(day / 10)]}${DIGITS[day % 10]}`;
 }
 
+/** iztro names palaces without the 宫 suffix (兄弟, 夫妻, ...) except 命宫. */
+export function palaceLabel(name: string): string {
+  return name.endsWith('宫') ? name : `${name}宫`;
+}
+
 function ganzhi(stem: number, branch: number): string {
   return `${STEMS[stem]}${BRANCHES[branch]}`;
 }
@@ -65,7 +70,7 @@ function formatKeyPalaces(chart: ZiweiChart, byBranch: Map<number, Palace>): str
     `五行局：${chart.wuxingJuName}`,
     `命主：${chart.mingZhu ?? '未知'}　身主：${chart.shenZhu ?? '未知'}`,
     `命宫：${ming ? ganzhi(ming.stem, ming.branch) : BRANCHES[chart.mingGongBranch]}`,
-    `身宫：落在${shen?.name ?? '未知'}（${BRANCHES[chart.shenGongBranch]}）`,
+    `身宫：落在${shen ? palaceLabel(shen.name) : '未知'}（${BRANCHES[chart.shenGongBranch]}）`,
   ];
   const birthYear = chart.birthInfo.year;
   lines.push(`当前虚岁：${chart.currentAge}（约${birthYear + chart.currentAge - 1}年）`);
@@ -74,7 +79,7 @@ function formatKeyPalaces(chart: ZiweiChart, byBranch: Map<number, Palace>): str
 
 function formatPalace(palace: Palace, byBranch: Map<number, Palace>): string {
   const tags = [palace.isMingGong ? '命宫' : '', palace.isShenGong ? '身宫所在' : ''].filter(Boolean);
-  const head = `${palace.name}（${ganzhi(palace.stem, palace.branch)}${tags.length ? `，${tags.join('、')}` : ''}）`;
+  const head = `${palaceLabel(palace.name)}（${ganzhi(palace.stem, palace.branch)}${tags.length ? `，${tags.join('、')}` : ''}）`;
   const parts: string[] = [];
   for (const { type, label } of STAR_GROUPS) {
     const stars = palace.stars.filter((s) => s.type === type);
@@ -82,13 +87,14 @@ function formatPalace(palace: Palace, byBranch: Map<number, Palace>): string {
   }
   if (palace.isEmpty) {
     const borrowed = palace.borrowedStars?.length ? palace.borrowedStars.join('、') : '无';
-    parts.unshift(`主星：空宫，借对宫${palace.borrowedFromName ?? ''}主星 ${borrowed}`);
+    parts.unshift(`主星：空宫，借对宫${palaceLabel(palace.borrowedFromName ?? '')}主星 ${borrowed}`);
   }
   if (palace.selfSihua?.length) {
     parts.push(`宫干自化：${palace.selfSihua.map((m) => `${m.starName}化${m.siHua}`).join('、')}`);
   }
-  const opposite = byBranch.get((palace.branch + 6) % 12)?.name;
-  const trine = [4, 8].map((d) => byBranch.get((palace.branch + d) % 12)?.name).filter(Boolean);
+  const nameAt = (d: number) => palaceLabel(byBranch.get((palace.branch + d) % 12)?.name ?? '');
+  const opposite = nameAt(6);
+  const trine = [4, 8].map(nameAt);
   parts.push(`三方四正：对宫${opposite}，三合${trine.join('、')}`);
   return `- ${head}　${parts.join('；')}`;
 }
@@ -96,7 +102,7 @@ function formatPalace(palace: Palace, byBranch: Map<number, Palace>): string {
 function formatBirthYearSihua(chart: ZiweiChart): string {
   const stem = STEMS[chart.lunarInfo.yearStem];
   const hits = chart.palaces.flatMap((p) =>
-    p.stars.filter((s) => s.siHua).map((s) => ({ hua: s.siHua!, line: `化${s.siHua}：${s.name}在${p.name}` })),
+    p.stars.filter((s) => s.siHua).map((s) => ({ hua: s.siHua!, line: `化${s.siHua}：${s.name}在${palaceLabel(p.name)}` })),
   );
   const order = ['禄', '权', '科', '忌'];
   hits.sort((a, b) => order.indexOf(a.hua) - order.indexOf(b.hua));
@@ -110,7 +116,8 @@ function formatDaXian(chart: ZiweiChart, byBranch: Map<number, Palace>): string[
     const hua = dx.siHua
       ? `；大限四化 禄${dx.siHua.lu} 权${dx.siHua.quan} 科${dx.siHua.ke} 忌${dx.siHua.ji}`
       : '';
-    const where = palace ? `${dx.palaceName}（${ganzhi(palace.stem, palace.branch)}）` : dx.palaceName;
+    const label = palaceLabel(dx.palaceName);
+    const where = palace ? `${label}（${ganzhi(palace.stem, palace.branch)}）` : label;
     return `- ${dx.startAge}-${dx.endAge}岁：${where}${hua}${marker}`;
   });
   if (chart.currentDaXianIndex < 0) lines.push('（当前虚岁尚未进入第一个大限）');
