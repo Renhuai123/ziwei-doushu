@@ -11,7 +11,7 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.93 }}
       aria-label={isDark ? '切换亮色主题' : '切换暗色主题'}
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full border"
+      className="flex items-center gap-2 px-2 sm:px-3 py-1.5 rounded-full border"
       style={{
         borderColor: isDark ? 'rgba(212,168,67,0.3)' : 'rgba(140,100,20,0.35)',
         background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(255,252,242,0.85)',
@@ -34,7 +34,7 @@ export default function ThemeToggle() {
           }}
         />
       </div>
-      <span className="text-[11px] font-medium tracking-wide select-none"
+      <span className="hidden sm:inline text-[11px] font-medium tracking-wide select-none"
         style={{
           color: isDark ? 'rgba(212,180,100,0.85)' : 'rgba(110,72,8,0.8)',
           transition: 'color 0.35s ease',

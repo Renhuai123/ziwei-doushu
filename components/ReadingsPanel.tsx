@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TOPIC_LABEL, type TopicKey } from '@/lib/ziwei/db-analysis';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 import type { ReadingResult } from '@/lib/readings/types';
@@ -31,6 +31,13 @@ const muted = { color: 'var(--tx-2)' } as const;
 export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
   const [state, setState] = useState<State>({ phase: 'loading' });
   const [topic, setTopic] = useState<TopicKey>('overview');
+  const articleRef = useRef<HTMLElement>(null);
+  // 已经读到正文中段时切换主题，回到新主题开头（标签栏是 sticky 的，滚过去后仍可点）
+  const selectTopic = (k: TopicKey) => {
+    setTopic(k);
+    const el = articleRef.current;
+    if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: 'start' });
+  };
   const { year, month, day, hour, gender } = chart.birthInfo;
 
   useEffect(() => {
@@ -76,7 +83,7 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
           role="tablist"
           aria-label="解读主题"
           aria-orientation="vertical"
-          className="flex gap-1 overflow-x-auto -mx-1 px-1 pb-1 lg:flex-col lg:overflow-visible lg:sticky lg:top-20 lg:self-start"
+          className="sticky top-14 z-10 -mx-4 flex gap-1 overflow-x-auto px-4 py-2 lg:top-20 lg:mx-0 lg:flex-col lg:self-start lg:overflow-visible lg:px-0 lg:py-0 max-lg:bg-[var(--case-to)] max-lg:border-b max-lg:border-[var(--bdr)]"
         >
           {TOPICS.map((k) => (
             <button
@@ -84,14 +91,14 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
               type="button"
               role="tab"
               aria-selected={k === topic}
-              onClick={() => setTopic(k)}
-              className="topic-link shrink-0 lg:shrink whitespace-nowrap cursor-pointer"
+              onClick={() => selectTopic(k)}
+              className="topic-link !w-auto lg:!w-full shrink-0 lg:shrink whitespace-nowrap cursor-pointer"
             >
               {TOPIC_LABEL[k]}
             </button>
           ))}
         </div>
-        <article key={topic} role="tabpanel" aria-label={TOPIC_LABEL[topic]} className="min-w-0 animate-fade-in">
+        <article ref={articleRef} key={topic} role="tabpanel" aria-label={TOPIC_LABEL[topic]} className="min-w-0 animate-fade-in scroll-mt-32 lg:scroll-mt-24">
           <Markdown text={reading.topics[topic]} />
         </article>
       </div>
@@ -99,7 +106,7 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
   }
 
   return (
-    <section className="card-glass rounded-2xl p-5 sm:p-8 mt-8" aria-labelledby="readings-title">
+    <section className="card-glass rounded-2xl p-4 sm:p-8 mt-8" aria-labelledby="readings-title">
       <header className="mb-6 sm:mb-8 flex flex-wrap items-baseline justify-between gap-2">
         <div>
           <p className="eyebrow mb-2">本命盘解读</p>

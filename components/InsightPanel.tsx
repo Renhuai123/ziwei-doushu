@@ -353,7 +353,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
   };
 
   return (
-    <div className="flex flex-col h-[min(44rem,80dvh)] min-h-0 min-w-0 rounded-2xl overflow-hidden card-glass">
+    <div className={`flex flex-col ${setupHint ? 'h-auto' : 'h-[min(44rem,80dvh)]'} min-h-0 min-w-0 rounded-2xl overflow-hidden card-glass`}>
 
       {/* ── Topic buttons ── */}
       <div className="flex-shrink-0 px-3 pt-3 pb-3" style={{ borderBottom: '1px solid var(--bdr)' }}>

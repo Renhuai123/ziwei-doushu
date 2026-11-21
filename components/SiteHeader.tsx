@@ -15,7 +15,7 @@ export default function SiteHeader() {
   const pathname = usePathname() ?? '';
   return (
     <header className="app-bar">
-      <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-2 sm:gap-4 px-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="紫微命盘首页">
           <span
             aria-hidden
@@ -24,38 +24,26 @@ export default function SiteHeader() {
           >
             紫
           </span>
-          <span className="text-[13px] font-medium tracking-[0.3em]" style={{ color: 'var(--tx-0)' }}>
+          <span className="hidden sm:inline text-[13px] font-medium tracking-[0.3em]" style={{ color: 'var(--tx-0)' }}>
             紫微命盘
           </span>
         </Link>
-        <nav aria-label="主导航" className="hidden sm:flex items-center gap-1 ml-4">
+        <nav aria-label="主导航" className="flex min-w-0 items-center gap-0.5 sm:gap-1 sm:ml-4 overflow-x-auto">
           {LINKS.map(l => (
             <Link
               key={l.href}
               href={l.href}
-              className="nav-link"
+              className="nav-link shrink-0"
               aria-current={pathname.startsWith(l.href) ? 'page' : undefined}
             >
               {l.label}
             </Link>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <ThemeToggle />
         </div>
       </div>
-      <nav aria-label="主导航" className="sm:hidden flex items-center gap-1 overflow-x-auto px-3 pb-2 -mt-1">
-        {LINKS.map(l => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className="nav-link shrink-0"
-            aria-current={pathname.startsWith(l.href) ? 'page' : undefined}
-          >
-            {l.label}
-          </Link>
-        ))}
-      </nav>
     </header>
   );
 }

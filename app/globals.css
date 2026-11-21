@@ -519,6 +519,9 @@ body {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   font-size: 13px;
   color: var(--tx-3);
   padding: 6px 10px;
