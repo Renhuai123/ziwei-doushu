@@ -34,26 +34,38 @@ This repo is an open snapshot of the engine behind [ouranic.cn](https://ouranic.
 
 ## Latest update (2026-11-21)
 
-The full Cornell notes for all 17 *Tian Ji* Zi Wei episodes are now public, illustrated with **images we redrew from the lectures**: **193 chalkboard diagrams** and **26 case charts**. Each image sits next to the question it belongs to, so text and images read together. The directory's front page has also been rebuilt around 16 illustrated cases.
+The full Cornell notes for all 17 *Tian Ji* Zi Wei episodes are now public, illustrated with **images we redrew from the lectures**: **193 chalkboard diagrams** and **26 case charts**. Each image sits next to the question it belongs to, so text and images read together. Below are **16 illustrated cases**, one from each episode.
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · Late and early Zi hour"></a><br><sub><b>P07</b> · Late and early Zi hour</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · Bright Pearl Out of the Sea"></a><br><sub><b>P13</b> · Bright Pearl Out of the Sea</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · Ying Star in its Temple"></a><br><sub><b>P19</b> · Ying Star in its Temple</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · Palm on the Later Heaven Bagua"></a><br><sub><b>P29</b> · Palm on the Later Heaven Bagua</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P03/P03-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P03/图/图01.svg" width="200" alt="P03 · The river-crossing parable"></a><br><b>1 · The river-crossing parable</b><br><sub>P03</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P05/P05-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P05/图/图02.svg" width="200" alt="P05 · Cheekbones and authority"></a><br><b>2 · Cheekbones and authority</b><br><sub>P05</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="200" alt="P07 · Late and early Zi hour"></a><br><b>3 · Late and early Zi hour</b><br><sub>P07</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P09/P09-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P09/图/图02.svg" width="200" alt="P09 · Huo Tan and Huo Gui patterns"></a><br><b>4 · Huo Tan and Huo Gui patterns</b><br><sub>P09</sub></td>
 </tr>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · Sun at Midday"></a><br><sub><b>P15</b> · Sun at Midday</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · Ke, Quan and Lu meet"></a><br><sub><b>P25</b> · Ke, Quan and Lu meet</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · Chart and house read together"></a><br><sub><b>P27</b> · Chart and house read together</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · Dou Jun for the months"></a><br><sub><b>P37</b> · Dou Jun for the months</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P11/P11-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P11/图/图13.svg" width="200" alt="P11 · Wu Qu and Tan Lang in their temples"></a><br><b>5 · Wu Qu and Tan Lang in their temples</b><br><sub>P11</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="200" alt="P13 · Bright Pearl Out of the Sea"></a><br><b>6 · Bright Pearl Out of the Sea</b><br><sub>P13</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="200" alt="P15 · Sun at Midday"></a><br><b>7 · Sun at Midday</b><br><sub>P15</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P17/P17-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P17/图/图15.svg" width="200" alt="P17 · Hua Quan in the Wealth palace"></a><br><b>8 · Hua Quan in the Wealth palace</b><br><sub>P17</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="200" alt="P19 · Ying Star in its Temple"></a><br><b>9 · Ying Star in its Temple</b><br><sub>P19</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P21/P21-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P21/图/图04.svg" width="200" alt="P21 · Ju Men and the Sun meet the Life palace"></a><br><b>10 · Ju Men and the Sun meet the Life palace</b><br><sub>P21</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P23/P23-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P23/图/图05.svg" width="200" alt="P23 · Circling Ke, Quan, Lu and Ji first"></a><br><b>11 · Circling Ke, Quan, Lu and Ji first</b><br><sub>P23</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="200" alt="P25 · Ke, Quan and Lu meet"></a><br><b>12 · Ke, Quan and Lu meet</b><br><sub>P25</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="200" alt="P27 · Chart and house read together"></a><br><b>13 · Chart and house read together</b><br><sub>P27</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="200" alt="P29 · Palm on the Later Heaven Bagua"></a><br><b>14 · Palm on the Later Heaven Bagua</b><br><sub>P29</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="200" alt="P37 · Dou Jun for the months"></a><br><b>15 · Dou Jun for the months</b><br><sub>P37</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P48/P48-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P48/图/图01.svg" width="200" alt="P48 · Tan Lang Hua Lu and the "wind" face"></a><br><b>16 · Tan Lang Hua Lu and the "wind" face</b><br><sub>P48</sub></td>
 </tr>
 </table>
 
-<sub>All images are our own redrawings from the lectures, not video screenshots. Click one to open that episode's notes (in Chinese).</sub>
+<sub>16 illustrated cases, one per episode. All images are our own redrawings from the lectures, not video screenshots. Click one to open that episode's notes, with Master Ni's words alongside (in Chinese).</sub>
 
 </div>
 

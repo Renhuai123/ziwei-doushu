@@ -55,28 +55,153 @@
 
 ## 一、本轮更新（2026-11-21）
 
-本轮把倪师《天纪》紫微 17 集的**康奈尔笔记全文公开**，并给笔记配上我们**照讲课重画的图**：黑板示意图 **193 幅**、命例命盘 **26 张**，图插在对应问答旁边，图文对照着读。研究目录首页同时改成图文版，加了 16 个图文案例。
+本轮把倪师《天纪》紫微 17 集的**康奈尔笔记全文公开**，并给笔记配上我们**照讲课重画的图**：黑板示意图 **193 幅**、命例命盘 **26 张**，图插在对应问答旁边，图文对照着读。下面是 17 集里挑出的 **16 个图文案例**（每集 1 个）。
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · 晚子时和早子时"></a><br><sub><b>P07</b> · 晚子时和早子时</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · 明珠出海格"></a><br><sub><b>P13</b> · 明珠出海格</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · 英星入庙"></a><br><sub><b>P19</b> · 英星入庙</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · 手相入后天八卦"></a><br><sub><b>P29</b> · 手相入后天八卦</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P03/P03-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P03/图/图01.svg" width="200" alt="我们重画：渡河之喻（00:01:05 起）"></a><br><b>1 · 渡河之喻</b><br><sub>P03 · 渡河之喻里，河、船、对岸各代表什么？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P05/P05-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P05/图/图02.svg" width="200" alt="我们重画：颧部（00:07:51 起）"></a><br><b>2 · 颧部</b><br><sub>P05 · 权在脸上第一个看哪里？颧要长成什么样？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="200" alt="我们重画：晚子时和早子时（00:30:43 起）"></a><br><b>3 · 晚子时和早子时</b><br><sub>P07 · 晚子时和早子时怎么分？日子什么时候换？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P09/P09-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P09/图/图02.svg" width="200" alt="我们重画：火贪格与火贵格（00:03:53 起）"></a><br><b>4 · 火贪格与火贵格</b><br><sub>P09 · 什么叫火贪格、火贵格？主什么？</sub></td>
 </tr>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · 日丽中天"></a><br><sub><b>P15</b> · 日丽中天</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · 科权禄三会"></a><br><sub><b>P25</b> · 科权禄三会</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · 天文地理一起参照"></a><br><sub><b>P27</b> · 天文地理一起参照</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · 斗君看月令"></a><br><sub><b>P37</b> · 斗君看月令</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P11/P11-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P11/图/图13.svg" width="200" alt="我们重画：武贪入庙（00:50:59 起）"></a><br><b>5 · 武贪入庙</b><br><sub>P11 · 本盘武曲、贪狼在哪里，是庙是陷？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="200" alt="我们重画：明珠出海格（00:40:28 起）"></a><br><b>6 · 明珠出海格</b><br><sub>P13 · 什么是明珠出海格？要不要有主星？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="200" alt="我们重画：日丽中天与巨日会命（00:01:03 起）"></a><br><b>7 · 日丽中天与巨日会命</b><br><sub>P15 · 紫微在酉时太阳在哪？为什么叫日丽中天？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P17/P17-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P17/图/图15.svg" width="200" alt="我们重画：化权在财帛宫（00:45:07 起）"></a><br><b>8 · 化权在财帛宫</b><br><sub>P17 · 化权在财帛宫，这种人做什么工作？</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="200" alt="我们重画：英星入庙与太阴化禄（00:01:11 起）"></a><br><b>9 · 英星入庙与太阴化禄</b><br><sub>P19 · 英星入庙对男命、女命各主什么？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P21/P21-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P21/图/图04.svg" width="200" alt="我们重画：巨门太阳会命（00:12:38 起）"></a><br><b>10 · 巨门太阳会命</b><br><sub>P21 · 例二换了哪张盘？倪师把它叫什么格？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P23/P23-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P23/图/图05.svg" width="200" alt="我们重画：科权禄忌（00:14:01 起）"></a><br><b>11 · 科权禄忌</b><br><sub>P23 · 批八字时为什么先把科权禄忌圈起来？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="200" alt="我们重画：科权禄三会（00:10:22 起）"></a><br><b>12 · 科权禄三会</b><br><sub>P25 · 什么叫科权禄三会？本例化科、化权、化禄各在哪宫？</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="200" alt="我们重画：天文地理一起参照（00:18:31 起）"></a><br><b>13 · 天文地理一起参照</b><br><sub>P27 · 例三的阳宅图怎么画，怎么跟命盘一起看？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="200" alt="我们重画：手相入后天八卦（00:34:14 起）"></a><br><b>14 · 手相入后天八卦</b><br><sub>P29 · 看手相要放进哪一套八卦？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="200" alt="我们重画：斗君看月令（00:36:12 起）"></a><br><b>15 · 斗君看月令</b><br><sub>P37 · 斗君是什么？从哪一宫起？为什么能管十二个月？</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P48/P48-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P48/图/图01.svg" width="200" alt="我们重画：贪狼化禄与风字脸（00:38:39 起）"></a><br><b>16 · 贪狼化禄与风字脸</b><br><sub>P48 · 贪狼在命坐庙，又刚好化禄，主什么？</sub></td>
 </tr>
 </table>
 
-<sub>示意图都是我们照讲课重画的，不是视频截图；点图进那一集的图文全文</sub>
+<sub>16 个图文案例，每集 1 个；示意图都是我们照讲课重画的，不是视频截图。点图进那一集的图文全文</sub>
 
 </div>
+
+<details>
+<summary><b>展开 16 个案例的倪师原话</b></summary>
+
+**1 · 渡河之喻**：渡河之喻里，河、船、对岸各代表什么？（P03 00:01:05）
+
+> 〔口述〕介绍之前，「开宗明义我要先跟诸位讲个观念」：「首先这是一条河诸位用想的哈」，河上有一艘船停在这里。  
+> 〔口述〕船的名字「叫做文字就是书」；全世界的人类都站在这边，「我们人要过河要到对岸」，对岸「它的名字叫做真理」。
+
+[看 P03 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P03/P03-康奈尔笔记.md)
+
+**2 · 颧部**：权在脸上第一个看哪里？颧要长成什么样？（P05 00:07:51）
+
+> 〔口述〕有权的人可以从脸上看出来，第一处是颧部：「这个颧柄很大」「这个颧啊要连到后面」「要像那个烟斗一样到后面去」「连到耳朵后面」，在脸相上「叫做颧部」，「颧部呢掌的就是权」「这是第一个」。
+
+[看 P05 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P05/P05-康奈尔笔记.md)
+
+**3 · 晚子时和早子时**：晚子时和早子时怎么分？日子什么时候换？（P07 00:30:43）
+
+> 〔口述〕「如果你刚好是12点11点到12点」「这一段时间生的」，「这一段叫做晚子」；「晚子时这个是根据前一天来的」，「就是这前面这一天呢最晚的时间」，「最晚的子时叫晚子时」。  
+> 〔口述〕「过了12点以后」这一段时间「叫做早子时」，「所以后面呢要日子要换」，「12点换第二天的」。
+
+[看 P07 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md)
+
+**4 · 火贪格与火贵格**：什么叫火贪格、火贵格？主什么？（P09 00:03:53）
+
+> 〔口述〕「所以你们看书上有一句话」，叫做火贪格；「火贪相聚的话我们叫做火贵」，「火贵格」。  
+> 〔口述〕为什么叫火贵格？「这就是出武贵」，「武贵武官」。
+
+[看 P09 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P09/P09-康奈尔笔记.md)
+
+**5 · 武贪入庙**：本盘武曲、贪狼在哪里，是庙是陷？（P11 00:50:59）
+
+> 〔口述〕「还有一个」，「武曲星在这边」，「诸位看武曲在这边入庙」；「贪狼啊也是入庙」，贪狼隔壁一个宫也是庙旺，「完全不一样」。
+
+[看 P11 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P11/P11-康奈尔笔记.md)
+
+**6 · 明珠出海格**：什么是明珠出海格？要不要有主星？（P13 00:40:28）
+
+> 〔口述〕「那你有一天不小心刚好命……在这里」「三方四正会到」「左边是月朗天门」「右边是日照雷门」，命在这一格时「不管你有没有星」「我们就叫做明珠出海格」。
+
+[看 P13 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md)
+
+**7 · 日丽中天与巨日会命**：紫微在酉时太阳在哪？为什么叫日丽中天？（P15 00:01:03）
+
+> 〔口述〕接着讲紫微在酉：紫微在这里时，太阳一定在午。「紫微在这个地方的时候」「第一个太阳一定在这里」……「这叫太阳在午宫」。  
+> 〔口述〕午是中午 11 点到 1 点，是太阳最当头的时候：「午是中午11-1点」「那中午的时间呢」「是太阳最当头的时候」「刚刚好叫做德桓」「就是说」「太阳出的最好的时机」。  
+> 〔口述〕只管这一个宫就有一个格：「所以这个有个格」「我们就是光管这个宫」「它就有个格叫做日丽中天」；又说「太阳正午的时候最热最高」「这是一个这个这个范围」「我们叫做日丽中天格」。
+
+[看 P15 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md)
+
+**8 · 化权在财帛宫**：化权在财帛宫，这种人做什么工作？（P17 00:45:07）
+
+> 〔口述〕倪师说「你看他这个化权在财帛宫」。  
+> 〔口述〕规则：财帛宫「不管是化权化科化禄」，「一般来说他都会在私人企业里面」，在私人公司、私人企业上班。  
+> 〔口述〕本例「因为他的命里面只有权没有禄」，「所以他只能在私人企业里面上班」，「掌权做个主管」。
+
+[看 P17 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P17/P17-康奈尔笔记.md)
+
+**9 · 英星入庙与太阴化禄**：英星入庙对男命、女命各主什么？（P19 00:01:11）
+
+> 〔口述〕英星入庙「那给男人最好」，男人的话「这个英星入庙发武官」，即「武官的军人警察法官外交官这种人」。  
+> 〔口述〕女人拿到破军在午宫或子宫的英星入庙，「主的是会比较孤单」「还有呢比较孤僻」「个性上来说会非常的孤僻」。
+
+[看 P19 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md)
+
+**10 · 巨门太阳会命**：例二换了哪张盘？倪师把它叫什么格？（P21 00:12:38）
+
+> 〔口述〕倪师给这个格起名：「这个八字就叫做什么巨日会命」「巨门太阳会命」「叫做巨日格」。
+
+[看 P21 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P21/P21-康奈尔笔记.md)
+
+**11 · 科权禄忌**：批八字时为什么先把科权禄忌圈起来？（P23 00:14:01）
+
+> 〔口述〕倪师让大家看这一格，说批八字时要先把四化圈出来：「我们批八字的时候……科权禄忌……所以我们要把她的这个……这个科权禄忌呢……给她圈起来」。
+
+[看 P23 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P23/P23-康奈尔笔记.md)
+
+**12 · 科权禄三会**：什么叫科权禄三会？本例化科、化权、化禄各在哪宫？（P25 00:10:22）
+
+> 〔口述〕倪师拿出新一张盘说：「这个八字的就叫做科权禄三会」，又说讲例子要拿极好的，「普通的都没什么」。  
+> 〔口述〕本盘三化的位置：「化科在财帛」，权在迁移（字幕作「杈」），「化禄在官禄身宫」，「这叫科权禄」。
+
+[看 P25 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md)
+
+**13 · 天文地理一起参照**：例三的阳宅图怎么画，怎么跟命盘一起看？（P27 00:18:31）
+
+> 〔口述〕倪师换看这张命，说要把阳宅一起参照：「诸位看这个命哦」「阳宅的部分呢」「我们天文地理一起参照」「东南西北」「她的地理位置呢」「一画出来的时候」。  
+> 〔口述〕边画边讲宅图：「本人在这里」「……两个浴室厕所」「然后这里是厨房」「儿子住这边」；又说「八字拿到我们手上」「排出来是这样子」「然后她住的阳宅是这样子」「就天文和地理配在一起看」。
+
+[看 P27 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md)
+
+**14 · 手相入后天八卦**：看手相要放进哪一套八卦？（P29 00:34:14）
+
+> 〔口述〕倪师转入手相：「诸位看这个手相」，要把手掌「放到」「文王的后天八卦里面」，并说「这是后天卦啊」「后天卦为用」「所以我们就用后天卦来看的」。
+
+[看 P29 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md)
+
+**15 · 斗君看月令**：斗君是什么？从哪一宫起？为什么能管十二个月？（P37 00:36:12）
+
+> 〔口述〕倪师说前面没有介绍斗君，现在补上：「斗君呢都是起子在子宫起」，「所谓斗君呢就是看月令」。  
+> 〔口述〕他说一个宫管一年（「像我们知道一个一个宫一个宫」「一年一年对不对」），而「一年不是12个月」，「12个宫刚好12个月」，所以斗君用来看月。
+
+[看 P37 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md)
+
+**16 · 贪狼化禄与风字脸**：贪狼在命坐庙，又刚好化禄，主什么？（P48 00:38:39）
+
+> 〔口述〕「比如说贪狼贪狼在命」「在子子时啊」「刚好贪狼在命坐庙」；倪师说「那如果一颗星没有关系」，接着「那如果他刚好化禄呢」。  
+> 〔口述〕贪狼在命坐庙又化禄，「就是赌财酒色财沾酒色财气的」。
+
+[看 P48 图文全文 →](./research/nishi-video-reading/康奈尔笔记/P48/P48-康奈尔笔记.md)
+
+</details>
 
 **1. 17 集康奈尔笔记全文公开**（2026-11-20）—— 在 [`research/nishi-video-reading/康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/)，1,734 个提示、6,413 条笔记，每条标依据（口述 / 叠图 / 板书 / 指代 / 推断），能指回集号、时间码和帧号；倪师原话照字幕原字引在「」里。
 

@@ -36,26 +36,38 @@
 
 ## 最新の更新（2026-11-21）
 
-『天紀』紫微全 17 回のコーネル式ノートの**全文を公開**し、ノートに**講義をもとに私たちが描き直した図**を添えました：板書の図解 **193 点**、事例の命盤 **26 枚**です。図は対応する問答のすぐそばに置いてあり、文と図を照らし合わせて読めます。あわせて研究ディレクトリのトップページを図文版に作り直し、16 件の図解事例を加えました。
+『天紀』紫微全 17 回のコーネル式ノートの**全文を公開**し、ノートに**講義をもとに私たちが描き直した図**を添えました：板書の図解 **193 点**、事例の命盤 **26 枚**です。図は対応する問答のすぐそばに置いてあり、文と図を照らし合わせて読めます。下に、各回から 1 件ずつ選んだ **16 件の図解事例**を並べています。
 
 <div align="center">
 
 <table>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · 晩子時と早子時"></a><br><sub><b>P07</b> · 晩子時と早子時</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · 明珠出海格"></a><br><sub><b>P13</b> · 明珠出海格</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · 英星入廟"></a><br><sub><b>P19</b> · 英星入廟</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · 手相と後天八卦"></a><br><sub><b>P29</b> · 手相と後天八卦</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P03/P03-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P03/图/图01.svg" width="200" alt="P03 · 渡河のたとえ"></a><br><b>1 · 渡河のたとえ</b><br><sub>P03</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P05/P05-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P05/图/图02.svg" width="200" alt="P05 · 頬骨（顴部）と権"></a><br><b>2 · 頬骨（顴部）と権</b><br><sub>P05</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="200" alt="P07 · 晩子時と早子時"></a><br><b>3 · 晩子時と早子時</b><br><sub>P07</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P09/P09-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P09/图/图02.svg" width="200" alt="P09 · 火貪格と火貴格"></a><br><b>4 · 火貪格と火貴格</b><br><sub>P09</sub></td>
 </tr>
 <tr>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · 日麗中天"></a><br><sub><b>P15</b> · 日麗中天</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · 科権禄三会"></a><br><sub><b>P25</b> · 科権禄三会</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · 天文と地理を合わせて見る"></a><br><sub><b>P27</b> · 天文と地理を合わせて見る</sub></td>
-<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · 斗君で月を見る"></a><br><sub><b>P37</b> · 斗君で月を見る</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P11/P11-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P11/图/图13.svg" width="200" alt="P11 · 武曲・貪狼の入廟"></a><br><b>5 · 武曲・貪狼の入廟</b><br><sub>P11</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="200" alt="P13 · 明珠出海格"></a><br><b>6 · 明珠出海格</b><br><sub>P13</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="200" alt="P15 · 日麗中天"></a><br><b>7 · 日麗中天</b><br><sub>P15</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P17/P17-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P17/图/图15.svg" width="200" alt="P17 · 財帛宮の化権"></a><br><b>8 · 財帛宮の化権</b><br><sub>P17</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="200" alt="P19 · 英星入廟"></a><br><b>9 · 英星入廟</b><br><sub>P19</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P21/P21-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P21/图/图04.svg" width="200" alt="P21 · 巨門・太陽会命"></a><br><b>10 · 巨門・太陽会命</b><br><sub>P21</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P23/P23-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P23/图/图05.svg" width="200" alt="P23 · まず科権禄忌を丸で囲む"></a><br><b>11 · まず科権禄忌を丸で囲む</b><br><sub>P23</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="200" alt="P25 · 科権禄三会"></a><br><b>12 · 科権禄三会</b><br><sub>P25</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="200" alt="P27 · 天文と地理を合わせて見る"></a><br><b>13 · 天文と地理を合わせて見る</b><br><sub>P27</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="200" alt="P29 · 手相と後天八卦"></a><br><b>14 · 手相と後天八卦</b><br><sub>P29</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="200" alt="P37 · 斗君で月を見る"></a><br><b>15 · 斗君で月を見る</b><br><sub>P37</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P48/P48-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P48/图/图01.svg" width="200" alt="P48 · 貪狼化禄と「風」字の顔"></a><br><b>16 · 貪狼化禄と「風」字の顔</b><br><sub>P48</sub></td>
 </tr>
 </table>
 
-<sub>図はすべて講義をもとに私たちが描き直したもので、動画のスクリーンショットではありません。図をクリックすると、その回のノート全文（中国語）が開きます。</sub>
+<sub>各回 1 件、計 16 件の図解事例です。図はすべて講義をもとに私たちが描き直したもので、動画のスクリーンショットではありません。図をクリックすると、倪先生の言葉とあわせてその回のノート全文（中国語）が開きます。</sub>
 
 </div>
 
