@@ -65,6 +65,7 @@ export default function StarField() {
 
   return (
     <canvas
+      aria-hidden
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
       style={{ opacity: theme === 'light' ? 0.3 : 0.6 }}

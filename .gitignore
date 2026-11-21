@@ -7,3 +7,4 @@ dist/
 *.tsbuildinfo
 .DS_Store
 node_modules
+data/

@@ -2,19 +2,19 @@
 
 /**
  * 古籍库搜索框 — client component
- *
- * 输入 → 实时搜索 → 跳转 /library/search?q=xxx
+ * 提交后跳转 /library/search?q=xxx
  */
 
 import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LibrarySearch() {
-  const [q, setQ] = useState('');
+export default function LibrarySearch({ defaultValue = '' }: { defaultValue?: string }) {
+  const [q, setQ] = useState(defaultValue);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  const submit = () => {
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
     const query = q.trim();
     if (!query) return;
     startTransition(() => {
@@ -23,48 +23,30 @@ export default function LibrarySearch() {
   };
 
   return (
-    <div style={{
-      display: 'flex',
-      gap: '8px',
-      padding: '6px',
-      background: 'var(--bg-card)',
-      border: '1px solid rgba(184,146,42,0.3)',
-      borderRadius: '12px',
-      boxShadow: '0 4px 16px rgba(184,146,42,0.08)',
-    }}>
+    <form
+      role="search"
+      onSubmit={submit}
+      className="flex items-center gap-2 rounded-xl p-1.5 transition-colors focus-within:border-[var(--ac-bdr)]"
+      style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr-med)' }}
+    >
+      <label htmlFor="library-q" className="sr-only">搜索古籍原文</label>
       <input
+        id="library-q"
+        type="search"
         value={q}
         onChange={e => setQ(e.target.value)}
-        onKeyDown={e => e.key === 'Enter' && submit()}
         placeholder="搜索古籍原文，如：七杀朝斗 / 双禄朝垣 / 化忌"
-        style={{
-          flex: 1,
-          padding: '10px 14px',
-          border: 'none',
-          outline: 'none',
-          fontSize: '14px',
-          color: 'var(--tx-0)',
-          background: 'transparent',
-        }}
+        className="min-w-0 flex-1 bg-transparent px-3 h-10 text-[15px] outline-none"
+        style={{ color: 'var(--tx-0)' }}
       />
       <button
-        onClick={submit}
+        type="submit"
         disabled={isPending || !q.trim()}
-        style={{
-          padding: '10px 22px',
-          borderRadius: '8px',
-          border: 'none',
-          background: 'linear-gradient(135deg, #d4a948 0%, #b8922a 100%)',
-          color: 'white',
-          fontSize: '13px',
-          fontWeight: 600,
-          letterSpacing: '0.15em',
-          cursor: q.trim() ? 'pointer' : 'not-allowed',
-          opacity: q.trim() ? 1 : 0.5,
-        }}
+        className="h-10 shrink-0 rounded-lg px-5 text-[14px] font-medium transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        style={{ background: 'var(--ac)', color: 'var(--bg-0)' }}
       >
-        {isPending ? '…' : '搜索'}
+        {isPending ? '搜索中…' : '搜索'}
       </button>
-    </div>
+    </form>
   );
 }

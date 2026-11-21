@@ -78,7 +78,14 @@ export default function PalaceCell({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.35, delay, ease: 'easeOut' }}
       onClick={onClick}
-      className="relative flex flex-col p-1.5 cursor-pointer transition-all duration-200 h-full"
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={!!isSelected}
+      aria-label={`${name}${name.endsWith('宫') ? '' : '宫'}，${ganzhi}，${majorStars.length ? majorStars.map(s => s.name + (s.siHua ? '化' + s.siHua : '')).join('、') : '空宫'}`}
+      className="palace-cell relative flex flex-col p-1.5 cursor-pointer transition-all duration-200 h-full outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ac)]"
       style={{
         minHeight: '90px',
         background: isCurrentDaXian

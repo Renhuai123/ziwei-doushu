@@ -196,9 +196,9 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
       style={{ background: bg, border: `1px solid ${border}`, borderRadius: '24px', padding: '28px', backdropFilter: 'blur(20px)' }}
     >
       {/* 标题 */}
-      <h3 style={{ color: goldText, fontSize: '12px', letterSpacing: '0.4em', textAlign: 'center', marginBottom: '20px', fontWeight: 500 }}>
-        ── 输入生辰八字 ──
-      </h3>
+      <p style={{ color: goldText, fontSize: '12px', letterSpacing: '0.4em', textAlign: 'center', marginBottom: '20px', fontWeight: 500 }}>
+        <span aria-hidden>── </span>输入生辰八字<span aria-hidden> ──</span>
+      </p>
 
       {/* ── 进度条 ── */}
       <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
@@ -218,6 +218,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
         <input
           type="text"
           placeholder="请输入姓名"
+          aria-label="姓名（可选）"
           value={form.name}
           onChange={e => setForm({ ...form, name: e.target.value })}
           style={inputStyle}
@@ -232,6 +233,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
           <div>
             <select
+              aria-label="出生年份"
               value={form.year}
               onChange={e => { setForm({ ...form, year: e.target.value }); setTouched(t => ({ ...t, year: true })); }}
               style={showErr('year') && errors.year ? errorInputStyle : inputStyle}
@@ -246,6 +248,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
           </div>
           <div>
             <select
+              aria-label="出生月份"
               value={form.month}
               onChange={e => { setForm({ ...form, month: e.target.value }); setTouched(t => ({ ...t, month: true })); }}
               style={showErr('month') && errors.month ? errorInputStyle : inputStyle}
@@ -260,6 +263,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
           </div>
           <div>
             <select
+              aria-label="出生日"
               value={form.day}
               onChange={e => { setForm({ ...form, day: e.target.value }); setTouched(t => ({ ...t, day: true })); }}
               style={showErr('day') && errors.day ? errorInputStyle : inputStyle}
@@ -280,6 +284,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
         <label style={{ display: 'block', fontSize: '11px', color: labelClr, marginBottom: '6px', letterSpacing: '0.05em' }}>出生地点（用于真太阳时校正）</label>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           <select
+            aria-label="出生省份"
             value={form.province}
             onChange={e => handleProvince(e.target.value)}
             style={inputStyle}
@@ -292,6 +297,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
             ))}
           </select>
           <select
+            aria-label="出生城市"
             value={form.city}
             onChange={e => handleCity(e.target.value)}
             disabled={!form.province}
@@ -336,6 +342,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
         <div style={{ borderRadius: '14px', padding: '12px', background: panelBg, border: `1px solid ${panelBorder}`, opacity: form.unknownTime ? 0.45 : 1, pointerEvents: form.unknownTime ? 'none' : 'auto', transition: 'opacity 0.2s' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
             <select
+              aria-label="出生时（北京时间）"
               value={form.clockHour}
               onChange={e => setForm({ ...form, clockHour: e.target.value })}
               style={inputStyle}
@@ -345,6 +352,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
               ))}
             </select>
             <select
+              aria-label="出生分"
               value={form.clockMinute}
               onChange={e => setForm({ ...form, clockMinute: e.target.value })}
               style={inputStyle}
@@ -382,8 +390,8 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
 
       {/* ── 性别 ── */}
       <div style={{ marginBottom: '20px' }}>
-        <label style={{ display: 'block', fontSize: '11px', color: labelClr, marginBottom: '6px', letterSpacing: '0.05em' }}>性别</label>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <span style={{ display: 'block', fontSize: '11px', color: labelClr, marginBottom: '6px', letterSpacing: '0.05em' }}>性别</span>
+        <div role="group" aria-label="性别" style={{ display: 'flex', gap: '10px' }}>
           {(['male', 'female'] as const).map(g => {
             const active = form.gender === g;
             const isMale = g === 'male';
@@ -393,6 +401,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
                 key={g}
                 type="button"
                 onClick={() => setForm({ ...form, gender: g })}
+                aria-pressed={active}
                 whileTap={{ scale: 0.97 }}
                 style={{
                   flex: 1,

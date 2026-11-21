@@ -29,6 +29,11 @@ export function getBookBySlug(slug: string): Book | null {
 }
 
 /** 按章节序号取章节 */
+/** 只接受规范写法的章节号（"0"、"12"）；"1.5"、"01" 之类返回 NaN，不再渲染成同一章的另一个网址。 */
+export function parseChapterIndex(raw: string): number {
+  return /^(0|[1-9]\d*)$/.test(raw) ? Number(raw) : NaN;
+}
+
 export function getChapter(bookSlug: string, chapterIdx: number) {
   const book = getBookBySlug(bookSlug);
   if (!book) return null;
@@ -107,3 +112,6 @@ function escapeHtml(s: string): string {
 }
 
 export type { Book, Chapter, Paragraph, SearchHit } from './types';
+
+/** 搜索框下方与无结果时推荐的检索词 */
+export const SUGGESTED_QUERIES = ['七杀朝斗', '双禄朝垣', '化忌', '紫微', '命宫', '机月同梁'];
