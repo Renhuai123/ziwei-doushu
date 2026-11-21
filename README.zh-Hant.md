@@ -40,7 +40,7 @@
 
 | | 章節 | 一句話 |
 |---|------|--------|
-| 一 | [本輪更新](#一本輪更新2026-11-13) | 倪師《天紀》紫微 17 集 160 萬幀逐幀精讀做完併入本倉：17 集康奈爾筆記、344 條公開摘要、片源上限 |
+| 一 | [本輪更新](#一本輪更新2026-11-21) | 17 集康奈爾筆記全文公開；193 幅黑板示意圖、26 張命盤逐格重畫；研究目錄首頁改成圖文版（11-13：160 萬幀逐幀精讀併入本倉） |
 | 二·新 | [13 維解讀數據集 v4.0](#二新13-維解讀數據集-v402026-10-15) | 2026-10-15 新版斷語，67.5 萬命盤，按年份下載 |
 | 二 | [51.8 萬命盤樣本數據集](#二518-萬命盤樣本數據集) | 規格、下載、用途、許可 |
 | 三 | [快速開始](#三快速開始) | 克隆到跑起來 |
@@ -55,7 +55,40 @@
 
 ---
 
-## 一、本輪更新（2026-11-13）
+## 一、本輪更新（2026-11-21）
+
+本輪把倪師《天紀》紫微 17 集的**康奈爾筆記全文公開**，並給筆記配上我們**照講課重畫的圖**：黑板示意圖 **193 幅**、命例命盤 **26 張**，圖插在對應問答旁邊，圖文對照著讀。研究目錄首頁同時改成圖文版，加了 16 個圖文案例。
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · 晚子時和早子時"></a><br><sub><b>P07</b> · 晚子時和早子時</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · 明珠出海格"></a><br><sub><b>P13</b> · 明珠出海格</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · 英星入廟"></a><br><sub><b>P19</b> · 英星入廟</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · 手相入後天八卦"></a><br><sub><b>P29</b> · 手相入後天八卦</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · 日麗中天"></a><br><sub><b>P15</b> · 日麗中天</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · 科權祿三會"></a><br><sub><b>P25</b> · 科權祿三會</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · 天文地理一起參照"></a><br><sub><b>P27</b> · 天文地理一起參照</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · 斗君看月令"></a><br><sub><b>P37</b> · 斗君看月令</sub></td>
+</tr>
+</table>
+
+<sub>示意圖都是我們照講課重畫的，不是視頻截圖；點圖進那一集的圖文全文</sub>
+
+</div>
+
+**1. 17 集康奈爾筆記全文公開**（2026-11-20）—— 在 [`research/nishi-video-reading/康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/)，1,734 個提示、6,413 條筆記，每條標依據（口述 / 疊圖 / 板書 / 指代 / 推斷），能指回集號、時間碼和幀號；倪師原話照字幕原字引在「」裡。
+
+**2. 193 幅黑板示意圖** —— 17 集 921 條板書分成 410 組，其中 215 組是純文字（圈字、劃線、字間箭頭），不畫；有圖的組由 Astra 照講課要講明白的原理畫成示意圖，每個標註都能在板書或同段字幕裡找到原詞，再由 Grok 對著原畫面逐幅核。畫了 195 幅，193 幅核過放進筆記；2 幅兩輪沒核過（都是陽宅圖），暫不放。
+
+**3. 26 張命盤逐格重畫**（2026-11-20）—— 命例的命盤按視頻裡貼出的那張逐格重畫，宮名、宮干支、主星、輔星取逐幀核過的疊圖轉寫，每張都由 Astra 和 Grok 各自對著視頻幀核過。不公開由命盤反推出的生辰。
+
+**4. 研究目錄首頁改成圖文版** —— [`research/nishi-video-reading/`](./research/nishi-video-reading/README.md) 首頁現在是：17 集圖文筆記目錄（每集幾幅圖、幾張命盤）、**16 個圖文案例畫廊**（每集 1 個，點圖進那一集）、數字總覽、流程、片源上限、現狀與展望。
+
+### 上一輪更新（2026-11-13）
 
 本輪把倪師《天紀》紫微 **17 集、1,604,675 幀**的逐幀精讀做完併入本倉：逐幀層 **133,731 窗全部跑滿**，17 集康奈爾筆記全部出稿，公開摘要 **344 條要點**發佈。原姊妹倉 nishi-ziwei-video-reading 連同提交歷史併到 [`research/nishi-video-reading/`](./research/nishi-video-reading/)，原倉庫歸檔只讀，後續更新都在本倉。
 
@@ -63,7 +96,7 @@
 
 **1. 規模：一幀不漏** —— 17 集共 1,604,675 幀，每幀有 sha256 清單，不抽幀；逐幀層（DeepSeek，每窗 12 幀）共 133,731 窗，2026-11-13 全部跑滿（試點時只有 P17、P05 兩集 16,876 窗）。指代層 2,805 道題由 Claude 看原幀逐題盲標，全部標完。
 
-**2. 17 集康奈爾筆記出稿** —— 1,734 個提示、6,413 條筆記，每條標依據（口述 / 疊圖 / 板書 / 指代 / 推斷）和幀號。〔口述〕裡引的倪師原話 14,825 段，14,824 段在字幕裡原字找到（剩 1 段只在語音裡，已註明）；拿不準的 2,613 處單列「待核」，不混進正文。筆記正文放在私有倉庫。
+**2. 17 集康奈爾筆記出稿** —— 1,734 個提示、6,413 條筆記，每條標依據（口述 / 疊圖 / 板書 / 指代 / 推斷）和幀號。〔口述〕裡引的倪師原話 14,825 段，14,824 段在字幕裡原字找到（剩 1 段只在語音裡，已註明）；拿不準的 2,613 處單列「待核」，不混進正文。筆記正文當時放在私有倉庫，2026-11-20 起全文公開（見本輪更新）。
 
 **3. 公開摘要 17 集、344 條要點** —— 在 [`research/nishi-video-reading/summaries/`](./research/nishi-video-reading/summaries/README.md)，每集一份，每條附時間碼，點開跳到 B 站原視頻那一秒；倪師原話只引短句，不放截圖。
 
@@ -73,7 +106,7 @@
 
 > **2026-11-19 補充**：新增 [繁體中文](./README.zh-Hant.md) 與 [日本語](./README.ja.md) 說明頁。日文版由 @eltociear 貢獻（#76）；繁體版由本頁按 ouranic.cn 繁體模式同一套規則轉換。
 
-### 上一輪更新（2026-10-15）
+### 再上一輪更新（2026-10-15）
 
 本輪跟隨網站 2026-10-15 發版（網站內容版本 `ca268829f7a9`）：
 
@@ -107,7 +140,7 @@
 
 > **2026-10-06 ~ 10-07 補充**：README 加「注：關於六親判斷」（倪師原話 + 出處鏈接，中英兩份）；網站鏈接加渠道碼 `?from=`；同步倪師原話語料勘誤（主星南斗、北斗歸屬）。
 
-### 再上一輪更新（2026-09-21）
+### 更早的更新（2026-09-21）
 
 
 > **2026-10-03 補充**：倪師《天紀·紫微斗數》原話 1848 條單獨成章（第五章）；合併外部貢獻 #29（時辰序號校驗）；引擎拒絕不存在的公曆日期，數據集補字段口徑與已知問題；提交 package-lock.json；站點地址改為可配置；合盤演示改用本地引擎起盤、AI 接口缺失時明確提示；補齊貢獻指南、行為準則、問題與 PR 模板；新增英文簡介 [README.en.md](./README.en.md)；去掉兩個用不上的部署工具包（vercel CLI、@cloudflare/next-on-pages），依賴從 483 個減到 185 個；隨後升級到 Next.js 16 修掉 postcss 漏洞，GitHub 安全提醒從 51 條清零。
@@ -419,13 +452,16 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 | 粉筆板書認不出 | 228 個字位裡 146 個（64%） | 只有小考樣本（30 個板書格）；全量沒有逐字轉寫板書，筆記只錄看得清的 |
 | 電子疊圖（印刷字，最清楚）只佔時長 | 53,491 秒裡 15,586 秒（29.1%） | 全量：17 集每秒 1 幀打分 |
 
-**公開摘要**：17 集每集一份、共 344 條要點，見 [`summaries/`](./research/nishi-video-reading/summaries/README.md)。倪師原話只引短句，每條附時間碼，點開跳到 B 站那一秒；不放截圖和視頻畫面，不公開從命盤反推的生辰。摘要是對講課內容的學習整理，不代表我們的判斷，也不構成醫療、婚姻、投資等建議。筆記正文在私有倉庫。
+**公開摘要**：17 集每集一份、共 344 條要點，見 [`summaries/`](./research/nishi-video-reading/summaries/README.md)。倪師原話只引短句，每條附時間碼，點開跳到 B 站那一秒；不放截圖和視頻畫面，不公開從命盤反推的生辰。摘要是對講課內容的學習整理，不代表我們的判斷，也不構成醫療、婚姻、投資等建議。
+
+**康奈爾筆記全文**（2026-11-20 起公開）：見 [`康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/)，圖文合一——每條〔板書〕後面緊跟一幅我們重畫的示意圖（共 193 幅），命例旁邊是逐格重畫的命盤（共 26 張），都不是視頻截圖。
 
 **研究目錄導覽**
 
 | 位置 | 內容 |
 |---|---|
-| [`README.md`](./research/nishi-video-reading/README.md) | 總說明：為什麼做、流程圖、片源上限、各步進度 |
+| [`README.md`](./research/nishi-video-reading/README.md) | 首頁：16 個圖文案例畫廊、17 集圖文筆記目錄、流程、片源上限、現狀 |
+| [`康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/) | 17 集筆記全文，圖文合一；每集 `图/` 裡是示意圖（`图NN.svg`）和命盤（`命盘-*.svg`） |
 | [`summaries/`](./research/nishi-video-reading/summaries/README.md) | 17 集公開摘要 |
 | [`docs/工作记录.md`](./research/nishi-video-reading/docs/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95.md) | 按時間的全過程：做了什麼、每個數字的出處、走過的彎路 |
 | `docs/` 其餘文件 | 方案與兩輪獨立終審、小考五個實驗的報告、標註說明、疊圖定稿說明、康奈爾筆記模板 |
@@ -458,7 +494,7 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 | | 內容 |
 |---|---|
 | ✅ **開源** | 排盤引擎（`lib/ziwei/`）、古籍公版原文（`lib/classics/`）、SEO 知識圖譜（`lib/seo/`）、Demo 界面、51.8 萬樣本數據集、13 維解讀數據集 v4.0、160 萬幀逐幀精讀的方法 / 腳本 / 提示詞與 17 集公開摘要（`research/nishi-video-reading/`） |
-| ❌ **不開源** | 斷語庫（`lib/ziwei/db-analysis.ts` 是佔位，線上是上萬行的 13 主題斷語）、AI 解讀 prompt、後端 API（`/api/interpret` 等）、用戶系統（登錄 / 會員 / 支付）、服務端安全（簽名、防刷、水印）、部署配置、160 萬幀精讀的康奈爾筆記正文（私有倉庫）與視頻畫面 / 幀圖片 |
+| ❌ **不開源** | 斷語庫（`lib/ziwei/db-analysis.ts` 是佔位，線上是上萬行的 13 主題斷語）、AI 解讀 prompt、後端 API（`/api/interpret` 等）、用戶系統（登錄 / 會員 / 支付）、服務端安全（簽名、防刷、水印）、部署配置、160 萬幀精讀用到的視頻畫面 / 幀圖片（康奈爾筆記全文 2026-11-20 起已公開） |
 
 如果你需要 AI 解讀能力，可以參考 `lib/ziwei/patterns.ts` 和 `heming-knowledge.ts` 裡的知識庫，結合任意 LLM 自行構建 prompt。
 

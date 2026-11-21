@@ -32,21 +32,51 @@ This repo is an open snapshot of the engine behind [ouranic.cn](https://ouranic.
 >
 > Zi Wei Dou Shu has known limits when it comes to family relations (parents, siblings, children and so on). In *Tian Ji*, Master Ni Haixia said that "Dou Shu has always been somewhat weaker at reading family relations" ([lecture 2, part 1 · 00:25:27](https://www.bilibili.com/video/BV1KJsLekEfA?p=3&t=1527)). Among traditional methods, Tie Ban Shen Shu has its own strengths in checking family relations ([00:03:15](https://www.bilibili.com/video/BV1KJsLekEfA?p=3&t=195)); Master Ni still kept Zi Wei Dou Shu at the core because it can be read together with geography, surroundings and human affairs, forming a complete system that knows the heavens above, the earth below and human affairs in between ([00:25:43](https://www.bilibili.com/video/BV1KJsLekEfA?p=3&t=1543)). Readings about family relations are therefore for reference only; the Parents, Siblings and Children sections on [ouranic.cn](https://ouranic.cn/?from=gh-readme-en) carry the same note.
 
-## Latest update (2026-11-13)
+## Latest update (2026-11-21)
+
+The full Cornell notes for all 17 *Tian Ji* Zi Wei episodes are now public, illustrated with **images we redrew from the lectures**: **193 chalkboard diagrams** and **26 case charts**. Each image sits next to the question it belongs to, so text and images read together. The directory's front page has also been rebuilt around 16 illustrated cases.
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · Late and early Zi hour"></a><br><sub><b>P07</b> · Late and early Zi hour</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · Bright Pearl Out of the Sea"></a><br><sub><b>P13</b> · Bright Pearl Out of the Sea</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · Ying Star in its Temple"></a><br><sub><b>P19</b> · Ying Star in its Temple</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · Palm on the Later Heaven Bagua"></a><br><sub><b>P29</b> · Palm on the Later Heaven Bagua</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · Sun at Midday"></a><br><sub><b>P15</b> · Sun at Midday</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · Ke, Quan and Lu meet"></a><br><sub><b>P25</b> · Ke, Quan and Lu meet</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · Chart and house read together"></a><br><sub><b>P27</b> · Chart and house read together</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · Dou Jun for the months"></a><br><sub><b>P37</b> · Dou Jun for the months</sub></td>
+</tr>
+</table>
+
+<sub>All images are our own redrawings from the lectures, not video screenshots. Click one to open that episode's notes (in Chinese).</sub>
+
+</div>
+
+- **Full Cornell notes public** (2026-11-20): in [`research/nishi-video-reading/康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/) (in Chinese) — 1,734 cues and 6,413 notes, each tagged with its evidence (speech / overlay / chalkboard / pointing / inference) and traceable to episode, timestamp and frame number; Master Ni's words are quoted exactly as in the subtitles.
+- **193 chalkboard diagrams**: the 921 chalkboard entries across the 17 episodes fall into 410 groups; 215 of them are text only (circled characters, underlines, arrows between characters) and were not drawn. The rest were drawn by Astra to show the principle being taught — every label can be traced to the chalkboard or the same stretch of subtitles — and Grok checked each one against the original frames. Of 195 drawn, 193 passed and are in the notes; 2 (both house layouts) failed two rounds of review and are left out for now.
+- **26 case charts redrawn cell by cell** (2026-11-20): each is redrawn from the chart shown in the video; palace names, stems and branches, and major and minor stars come from the frame-checked overlay transcriptions, and Astra and Grok each checked every chart against the video frames. Birth data inferred from the charts is not published.
+- **Directory front page rebuilt**: [`research/nishi-video-reading/`](./research/nishi-video-reading/README.md) now opens with the 17 illustrated episodes (diagrams and charts per episode), a **gallery of 16 illustrated cases** (one per episode; click to open), key figures, the workflow, source limits, status and next steps (in Chinese).
+
+### Previous update (2026-11-13)
 
 The frame-by-frame reading of Ni Haixia's *Tian Ji* Zi Wei lectures is finished and now lives in this repo: **17 episodes, 1,604,675 frames**, all **133,731 frame-layer windows** completed, Cornell notes written for all 17 episodes, and **344 public summary points** released. The former sister repo nishi-ziwei-video-reading has been merged, with its full commit history, into [`research/nishi-video-reading/`](./research/nishi-video-reading/); the old repo is archived (read-only) and all further updates happen here.
 
 ![Update overview](./docs/update-20261113.png)
 
 - **Scale, no frame skipped**: 1,604,675 frames across 17 episodes, each listed with its sha256, no sampling. The frame layer (DeepSeek, 12 frames per window) finished all 133,731 windows on 2026-11-13 (the pilot covered 2 episodes, P17 and P05, 16,876 windows). Claude labelled all 2,805 "here / this" pointing questions blind, from the original frames.
-- **Cornell notes for all 17 episodes**: 1,734 cues and 6,413 notes, each tagged with its evidence (speech / overlay / chalkboard / pointing / inference) and frame numbers. Of the 14,825 passages of Master Ni's speech quoted in the notes, 14,824 were found character for character in the subtitles (the remaining one exists only in the audio and is marked as such); 2,613 uncertain points are listed separately as "to check" instead of being mixed into the notes. The full notes are kept in a private repository.
+- **Cornell notes for all 17 episodes**: 1,734 cues and 6,413 notes, each tagged with its evidence (speech / overlay / chalkboard / pointing / inference) and frame numbers. Of the 14,825 passages of Master Ni's speech quoted in the notes, 14,824 were found character for character in the subtitles (the remaining one exists only in the audio and is marked as such); 2,613 uncertain points are listed separately as "to check" instead of being mixed into the notes. The full notes were kept in a private repository at the time; they have been public since 2026-11-20 (see the latest update).
 - **Public summaries**: 344 key points for the 17 episodes in [`research/nishi-video-reading/summaries/`](./research/nishi-video-reading/summaries/README.md) (in Chinese), one file per episode; every point has a timestamp that jumps to that second of the Bilibili video. Quotes are kept to short phrases and there are no screenshots.
 - **Limits of the source, stated openly**: three things the video itself cannot give. About two in five "here / this" cannot be resolved (42.5% of 2,805 questions, full run); nearly two thirds of chalk characters are unreadable (64% of 228 character positions, pilot sample only); the printed chart overlays added in editing, the clearest source, cover only 29.1% of running time (full run). See [1.6 million frames, read frame by frame](#16-million-frames-read-frame-by-frame-2026-11-13).
 - **What the directory holds**: the plan and two rounds of independent review, design and results of five pilot experiments, all scripts and prompts, a dated work log giving the source of every number, and the public summaries. It contains no video footage, frame images or full transcripts of the lectures. `tsconfig.json` now excludes `research/` from type checking. See [License](#license).
 
 > **2026-11-19 addendum**: added [Traditional Chinese](./README.zh-Hant.md) and [Japanese](./README.ja.md) READMEs. The Japanese one was contributed by @eltociear (#76); the Traditional Chinese one is converted from the Simplified Chinese README with the same rules as the Traditional Chinese mode on ouranic.cn.
 
-### Previous update (2026-10-15)
+### Earlier update (2026-10-15)
 
 ![Update overview](./docs/update-20261015.png)
 
@@ -94,7 +124,7 @@ npm test             # charting regression tests
 
 ## What is not included
 
-The interpretation database (`lib/ziwei/db-analysis.ts` is a placeholder), AI prompts, all `/api/*` backend routes, user accounts, payments, deployment configuration, and — for the 1.6-million-frame reading — the full Cornell notes (kept in a private repository) and any video frames.
+The interpretation database (`lib/ziwei/db-analysis.ts` is a placeholder), AI prompts, all `/api/*` backend routes, user accounts, payments, deployment configuration, and — for the 1.6-million-frame reading — any video frames (the full Cornell notes have been public since 2026-11-20).
 
 ## Interpretation dataset v4.0 (674,976 charts × 13 topics, 2026-10-15)
 
@@ -135,7 +165,7 @@ Download from [Releases](https://github.com/Renhuai123/ziwei-doushu/releases/tag
 
 Ground rules: only the video itself is used, nothing from the *Complete Book of Zi Wei Dou Shu* or other outside sources; anything unclear is recorded as "not shown in the video", never guessed or filled in from Zi Wei knowledge; every layer is first tested on a small sample (five pilot experiments) against thresholds set in advance, and if it falls short the method changes, not the bar.
 
-Results are summarised in the latest update above. **Source limits**: some information is simply not in the video; all of it is stated.
+Results are summarised in the 2026-11-13 update above. **Source limits**: some information is simply not in the video; all of it is stated.
 
 | Item | Figure | Sample |
 |---|---|---|
@@ -143,7 +173,9 @@ Results are summarised in the latest update above. **Source limits**: some infor
 | Chalk characters unreadable | 146 of 228 character positions (64%) | Pilot sample only (30 chalkboard cells); the full run does not transcribe the chalkboard character by character, and the notes record only what is legible |
 | Share of running time with printed overlays (the clearest source) | 15,586 of 53,491 seconds (29.1%) | Full run: one frame per second scored across all 17 episodes |
 
-**Public summaries**: one file per episode, 344 points in all, in [`summaries/`](./research/nishi-video-reading/summaries/README.md) (in Chinese). Master Ni is quoted only in short phrases, and every point has a timestamp that jumps to that second on Bilibili; there are no screenshots or video frames, and no birth data inferred from the charts. The summaries are study notes on the lectures, not our own judgment, and not medical, marriage, investment or other advice. The full notes stay in a private repository.
+**Public summaries**: one file per episode, 344 points in all, in [`summaries/`](./research/nishi-video-reading/summaries/README.md) (in Chinese). Master Ni is quoted only in short phrases, and every point has a timestamp that jumps to that second on Bilibili; there are no screenshots or video frames, and no birth data inferred from the charts. The summaries are study notes on the lectures, not our own judgment, and not medical, marriage, investment or other advice.
+
+**Full Cornell notes** (public since 2026-11-20): in [`康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/) (in Chinese), text and images together — each chalkboard entry is followed by a diagram we redrew (193 in all), and the case charts are redrawn cell by cell (26 in all); none are video screenshots.
 
 Details (in Chinese) are in the directory's [README](./research/nishi-video-reading/README.md), the [public summaries](./research/nishi-video-reading/summaries/README.md) and the [work log](./research/nishi-video-reading/docs/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95.md). API keys are not in the repository; the paths in the scripts follow our own machine's layout, so change them when reproducing.
 
