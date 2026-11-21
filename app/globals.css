@@ -542,7 +542,8 @@ body {
   transition: color .15s ease, background .15s ease;
 }
 .topic-link:hover { color: var(--tx-0); background: var(--bg-1); }
-.topic-link[aria-selected="true"] {
+.topic-link[aria-selected="true"],
+.topic-link[aria-current="page"] {
   color: var(--tx-0);
   background: var(--ac-bg);
   box-shadow: inset 2px 0 0 var(--ac);
@@ -583,3 +584,32 @@ body {
 :root:not([data-theme="dark"]) .palace-cell .text-blue-400 { color: #1d4ed8; }
 :root:not([data-theme="dark"]) .palace-cell .text-red-400 { color: #b91c1c; }
 :root:not([data-theme="dark"]) .palace-cell .text-purple-400 { color: #7e22ce; }
+
+/* 星曜知识「星 × 宫」矩阵格 */
+.matrix-cell {
+  display: block;
+  height: 26px;
+  margin: 0 auto;
+  max-width: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--bdr);
+  background: var(--bg-1);
+  position: relative;
+  transition: background .15s ease, border-color .15s ease;
+}
+.matrix-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ac);
+  opacity: .55;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.matrix-cell:hover { background: var(--ac-bg); border-color: var(--ac-bdr); }
+.matrix-cell:hover::after { opacity: 1; transform: scale(1.6); }
+.matrix-cell:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+tr:hover > th[scope="row"] { color: var(--ac) !important; }
