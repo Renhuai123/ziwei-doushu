@@ -61,7 +61,7 @@ async function main() {
     readNotConfiguredNotice, analysisRef: { current: null },
     fetch: async () => Response.json({ error: 'ai-not-configured', missing: 'DEEPSEEK_API_KEY' }, { status: 503 }),
   })();
-  assert.match(notice ?? '', /.env.local.*AI_PROVIDER.*DEEPSEEK_API_KEY/s, '503 shows the setup hint');
+  assert.match(notice ?? '', /\.env\.local[\s\S]*AI_PROVIDER[\s\S]*DEEPSEEK_API_KEY/, '503 shows the setup hint');
   console.log('Heming SSE byte-fragment regressions passed');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });
