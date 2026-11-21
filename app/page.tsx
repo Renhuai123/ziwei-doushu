@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import StarField from '@/components/StarField';
 import { useTheme, type Theme } from '@/components/ThemeProvider';
-import ThemeToggle from '@/components/ThemeToggle';
+import SiteHeader from '@/components/SiteHeader';
 
 // ─── 滚动入场 wrapper ────────────────────────────────────
 function FadeIn({
@@ -99,7 +99,7 @@ const SECTIONS = [
     en: 'Zi Wei',
     desc: '14 主星 · 13 宫位 · AI 解读',
     status: 'ready' as const,
-    when: '5 月',
+    when: '已上线',
     icon: '◉',  // 实心圆+内点，紫微星视觉
     note: '',
   },
@@ -109,7 +109,7 @@ const SECTIONS = [
     en: 'Tian Ji',
     desc: '紫微 · 周易 · 奇门遁甲',
     status: 'soon' as const,
-    when: '6 月',
+    when: '规划中',
     icon: '⊙',  // 圆+内点（古文"日"），与 ◉ 同字宽
     note: '',
   },
@@ -119,7 +119,7 @@ const SECTIONS = [
     en: 'Di Ji',
     desc: '倪师未竟之业 · 后辈补注',
     status: 'soon' as const,
-    when: '6 月',
+    when: '规划中',
     icon: '⊞',  // 方+井（地/田视觉），与 ⊙ 同字宽
     note: '遗稿研读',
   },
@@ -129,7 +129,7 @@ const SECTIONS = [
     en: 'Ren Ji',
     desc: '内经 · 伤寒 · 金匮 · 针灸',
     status: 'soon' as const,
-    when: '7 月',
+    when: '规划中',
     icon: '⊕',  // 圆+十字（医道/阴阳调和），与 ⊙/⊞ 同字宽
     note: '',
   },
@@ -161,7 +161,6 @@ function useColors(theme: Theme) {
   return {
     bgBase:       d ? '#020810'                                : '#f5efe0',
     // nav 用与 bgBase 完全相同的不透明色，避免半透明叠加产生色差带
-    navBg:        d ? '#020810'                                : '#f5efe0',
     navBorder:    d ? 'rgba(255,255,255,0.05)'                : 'rgba(160,120,30,0.15)',
     goldGrad:     d ? 'linear-gradient(160deg,#c8993a 0%,#f0d070 40%,#c8993a 70%,#f0c755 100%)'
                     : 'linear-gradient(160deg,#6a4206 0%,#9a6a10 40%,#6a4206 70%,#885010 100%)',
@@ -197,7 +196,7 @@ function useColors(theme: Theme) {
     ctaBg:        d ? 'linear-gradient(135deg,#b8892a,#f0d070,#b8892a)'
                     : 'linear-gradient(135deg,#6a4206,#9a6810,#6a4206)',
     ctaText:      d ? '#08080a'                               : '#f8f3e8',
-    footerText:   d ? 'rgba(255,255,255,0.08)'                : '#d0b878',
+    footerText:   d ? '#7f8ea8'                               : '#7a6a48',
     scrollLine:   d ? 'rgba(212,168,67,0.3)'                  : 'rgba(140,100,20,0.3)',
     scrollText:   d ? 'rgba(255,255,255,0.12)'                : '#c0a870',
     altSection:   d ? 'rgba(255,255,255,0.02)'                : 'rgba(255,255,255,0.4)',
@@ -435,33 +434,7 @@ export default function HomePage() {
           style={{ background: `radial-gradient(ellipse, ${c.glowPurple} 0%, transparent 70%)` }} />
       </div>
 
-      {/* ── 顶部导航 ── nav 与 hero 同色（c.bgBase），无 blur 无 border，彻底无色差带 */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 gap-2"
-        style={{
-          background: c.navBg,
-        }}>
-        <div className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium transition-colors duration-300 flex-shrink-0"
-          style={{ color: c.goldSolid }}>
-          紫微命盘
-        </div>
-        <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-          <ThemeToggle />
-          <motion.button
-            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-            onClick={() => router.push('/heming')}
-            className="text-[11px] sm:text-xs px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all duration-300"
-            style={{ border: `1px solid ${c.navBorder}`, color: c.textMuted }}>
-            合盘
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-            onClick={() => router.push('/chart')}
-            className="text-[11px] sm:text-xs px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all duration-300"
-            style={{ border: `1px solid ${c.goldLine}`, color: c.goldSolid }}>
-            立即起盘
-          </motion.button>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* ══ HERO ══════════════════════════════════════════ */}
       <section ref={heroRef} className="relative min-h-[82svh] lg:min-h-[92vh] flex flex-col items-center justify-center px-6 z-10 pb-24 pt-10">
@@ -1056,7 +1029,7 @@ export default function HomePage() {
                   </div>
                   <div className="text-[9px] tracking-wider"
                     style={{ color: ready ? '#10b981' : c.textMuted }}>
-                    {ready ? '✓ 已上线' : `${s.when} 开放`}
+                    {ready ? '✓ 已上线' : s.when}
                   </div>
                 </a>
               );
