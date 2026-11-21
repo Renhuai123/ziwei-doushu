@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
+import { readNotConfiguredNotice } from '../../lib/ai/not-configured';
 import { formToBirthInfo } from '../../lib/ziwei/share';
 import type { BirthInfo } from '../../lib/ziwei/types';
 
@@ -12,7 +13,7 @@ assert.ok(start >= 0 && end > start);
 const body = `export function makeRun(ctx) {
   const {chartA,chartB,formA,formB,generateChart,formToBirthInfo,setFormError,
     setAnalyzing,setAnalysis,setAnalysisError,setChartA,setChartB,fetch,
-    setApiMissing,analysisRef} = ctx;
+    setNotConfiguredNotice,readNotConfiguredNotice,analysisRef} = ctx;
   const useCallback = (fn) => fn;
   ${source.slice(start, end)}
   return runAnalysis;
@@ -34,7 +35,7 @@ const context = () => ({
   setChartA: (value: unknown) => { chartA = value; },
   setChartB: (value: unknown) => { chartB = value; },
   setFormError: noop, setAnalyzing: noop, setAnalysis: noop, setAnalysisError: noop,
-  setApiMissing: noop, analysisRef: { current: null },
+  setNotConfiguredNotice: noop, readNotConfiguredNotice, analysisRef: { current: null },
   fetch: async (_url: string, options: { body: string }) => {
     requests.push(JSON.parse(options.body));
     return { status: 200, ok: true, body: new ReadableStream({ start(controller) { controller.close(); } }) };

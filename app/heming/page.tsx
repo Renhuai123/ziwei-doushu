@@ -5,6 +5,7 @@ import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
 import { generateChart as buildChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
+import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
 import { useTheme } from '@/components/ThemeProvider';
 
 // ─── AiContent 渲染器（与 InsightPanel 一致）────────────────
@@ -64,8 +65,8 @@ export default function HemingPage() {
   const [analyzing, setAnalyzing] = useState(false);
   const [question, setQuestion] = useState('');
   const [analysisError, setAnalysisError] = useState(false);
-  // 开源版不含 /api/heming：接口 404 时单独说明，而不是让用户反复重试
-  const [apiMissing, setApiMissing] = useState(false);
+  // /api/heming 返回 503（AI 未配置）时给出配置提示，而不是让用户反复重试
+  const [notConfiguredNotice, setNotConfiguredNotice] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const analysisRef = useRef<HTMLDivElement>(null);
 
@@ -93,6 +94,7 @@ export default function HemingPage() {
     setAnalyzing(true);
     setAnalysis('');
     setAnalysisError(false);
+    setNotConfiguredNotice(null);
 
     try {
       // 每次按当前表单起盘，避免编辑出生信息后复用旧盘。
@@ -113,7 +115,8 @@ export default function HemingPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chartA: cA, chartB: cB, question: q ?? undefined }),
       });
-      if (res.status === 404) { setApiMissing(true); throw new Error('api-missing'); }
+      const notice = await readNotConfiguredNotice(res);
+      if (notice) { setNotConfiguredNotice(notice); throw new Error(notice); }
       if (!res.ok || !res.body) throw new Error();
 
       const reader = res.body.getReader();
@@ -284,9 +287,7 @@ export default function HemingPage() {
 
           {analysisError && (
             <div style={{ padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--bdr)', background: 'var(--bg-card)', fontSize: '13px', color: 'var(--tx-2)', marginTop: '12px' }}>
-              {apiMissing
-                ? '开源版不含合盘 AI 分析接口（/api/heming），需要你自己实现后才能用。两人的命盘可以分别到「排盘」页（/chart）查看。'
-                : '分析暂时不可用，请重试。'}
+              {notConfiguredNotice ?? '分析暂时不可用，请重试。'}
             </div>
           )}
         </div>
