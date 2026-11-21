@@ -434,3 +434,17 @@ body {
    select 本身是半透明底 + 浅色字，Windows 上原生下拉列表是白底，浅灰字配白底看不清（#14） */
 [data-theme="dark"] select { color-scheme: dark; }
 [data-theme="dark"] select option { background-color: var(--bg-2); color: var(--tx-1); }
+
+/* Components use these --t-* names, which the open-source snapshot never defined; alias them to the theme tokens above. */
+:root, [data-theme] {
+  --t-gold: var(--ac);
+  --t-text: var(--tx-0);
+  --t-text1: var(--tx-1);
+  --t-text2: var(--tx-2);
+  --t-faint: var(--tx-3);
+  --t-border: var(--bdr);
+  --t-border-acc: var(--ac-bdr);
+  --t-bg: var(--bg-0);
+  --t-card: var(--bg-card);
+  --t-surface: var(--bg-1);
+}
