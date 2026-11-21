@@ -107,3 +107,6 @@ function escapeHtml(s: string): string {
 }
 
 export type { Book, Chapter, Paragraph, SearchHit } from './types';
+
+/** 搜索框下方与无结果时推荐的检索词 */
+export const SUGGESTED_QUERIES = ['七杀朝斗', '双禄朝垣', '化忌', '紫微', '命宫', '机月同梁'];

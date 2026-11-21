@@ -3,7 +3,9 @@
  */
 
 import Link from 'next/link';
-import { searchClassics, getParagraphById } from '@/lib/classics';
+import SiteHeader from '@/components/SiteHeader';
+import { searchClassics, getParagraphById, SUGGESTED_QUERIES } from '@/lib/classics';
+import LibrarySearch from '../LibrarySearch';
 
 export const metadata = {
   title: '搜索 · 古籍原典库',
@@ -15,107 +17,69 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const hits = q ? searchClassics(q, 50) : [];
 
   return (
-    <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      <div className="px-6 py-4 flex items-center justify-between"
-        style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
-        <Link href="/library" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
-          ← 古籍库
-        </Link>
-        <div style={{ fontSize: '12px', color: 'var(--tx-3)', letterSpacing: '0.2em' }}>
-          搜索结果
-        </div>
-        <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em', textDecoration: 'none' }}>
-          首页 →
-        </Link>
-      </div>
+    <>
+      <SiteHeader />
+      <main className="mx-auto w-full max-w-[880px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+        <nav aria-label="面包屑" className="mb-6 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
+          <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
+          <span aria-hidden>/</span>
+          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>搜索</span>
+        </nav>
 
-      <div className="max-w-3xl mx-auto px-6 py-12">
-        <div className="text-center mb-10">
-          <div style={{ fontSize: '13px', color: 'var(--tx-3)', letterSpacing: '0.15em', marginBottom: '4px' }}>
-            搜索关键词
-          </div>
-          <h1 style={{ fontSize: 'clamp(22px, 3.5vw, 32px)', fontWeight: 700, color: 'var(--tx-0)', letterSpacing: '0.1em' }}>
-            「{q || '（空）'}」
-          </h1>
-          <div style={{ fontSize: '12px', color: 'var(--tx-3)', marginTop: '8px' }}>
-            共找到 <strong style={{ color: 'var(--ac)' }}>{hits.length}</strong> 条古籍原文匹配
-          </div>
+        <div className="mb-8">
+          <LibrarySearch key={q} defaultValue={q} />
         </div>
+
+        {q && (
+          <h1 className="mb-5 text-[14px]" style={{ color: 'var(--tx-2)' }}>
+            「<span style={{ color: 'var(--tx-0)' }}>{q}</span>」共 <strong className="tabular-nums" style={{ color: 'var(--tx-0)' }}>{hits.length}</strong> 条原文匹配
+            {hits.length === 50 && <span style={{ color: 'var(--tx-3)' }}>（最多显示 50 条）</span>}
+          </h1>
+        )}
 
         {hits.length === 0 ? (
-          <div style={{
-            background: 'var(--bg-card)',
-            padding: '40px 20px',
-            borderRadius: '12px',
-            textAlign: 'center',
-            color: 'var(--tx-2)',
-            border: '1px solid rgba(184,146,42,0.15)',
-          }}>
-            <div style={{ fontSize: '40px', marginBottom: '12px', opacity: 0.4 }}>📜</div>
-            {q ? (
-              <>
-                <div style={{ fontSize: '14px', marginBottom: '6px' }}>暂未在已收录古籍中找到这个关键词</div>
-                <div style={{ fontSize: '11px', color: 'var(--tx-3)', lineHeight: 1.7 }}>
-                  我们持续补充内容中。可尝试搜索：<br />
-                  <span style={{ color: 'var(--ac)' }}>七杀朝斗 / 双禄朝垣 / 化忌 / 紫微 / 命宫 / 机月同梁</span>
-                </div>
-              </>
-            ) : (
-              <div style={{ fontSize: '13px' }}>请输入要搜索的关键词</div>
-            )}
+          <div className="card-glass rounded-2xl px-6 py-10 text-center">
+            <p className="text-[15px] font-medium mb-2" style={{ color: 'var(--tx-0)' }}>
+              {q ? '已收录古籍里没有找到这个词' : '输入关键词开始搜索'}
+            </p>
+            <p className="text-[13px] mb-5" style={{ color: 'var(--tx-3)' }}>
+              {q ? '换个说法，或试试这些常见检索：' : '可以搜星曜、格局、四化或宫位：'}
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {SUGGESTED_QUERIES.map(s => (
+                <Link key={s} href={`/library/search?q=${encodeURIComponent(s)}`} className="chip">{s}</Link>
+              ))}
+            </div>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <ol className="card-glass rounded-2xl">
             {hits.map((hit, i) => {
               const ctx = getParagraphById(hit.paragraphId);
               const chapterIdx = ctx?.chapterIdx ?? 0;
               return (
-                <Link
-                  key={i}
-                  href={`/library/${hit.bookSlug}/${chapterIdx}#${hit.paragraphId}`}
-                  style={{
-                    display: 'block',
-                    background: 'var(--bg-card)',
-                    padding: '16px 20px',
-                    borderRadius: '10px',
-                    border: '1px solid rgba(184,146,42,0.18)',
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    transition: 'border-color 0.15s',
-                  }}
-                >
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '11px',
-                    color: 'var(--tx-3)',
-                    marginBottom: '8px',
-                    letterSpacing: '0.1em',
-                  }}>
-                    <span style={{ color: 'var(--ac)', fontWeight: 600 }}>《{hit.bookTitle}》</span>
-                    <span style={{ opacity: 0.5 }}>·</span>
-                    <span>{hit.chapterTitle}</span>
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '14px',
-                      color: 'var(--tx-0)',
-                      lineHeight: 1.9,
-                      letterSpacing: '0.02em',
-                    }}
-                    dangerouslySetInnerHTML={{ __html: hit.snippet }}
-                  />
-                </Link>
+                <li key={i} style={{ borderTop: i === 0 ? 'none' : '1px solid var(--bdr)' }}>
+                  <Link
+                    href={`/library/${hit.bookSlug}/${chapterIdx}#${hit.paragraphId}`}
+                    className="block px-5 sm:px-6 py-4 transition-colors hover:bg-[var(--ac-bg)]"
+                  >
+                    <span className="mb-1.5 flex items-center gap-2 text-[12px]" style={{ color: 'var(--tx-3)' }}>
+                      <span className="font-medium" style={{ color: 'var(--ac)' }}>《{hit.bookTitle}》</span>
+                      <span aria-hidden>·</span>
+                      <span>{hit.chapterTitle}</span>
+                    </span>
+                    {/* snippet 由 searchClassics 生成：原文已 escapeHtml，只额外包了 <mark> */}
+                    <span
+                      className="search-snippet block text-[15px] leading-[1.9]"
+                      style={{ color: 'var(--tx-1)' }}
+                      dangerouslySetInnerHTML={{ __html: hit.snippet }}
+                    />
+                  </Link>
+                </li>
               );
             })}
-          </div>
+          </ol>
         )}
-      </div>
-
-      <style>{`
-        mark { background: rgba(184,146,42,0.3); color: #8b6a14; padding: 0 2px; border-radius: 2px; font-weight: 600; }
-      `}</style>
-    </div>
+      </main>
+    </>
   );
 }

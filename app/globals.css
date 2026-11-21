@@ -613,3 +613,15 @@ body {
 .matrix-cell:hover::after { opacity: 1; transform: scale(1.6); }
 .matrix-cell:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
 tr:hover > th[scope="row"] { color: var(--ac) !important; }
+
+/* 古籍搜索高亮与段落定位 */
+.search-snippet mark {
+  background: var(--ac-bg);
+  color: var(--ac);
+  box-shadow: inset 0 -1px 0 var(--ac-bdr);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.classic-para:target,
+.classic-para[data-hit] { background: var(--ac-bg); border-radius: var(--r-sm); }

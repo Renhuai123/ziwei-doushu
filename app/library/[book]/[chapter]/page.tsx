@@ -3,6 +3,8 @@
  */
 
 import Link from 'next/link';
+import SiteHeader from '@/components/SiteHeader';
+import HashHighlight from './HashHighlight';
 import { notFound } from 'next/navigation';
 import { ALL_BOOKS, getChapter } from '@/lib/classics';
 
@@ -31,148 +33,96 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
   const prevIdx = chapterIdx - 1;
   const nextIdx = chapterIdx + 1;
 
+  const prev = prevIdx >= 0 ? book.chapters[prevIdx] : null;
+  const next = nextIdx < book.chapters.length ? book.chapters[nextIdx] : null;
+
   return (
-    <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      <div className="px-6 py-4 flex items-center justify-between"
-        style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
-        <Link href={`/library/${book.slug}`} style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
-          ← 《{book.title}》目录
-        </Link>
-        <div style={{ fontSize: '12px', color: 'var(--tx-3)', letterSpacing: '0.15em' }}>
-          {chapter.title}
-        </div>
-        <Link href="/library" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em', textDecoration: 'none' }}>
-          古籍库 →
-        </Link>
-      </div>
+    <>
+      <SiteHeader />
+      <HashHighlight />
+      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+        <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
+          <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
+          <span aria-hidden>/</span>
+          <Link href={`/library/${book.slug}`} className="hover:text-[var(--tx-0)]">《{book.title}》</Link>
+          <span aria-hidden>/</span>
+          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>{chapter.title}</span>
+        </nav>
 
-      <article className="max-w-3xl mx-auto px-6 py-12">
-        {/* 标题 */}
-        <div className="text-center mb-10">
-          <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.25em', marginBottom: '8px' }}>
-            《{book.title}》· {book.dynasty}
-          </div>
-          <h1 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, color: 'var(--tx-0)', letterSpacing: '0.15em', marginBottom: '8px' }}>
-            {chapter.title}
-          </h1>
-          {chapter.subtitle && (
-            <div style={{ fontSize: '13px', color: 'var(--tx-2)', letterSpacing: '0.1em' }}>
-              {chapter.subtitle}
-            </div>
-          )}
-        </div>
-
-        {/* 段落 */}
-        <div style={{ background: 'var(--bg-card)', borderRadius: '14px', border: '1px solid rgba(184,146,42,0.2)', padding: '32px 28px' }}>
-          {chapter.paragraphs.map((p, i) => (
-            <div
-              key={p.id}
-              id={p.id}
-              style={{
-                marginBottom: i === chapter.paragraphs.length - 1 ? 0 : '20px',
-                paddingBottom: i === chapter.paragraphs.length - 1 ? 0 : '20px',
-                borderBottom: i === chapter.paragraphs.length - 1 ? 'none' : '1px dashed rgba(184,146,42,0.15)',
-                scrollMarginTop: '80px',
-              }}
-            >
-              <div style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '12px',
-              }}>
-                <span style={{
-                  fontSize: '11px',
-                  color: 'var(--ac)',
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  minWidth: '24px',
-                }}>
-                  {String(p.idx).padStart(2, '0')}
-                </span>
-                <p style={{
-                  flex: 1,
-                  fontSize: '16px',
-                  color: 'var(--tx-0)',
-                  lineHeight: 2,
-                  letterSpacing: '0.04em',
-                  fontFamily: '"PingFang SC", "Hiragino Sans GB", serif',
-                }}>
-                  {p.text}
-                </p>
-              </div>
-              {p.translation && (
-                <div style={{
-                  marginTop: '8px',
-                  marginLeft: '36px',
-                  padding: '8px 12px',
-                  background: 'rgba(184,146,42,0.05)',
-                  borderRadius: '6px',
-                  fontSize: '13px',
-                  color: 'var(--tx-2)',
-                  lineHeight: 1.8,
-                }}>
-                  <span style={{ fontSize: '10px', color: 'var(--ac)', marginRight: '6px' }}>白话</span>
-                  {p.translation}
-                </div>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
+          <article className="min-w-0">
+            <header className="mb-10">
+              <p className="eyebrow mb-3">《{book.title}》· 第 {chapterIdx + 1} 章</p>
+              <h1 className="text-[28px] sm:text-[36px] font-semibold leading-tight tracking-[0.06em]" style={{ color: 'var(--tx-0)' }}>
+                {chapter.title}
+              </h1>
+              {chapter.subtitle && (
+                <p className="mt-3 text-[14px]" style={{ color: 'var(--tx-3)' }}>{chapter.subtitle}</p>
               )}
-              {p.niNote && (
-                <div style={{
-                  marginTop: '8px',
-                  marginLeft: '36px',
-                  padding: '8px 12px',
-                  background: 'rgba(196,90,45,0.05)',
-                  borderRadius: '6px',
-                  fontSize: '13px',
-                  color: 'var(--tx-2)',
-                  lineHeight: 1.8,
-                }}>
-                  <span style={{ fontSize: '10px', color: 'var(--ji)', marginRight: '6px' }}>倪师注</span>
-                  {p.niNote}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+            </header>
 
-        {/* 章节导航 */}
-        <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
-          {prevIdx >= 0 ? (
-            <Link
-              href={`/library/${book.slug}/${prevIdx}`}
-              style={{
-                flex: 1,
-                padding: '14px 18px',
-                background: 'var(--bg-card)',
-                border: '1px solid rgba(184,146,42,0.2)',
-                borderRadius: '10px',
-                textDecoration: 'none',
-                color: 'var(--tx-0)',
-              }}
-            >
-              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>← 上一章</div>
-              <div style={{ fontSize: '13px', fontWeight: 500 }}>{book.chapters[prevIdx].title}</div>
-            </Link>
-          ) : <div style={{ flex: 1 }} />}
-          {nextIdx < book.chapters.length ? (
-            <Link
-              href={`/library/${book.slug}/${nextIdx}`}
-              style={{
-                flex: 1,
-                padding: '14px 18px',
-                background: 'var(--bg-card)',
-                border: '1px solid rgba(184,146,42,0.2)',
-                borderRadius: '10px',
-                textDecoration: 'none',
-                color: 'var(--tx-0)',
-                textAlign: 'right',
-              }}
-            >
-              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>下一章 →</div>
-              <div style={{ fontSize: '13px', fontWeight: 500 }}>{book.chapters[nextIdx].title}</div>
-            </Link>
-          ) : <div style={{ flex: 1 }} />}
+            <ol className="max-w-[68ch]">
+              {chapter.paragraphs.map(p => (
+                <li key={p.id} id={p.id} className="classic-para scroll-mt-24 grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3 py-5" style={{ borderTop: '1px solid var(--bdr)' }}>
+                  <a href={`#${p.id}`} className="pt-1.5 text-[12px] font-medium tabular-nums hover:underline" style={{ color: 'var(--ac)' }} aria-label={`第 ${p.idx} 段`}>
+                    {String(p.idx).padStart(2, '0')}
+                  </a>
+                  <div>
+                    <p className="text-[17px] leading-[2] tracking-[0.04em]" style={{ color: 'var(--tx-0)', fontFamily: '"Songti SC", "Noto Serif SC", "Source Han Serif SC", serif' }}>
+                      {p.text}
+                    </p>
+                    {p.translation && (
+                      <p className="mt-3 pl-3 text-[14px] leading-[1.85]" style={{ color: 'var(--tx-2)', borderLeft: '2px solid var(--ac-bdr)' }}>
+                        <span className="mr-2 text-[11px] font-medium tracking-[0.1em]" style={{ color: 'var(--ac)' }}>白话</span>
+                        {p.translation}
+                      </p>
+                    )}
+                    {p.niNote && (
+                      <p className="mt-3 pl-3 text-[14px] leading-[1.85]" style={{ color: 'var(--tx-2)', borderLeft: '2px solid var(--ji)' }}>
+                        <span className="mr-2 text-[11px] font-medium tracking-[0.1em]" style={{ color: 'var(--ji)' }}>倪师注</span>
+                        {p.niNote}
+                      </p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <nav aria-label="章节翻页" className="mt-10 grid max-w-[68ch] grid-cols-2 gap-3">
+              {prev ? (
+                <Link href={`/library/${book.slug}/${prevIdx}`} className="card-glass rounded-xl px-4 py-3 transition-colors hover:border-[var(--ac-bdr)]">
+                  <span className="block text-[12px] mb-0.5" style={{ color: 'var(--tx-3)' }}>← 上一章</span>
+                  <span className="block text-[14px] font-medium truncate" style={{ color: 'var(--tx-0)' }}>{prev.title}</span>
+                </Link>
+              ) : <span />}
+              {next ? (
+                <Link href={`/library/${book.slug}/${nextIdx}`} className="card-glass rounded-xl px-4 py-3 text-right transition-colors hover:border-[var(--ac-bdr)]">
+                  <span className="block text-[12px] mb-0.5" style={{ color: 'var(--tx-3)' }}>下一章 →</span>
+                  <span className="block text-[14px] font-medium truncate" style={{ color: 'var(--tx-0)' }}>{next.title}</span>
+                </Link>
+              ) : <span />}
+            </nav>
+          </article>
+
+          <aside aria-label={`《${book.title}》目录`} className="lg:sticky lg:top-20 lg:self-start">
+            <p className="text-[12px] mb-2 px-3 tracking-[0.12em]" style={{ color: 'var(--tx-3)' }}>《{book.title}》目录</p>
+            <ol className="lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto space-y-0.5">
+              {book.chapters.map((c, i) => (
+                <li key={i}>
+                  <Link
+                    href={`/library/${book.slug}/${i}`}
+                    aria-current={i === chapterIdx ? 'page' : undefined}
+                    className="topic-link !justify-start gap-3"
+                  >
+                    <span className="w-5 shrink-0 text-[11px] tabular-nums" style={{ color: 'var(--tx-3)' }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className="truncate">{c.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
-      </article>
-    </div>
+      </main>
+    </>
   );
 }
