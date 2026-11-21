@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BirthForm from '@/components/BirthForm';
 import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
+import ReadingsPanel from '@/components/ReadingsPanel';
 import { generateChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
 
@@ -11,6 +12,8 @@ import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
  *
  * 这是一个最小可运行示例：用本仓库的排盘引擎 generateChart() 配合基础 UI
  * 组件，渲染一张完整紫微命盘 + 基础解读，并支持本命 / 大限 / 流年切换。
+ * 命盘下方按出生日期、时辰、性别查 v4.0 数据集，展示 13 个主题的本命盘解读
+ * （ReadingsPanel，经 /api/readings 读取本地月份分片）。
  *
  * 说明：线上商业版的完整交互界面（重设计的新 UI、AI 流式解读、合盘、分享
  * 卡片等）不在开源范围内；但排盘内核——安星算法、四化、格局识别、古籍库——
@@ -58,6 +61,8 @@ export default function ChartPage() {
         <ChartBoard chart={chart} onPalaceSelect={setSelectedPalace} />
         <InsightPanel chart={chart} selectedPalace={selectedPalace} />
       </div>
+
+      <ReadingsPanel chart={chart} />
     </main>
   );
 }
