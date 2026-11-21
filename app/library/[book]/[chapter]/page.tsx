@@ -8,6 +8,11 @@ import HashHighlight from './HashHighlight';
 import { notFound } from 'next/navigation';
 import { ALL_BOOKS, getChapter } from '@/lib/classics';
 
+/** 只接受规范写法的章节号（"0"、"12"）；"1.5"、"01" 之类不再渲染成同一章的另一个网址。 */
+function parseChapterIndex(raw: string): number {
+  return /^(0|[1-9]\d*)$/.test(raw) ? Number(raw) : NaN;
+}
+
 export async function generateStaticParams() {
   return ALL_BOOKS.flatMap(b =>
     b.chapters.map((_, i) => ({ book: b.slug, chapter: String(i) }))
@@ -16,7 +21,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ book: string; chapter: string }> }) {
   const { book: bookSlug, chapter: chIdx } = await params;
-  const result = getChapter(bookSlug, parseInt(chIdx));
+  const result = getChapter(bookSlug, parseChapterIndex(chIdx));
   if (!result) return {};
   return {
     title: `${result.chapter.title} · 《${result.book.title}》· 紫微斗数古籍`,
@@ -27,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ book: str
 
 export default async function ChapterPage({ params }: { params: Promise<{ book: string; chapter: string }> }) {
   const { book: bookSlug, chapter: chIdx } = await params;
-  const result = getChapter(bookSlug, parseInt(chIdx));
+  const result = getChapter(bookSlug, parseChapterIndex(chIdx));
   if (!result) notFound();
 
   const { book, chapter, chapterIdx } = result;

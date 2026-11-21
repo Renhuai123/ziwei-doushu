@@ -3,12 +3,14 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
+import { fitHistory } from '@/lib/ai/history';
 import type { TimeView } from './TimeNav';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
   hidden?: boolean; // don't show user bubble for auto/topic messages
+  local?: boolean;  // 前端自己生成的提示（如失败），不作为对话上下文发给 AI
 }
 
 interface SelectedSiHua {
@@ -318,7 +320,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
         }
       }
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。', local: true }]);
     } finally {
       setLoading(false);
       loadingRef.current = false;
@@ -332,10 +334,11 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
 
     const userMsg: Message = { role: 'user', content: text, hidden };
     // Capture current messages synchronously via ref (avoids stale closure)
-    const apiMessages = [...messagesRef.current, userMsg].map(m => ({
-      role: m.role,
-      content: m.content,
-    }));
+    const apiMessages = fitHistory(
+      [...messagesRef.current, userMsg]
+        .filter(m => !m.local)
+        .map(m => ({ role: m.role, content: m.content })),
+    );
 
     setMessages(prev => [...prev, userMsg]);
     setInput('');

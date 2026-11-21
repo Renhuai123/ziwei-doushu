@@ -7,7 +7,7 @@ export const loadEngine = () => import('./algorithm');
 /** 页面渲染后趁空闲预取引擎：用户填完表时通常已经下载好，点提交不用再等。 */
 export function usePrefetchEngine() {
   useEffect(() => {
-    const prefetch = () => { void loadEngine(); };
+    const prefetch = () => { loadEngine().catch(() => {}); };
     if ('requestIdleCallback' in window) {
       const id = window.requestIdleCallback(prefetch, { timeout: 2000 });
       return () => window.cancelIdleCallback(id);

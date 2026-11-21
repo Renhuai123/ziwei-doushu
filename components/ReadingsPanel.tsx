@@ -30,6 +30,7 @@ const muted = { color: 'var(--tx-2)' } as const;
 
 export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
   const [state, setState] = useState<State>({ phase: 'loading' });
+  const [attempt, setAttempt] = useState(0);
   const [topic, setTopic] = useState<TopicKey>('overview');
   const articleRef = useRef<HTMLElement>(null);
   // 已经读到正文中段时切换主题，回到新主题开头（标签栏是 sticky 的，滚过去后仍可点）
@@ -53,7 +54,7 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
       .then((result) => setState({ phase: 'done', result }))
       .catch((e) => { if (!ctrl.signal.aborted) { console.error(e); setState({ phase: 'error' }); } });
     return () => ctrl.abort();
-  }, [year, month, day, hour, gender]);
+  }, [year, month, day, hour, gender, attempt]);
 
   let body: React.ReactNode;
   if (state.phase === 'loading') {
@@ -65,7 +66,12 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
       </div>
     );
   } else if (state.phase === 'error') {
-    body = <p className="text-[13px]" style={muted}>解读加载失败，请稍后重试。</p>;
+    body = (
+      <div role="alert" className="flex flex-wrap items-center gap-3">
+        <p className="text-[14px]" style={muted}>解读没能加载出来，可能是网络一时不稳。</p>
+        <button type="button" className="chip" onClick={() => setAttempt(a => a + 1)}>重试</button>
+      </div>
+    );
   } else if (state.result.status === 'out-of-range') {
     const [from, to] = state.result.range;
     body = <p className="text-[13px]" style={muted}>数据集目前只覆盖 {from} 至 {to} 年出生的命盘，这张盘不在范围内。</p>;

@@ -4,9 +4,9 @@ import type { ChatMessage } from './stream';
 
 export type Parsed<T> = { ok: true; value: T } | { ok: false; error: string };
 
-export const MAX_MESSAGES = 40;
-export const MAX_MESSAGE_CHARS = 8000;
-export const MAX_QUESTION_CHARS = 1000;
+import { MAX_MESSAGE_CHARS, MAX_MESSAGES, MAX_QUESTION_CHARS } from './limits';
+
+export { MAX_MESSAGE_CHARS, MAX_MESSAGES, MAX_QUESTION_CHARS };
 
 const LEAP_POLICIES: readonly LunarMonthPolicy[] = ['split', 'next-month', 'prev-month', 'origin-month'];
 

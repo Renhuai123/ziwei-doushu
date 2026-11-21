@@ -124,7 +124,8 @@ export default function HemingPage() {
         generateChart(formToBirthInfo(formB!)),
       ]);
       if (!cA || !cB) {
-        setAnalysisError(true);
+        // 失败的是排盘（多半是引擎没下载完），不是 AI 分析，提示放在按钮下方
+        setFormError('排盘没有成功：请检查网络后重试，或核对双方日期是否真实存在。');
         setAnalyzing(false);
         return;
       }

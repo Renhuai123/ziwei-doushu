@@ -17,6 +17,7 @@ export default function ChartPage() {
   const [chart, setChart] = useState<ZiweiChart | null>(null);
   const [selectedPalace, setSelectedPalace] = useState<Palace | null>(null);
   const [engineLoading, setEngineLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   usePrefetchEngine();
 
@@ -39,15 +40,34 @@ export default function ChartPage() {
             loading={engineLoading}
             onSubmit={async (info: BirthInfo) => {
               setEngineLoading(true);
+              setSubmitError(null);
+              let engine: Awaited<ReturnType<typeof loadEngine>>;
               try {
-                const { generateChart } = await loadEngine();
-                setChart(generateChart(info));
+                engine = await loadEngine();
+              } catch (e) {
+                console.error(e);
+                setSubmitError('排盘程序没能下载完成，请检查网络后再点一次「立即起盘」。');
+                setEngineLoading(false);
+                return;
+              }
+              try {
+                setChart(engine.generateChart(info));
                 window.scrollTo({ top: 0 });
+              } catch (e) {
+                console.error(e);
+                setSubmitError(e instanceof RangeError
+                  ? '这组出生信息排不了盘，请核对日期是否真实存在（例如 2 月 30 日）。'
+                  : '排盘时出了点问题，请稍后再试。');
               } finally {
                 setEngineLoading(false);
               }
             }}
           />
+          {submitError && (
+            <p role="alert" className="mt-4 rounded-xl px-4 py-3 text-[14px] leading-relaxed" style={{ background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.3)', color: 'var(--tx-0)' }}>
+              {submitError}
+            </p>
+          )}
         </main>
       </>
     );
