@@ -6,13 +6,19 @@
  * Usage: npx tsx scripts/readings/check-alignment.ts [year] [month]
  */
 import { readFileSync } from 'node:fs';
-import { zstdDecompressSync, constants } from 'node:zlib';
+import * as zlib from 'node:zlib';
 import { generateChart } from '../../lib/ziwei/algorithm';
 
+// @types/node here predates the Node 24 zstd API.
+const zstd = zlib as unknown as {
+  zstdDecompressSync(buf: Buffer, opts: object): Buffer;
+  constants: { ZSTD_d_windowLogMax: number };
+};
+
 const [year = '1990', month = '06'] = process.argv.slice(2);
-const raw = zstdDecompressSync(
+const raw = zstd.zstdDecompressSync(
   readFileSync(`data/v4/shards/${year}/${month}.jsonl.zst`),
-  { params: { [constants.ZSTD_d_windowLogMax]: 27 } },
+  { params: { [zstd.constants.ZSTD_d_windowLogMax]: 27 } },
 ).toString('utf8');
 
 let checked = 0;
