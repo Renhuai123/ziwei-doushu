@@ -2,10 +2,10 @@
 import { useState, useCallback, useRef } from 'react';
 import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
-import { generateChart as buildChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
 import SiteHeader from '@/components/SiteHeader';
+import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 
 // ─── AI 输出渲染：**【标题】** → 小节标题，**粗体** → strong ─────────
@@ -72,6 +72,7 @@ function PartyLabel({ mark, title }: { mark: string; title: string }) {
 }
 
 export default function HemingPage() {
+  usePrefetchEngine();
   // ─── 双方命盘状态 ─────────────────────────────────────────
   const [chartA, setChartA] = useState<ZiweiChart | null>(null);
   const [chartB, setChartB] = useState<ZiweiChart | null>(null);
@@ -93,6 +94,7 @@ export default function HemingPage() {
   // 开源版不含后端 /api/generate：直接用本仓库的排盘引擎在浏览器里起盘
   const generateChart = useCallback(async (info: BirthInfo): Promise<ZiweiChart | null> => {
     try {
+      const { generateChart: buildChart } = await loadEngine();
       return buildChart(info);
     } catch {
       return null;

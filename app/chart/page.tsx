@@ -5,8 +5,8 @@ import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
 import ReadingsPanel from '@/components/ReadingsPanel';
 import SiteHeader from '@/components/SiteHeader';
-import { generateChart } from '@/lib/ziwei/algorithm';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
+import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
 
 /**
@@ -16,6 +16,9 @@ import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
 export default function ChartPage() {
   const [chart, setChart] = useState<ZiweiChart | null>(null);
   const [selectedPalace, setSelectedPalace] = useState<Palace | null>(null);
+  const [engineLoading, setEngineLoading] = useState(false);
+
+  usePrefetchEngine();
 
   if (!chart) {
     return (
@@ -33,9 +36,16 @@ export default function ChartPage() {
             填写公历出生日期与时间，即时排出十二宫、主辅星曜与四化。填了出生地，时辰会按真太阳时校正。
           </p>
           <BirthForm
-            onSubmit={(info: BirthInfo) => {
-              setChart(generateChart(info));
-              window.scrollTo({ top: 0 });
+            loading={engineLoading}
+            onSubmit={async (info: BirthInfo) => {
+              setEngineLoading(true);
+              try {
+                const { generateChart } = await loadEngine();
+                setChart(generateChart(info));
+                window.scrollTo({ top: 0 });
+              } finally {
+                setEngineLoading(false);
+              }
             }}
           />
         </main>
