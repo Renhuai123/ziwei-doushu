@@ -154,9 +154,10 @@ function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
         const sectionMatch = line.match(/^\*\*【(.+?)】\*\*$/);
         if (sectionMatch) {
           return (
-            <div key={i} className="pt-3 pb-0.5 first:pt-0">
-              <span className="text-[11px] font-semibold tracking-wide" style={{ color: 'var(--t-gold)' }}>
-                【{sectionMatch[1]}】
+            <div key={i} className="pt-4 pb-1 first:pt-0 flex items-center gap-2">
+              <span aria-hidden className="h-px w-3" style={{ background: 'var(--ac)' }} />
+              <span className="text-[13px] font-semibold tracking-wide" style={{ color: 'var(--tx-0)' }}>
+                {sectionMatch[1]}
               </span>
             </div>
           );
@@ -164,7 +165,7 @@ function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
         if (line.trim() === '') return <div key={i} className="h-1" />;
         const parts = line.split(/\*\*(.+?)\*\*/);
         return (
-          <div key={i} className="text-[11px] leading-relaxed" style={{ color: 'var(--t-text2)' }}>
+          <div key={i} className="text-[13px] leading-[1.8]" style={{ color: 'var(--tx-2)' }}>
             {parts.map((part, j) =>
               j % 2 === 0
                 ? part
@@ -188,6 +189,7 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [activeTopic, setActiveTopic] = useState<string>('overview');
+  const [setupHint, setSetupHint] = useState<string | null>(null);
   const messagesRef = useRef<Message[]>([]); // always-current copy for closures
   const loadingRef = useRef(false);
   const autoLoaded = useRef(false);
@@ -284,7 +286,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       });
       const notice = await readNotConfiguredNotice(res);
       if (notice) {
-        setMessages(prev => [...prev, { role: 'assistant', content: notice }]);
+        setSetupHint(notice);
         return;
       }
       if (!res.ok) throw new Error('请求失败');
@@ -351,10 +353,14 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
   };
 
   return (
-    <div className="flex flex-col h-[min(44rem,80dvh)] min-h-0 min-w-0 rounded-xl overflow-hidden card-glass">
+    <div className="flex flex-col h-[min(44rem,80dvh)] min-h-0 min-w-0 rounded-2xl overflow-hidden card-glass">
 
       {/* ── Topic buttons ── */}
-      <div className="flex-shrink-0 px-2 pt-2.5 pb-2" style={{ borderBottom: '1px solid var(--t-border)' }}>
+      <div className="flex-shrink-0 px-3 pt-3 pb-3" style={{ borderBottom: '1px solid var(--bdr)' }}>
+        <div className="flex items-center justify-between mb-2.5 px-1">
+          <span className="text-[13px] font-semibold" style={{ color: 'var(--tx-0)' }}>AI 解读</span>
+          <span className="text-[11px]" style={{ color: 'var(--tx-3)' }}>点宫位可单独分析</span>
+        </div>
         <div className="grid grid-cols-6 gap-1">
           {TOPICS.map(t => {
             const isActive = activeTopic === t.key;
@@ -362,12 +368,13 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
               <button
                 key={t.key}
                 onClick={() => handleTopicClick(t.key)}
-                disabled={loading}
-                className="py-1.5 text-[10px] font-medium rounded-lg transition-all duration-150 disabled:opacity-40"
+                disabled={loading || !!setupHint}
+                aria-pressed={isActive}
+                className="py-1.5 text-[12px] font-medium rounded-lg transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{
-                  background: isActive ? 'rgba(212,168,67,0.12)' : 'transparent',
-                  border: `1px solid ${isActive ? 'rgba(212,168,67,0.3)' : 'var(--t-border)'}`,
-                  color: isActive ? 'var(--t-gold)' : 'var(--t-faint)',
+                  background: isActive ? 'var(--ac-bg)' : 'transparent',
+                  border: `1px solid ${isActive ? 'var(--ac-bdr)' : 'var(--bdr)'}`,
+                  color: isActive ? 'var(--ac)' : 'var(--tx-3)',
                 }}
               >
                 {t.label}
@@ -381,10 +388,31 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       <div ref={scrollRef} className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-4 min-h-0">
 
         {/* Loading state before first message */}
-        {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center">
-            <div className="text-4xl mb-3" style={{ color: 'var(--t-gold)', opacity: 0.1 }}>✦</div>
-            <p className="text-[10px] animate-pulse" style={{ color: 'var(--t-faint)' }}>命格解读生成中…</p>
+        {setupHint ? (
+          <div className="flex flex-col justify-center h-full px-2">
+            <div
+              aria-hidden
+              className="mb-4 grid h-10 w-10 place-items-center rounded-full text-[16px]"
+              style={{ border: '1px solid var(--ac-bdr)', background: 'var(--ac-bg)', color: 'var(--ac)' }}
+            >
+              ✦
+            </div>
+            <p className="text-[15px] font-semibold mb-2" style={{ color: 'var(--tx-0)' }}>AI 解读未启用</p>
+            <p className="text-[13px] leading-[1.8] mb-4" style={{ color: 'var(--tx-2)' }}>
+              命盘与下方十三个主题的解读都可正常查看。要开启对话式解读，需要在服务端配置一个 AI 服务商。
+            </p>
+            <p
+              className="text-[12px] leading-[1.7] rounded-lg p-3 font-mono break-words"
+              style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr)', color: 'var(--tx-2)' }}
+            >
+              {setupHint}
+            </p>
+          </div>
+        ) : messages.length === 0 && (
+          <div className="space-y-3 pt-1" aria-busy="true" aria-label="命格解读生成中">
+            {[70, 100, 92, 100, 64].map((w, i) => (
+              <div key={i} className="h-2.5 rounded-full animate-pulse" style={{ width: `${w}%`, background: 'var(--bg-2)' }} />
+            ))}
           </div>
         )}
 
@@ -401,11 +429,11 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   className="flex justify-end"
                 >
                   <div
-                    className="max-w-[85%] rounded-xl px-3 py-2 text-[11px]"
+                    className="max-w-[85%] rounded-xl px-3 py-2 text-[13px]"
                     style={{
-                      background: 'rgba(212,168,67,0.08)',
-                      border: '1px solid rgba(212,168,67,0.18)',
-                      color: 'var(--t-gold)',
+                      background: 'var(--ac-bg)',
+                      border: '1px solid var(--ac-bdr)',
+                      color: 'var(--tx-0)',
                     }}
                   >
                     {msg.content}
@@ -423,10 +451,10 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                 animate={{ opacity: 1, y: 0 }}
               >
                 <div
-                  className="text-[9px] tracking-widest mb-2 flex items-center gap-1.5"
-                  style={{ color: 'var(--t-faint)' }}
+                  className="text-[11px] tracking-widest mb-2 flex items-center gap-1.5"
+                  style={{ color: 'var(--tx-3)' }}
                 >
-                  <span style={{ color: 'var(--t-gold)', opacity: 0.4 }}>✦</span>
+                  <span style={{ color: 'var(--ac)' }}>✦</span>
                   命理解读
                 </div>
                 <AiContent text={msg.content} streaming={loading && isLastMsg} />
@@ -437,30 +465,30 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       </div>
 
       {/* ── Input ── */}
-      <div className="flex-shrink-0 px-3 pb-3 pt-2" style={{ borderTop: '1px solid var(--t-border)' }}>
+      <div className="flex-shrink-0 px-3 pb-3 pt-3" style={{ borderTop: '1px solid var(--bdr)' }}>
         <div className="flex gap-2">
           <input
             type="text"
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleSend()}
-            placeholder="继续追问，如：今年适合换工作吗？"
-            disabled={loading}
-            className="flex-1 rounded-lg px-3 py-2 text-[11px] focus:outline-none transition-colors"
+            placeholder={setupHint ? '配置 AI 后可追问' : '继续追问，如：今年适合换工作吗？'}
+            aria-label="追问内容"
+            disabled={loading || !!setupHint}
+            className="flex-1 min-w-0 rounded-lg px-3 h-10 text-[13px] outline-none transition-colors focus:border-[var(--ac-bdr)] disabled:cursor-not-allowed"
             style={{
-              background: 'var(--t-card)',
-              border: '1px solid var(--t-border)',
-              color: 'var(--t-text)',
+              background: 'var(--bg-1)',
+              border: '1px solid var(--bdr-med)',
+              color: 'var(--tx-0)',
             }}
           />
           <button
             onClick={handleSend}
-            disabled={loading || !input.trim()}
-            className="px-3 py-2 rounded-lg text-[11px] font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            disabled={loading || !input.trim() || !!setupHint}
+            className="px-4 h-10 rounded-lg text-[13px] font-medium transition-opacity disabled:opacity-35 disabled:cursor-not-allowed"
             style={{
-              background: 'rgba(212,168,67,0.15)',
-              border: '1px solid rgba(212,168,67,0.25)',
-              color: 'var(--t-gold)',
+              background: 'var(--ac)',
+              color: 'var(--bg-0)',
             }}
           >
             {loading ? '…' : '追问'}

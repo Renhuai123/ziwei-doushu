@@ -10,29 +10,23 @@ type State = { phase: 'loading' } | { phase: 'error' } | { phase: 'done'; result
 
 function Markdown({ text }: { text: string }) {
   return (
-    <div className="space-y-1">
+    <div className="reading-prose">
       {text.split('\n').map((line, i) => {
         const section = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (section) {
-          return (
-            <div key={i} className="pt-4 pb-0.5 first:pt-0 text-[13px] font-semibold tracking-wide" style={{ color: 'var(--t-gold)' }}>
-              【{section[1]}】
-            </div>
-          );
-        }
-        if (line.trim() === '') return <div key={i} className="h-1" />;
+        if (section) return <h3 key={i}>{section[1]}</h3>;
+        if (line.trim() === '') return null;
         const parts = line.split(/\*\*(.+?)\*\*/);
         return (
-          <div key={i} className="text-[13px] leading-relaxed" style={{ color: 'var(--t-text2)', whiteSpace: 'pre-wrap' }}>
-            {parts.map((part, j) => (j % 2 === 0
-              ? part
-              : <strong key={j} className="font-medium" style={{ color: 'var(--t-text)' }}>{part}</strong>))}
-          </div>
+          <p key={i} style={{ whiteSpace: 'pre-wrap' }}>
+            {parts.map((part, j) => (j % 2 === 0 ? part : <strong key={j}>{part}</strong>))}
+          </p>
         );
       })}
     </div>
   );
 }
+
+const muted = { color: 'var(--tx-2)' } as const;
 
 export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
   const [state, setState] = useState<State>({ phase: 'loading' });
@@ -56,23 +50,34 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
 
   let body: React.ReactNode;
   if (state.phase === 'loading') {
-    body = <p className="text-[13px]" style={{ color: 'var(--t-text2)' }}>正在查找你的命盘解读…</p>;
+    body = (
+      <div className="space-y-3" aria-busy="true" aria-label="正在载入解读">
+        {[92, 100, 84, 96, 60].map((w, i) => (
+          <div key={i} className="h-3 rounded-full animate-pulse" style={{ width: `${w}%`, background: 'var(--bg-2)' }} />
+        ))}
+      </div>
+    );
   } else if (state.phase === 'error') {
-    body = <p className="text-[13px]" style={{ color: 'var(--t-text2)' }}>解读加载失败，请稍后重试。</p>;
+    body = <p className="text-[13px]" style={muted}>解读加载失败，请稍后重试。</p>;
   } else if (state.result.status === 'out-of-range') {
     const [from, to] = state.result.range;
-    body = <p className="text-[13px]" style={{ color: 'var(--t-text2)' }}>数据集目前只覆盖 {from} 至 {to} 年出生的命盘，这张盘不在范围内。</p>;
+    body = <p className="text-[13px]" style={muted}>数据集目前只覆盖 {from} 至 {to} 年出生的命盘，这张盘不在范围内。</p>;
   } else if (state.result.status === 'unavailable') {
     body = (
-      <p className="text-[13px]" style={{ color: 'var(--t-text2)' }}>
+      <p className="text-[13px]" style={muted}>
         解读索引尚未构建。请先运行 <code>node scripts/readings/build-shards.mjs</code>。
       </p>
     );
   } else {
     const { reading } = state.result;
     body = (
-      <>
-        <div role="tablist" aria-label="解读主题" className="flex flex-wrap gap-1.5 mb-4">
+      <div className="grid gap-6 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-10">
+        <div
+          role="tablist"
+          aria-label="解读主题"
+          aria-orientation="vertical"
+          className="flex gap-1 overflow-x-auto -mx-1 px-1 pb-1 lg:flex-col lg:overflow-visible lg:sticky lg:top-20 lg:self-start"
+        >
           {TOPICS.map((k) => (
             <button
               key={k}
@@ -80,27 +85,31 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
               role="tab"
               aria-selected={k === topic}
               onClick={() => setTopic(k)}
-              className="rounded-lg px-3 py-1 text-[12px] cursor-pointer"
-              style={{
-                border: '1px solid var(--t-gold)',
-                background: k === topic ? 'var(--t-gold)' : 'transparent',
-                color: k === topic ? 'var(--t-bg, #000)' : 'var(--t-gold)',
-              }}
+              className="topic-link shrink-0 lg:shrink whitespace-nowrap cursor-pointer"
             >
               {TOPIC_LABEL[k]}
             </button>
           ))}
         </div>
-        <Markdown text={reading.topics[topic]} />
-      </>
+        <article key={topic} role="tabpanel" aria-label={TOPIC_LABEL[topic]} className="min-w-0 animate-fade-in">
+          <Markdown text={reading.topics[topic]} />
+        </article>
+      </div>
     );
   }
 
   return (
-    <section className="card-glass rounded-xl p-5" style={{ marginTop: 20 }}>
-      <h2 className="text-[15px] font-semibold mb-3" style={{ color: 'var(--t-text)' }}>命盘解读</h2>
+    <section className="card-glass rounded-2xl p-5 sm:p-8 mt-8" aria-labelledby="readings-title">
+      <header className="mb-6 sm:mb-8 flex flex-wrap items-baseline justify-between gap-2">
+        <div>
+          <p className="eyebrow mb-2">本命盘解读</p>
+          <h2 id="readings-title" className="text-[22px] font-semibold" style={{ color: 'var(--tx-0)' }}>
+            十三个主题，逐项细读
+          </h2>
+        </div>
+      </header>
       {body}
-      <p className="text-[11px] mt-5 leading-relaxed" style={{ color: 'var(--t-text2)', opacity: 0.8 }}>
+      <p className="text-[11px] mt-10 pt-5 leading-relaxed" style={{ color: 'var(--tx-3)', borderTop: '1px solid var(--bdr)' }}>
         解读数据来自 ziwei-doushu 项目（github.com/Renhuai123/ziwei-doushu）v4.0 本命盘解读，采用 CC BY 4.0 许可。
         其中引用的倪海厦《天纪》原文不在该许可范围内。
       </p>
