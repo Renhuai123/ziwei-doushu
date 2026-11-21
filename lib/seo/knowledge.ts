@@ -97,6 +97,8 @@ export interface KnowledgeData {
   topic: TopicKey;
   topicLabel: string;
   palaceName: string;
+  /** Palace name with exactly one 宫 suffix (iztro names 命宫 with it, the others without). */
+  palaceTitle: string;
   parsed: ParsedContent;
   exists: boolean;
 }
@@ -109,6 +111,7 @@ export function getKnowledge(star: string, topic: TopicKey): KnowledgeData {
     topic,
     topicLabel: TOPIC_LABEL[topic],
     palaceName: TOPIC_PALACE_NAME[topic],
+    palaceTitle: TOPIC_PALACE_NAME[topic].endsWith('宫') ? TOPIC_PALACE_NAME[topic] : `${TOPIC_PALACE_NAME[topic]}宫`,
     parsed: parseStarContent(content),
     exists: Boolean(content),
   };
