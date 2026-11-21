@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
 import { fitHistory } from '@/lib/ai/history';
+import ReadingMarkdown from './ReadingMarkdown';
+import SkeletonLines from './SkeletonLines';
+import AiSetupNotice from './AiSetupNotice';
 import type { TimeView } from './TimeNav';
 
 interface Message {
@@ -146,45 +149,6 @@ const PALACE_ROLES: Record<string, string> = {
   '福德宫': '精神享受、内心福分',
   '父母宫': '父母关系、文书契约',
 };
-
-/** Render AI markdown: **【Title】** → gold header, **bold** → strong */
-function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
-  const lines = text.split('\n');
-  return (
-    <div className="space-y-0.5">
-      {lines.map((line, i) => {
-        const sectionMatch = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (sectionMatch) {
-          return (
-            <div key={i} className="pt-4 pb-1 first:pt-0 flex items-center gap-2">
-              <span aria-hidden className="h-px w-3" style={{ background: 'var(--ac)' }} />
-              <span className="text-[13px] font-semibold tracking-wide" style={{ color: 'var(--tx-0)' }}>
-                {sectionMatch[1]}
-              </span>
-            </div>
-          );
-        }
-        if (line.trim() === '') return <div key={i} className="h-1" />;
-        const parts = line.split(/\*\*(.+?)\*\*/);
-        return (
-          <div key={i} className="text-[13px] leading-[1.8]" style={{ color: 'var(--tx-2)' }}>
-            {parts.map((part, j) =>
-              j % 2 === 0
-                ? part
-                : <strong key={j} className="font-medium" style={{ color: 'var(--t-text)' }}>{part}</strong>
-            )}
-          </div>
-        );
-      })}
-      {streaming && (
-        <span
-          className="inline-block w-1.5 h-3 ml-0.5 animate-pulse rounded-sm align-middle"
-          style={{ background: 'var(--t-gold)', opacity: 0.6 }}
-        />
-      )}
-    </div>
-  );
-}
 
 export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: InsightPanelProps) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -400,23 +364,10 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
             >
               ✦
             </div>
-            <p className="text-[15px] font-semibold mb-2" style={{ color: 'var(--tx-0)' }}>AI 解读未启用</p>
-            <p className="text-[13px] leading-[1.8] mb-4" style={{ color: 'var(--tx-2)' }}>
-              命盘与下方十三个主题的解读都可正常查看。要开启对话式解读，需要在服务端配置一个 AI 服务商。
-            </p>
-            <p
-              className="text-[12px] leading-[1.7] rounded-lg p-3 font-mono break-words"
-              style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr)', color: 'var(--tx-2)' }}
-            >
-              {setupHint}
-            </p>
+            <AiSetupNotice title="AI 解读未启用" unaffected="命盘与下方十三个主题的解读都可正常查看。" hint={setupHint} />
           </div>
         ) : messages.length === 0 && (
-          <div className="space-y-3 pt-1" aria-busy="true" aria-label="命格解读生成中">
-            {[70, 100, 92, 100, 64].map((w, i) => (
-              <div key={i} className="h-2.5 rounded-full animate-pulse" style={{ width: `${w}%`, background: 'var(--bg-2)' }} />
-            ))}
-          </div>
+          <div className="pt-1"><SkeletonLines thin widths={[70, 100, 92, 100, 64]} label="命格解读生成中" /></div>
         )}
 
         <AnimatePresence initial={false}>
@@ -460,7 +411,7 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   <span style={{ color: 'var(--ac)' }}>✦</span>
                   命理解读
                 </div>
-                <AiContent text={msg.content} streaming={loading && isLastMsg} />
+                <ReadingMarkdown compact text={msg.content} streaming={loading && isLastMsg} />
               </motion.div>
             );
           })}

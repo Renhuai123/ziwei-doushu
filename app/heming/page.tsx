@@ -5,34 +5,12 @@ import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
+import ReadingMarkdown from '@/components/ReadingMarkdown';
+import SkeletonLines from '@/components/SkeletonLines';
+import AiSetupNotice from '@/components/AiSetupNotice';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
-
-// ─── AI 输出渲染：**【标题】** → 小节标题，**粗体** → strong ─────────
-function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
-  return (
-    <div className="reading-prose">
-      {text.split('\n').map((line, i) => {
-        const section = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (section) return <h3 key={i}>{section[1]}</h3>;
-        if (line.trim() === '') return null;
-        const parts = line.split(/\*\*(.+?)\*\*/);
-        return (
-          <p key={i}>
-            {parts.map((part, j) => (j % 2 === 0 ? part : <strong key={j}>{part}</strong>))}
-          </p>
-        );
-      })}
-      {streaming && (
-        <span
-          aria-hidden
-          className="inline-block w-1.5 h-3.5 ml-0.5 rounded-sm align-middle animate-pulse"
-          style={{ background: 'var(--ac)' }}
-        />
-      )}
-    </div>
-  );
-}
 
 /** 一方命盘的要点：命宫主星、五行局、当前大限。 */
 function chartFacts(chart: ZiweiChart) {
@@ -180,18 +158,9 @@ export default function HemingPage() {
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
-        <div className="max-w-[640px] mb-10">
-          <p className="eyebrow mb-4">紫微斗数 · 合盘</p>
-          <h1
-            className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3"
-            style={{ color: 'var(--tx-0)', textWrap: 'balance' }}
-          >
-            两张命盘，看缘分与相处
-          </h1>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--tx-2)' }}>
-            分别填写两个人的出生信息，先并排对照双方命盘要点，再由 AI 按倪海厦体系分析匹配度、相处方式与关键年份。适用于感情、合伙、亲子与朋友。
-          </p>
-        </div>
+        <PageIntro eyebrow="紫微斗数 · 合盘" title="两张命盘，看缘分与相处">
+          分别填写两个人的出生信息，先并排对照双方命盘要点，再由 AI 按倪海厦体系分析匹配度、相处方式与关键年份。适用于感情、合伙、亲子与朋友。
+        </PageIntro>
 
         {/* 双方表单：中间一枚「合」字印连接两侧 */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4">
@@ -223,12 +192,7 @@ export default function HemingPage() {
             type="button"
             onClick={() => runAnalysis()}
             disabled={analyzing}
-            className="h-12 px-10 rounded-full text-[15px] font-semibold tracking-[0.12em] transition-[transform,opacity] hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-            style={{
-              background: 'linear-gradient(135deg, #9a6210, #c88020)',
-              color: '#fff8e8',
-              boxShadow: '0 6px 20px rgba(140,100,20,0.28)',
-            }}
+            className="btn-cta h-12 px-10 text-[15px] tracking-[0.12em]"
           >
             {analyzing ? '分析中…' : chartA ? '重新合盘' : '开始合盘'}
           </button>
@@ -281,28 +245,13 @@ export default function HemingPage() {
             </div>
 
             {analyzing && !analysis && (
-              <div className="space-y-3 max-w-[68ch]" aria-label="正在对比双方命盘">
-                {[64, 100, 92, 100, 80, 48].map((w, i) => (
-                  <div key={i} className="h-3 rounded-full animate-pulse" style={{ width: `${w}%`, background: 'var(--bg-2)' }} />
-                ))}
-              </div>
+              <div className="max-w-[68ch]"><SkeletonLines widths={[64, 100, 92, 100, 80, 48]} label="正在对比双方命盘" /></div>
             )}
 
-            {analysis && <AiContent text={analysis} streaming={analyzing} />}
+            {analysis && <ReadingMarkdown text={analysis} streaming={analyzing} />}
 
             {analysisError && notConfiguredNotice && (
-              <div className="max-w-[68ch]">
-                <p className="text-[15px] font-semibold mb-2" style={{ color: 'var(--tx-0)' }}>AI 合盘未启用</p>
-                <p className="text-[14px] leading-[1.8] mb-4" style={{ color: 'var(--tx-2)' }}>
-                  上方的双方命盘对照不受影响。要生成合盘分析，需要在服务端配置一个 AI 服务商。
-                </p>
-                <p
-                  className="text-[12px] leading-[1.7] rounded-lg p-3 font-mono break-words"
-                  style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr)', color: 'var(--tx-2)' }}
-                >
-                  {notConfiguredNotice}
-                </p>
-              </div>
+              <AiSetupNotice title="AI 合盘未启用" unaffected="上方的双方命盘对照不受影响。" hint={notConfiguredNotice} />
             )}
 
             {analysisError && !notConfiguredNotice && (

@@ -3,28 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import { TOPIC_LABEL, type TopicKey } from '@/lib/ziwei/db-analysis';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 import type { ReadingResult } from '@/lib/readings/types';
+import ReadingMarkdown from './ReadingMarkdown';
+import SkeletonLines from './SkeletonLines';
 
 const TOPICS = Object.keys(TOPIC_LABEL) as TopicKey[];
 
 type State = { phase: 'loading' } | { phase: 'error' } | { phase: 'done'; result: ReadingResult };
-
-function Markdown({ text }: { text: string }) {
-  return (
-    <div className="reading-prose">
-      {text.split('\n').map((line, i) => {
-        const section = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (section) return <h3 key={i}>{section[1]}</h3>;
-        if (line.trim() === '') return null;
-        const parts = line.split(/\*\*(.+?)\*\*/);
-        return (
-          <p key={i} style={{ whiteSpace: 'pre-wrap' }}>
-            {parts.map((part, j) => (j % 2 === 0 ? part : <strong key={j}>{part}</strong>))}
-          </p>
-        );
-      })}
-    </div>
-  );
-}
 
 const muted = { color: 'var(--tx-2)' } as const;
 
@@ -58,13 +42,7 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
 
   let body: React.ReactNode;
   if (state.phase === 'loading') {
-    body = (
-      <div className="space-y-3" aria-busy="true" aria-label="正在载入解读">
-        {[92, 100, 84, 96, 60].map((w, i) => (
-          <div key={i} className="h-3 rounded-full animate-pulse" style={{ width: `${w}%`, background: 'var(--bg-2)' }} />
-        ))}
-      </div>
-    );
+    body = <SkeletonLines widths={[92, 100, 84, 96, 60]} label="正在载入解读" />;
   } else if (state.phase === 'error') {
     body = (
       <div role="alert" className="flex flex-wrap items-center gap-3">
@@ -105,7 +83,7 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
           ))}
         </div>
         <article ref={articleRef} key={topic} role="tabpanel" aria-label={TOPIC_LABEL[topic]} className="min-w-0 animate-fade-in scroll-mt-32 lg:scroll-mt-24">
-          <Markdown text={reading.topics[topic]} />
+          <ReadingMarkdown text={reading.topics[topic]} />
         </article>
       </div>
     );

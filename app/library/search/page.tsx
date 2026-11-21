@@ -4,6 +4,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import Breadcrumb from '@/components/Breadcrumb';
 import { searchClassics, getParagraphById, SUGGESTED_QUERIES } from '@/lib/classics';
 import LibrarySearch from '../LibrarySearch';
 
@@ -22,11 +23,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[880px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
-        <nav aria-label="面包屑" className="mb-6 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
-          <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
-          <span aria-hidden>/</span>
-          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>搜索</span>
-        </nav>
+        <Breadcrumb items={[{ label: '古籍', href: '/library' }, { label: '搜索' }]} />
 
         <div className="mb-8">
           <LibrarySearch key={q} defaultValue={q} />

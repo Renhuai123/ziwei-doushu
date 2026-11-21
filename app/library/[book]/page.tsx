@@ -4,6 +4,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import { ALL_BOOKS, getBookBySlug } from '@/lib/classics';
 
@@ -33,11 +34,7 @@ export default async function BookPage({ params }: { params: Promise<{ book: str
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[880px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
-        <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
-          <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
-          <span aria-hidden>/</span>
-          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>《{book.title}》</span>
-        </nav>
+        <Breadcrumb items={[{ label: '古籍', href: '/library' }, { label: `《${book.title}》` }]} />
 
         <header className="mb-10 max-w-[640px]">
           <p className="eyebrow mb-3">{book.dynasty} · {book.author}</p>

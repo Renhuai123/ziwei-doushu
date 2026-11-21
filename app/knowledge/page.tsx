@@ -5,6 +5,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
 import { ALL_STARS, ALL_TOPICS, getKnowledge, STAR_BRIEF_SEO, STAR_TO_SLUG } from '@/lib/seo/knowledge';
 import type { TopicKey } from '@/lib/ziwei/db-analysis';
 
@@ -30,19 +31,10 @@ export default function KnowledgeHomePage() {
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
-        <header className="max-w-[640px] mb-12">
-          <p className="eyebrow mb-4">星曜知识</p>
-          <h1
-            className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3"
-            style={{ color: 'var(--tx-0)', textWrap: 'balance' }}
-          >
-            十四主星，落十三宫
-          </h1>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--tx-2)' }}>
-            每颗主星在每个宫位一篇专题，共 <strong style={{ color: 'var(--tx-0)' }}>{total}</strong> 篇。
-            按倪海厦《天纪》体系编写，含一句话定调、核心论断、命盘依据与古籍出处。
-          </p>
-        </header>
+        <PageIntro eyebrow="星曜知识" title="十四主星，落十三宫" className="mb-12">
+          每颗主星在每个宫位一篇专题，共 <strong style={{ color: 'var(--tx-0)' }}>{total}</strong> 篇。
+          按倪海厦《天纪》体系编写，含一句话定调、核心论断、命盘依据与古籍出处。
+        </PageIntro>
 
         {/* 十四主星 */}
         <section aria-labelledby="stars-title">

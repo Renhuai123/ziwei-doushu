@@ -5,6 +5,7 @@ import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
 import ReadingsPanel from '@/components/ReadingsPanel';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
@@ -26,16 +27,9 @@ export default function ChartPage() {
       <>
         <SiteHeader />
         <main id="main" className="mx-auto w-full max-w-[640px] px-4 pb-24 pt-12 sm:pt-16">
-          <p className="eyebrow mb-4">紫微斗数 · 排盘</p>
-          <h1
-            className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3"
-            style={{ color: 'var(--tx-0)', textWrap: 'balance' }}
-          >
-            输入生辰，排出你的命盘
-          </h1>
-          <p className="text-[15px] leading-relaxed mb-10" style={{ color: 'var(--tx-2)' }}>
+          <PageIntro eyebrow="紫微斗数 · 排盘" title="输入生辰，排出你的命盘" className="mb-10">
             填写公历出生日期与时间，即时排出十二宫、主辅星曜与四化。填了出生地，时辰会按真太阳时校正。
-          </p>
+          </PageIntro>
           <BirthForm
             loading={engineLoading}
             onSubmit={async (info: BirthInfo) => {

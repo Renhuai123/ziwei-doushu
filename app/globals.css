@@ -644,3 +644,23 @@ tr:hover > th[scope="row"] { color: var(--ac) !important; }
   transition: top .15s ease;
 }
 .skip-link:focus { top: 8px; outline: 2px solid var(--tx-0); outline-offset: 2px; }
+
+/* 窄面板里的解读（AI 侧栏） */
+.reading-prose.is-compact h3 { font-size: 13px; margin: 18px 0 6px; }
+.reading-prose.is-compact h3:first-child { margin-top: 0; }
+.reading-prose.is-compact p { font-size: 13px; line-height: 1.8; margin-bottom: 6px; }
+
+/* 主操作按钮（金色渐变），起盘 / 合盘等 */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #9a6210, #c88020);
+  color: #fff8e8;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(140,100,20,0.26);
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn-cta:hover { transform: translateY(-1px); }
+.btn-cta:disabled { opacity: .6; cursor: not-allowed; transform: none; }

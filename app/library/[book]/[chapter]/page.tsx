@@ -4,6 +4,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import Breadcrumb from '@/components/Breadcrumb';
 import HashHighlight from './HashHighlight';
 import { notFound } from 'next/navigation';
 import { ALL_BOOKS, getChapter, parseChapterIndex } from '@/lib/classics';
@@ -42,13 +43,11 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
       <SiteHeader />
       <HashHighlight />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
-        <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
-          <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
-          <span aria-hidden>/</span>
-          <Link href={`/library/${book.slug}`} className="hover:text-[var(--tx-0)]">《{book.title}》</Link>
-          <span aria-hidden>/</span>
-          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>{chapter.title}</span>
-        </nav>
+        <Breadcrumb items={[
+          { label: '古籍', href: '/library' },
+          { label: `《${book.title}》`, href: `/library/${book.slug}` },
+          { label: chapter.title },
+        ]} />
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
           <article className="min-w-0">

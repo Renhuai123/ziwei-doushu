@@ -5,6 +5,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
 import { ALL_BOOKS, SUGGESTED_QUERIES, TOTAL_PARAGRAPHS } from '@/lib/classics';
 import LibrarySearch from './LibrarySearch';
 
@@ -19,19 +20,10 @@ export default function LibraryHomePage() {
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
-        <header className="max-w-[640px] mb-8">
-          <p className="eyebrow mb-4">古籍原典</p>
-          <h1
-            className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3"
-            style={{ color: 'var(--tx-0)', textWrap: 'balance' }}
-          >
-            回到原文，查每一句出处
-          </h1>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--tx-2)' }}>
-            收录 <strong style={{ color: 'var(--tx-0)' }}>{ALL_BOOKS.length}</strong> 部紫微斗数古籍、
-            <strong style={{ color: 'var(--tx-0)' }}>{TOTAL_PARAGRAPHS}</strong> 段原文，可全文搜索，也可逐章阅读。
-          </p>
-        </header>
+        <PageIntro eyebrow="古籍原典" title="回到原文，查每一句出处" className="mb-8">
+          收录 <strong style={{ color: 'var(--tx-0)' }}>{ALL_BOOKS.length}</strong> 部紫微斗数古籍、
+          <strong style={{ color: 'var(--tx-0)' }}>{TOTAL_PARAGRAPHS}</strong> 段原文，可全文搜索，也可逐章阅读。
+        </PageIntro>
 
         <div className="max-w-[640px] mb-14">
           <LibrarySearch />

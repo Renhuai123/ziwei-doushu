@@ -14,6 +14,7 @@
 
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import type { TopicKey } from '@/lib/ziwei/db-analysis';
 import {
@@ -102,13 +103,11 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
-        <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
-          <Link href="/knowledge" className="hover:text-[var(--tx-0)]">星曜知识</Link>
-          <span aria-hidden>/</span>
-          <Link href={`/knowledge/${slug}/overview`} className="hover:text-[var(--tx-0)]">{star}</Link>
-          <span aria-hidden>/</span>
-          <span aria-current="page" style={{ color: 'var(--tx-1)' }}>{data.palaceTitle} · {data.topicLabel}</span>
-        </nav>
+        <Breadcrumb items={[
+          { label: '星曜知识', href: '/knowledge' },
+          { label: star, href: `/knowledge/${slug}/overview` },
+          { label: `${data.palaceTitle} · ${data.topicLabel}` },
+        ]} />
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
           <article className="min-w-0">
@@ -171,8 +170,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
               </div>
               <Link
                 href="/chart"
-                className="inline-flex h-11 shrink-0 items-center justify-center rounded-full px-6 text-[14px] font-semibold tracking-[0.1em] transition-transform hover:-translate-y-px"
-                style={{ background: 'linear-gradient(135deg, #9a6210, #c88020)', color: '#fff8e8', boxShadow: '0 6px 20px rgba(140,100,20,0.25)' }}
+                className="btn-cta h-11 shrink-0 px-6 text-[14px] tracking-[0.1em]"
               >
                 立即起盘
               </Link>

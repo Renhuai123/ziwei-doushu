@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
 
 /** 路由段渲染出错时的兜底页：给出重试，不把用户丢在空白页上。 */
 export default function RouteError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -11,13 +12,9 @@ export default function RouteError({ error, reset }: { error: Error & { digest?:
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[640px] px-4 sm:px-6 pb-24 pt-16 sm:pt-24">
-        <p className="eyebrow mb-4">出错了</p>
-        <h1 className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3" style={{ color: 'var(--tx-0)' }}>
-          这一页没能加载出来
-        </h1>
-        <p className="text-[15px] leading-relaxed mb-8" style={{ color: 'var(--tx-2)' }}>
+        <PageIntro eyebrow="出错了" title="这一页没能加载出来" className="mb-8">
           多半是网络一时不稳。可以重试一次；如果反复出现，换个时间再来。
-        </p>
+        </PageIntro>
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"

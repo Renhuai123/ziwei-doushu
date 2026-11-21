@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
 
 export const metadata = {
   title: '页面不存在 · 紫微命盘',
@@ -16,13 +17,9 @@ export default function NotFound() {
     <>
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[640px] px-4 sm:px-6 pb-24 pt-16 sm:pt-24">
-        <p className="eyebrow mb-4">404</p>
-        <h1 className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3" style={{ color: 'var(--tx-0)' }}>
-          这一页不在盘上
-        </h1>
-        <p className="text-[15px] leading-relaxed mb-10" style={{ color: 'var(--tx-2)' }}>
+        <PageIntro eyebrow="404" title="这一页不在盘上" className="mb-10">
           链接可能写错了，或者页面已经移走。可以从下面这几处继续。
-        </p>
+        </PageIntro>
         <ul className="grid gap-3">
           {DESTINATIONS.map(d => (
             <li key={d.href}>
