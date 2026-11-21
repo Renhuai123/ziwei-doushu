@@ -38,7 +38,7 @@
 
 | | 章节 | 一句话 |
 |---|------|--------|
-| 一 | [本轮更新](#一本轮更新2026-11-13) | 倪师《天纪》紫微 17 集 160 万帧逐帧精读做完并入本仓：17 集康奈尔笔记、344 条公开摘要、片源上限 |
+| 一 | [本轮更新](#一本轮更新2026-11-21) | 17 集康奈尔笔记全文公开；193 幅黑板示意图、26 张命盘逐格重画；研究目录首页改成图文版（11-13：160 万帧逐帧精读并入本仓） |
 | 二·新 | [13 维解读数据集 v4.0](#二新13-维解读数据集-v402026-10-15) | 2026-10-15 新版断语，67.5 万命盘，按年份下载 |
 | 二 | [51.8 万命盘样本数据集](#二518-万命盘样本数据集) | 规格、下载、用途、许可 |
 | 三 | [快速开始](#三快速开始) | 克隆到跑起来 |
@@ -53,7 +53,40 @@
 
 ---
 
-## 一、本轮更新（2026-11-13）
+## 一、本轮更新（2026-11-21）
+
+本轮把倪师《天纪》紫微 17 集的**康奈尔笔记全文公开**，并给笔记配上我们**照讲课重画的图**：黑板示意图 **193 幅**、命例命盘 **26 张**，图插在对应问答旁边，图文对照着读。研究目录首页同时改成图文版，加了 16 个图文案例。
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P07/P07-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P07/图/图03.svg" width="190" alt="P07 · 晚子时和早子时"></a><br><sub><b>P07</b> · 晚子时和早子时</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P13/P13-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P13/图/图13.svg" width="190" alt="P13 · 明珠出海格"></a><br><sub><b>P13</b> · 明珠出海格</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P19/P19-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P19/图/图01.svg" width="190" alt="P19 · 英星入庙"></a><br><sub><b>P19</b> · 英星入庙</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P29/P29-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P29/图/图10.svg" width="190" alt="P29 · 手相入后天八卦"></a><br><sub><b>P29</b> · 手相入后天八卦</sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P15/P15-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P15/图/图01.svg" width="190" alt="P15 · 日丽中天"></a><br><sub><b>P15</b> · 日丽中天</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P25/P25-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P25/图/图04.svg" width="190" alt="P25 · 科权禄三会"></a><br><sub><b>P25</b> · 科权禄三会</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P27/P27-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P27/图/图06.svg" width="190" alt="P27 · 天文地理一起参照"></a><br><sub><b>P27</b> · 天文地理一起参照</sub></td>
+<td align="center" valign="top" width="25%"><a href="./research/nishi-video-reading/康奈尔笔记/P37/P37-康奈尔笔记.md"><img src="./research/nishi-video-reading/康奈尔笔记/P37/图/图05.svg" width="190" alt="P37 · 斗君看月令"></a><br><sub><b>P37</b> · 斗君看月令</sub></td>
+</tr>
+</table>
+
+<sub>示意图都是我们照讲课重画的，不是视频截图；点图进那一集的图文全文</sub>
+
+</div>
+
+**1. 17 集康奈尔笔记全文公开**（2026-11-20）—— 在 [`research/nishi-video-reading/康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/)，1,734 个提示、6,413 条笔记，每条标依据（口述 / 叠图 / 板书 / 指代 / 推断），能指回集号、时间码和帧号；倪师原话照字幕原字引在「」里。
+
+**2. 193 幅黑板示意图** —— 17 集 921 条板书分成 410 组，其中 215 组是纯文字（圈字、划线、字间箭头），不画；有图的组由 Astra 照讲课要讲明白的原理画成示意图，每个标注都能在板书或同段字幕里找到原词，再由 Grok 对着原画面逐幅核。画了 195 幅，193 幅核过放进笔记；2 幅两轮没核过（都是阳宅图），暂不放。
+
+**3. 26 张命盘逐格重画**（2026-11-20）—— 命例的命盘按视频里贴出的那张逐格重画，宫名、宫干支、主星、辅星取逐帧核过的叠图转写，每张都由 Astra 和 Grok 各自对着视频帧核过。不公开由命盘反推出的生辰。
+
+**4. 研究目录首页改成图文版** —— [`research/nishi-video-reading/`](./research/nishi-video-reading/README.md) 首页现在是：17 集图文笔记目录（每集几幅图、几张命盘）、**16 个图文案例画廊**（每集 1 个，点图进那一集）、数字总览、流程、片源上限、现状与展望。
+
+### 上一轮更新（2026-11-13）
 
 本轮把倪师《天纪》紫微 **17 集、1,604,675 帧**的逐帧精读做完并入本仓：逐帧层 **133,731 窗全部跑满**，17 集康奈尔笔记全部出稿，公开摘要 **344 条要点**发布。原姊妹仓 nishi-ziwei-video-reading 连同提交历史并到 [`research/nishi-video-reading/`](./research/nishi-video-reading/)，原仓库归档只读，后续更新都在本仓。
 
@@ -61,7 +94,7 @@
 
 **1. 规模：一帧不漏** —— 17 集共 1,604,675 帧，每帧有 sha256 清单，不抽帧；逐帧层（DeepSeek，每窗 12 帧）共 133,731 窗，2026-11-13 全部跑满（试点时只有 P17、P05 两集 16,876 窗）。指代层 2,805 道题由 Claude 看原帧逐题盲标，全部标完。
 
-**2. 17 集康奈尔笔记出稿** —— 1,734 个提示、6,413 条笔记，每条标依据（口述 / 叠图 / 板书 / 指代 / 推断）和帧号。〔口述〕里引的倪师原话 14,825 段，14,824 段在字幕里原字找到（剩 1 段只在语音里，已注明）；拿不准的 2,613 处单列「待核」，不混进正文。笔记正文放在私有仓库。
+**2. 17 集康奈尔笔记出稿** —— 1,734 个提示、6,413 条笔记，每条标依据（口述 / 叠图 / 板书 / 指代 / 推断）和帧号。〔口述〕里引的倪师原话 14,825 段，14,824 段在字幕里原字找到（剩 1 段只在语音里，已注明）；拿不准的 2,613 处单列「待核」，不混进正文。笔记正文当时放在私有仓库，2026-11-20 起全文公开（见本轮更新）。
 
 **3. 公开摘要 17 集、344 条要点** —— 在 [`research/nishi-video-reading/summaries/`](./research/nishi-video-reading/summaries/README.md)，每集一份，每条附时间码，点开跳到 B 站原视频那一秒；倪师原话只引短句，不放截图。
 
@@ -71,7 +104,7 @@
 
 > **2026-11-19 补充**：新增 [繁體中文](./README.zh-Hant.md) 与 [日本語](./README.ja.md) 说明页。日文版由 @eltociear 贡献（#76）；繁体版由本页按 ouranic.cn 繁体模式同一套规则转换。
 
-### 上一轮更新（2026-10-15）
+### 再上一轮更新（2026-10-15）
 
 本轮跟随网站 2026-10-15 发版（网站内容版本 `ca268829f7a9`）：
 
@@ -105,7 +138,7 @@
 
 > **2026-10-06 ~ 10-07 补充**：README 加「注：关于六亲判断」（倪师原话 + 出处链接，中英两份）；网站链接加渠道码 `?from=`；同步倪师原话语料勘误（主星南斗、北斗归属）。
 
-### 再上一轮更新（2026-09-21）
+### 更早的更新（2026-09-21）
 
 
 > **2026-10-03 补充**：倪师《天纪·紫微斗数》原话 1848 条单独成章（第五章）；合并外部贡献 #29（时辰序号校验）；引擎拒绝不存在的公历日期，数据集补字段口径与已知问题；提交 package-lock.json；站点地址改为可配置；合盘演示改用本地引擎起盘、AI 接口缺失时明确提示；补齐贡献指南、行为准则、问题与 PR 模板；新增英文简介 [README.en.md](./README.en.md)；去掉两个用不上的部署工具包（vercel CLI、@cloudflare/next-on-pages），依赖从 483 个减到 185 个；随后升级到 Next.js 16 修掉 postcss 漏洞，GitHub 安全提醒从 51 条清零。
@@ -417,13 +450,16 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 | 粉笔板书认不出 | 228 个字位里 146 个（64%） | 只有小考样本（30 个板书格）；全量没有逐字转写板书，笔记只录看得清的 |
 | 电子叠图（印刷字，最清楚）只占时长 | 53,491 秒里 15,586 秒（29.1%） | 全量：17 集每秒 1 帧打分 |
 
-**公开摘要**：17 集每集一份、共 344 条要点，见 [`summaries/`](./research/nishi-video-reading/summaries/README.md)。倪师原话只引短句，每条附时间码，点开跳到 B 站那一秒；不放截图和视频画面，不公开从命盘反推的生辰。摘要是对讲课内容的学习整理，不代表我们的判断，也不构成医疗、婚姻、投资等建议。笔记正文在私有仓库。
+**公开摘要**：17 集每集一份、共 344 条要点，见 [`summaries/`](./research/nishi-video-reading/summaries/README.md)。倪师原话只引短句，每条附时间码，点开跳到 B 站那一秒；不放截图和视频画面，不公开从命盘反推的生辰。摘要是对讲课内容的学习整理，不代表我们的判断，也不构成医疗、婚姻、投资等建议。
+
+**康奈尔笔记全文**（2026-11-20 起公开）：见 [`康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/)，图文合一——每条〔板书〕后面紧跟一幅我们重画的示意图（共 193 幅），命例旁边是逐格重画的命盘（共 26 张），都不是视频截图。
 
 **研究目录导览**
 
 | 位置 | 内容 |
 |---|---|
-| [`README.md`](./research/nishi-video-reading/README.md) | 总说明：为什么做、流程图、片源上限、各步进度 |
+| [`README.md`](./research/nishi-video-reading/README.md) | 首页：16 个图文案例画廊、17 集图文笔记目录、流程、片源上限、现状 |
+| [`康奈尔笔记/`](./research/nishi-video-reading/康奈尔笔记/) | 17 集笔记全文，图文合一；每集 `图/` 里是示意图（`图NN.svg`）和命盘（`命盘-*.svg`） |
 | [`summaries/`](./research/nishi-video-reading/summaries/README.md) | 17 集公开摘要 |
 | [`docs/工作记录.md`](./research/nishi-video-reading/docs/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95.md) | 按时间的全过程：做了什么、每个数字的出处、走过的弯路 |
 | `docs/` 其余文件 | 方案与两轮独立终审、小考五个实验的报告、标注说明、叠图定稿说明、康奈尔笔记模板 |
@@ -456,7 +492,7 @@ npm test            # 排盘引擎回归（768 盘 × 紫微铁律、夏令时�
 | | 内容 |
 |---|---|
 | ✅ **开源** | 排盘引擎（`lib/ziwei/`）、古籍公版原文（`lib/classics/`）、SEO 知识图谱（`lib/seo/`）、Demo 界面、51.8 万样本数据集、13 维解读数据集 v4.0、160 万帧逐帧精读的方法 / 脚本 / 提示词与 17 集公开摘要（`research/nishi-video-reading/`） |
-| ❌ **不开源** | 断语库（`lib/ziwei/db-analysis.ts` 是占位，线上是上万行的 13 主题断语）、AI 解读 prompt、后端 API（`/api/interpret` 等）、用户系统（登录 / 会员 / 支付）、服务端安全（签名、防刷、水印）、部署配置、160 万帧精读的康奈尔笔记正文（私有仓库）与视频画面 / 帧图片 |
+| ❌ **不开源** | 断语库（`lib/ziwei/db-analysis.ts` 是占位，线上是上万行的 13 主题断语）、AI 解读 prompt、后端 API（`/api/interpret` 等）、用户系统（登录 / 会员 / 支付）、服务端安全（签名、防刷、水印）、部署配置、160 万帧精读用到的视频画面 / 帧图片（康奈尔笔记全文 2026-11-20 起已公开） |
 
 如果你需要 AI 解读能力，可以参考 `lib/ziwei/patterns.ts` 和 `heming-knowledge.ts` 里的知识库，结合任意 LLM 自行构建 prompt。
 
