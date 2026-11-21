@@ -10,6 +10,7 @@ import LibrarySearch from './LibrarySearch';
 
 export const metadata = {
   title: '倪师方法论 · 古籍原典库 · 紫微斗数全集 / 全书 / 骨髓赋',
+  alternates: { canonical: '/library' },
   description: '紫微斗数权威古籍全文检索：《紫微斗数全集》《紫微斗数全书》《骨髓赋》倪海厦《天纪》引证来源',
 };
 
@@ -17,7 +18,7 @@ export default function LibraryHomePage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
         <header className="max-w-[640px] mb-8">
           <p className="eyebrow mb-4">古籍原典</p>
           <h1

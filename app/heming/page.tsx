@@ -66,7 +66,7 @@ function PartyLabel({ mark, title }: { mark: string; title: string }) {
       >
         {mark}
       </span>
-      <span className="text-[14px] font-medium" style={{ color: 'var(--tx-0)' }}>{title}</span>
+      <h2 className="text-[14px] font-medium" style={{ color: 'var(--tx-0)' }}>{title}</h2>
     </div>
   );
 }
@@ -178,7 +178,7 @@ export default function HemingPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
         <div className="max-w-[640px] mb-10">
           <p className="eyebrow mb-4">紫微斗数 · 合盘</p>
           <h1

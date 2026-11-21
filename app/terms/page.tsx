@@ -1,4 +1,4 @@
-export const metadata = { title: '服务条款 · 紫微命盘', description: '紫微命盘服务条款与用户协议' };
+export const metadata = { title: '服务条款 · 紫微命盘', description: '紫微命盘服务条款与用户协议', alternates: { canonical: '/terms' } };
 
 export default function TermsPage() {
   return (

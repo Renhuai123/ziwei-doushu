@@ -11,6 +11,7 @@ import type { TopicKey } from '@/lib/ziwei/db-analysis';
 export const metadata = {
   title: '紫微斗数知识库 · 14 主星 × 13 宫位 · 倪海厦正宗体系',
   description: '基于倪海厦《天纪》体系与古籍《紫微斗数全集》《骨髓赋》编纂的紫微斗数知识库。覆盖 14 主星在 13 个宫位的完整论断，含一句话定调、核心论断、命盘依据、经典出处。',
+  alternates: { canonical: '/knowledge' },
   keywords: ['紫微斗数', '倪海厦', '倪海厦紫微斗数', '紫微斗数全集', '紫微斗数全书', '14 主星', '12 宫位'],
 };
 
@@ -28,7 +29,7 @@ export default function KnowledgeHomePage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
         <header className="max-w-[640px] mb-12">
           <p className="eyebrow mb-4">星曜知识</p>
           <h1

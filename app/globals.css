@@ -628,3 +628,19 @@ tr:hover > th[scope="row"] { color: var(--ac) !important; }
 }
 .classic-para:target,
 .classic-para[data-hit] { background: var(--ac-bg); border-radius: var(--r-sm); }
+
+/* 跳到正文：平时藏在视口外，键盘 Tab 聚焦时出现 */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 60;
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  background: var(--ac);
+  color: var(--bg-0);
+  font-size: 13px;
+  font-weight: 600;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 8px; outline: 2px solid var(--tx-0); outline-offset: 2px; }

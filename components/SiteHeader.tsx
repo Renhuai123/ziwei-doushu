@@ -15,6 +15,7 @@ export default function SiteHeader() {
   const pathname = usePathname() ?? '';
   return (
     <header className="app-bar">
+      <a href="#main" className="skip-link">跳到正文</a>
       <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-2 sm:gap-4 px-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="紫微命盘首页">
           <span

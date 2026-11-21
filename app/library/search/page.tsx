@@ -9,6 +9,8 @@ import LibrarySearch from '../LibrarySearch';
 
 export const metadata = {
   title: '搜索 · 古籍原典库',
+  // 搜索结果是查询参数拼出来的页面，不进索引，但允许顺着结果链接抓取原文页
+  robots: { index: false, follow: true },
 };
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
@@ -19,7 +21,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[880px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+      <main id="main" className="mx-auto w-full max-w-[880px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
         <nav aria-label="面包屑" className="mb-6 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
           <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
           <span aria-hidden>/</span>

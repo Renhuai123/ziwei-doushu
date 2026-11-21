@@ -24,7 +24,7 @@ export default function ChartPage() {
     return (
       <>
         <SiteHeader />
-        <main className="mx-auto w-full max-w-[640px] px-4 pb-24 pt-12 sm:pt-16">
+        <main id="main" className="mx-auto w-full max-w-[640px] px-4 pb-24 pt-12 sm:pt-16">
           <p className="eyebrow mb-4">紫微斗数 · 排盘</p>
           <h1
             className="text-[28px] sm:text-[34px] font-semibold leading-tight mb-3"
@@ -68,7 +68,7 @@ export default function ChartPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 pb-24 pt-8">
+      <main id="main" className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 pb-24 pt-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between mb-6">
           <div className="min-w-0">
             <p className="eyebrow mb-2">本命盘</p>

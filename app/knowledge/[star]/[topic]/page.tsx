@@ -101,7 +101,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
-      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
         <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
           <Link href="/knowledge" className="hover:text-[var(--tx-0)]">星曜知识</Link>
           <span aria-hidden>/</span>

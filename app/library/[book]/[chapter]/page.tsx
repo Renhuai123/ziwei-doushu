@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ book: str
   return {
     title: `${result.chapter.title} · 《${result.book.title}》· 紫微斗数古籍`,
     description: result.chapter.subtitle || `《${result.book.title}》${result.chapter.title}原文`,
+    alternates: { canonical: `/library/${result.book.slug}/${result.chapterIdx}` },
   };
 }
 
@@ -40,7 +41,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
     <>
       <SiteHeader />
       <HashHighlight />
-      <main className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
         <nav aria-label="面包屑" className="mb-8 flex flex-wrap items-center gap-x-2 text-[13px]" style={{ color: 'var(--tx-3)' }}>
           <Link href="/library" className="hover:text-[var(--tx-0)]">古籍</Link>
           <span aria-hidden>/</span>
