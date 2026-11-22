@@ -1,5 +1,5 @@
 /**
- * /library/[book]/[chapter] — 单章节阅读页
+ * /library/[book]/[chapter] — Trang đọc một chương
  */
 
 import Link from 'next/link';
@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ book: str
   const result = getChapter(bookSlug, parseInt(chIdx));
   if (!result) return {};
   return {
-    title: `${result.chapter.title} · 《${result.book.title}》· 紫微斗数古籍`,
-    description: result.chapter.subtitle || `《${result.book.title}》${result.chapter.title}原文`,
+    title: `${result.chapter.title} · 《${result.book.title}》· Cổ Tịch Tử Vi Đẩu Số`,
+    description: result.chapter.subtitle || `《${result.book.title}》${result.chapter.title} nguyên văn`,
   };
 }
 
@@ -36,18 +36,18 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
       <div className="px-6 py-4 flex items-center justify-between"
         style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
         <Link href={`/library/${book.slug}`} style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
-          ← 《{book.title}》目录
+          ← Mục lục 《{book.title}》
         </Link>
         <div style={{ fontSize: '12px', color: 'var(--tx-3)', letterSpacing: '0.15em' }}>
           {chapter.title}
         </div>
         <Link href="/library" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em', textDecoration: 'none' }}>
-          古籍库 →
+          Kho cổ tịch →
         </Link>
       </div>
 
       <article className="max-w-3xl mx-auto px-6 py-12">
-        {/* 标题 */}
+        {/* Tiêu đề */}
         <div className="text-center mb-10">
           <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.25em', marginBottom: '8px' }}>
             《{book.title}》· {book.dynasty}
@@ -62,7 +62,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
           )}
         </div>
 
-        {/* 段落 */}
+        {/* Các đoạn văn */}
         <div style={{ background: 'var(--bg-card)', borderRadius: '14px', border: '1px solid rgba(184,146,42,0.2)', padding: '32px 28px' }}>
           {chapter.paragraphs.map((p, i) => (
             <div
@@ -111,7 +111,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
                   color: 'var(--tx-2)',
                   lineHeight: 1.8,
                 }}>
-                  <span style={{ fontSize: '10px', color: 'var(--ac)', marginRight: '6px' }}>白话</span>
+                  <span style={{ fontSize: '10px', color: 'var(--ac)', marginRight: '6px' }}>Dịch nghĩa</span>
                   {p.translation}
                 </div>
               )}
@@ -126,7 +126,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
                   color: 'var(--tx-2)',
                   lineHeight: 1.8,
                 }}>
-                  <span style={{ fontSize: '10px', color: 'var(--ji)', marginRight: '6px' }}>倪师注</span>
+                  <span style={{ fontSize: '10px', color: 'var(--ji)', marginRight: '6px' }}>Chú thích Nghê Hải Hạ</span>
                   {p.niNote}
                 </div>
               )}
@@ -134,7 +134,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
           ))}
         </div>
 
-        {/* 章节导航 */}
+        {/* Điều hướng chương */}
         <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
           {prevIdx >= 0 ? (
             <Link
@@ -149,7 +149,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
                 color: 'var(--tx-0)',
               }}
             >
-              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>← 上一章</div>
+              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>← Chương trước</div>
               <div style={{ fontSize: '13px', fontWeight: 500 }}>{book.chapters[prevIdx].title}</div>
             </Link>
           ) : <div style={{ flex: 1 }} />}
@@ -167,7 +167,7 @@ export default async function ChapterPage({ params }: { params: Promise<{ book: 
                 textAlign: 'right',
               }}
             >
-              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>下一章 →</div>
+              <div style={{ fontSize: '10px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '2px' }}>Chương tiếp →</div>
               <div style={{ fontSize: '13px', fontWeight: 500 }}>{book.chapters[nextIdx].title}</div>
             </Link>
           ) : <div style={{ flex: 1 }} />}
