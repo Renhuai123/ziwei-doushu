@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾坐命与婚变</title>
+  <desc id="desc">左侧命盘用虚线连接坐命的红鸾与对面的天喜，盘中保留板书圈起的「38」。右侧按年龄排列倪师对这一例的批语：33岁丧夫，44岁再婚，51岁又失夫。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g font-size="25" font-weight="600">
+      <text x="54" y="64">永远面对面</text>
+      <text x="538" y="64">我怎么批她</text>
+    </g>
+
+    <g>
+      <rect x="54" y="96" width="384" height="384" fill="#fff" stroke="#555" stroke-width="1.8"/>
+      <g fill="#f1f1ef">
+        <rect x="150" y="97" width="96" height="95"/>
+        <rect x="246" y="384" width="96" height="95"/>
+      </g>
+      <path d="M54 192 H438 M54 384 H438
+               M150 96 V480 M342 96 V480
+               M246 96 V192 M246 384 V480
+               M54 288 H150 M342 288 H438"
+            fill="none" stroke="#888" stroke-width="1.2"/>
+
+      <path d="M209 177 L283 399" fill="none" stroke="#777" stroke-width="1.6" stroke-dasharray="5 6"/>
+      <g fill="#666">
+        <circle cx="209" cy="177" r="3"/>
+        <circle cx="283" cy="399" r="3"/>
+      </g>
+
+      <g text-anchor="middle">
+        <text x="198" y="137" font-size="25" font-weight="600">红鸾</text>
+        <text x="198" y="163" font-size="17">坐命</text>
+        <text x="294" y="445" font-size="25" font-weight="600">天喜</text>
+        <text x="198" y="443" font-size="20" fill="#656565">天相</text>
+        <circle cx="196" cy="267" r="20" fill="none" stroke="#777" stroke-width="1.4"/>
+        <text x="196" y="274" font-size="21" fill="#555">38</text>
+      </g>
+    </g>
+
+    <g>
+      <path d="M558 157 V417" fill="none" stroke="#aaa" stroke-width="1.5"/>
+      <g fill="#fff" stroke="#555" stroke-width="1.8">
+        <circle cx="558" cy="157" r="5"/>
+        <circle cx="558" cy="287" r="5"/>
+        <circle cx="558" cy="417" r="5"/>
+      </g>
+      <g font-size="27">
+        <text x="589" y="167">33岁</text>
+        <text x="589" y="297">44岁</text>
+        <text x="589" y="427">51岁</text>
+      </g>
+      <g font-size="31" font-weight="600">
+        <text x="710" y="168">丧夫</text>
+        <text x="710" y="298">再婚</text>
+        <text x="710" y="428">又失夫</text>
+      </g>
+    </g>
+  </g>
+</svg>

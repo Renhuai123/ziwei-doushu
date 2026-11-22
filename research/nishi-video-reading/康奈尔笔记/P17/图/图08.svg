@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">西南角与坤卦</title>
+  <desc id="desc">依板书布局，房子方框的右上小格标作西南角，引线连接到由六道断横组成的坤卦。小格下方标出倪师对单身居住的说法。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="104" y="107" font-size="25" font-weight="600">房子</text>
+
+    <rect x="104" y="128" width="364" height="316" fill="none" stroke="#383838" stroke-width="2.5"/>
+    <rect x="346" y="128" width="122" height="98" fill="#f8eeeb" stroke="#a74436" stroke-width="2"/>
+    <text x="407" y="185" text-anchor="middle" font-size="23" font-weight="600">西南角</text>
+
+    <path d="M468 177 H542 L572 147 H624" fill="none" stroke="#888" stroke-width="1.5" stroke-linejoin="round"/>
+    <text x="720" y="82" text-anchor="middle" font-size="25" font-weight="600">坤卦</text>
+    <g fill="none" stroke="#303030" stroke-width="8" stroke-linecap="butt">
+      <path d="M646 102 H709 M731 102 H794"/>
+      <path d="M646 120 H709 M731 120 H794"/>
+      <path d="M646 138 H709 M731 138 H794"/>
+      <path d="M646 156 H709 M731 156 H794"/>
+      <path d="M646 174 H709 M731 174 H794"/>
+      <path d="M646 192 H709 M731 192 H794"/>
+    </g>
+    <text x="720" y="235" text-anchor="middle" font-size="21">六个阴</text>
+
+    <path d="M407 226 V289" fill="none" stroke="#888" stroke-width="1.5"/>
+    <text x="407" y="325" text-anchor="end" font-size="25" font-weight="600">都不适合单身去住</text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">第二次结婚</title>
+  <desc id="desc">房屋图沿用板书上方为 S、左侧为 E 的画法，右下角标出倪师讲的再婚条件：主卧房在西北角。左侧是他举的例子：40 岁那年改，弧线连到左上斜框所在处的房屋顶边；次年夫妻宫有红鸾星，例中为 41 岁结婚。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="56" y="80" font-size="24" font-weight="600">举例</text>
+
+    <!-- 两个年龄沿同一条时间线排列。 -->
+    <g fill="none" stroke="#555" stroke-width="1.7">
+      <circle cx="91" cy="163" r="35"/>
+      <circle cx="91" cy="406" r="35"/>
+      <path d="M91 206 V362 M85 354 L91 362 L97 354" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g text-anchor="middle" font-size="24">
+      <text x="91" y="172">40岁</text>
+      <text x="91" y="415">41岁</text>
+    </g>
+    <text x="143" y="172" font-size="23">那年改</text>
+    <g font-size="20">
+      <text x="114" y="270" fill="#626262">第二年</text>
+      <text x="114" y="308">夫妻宫</text>
+      <text x="183" y="308" font-weight="600">红鸾星</text>
+    </g>
+    <text x="143" y="415" font-size="24" font-weight="600">结婚</text>
+
+    <!-- 弧线落在左上小格的顶边，斜框内留白。 -->
+    <path d="M222 160 C275 111 345 105 390 153" fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round"/>
+    <g fill="none" stroke="#353535" stroke-linejoin="round">
+      <rect x="345" y="153" width="315" height="288" stroke-width="2.5"/>
+      <path d="M434 153 V239 H345" stroke-width="1.8"/>
+      <rect x="371" y="171" width="35" height="51" transform="rotate(34 388.5 196.5)" stroke-width="1.7"/>
+    </g>
+    <g text-anchor="middle" font-size="21" fill="#555">
+      <text x="502" y="139">S</text>
+      <text x="323" y="305">E</text>
+    </g>
+
+    <!-- 同一房屋的右下小格对应口述的主卧位置。 -->
+    <rect x="552" y="346" width="108" height="95" fill="#fbf2ef" stroke="#a43d32" stroke-width="2.4"/>
+    <path d="M607 393 H678 L702 369" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="708" y="300" font-size="20" fill="#555">第二次结婚的时候</text>
+    <text x="708" y="351" font-size="25" font-weight="600">主卧房在西北角</text>
+    <text x="708" y="393" font-size="20">没有这条件不能结婚</text>
+  </g>
+</svg>

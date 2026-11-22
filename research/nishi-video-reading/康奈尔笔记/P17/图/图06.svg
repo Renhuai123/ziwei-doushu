@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">阳宅是一个平面</title>
+  <desc id="desc">五楼和二楼各画一个平面，箭头表示她从较小的五楼搬到较大的二楼。五楼没有厨房，厨房在二楼，朱红色小框标出倪师所指的西北角，即板书平面图的右下角。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="52" y="40" width="218" height="50" rx="3" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="161" y="73" text-anchor="middle" font-size="24" font-weight="600">阳宅是一个平面</text>
+
+    <g font-size="25" font-weight="600" text-anchor="middle">
+      <text x="209" y="181">5F</text>
+      <text x="716" y="155">2F</text>
+    </g>
+
+    <g fill="none" stroke="#353535" stroke-width="2.4" stroke-linejoin="round">
+      <rect x="84" y="199" width="250" height="190"/>
+      <rect x="556" y="173" width="320" height="242"/>
+    </g>
+    <text x="209" y="302" text-anchor="middle" font-size="21" fill="#555">五楼并没有厨房</text>
+
+    <text x="445" y="274" text-anchor="middle" font-size="19">换了一个房间</text>
+    <path d="M362 294 H527 M515 285 L527 294 L515 303" fill="none" stroke="#626262" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="778" y="338" width="98" height="77" fill="#fcf5f3" stroke="#ae4034" stroke-width="2.4" stroke-linejoin="round"/>
+    <text x="827" y="385" text-anchor="middle" font-size="24" font-weight="600" fill="#ae4034">厨房</text>
+  </g>
+</svg>

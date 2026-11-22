@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">迁移化忌</title>
+  <desc id="desc">命盘中央写「42年」。左侧迁移格内有贪狼、火星和圈出的「忌」，从圈边引出的斜线与大三角相接于右侧武曲格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="88" y="38" width="784" height="464" stroke="#555" stroke-width="1.8"/>
+    <path d="M284 38 V502 M676 38 V502
+             M480 38 V154 M480 386 V502
+             M88 154 H872 M88 386 H872
+             M88 270 H284 M676 270 H872"
+          stroke="#aaa" stroke-width="1.3"/>
+    <path d="M355 122 L236 441 L746 351 Z" stroke="#929292" stroke-width="1.8"/>
+    <path d="M257 222 L746 351" stroke="#494949" stroke-width="2.1" stroke-linecap="round"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="114" y="183" font-size="18" fill="#555">迁移</text>
+    <text x="114" y="218" font-size="27">贪狼</text>
+    <text x="114" y="252" font-size="27">火星</text>
+
+    <circle cx="231" cy="215" r="26" fill="#fff" stroke="#ad392e" stroke-width="2.4"/>
+    <text x="231" y="225" text-anchor="middle" font-size="28" font-weight="600" fill="#ad392e">忌</text>
+
+    <text x="412" y="220" text-anchor="middle" font-size="29">42年</text>
+    <text x="749" y="327" font-size="28">武曲</text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">子女宫三方四正</title>
+  <desc id="desc">命盘以朱红点标出子女宫，宫内写天同化权。三角连线和通向对宫的虚线示意三方四正，左侧括线将「科权禄三会」与「还有忌会来进来」一同指向子女宫。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="48" y="62" width="158" height="48" rx="3" fill="#fff" stroke="#484848" stroke-width="1.5"/>
+    <text x="127" y="94" text-anchor="middle" font-size="24" font-weight="600" letter-spacing="2">三方四正</text>
+
+    <g>
+      <rect x="342" y="58" width="568" height="424" fill="#fff" stroke="#555" stroke-width="1.6"/>
+      <rect x="343" y="271" width="140" height="104" fill="#f4f4f2"/>
+      <path d="M484 58 V482 M768 58 V482
+               M626 58 V164 M626 376 V482
+               M342 164 H910 M342 376 H910
+               M342 270 H484 M768 270 H910"
+            fill="none" stroke="#b6b6b2" stroke-width="1.2"/>
+    </g>
+
+    <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M470 323 L697 111 L839 429 Z" stroke="#535353" stroke-width="2.1"/>
+      <path d="M470 323 L839 217" stroke="#737373" stroke-width="1.7" stroke-dasharray="7 6"/>
+    </g>
+    <g fill="#fff" stroke="#535353" stroke-width="1.8">
+      <circle cx="697" cy="111" r="5"/>
+      <circle cx="839" cy="429" r="5"/>
+      <circle cx="839" cy="217" r="5"/>
+    </g>
+    <circle cx="470" cy="323" r="6.5" fill="#b43b30" stroke="#fff" stroke-width="2"/>
+
+    <g text-anchor="middle">
+      <text x="404" y="318" font-size="25" font-weight="600">子女宫</text>
+      <text x="404" y="349" font-size="19">天同化权</text>
+    </g>
+
+    <g text-anchor="end">
+      <text x="255" y="310" font-size="26" font-weight="600">科权禄三会</text>
+      <text x="255" y="353" font-size="21">还有忌会来进来</text>
+    </g>
+    <path d="M270 298 H281 V346 H270 M281 323 H341"
+          fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

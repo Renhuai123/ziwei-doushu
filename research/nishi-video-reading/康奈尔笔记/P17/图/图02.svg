@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">担心烦恼与廉破</title>
+  <desc id="desc">左侧写妈妈会为她担心烦恼。顺着倪师口中的「廉破」看向右侧命盘局部，破军、廉贞上下写在同一格内。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="82" y="243" font-size="34" font-weight="600">妈妈会为她担心烦恼</text>
+
+    <text x="82" y="308" font-size="25">你看这个<tspan fill="#ad3d31" font-weight="600">廉破</tspan>就晓得了</text>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M354 299 H468 L508 270 H625" stroke="#666" stroke-width="1.6"/>
+      <path d="M638 225 H627 V315 H638" stroke="#444" stroke-width="1.8"/>
+    </g>
+
+    <g fill="none" stroke="#bababa" stroke-width="1.4">
+      <path d="M579 113 V158 M579 374 V425 M867 113 V158 M867 374 V425"/>
+      <path d="M529 158 H579 M529 374 H579"/>
+    </g>
+    <rect x="579" y="158" width="288" height="216" fill="none" stroke="#444" stroke-width="2"/>
+
+    <g x="657" font-size="36" font-weight="500" letter-spacing="3">
+      <text x="657" y="253">破军</text>
+      <text x="657" y="312">廉贞</text>
+    </g>
+  </g>
+</svg>

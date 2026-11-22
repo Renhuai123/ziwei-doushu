@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">十年大限与三方四正</title>
+  <desc id="desc">局数为二，从命宫的二岁起算，到十一岁。左图画出命宫的三方四正，并保留指向寅宫的左箭头；右图示意向另一边排列时，十二至二十一岁所在宫也要看它自己的三方四正。</desc>
+
+  <defs>
+    <g id="grid" fill="none" stroke="#777772" stroke-width="1.4">
+      <rect x="0" y="0" width="400" height="304" rx="2" stroke="#353532" stroke-width="2"/>
+      <path d="M100 0V304 M300 0V304 M200 0V76 M200 228V304
+               M0 76H400 M0 228H400 M0 152H100 M300 152H400"/>
+    </g>
+    <g id="branches" fill="#454541" font-size="21" text-anchor="middle">
+      <text x="50" y="38">巳</text>
+      <text x="150" y="38">午</text>
+      <text x="250" y="38">未</text>
+      <text x="36" y="121">辰</text>
+      <text x="36" y="198">卯</text>
+      <text x="36" y="275">寅</text>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272724">
+    <text x="48" y="64" font-size="32" font-weight="600" letter-spacing="2">十年大限</text>
+    <path d="M219 39V66" stroke="#b4b4ae" stroke-width="1.4"/>
+    <text x="242" y="63" font-size="24">2岁开始算</text>
+
+    <g text-anchor="middle" font-size="22" font-weight="500">
+      <text x="248" y="126">看命宫的时候</text>
+      <text x="712" y="126">看十年的时候</text>
+    </g>
+
+    <g transform="translate(48 145)">
+      <rect x="100" y="228" width="100" height="76" fill="#f2f2ef"/>
+      <use href="#grid"/>
+      <g fill="none" stroke="#686864" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M61 57L150 238L245 57 M150 238L340 113"/>
+      </g>
+      <g fill="#fff" stroke="#686864" stroke-width="1.6">
+        <circle cx="61" cy="57" r="3.6"/>
+        <circle cx="245" cy="57" r="3.6"/>
+        <circle cx="340" cy="113" r="3.6"/>
+      </g>
+      <circle cx="150" cy="238" r="4.3" fill="#383835"/>
+      <use href="#branches"/>
+      <g text-anchor="middle">
+        <text x="150" y="265" font-size="20" font-weight="600">命宫</text>
+        <text x="150" y="291" font-size="21">2-11</text>
+      </g>
+      <path d="M119 269H61 M69 263L61 269L69 275" fill="none" stroke="#474744" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g transform="translate(512 145)">
+      <rect x="200" y="228" width="100" height="76" fill="#f2f2ef"/>
+      <use href="#grid"/>
+      <g fill="none" stroke="#686864" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M73 116L250 238L341 57 M250 238L155 57"/>
+      </g>
+      <g fill="#fff" stroke="#686864" stroke-width="1.6">
+        <circle cx="73" cy="116" r="3.6"/>
+        <circle cx="341" cy="57" r="3.6"/>
+        <circle cx="155" cy="57" r="3.6"/>
+      </g>
+      <circle cx="250" cy="238" r="4.3" fill="#383835"/>
+      <use href="#branches"/>
+      <g text-anchor="middle">
+        <text x="150" y="265" font-size="20">命宫</text>
+        <text x="150" y="291" font-size="21">2-11</text>
+        <ellipse cx="250" cy="270" rx="39" ry="18" fill="#fff" stroke="#ab4035" stroke-width="2"/>
+        <text x="250" y="277" font-size="21" font-weight="600">12-21</text>
+        <text x="350" y="277" font-size="20">22到31</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#a4a49e" stroke-width="1.2">
+      <path d="M248 461V489H414 M712 461V489H546"/>
+    </g>
+    <text x="480" y="498" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="2">三方四正</text>
+  </g>
+</svg>

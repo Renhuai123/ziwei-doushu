@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">这个屋檐下</title>
+  <desc id="desc">母亲和一个儿子、一个女儿同住。房屋俯视图中，两条引线从母亲一侧分别指向她给女儿和儿子安排的房间，女儿在右上格，儿子在右侧相邻的一格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="130" y="79" font-size="32" font-weight="600">这个屋檐下</text>
+
+    <g transform="translate(130 122)">
+      <rect width="440" height="334" fill="#fcfcfb"/>
+      <path d="M252 0H440V112H252Z M286 112H440V222H286Z" fill="#efefed"/>
+
+      <g fill="none" stroke="#656561" stroke-width="2.2" stroke-linejoin="round">
+        <path d="M0 144H174V0"/>
+        <path d="M174 112H440 M252 0V112"/>
+        <path d="M286 112V222H440"/>
+      </g>
+      <rect width="440" height="334" fill="none" stroke="#303030" stroke-width="3.4"/>
+
+      <g text-anchor="middle" dominant-baseline="central" font-size="31" font-weight="500">
+        <text x="346" y="56">女儿</text>
+        <text x="363" y="167">儿子</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#777772" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M700 234H650V178H556"/>
+      <path d="M650 234V289H556"/>
+    </g>
+    <g fill="#555552">
+      <circle cx="556" cy="178" r="3.5"/>
+      <circle cx="556" cy="289" r="3.5"/>
+    </g>
+    <text x="718" y="234" dominant-baseline="central" font-size="25">这个女孩子</text>
+  </g>
+</svg>

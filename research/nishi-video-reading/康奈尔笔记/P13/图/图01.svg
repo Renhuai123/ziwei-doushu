@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微星在卯宫</title>
+  <desc id="desc">命盘左侧的紫微星在卯宫，沿箭头向上可见午宫的天梁星入庙很亮。下排标出太阴在寅时最弱、太阳在子时落陷，右侧列出倪师讲天梁恰好坐命于午宫时所举的武官例子。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#686868" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="40" y="55" font-size="32" font-weight="650">紫微星在卯宫</text>
+    <text x="488" y="53" text-anchor="end" font-size="17" fill="#626262">先不要看科权禄</text>
+
+    <g fill="none" stroke="#a4a4a0" stroke-width="1.4">
+      <rect x="40" y="86" width="448" height="416" stroke="#555552" stroke-width="1.8"/>
+      <path d="M152 86V502 M376 86V502 M264 86V190 M264 398V502"/>
+      <path d="M40 190H488 M40 398H488 M40 294H152 M376 294H488"/>
+    </g>
+
+    <rect x="152" y="86" width="112" height="104" fill="#faf9f6" stroke="#555552" stroke-width="1.8"/>
+    <g text-anchor="middle">
+      <text x="208" y="113" font-size="17" fill="#a13d31">午宫</text>
+      <text x="208" y="145" font-size="26" font-weight="650">天梁星</text>
+      <text x="208" y="173" font-size="17">入庙很亮</text>
+
+      <text x="96" y="333" font-size="17" fill="#626262">卯宫</text>
+      <text x="96" y="367" font-size="26" font-weight="650">紫微星</text>
+
+      <text x="96" y="425" font-size="17" fill="#626262">寅时</text>
+      <text x="96" y="457" font-size="24" font-weight="600">太阴</text>
+      <text x="96" y="485" font-size="17">最弱</text>
+
+      <text x="320" y="425" font-size="17" fill="#626262">子时</text>
+      <text x="320" y="457" font-size="24" font-weight="600">太阳</text>
+      <text x="320" y="485" font-size="17">落陷</text>
+    </g>
+    <path d="M142 354H182 Q208 354 208 328V201" fill="none" stroke="#686868" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <path d="M521 86V502" fill="none" stroke="#d4d4d1"/>
+    <text x="554" y="118" font-size="27" font-weight="650">刚好天梁星在命</text>
+    <text x="555" y="151" font-size="19" fill="#555">命在午宫</text>
+    <path d="M554 171H918" fill="none" stroke="#b9b9b5"/>
+
+    <g font-size="23" font-weight="600">
+      <text x="554" y="212">武官</text>
+      <text x="653" y="212">一品官</text>
+    </g>
+    <path d="M610 204H638" fill="none" stroke="#686868" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="741" y="212" font-size="19" fill="#555">近天子</text>
+    <text x="554" y="248" font-size="19">手有生杀之权</text>
+
+    <g font-size="20">
+      <text x="554" y="303">军人</text>
+      <text x="554" y="350">警察</text>
+      <text x="554" y="397">法官</text>
+      <text x="554" y="444">外交官</text>
+      <text x="695" y="350">局长</text>
+      <text x="695" y="397">地方法院院长</text>
+      <text x="695" y="444">大使</text>
+    </g>
+    <g fill="none" stroke="#686868" stroke-width="1.4" marker-end="url(#arrow)">
+      <path d="M630 343H676"/>
+      <path d="M630 390H676"/>
+      <path d="M630 437H676"/>
+    </g>
+    <path d="M833 330H844V447H833 M844 389H854" fill="none" stroke="#92928e" stroke-width="1.3"/>
+    <text x="887" y="384" text-anchor="middle" font-size="19" font-weight="600"><tspan x="887">一方</tspan><tspan x="887" dy="25">之主</tspan></text>
+  </g>
+</svg>

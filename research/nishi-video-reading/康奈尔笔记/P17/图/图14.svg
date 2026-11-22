@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">七杀天马在父母宫</title>
+  <desc id="desc">命盘上排局部。左上格由上至下写巨门、禄存，宫名留空。命字所在格的右边是父母宫，格内由上至下写七杀、天马。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="60" y="126" width="840" height="288" stroke="#454545" stroke-width="2"/>
+    <path d="M270 126V414 M480 126V414 M690 126V414" stroke="#777" stroke-width="1.5"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <g font-size="36" font-weight="500" letter-spacing="2">
+      <text x="165" y="227">巨门</text>
+      <text x="165" y="285">禄存</text>
+      <text x="795" y="227">七杀</text>
+      <text x="795" y="285">天马</text>
+    </g>
+    <g font-size="26" font-weight="600">
+      <text x="585" y="386" fill="#555">命</text>
+      <text x="795" y="386" fill="#a63f32">父母宫</text>
+    </g>
+  </g>
+</svg>

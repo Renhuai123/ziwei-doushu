@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红鸾过限</title>
+  <desc id="desc">左格的红鸾与右格的天喜相对。倪师说，此例二十六岁逢天喜，对面红鸾星动，又没有杀星，因而论婚。上排格线的一小段用朱红标出他所指的“限”，下方依次画出二十六岁结婚、二十七八岁过夫妻的限，以及他据福德宫化忌所作的两年之断。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="60" y="53" font-size="26" font-weight="600">26跟32两个流年</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <path d="M60 133H270V242H60Z M690 133H900V242H690Z" fill="#f6f6f4"/>
+      <rect x="60" y="80" width="840" height="254" stroke="#555" stroke-width="1.6"/>
+      <path d="M270 80V334 M690 80V334 M480 80V133 M480 285V334
+               M60 133H900 M60 285H900 M60 242H270 M690 242H900"
+            stroke="#999" stroke-width="1.2"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="165" y="157" font-size="16" fill="#555">25-34</text>
+      <text x="165" y="192" font-size="28" font-weight="600">红鸾星动</text>
+      <text x="165" y="220" font-size="17" fill="#555">吉星</text>
+
+      <text x="795" y="157" font-size="16" fill="#555">26岁</text>
+      <ellipse cx="795" cy="185" rx="43" ry="22" fill="#fff" stroke="#414141" stroke-width="1.6"/>
+      <text x="795" y="194" font-size="25" font-weight="600">天喜</text>
+      <text x="795" y="231" font-size="17" fill="#555">太阴</text>
+
+      <path d="M237 185H731" fill="none" stroke="#777" stroke-width="1.4"/>
+      <circle cx="237" cy="185" r="3" fill="#666"/>
+      <circle cx="731" cy="185" r="3" fill="#666"/>
+      <rect x="384" y="168" width="192" height="33" fill="#fff"/>
+      <text x="480" y="192" font-size="22" font-weight="600">天喜红鸾星来会</text>
+      <text x="480" y="224" font-size="18">对面又没有杀星</text>
+      <text x="480" y="269" font-size="20" fill="#666">巨日格</text>
+    </g>
+
+    <path d="M542 133H613" fill="none" stroke="#ae3e32" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M548 133L532 111H518" fill="none" stroke="#696969" stroke-width="1.2"/>
+    <text x="512" y="115" text-anchor="end" font-size="17"
+          stroke="#fff" stroke-width="6" paint-order="stroke">过这个限</text>
+
+    <g fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M264 416H350 M342 411L350 416L342 421"/>
+      <path d="M609 416H694 M686 411L694 416L686 421"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="160" y="390" font-size="17" fill="#555">如果她</text>
+      <text x="160" y="427" font-size="27" font-weight="600">26岁结婚</text>
+      <text x="160" y="465" font-size="17" fill="#555">妈妈也同意她结婚了</text>
+
+      <text x="480" y="390" font-size="17" fill="#555">27、28</text>
+      <text x="480" y="427" font-size="25" font-weight="600">过夫妻的限</text>
+      <text x="480" y="465" font-size="18">福德宫是化忌的</text>
+
+      <text x="806" y="427" font-size="25" font-weight="600">势必只有两年</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">小流年的本宫和对宫</title>
+  <desc id="desc">十二宫格中，本宫和正对的对宫用浅灰底标出，一条朱红细线穿过盘心，连接两宫。批一年的小流年时只看这两宫，不需要看左右夹。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <g fill="#292929">
+      <text x="62" y="218" font-size="38" font-weight="600">小流年</text>
+      <path d="M63 240 H373" fill="none" stroke="#bdbdbd" stroke-width="1"/>
+      <text x="62" y="285" font-size="28" font-weight="500">只需要看对宫和本宫</text>
+      <text x="63" y="325" font-size="22" fill="#595959">不需要看左右夹</text>
+    </g>
+
+    <g fill="#eeeeec">
+      <rect x="460" y="164" width="106" height="106"/>
+      <rect x="778" y="270" width="106" height="106"/>
+    </g>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="460" y="58" width="424" height="424" stroke="#474747" stroke-width="2"/>
+      <path d="M566 58 V482 M778 58 V482
+               M460 164 H884 M460 376 H884
+               M672 58 V164 M672 376 V482
+               M460 270 H566 M778 270 H884"
+            stroke="#909090" stroke-width="1.4"/>
+    </g>
+
+    <path d="M551 229.67 L793 310.33" fill="none" stroke="#ab4034" stroke-width="2" stroke-linecap="round"/>
+
+    <g text-anchor="middle" fill="#242424" font-size="26" font-weight="600">
+      <text x="513" y="226">本宫</text>
+      <text x="831" y="332">对宫</text>
+    </g>
+  </g>
+</svg>

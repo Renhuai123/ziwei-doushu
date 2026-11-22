@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">兄弟宫与子女宫</title>
+  <desc id="desc">上图从对面的化忌画箭头指向兄弟宫的铃星，右侧列出倪师对此例兄弟相处与朋友合伙的判断。下图将子女宫的天梁、天机分成两行，分别对应阳星、男人和阴星、女的。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#707070" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g stroke="#545454" stroke-width="1.6">
+      <rect x="52" y="65" width="158" height="151" fill="#fff"/>
+      <rect x="360" y="65" width="158" height="151" fill="#fff"/>
+      <path d="M52 111H210 M360 111H518" fill="none" stroke="#aaa" stroke-width="1"/>
+    </g>
+    <g text-anchor="middle">
+      <g font-size="21" font-weight="600">
+        <text x="131" y="96">对面</text>
+        <text x="439" y="96">兄弟宫</text>
+      </g>
+      <text x="131" y="173" font-size="28">化忌</text>
+      <text x="439" y="158" font-size="28">铃星</text>
+      <text x="439" y="192" font-size="19" fill="#555">杀星</text>
+      <text x="285" y="143" font-size="21">来冲</text>
+    </g>
+    <path d="M222 161H347 M337 155 347 161 337 167" fill="none" stroke="#ac4033" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g fill="none" stroke="#777" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M518 161H555 M555 108V207 M555 108H579 M555 207H579"/>
+    </g>
+    <g x="0" font-size="23">
+      <text x="596" y="116">兄弟在一起也会是非很多</text>
+      <text x="596" y="152" font-size="20" fill="#555">不和睦</text>
+      <text x="596" y="215">不利于跟朋友合伙</text>
+    </g>
+
+    <path d="M52 270H908" fill="none" stroke="#d1d1d1" stroke-width="1"/>
+
+    <g stroke="#545454" stroke-width="1.6">
+      <rect x="52" y="307" width="316" height="185" fill="#fff"/>
+      <path d="M175 307V492" fill="none" stroke="#aaa" stroke-width="1"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="113" y="408" font-size="24" font-weight="600">子女</text>
+      <g font-size="28">
+        <text x="272" y="375">天梁</text>
+        <text x="272" y="451">天机</text>
+      </g>
+      <g font-size="25">
+        <text x="547" y="374">阳星</text>
+        <text x="547" y="450">阴星</text>
+        <text x="805" y="374">男人</text>
+        <text x="805" y="450">女的</text>
+      </g>
+    </g>
+    <g fill="none" stroke="#707070" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M380 365H496"/>
+      <path d="M380 441H496"/>
+      <path d="M599 365H753"/>
+      <path d="M599 441H753"/>
+    </g>
+  </g>
+</svg>

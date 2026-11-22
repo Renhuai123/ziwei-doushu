@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">35岁和41岁</title>
+  <desc id="desc">上半图并列画出先生的「否」与小方框里的厨房，倪师说「否」还不要紧，说到厨房才断为凶限。下半图对照两个岁数，35岁的灾未必发生，41岁因「忌来对冲」而最凶。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g text-anchor="middle">
+      <text x="186" y="90" font-size="24">她先生</text>
+      <path d="M186 103 V125" fill="none" stroke="#969696" stroke-width="1.5"/>
+      <text x="186" y="166" font-size="42">否</text>
+      <path d="M222 152 H260" fill="none" stroke="#888" stroke-width="1.5"/>
+      <text x="335" y="161" font-size="23">也不打紧啊</text>
+    </g>
+
+    <g stroke-linejoin="round">
+      <rect x="510" y="62" width="170" height="144" fill="none" stroke="#777" stroke-width="1.8"/>
+      <path d="M510 105 H680 M592 62 V105" fill="none" stroke="#aaa" stroke-width="1.4"/>
+      <rect x="597" y="151" width="83" height="55" fill="#f3f3f1" stroke="#333" stroke-width="2"/>
+    </g>
+    <text x="638.5" y="186" text-anchor="middle" font-size="23">厨房</text>
+    <path d="M680 178.5 H756" fill="none" stroke="#555" stroke-width="1.7"/>
+    <circle cx="756" cy="178.5" r="3" fill="#555"/>
+    <text x="776" y="187" font-size="26" font-weight="600">就完了</text>
+
+    <path d="M72 263 H888" fill="none" stroke="#d2d2cf" stroke-width="1.2"/>
+
+    <g text-anchor="middle">
+      <text x="276" y="366" font-size="45" font-weight="500">35岁</text>
+      <path d="M276 387 V423" fill="none" stroke="#999" stroke-width="1.5"/>
+      <text x="276" y="464" font-size="25">可能还不见得发生</text>
+
+      <ellipse cx="680" cy="350" rx="74" ry="45" fill="none" stroke="#ae392d" stroke-width="3"/>
+      <text x="680" y="366" font-size="45" font-weight="600">41岁</text>
+      <path d="M680 427 V402 M673 411 L680 402 L687 411" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="680" y="464" font-size="25">忌来对冲</text>
+    </g>
+  </g>
+</svg>

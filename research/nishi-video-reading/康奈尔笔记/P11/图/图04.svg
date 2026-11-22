@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">大限前十年</title>
+  <desc id="desc">上下两格各为十年。下格在 33-42 旁标出「化忌」「日月反背」，折箭头从下格回指上格的 23-32，示意倪师所说的「大限就在前」。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="104" y="85" font-size="28" font-weight="600">看十年</text>
+
+    <g stroke="#484848" stroke-width="2" fill="none">
+      <rect x="104" y="121" width="394" height="312"/>
+      <path d="M104 277H498"/>
+    </g>
+
+    <g text-anchor="middle" font-size="44" font-weight="500">
+      <text x="301" y="215">23-32</text>
+      <text x="301" y="352">33-42</text>
+    </g>
+    <g font-size="22" text-anchor="middle">
+      <text x="245" y="395">化忌</text>
+      <text x="341" y="395">日月反背</text>
+    </g>
+
+    <path d="M498 355H568V199H510" fill="none" stroke="#565656" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M502 199L518 192V206Z" fill="#ad4033"/>
+
+    <text x="598" y="208" font-size="29" font-weight="600">大限就在前</text>
+    <text x="598" y="364" font-size="25">未来十年无大运</text>
+  </g>
+</svg>

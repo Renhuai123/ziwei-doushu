@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">武贪入庙</title>
+  <desc id="desc">依黑板画出命盘，中央写「女」。左列第二格标出贪狼入庙，右列第三格标出武曲入庙，并保留该格的「戌」字。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="#f3f3f1">
+    <rect x="88" y="162" width="196" height="108"/>
+    <rect x="676" y="270" width="196" height="108"/>
+  </g>
+
+  <g fill="none" stroke="#888" stroke-width="1.5">
+    <path d="M284 54V486 M676 54V486"/>
+    <path d="M480 54V162 M480 378V486"/>
+    <path d="M88 162H872 M88 378H872"/>
+    <path d="M88 270H284 M676 270H872"/>
+  </g>
+  <rect x="88" y="54" width="784" height="432" fill="none" stroke="#383838" stroke-width="2.2"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <g fill="#242424" font-size="32" font-weight="600">
+      <text x="186" y="211">贪狼</text>
+      <text x="774" y="319">武曲</text>
+    </g>
+    <g fill="#454545" font-size="22">
+      <text x="186" y="246">入庙</text>
+      <text x="774" y="354">入庙</text>
+    </g>
+    <g fill="#666">
+      <text x="480" y="279" font-size="26">女</text>
+      <text x="851" y="362" font-size="18">戌</text>
+    </g>
+  </g>
+</svg>

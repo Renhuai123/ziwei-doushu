@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">贪狼天魁文武双全</title>
+  <desc id="desc">命盘第二列上格中，贪狼在上，旁标「武」，天魁在下，旁标「文」，格底保留「介」与圈起的「午」。按这段口述，贪狼入命一般有生杀之权，天魁主发科甲，右侧用合线将同格的「武」与「文」连到「文武双全」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <rect x="54" y="35" width="164" height="47" rx="3" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="136" y="67" text-anchor="middle" font-size="24" font-weight="600" letter-spacing="2">贪狼入命</text>
+
+    <!-- 局部命盘：淡线留出相邻宫格的位置。 -->
+    <g fill="none" stroke="#c8c8c5" stroke-width="1.4">
+      <path d="M54 114 H666 M54 451 H666"/>
+      <path d="M54 114 V483 M178 451 V483 M586 451 V483"/>
+    </g>
+    <rect x="178" y="114" width="408" height="337" fill="#fafaf9" stroke="#454545" stroke-width="2"/>
+
+    <!-- 两颗星写在同一格内，依板书上下排列。 -->
+    <g font-size="38" font-weight="600">
+      <text x="226" y="190">贪狼</text>
+      <text x="226" y="304">天魁</text>
+    </g>
+    <g font-size="21" fill="#565656">
+      <text x="227" y="225">生杀之权</text>
+      <text x="227" y="339">主发科甲</text>
+    </g>
+
+    <g fill="none" stroke="#a2a29f" stroke-width="1.5">
+      <path d="M327 177 H443 M327 291 H443"/>
+    </g>
+    <g text-anchor="middle" font-size="35" font-weight="600">
+      <text x="485" y="190">武</text>
+      <text x="485" y="304">文</text>
+    </g>
+
+    <g font-size="23" text-anchor="middle" fill="#555">
+      <text x="246" y="412">介</text>
+      <circle cx="320" cy="403" r="22" fill="none" stroke="#666" stroke-width="1.6"/>
+      <text x="320" y="412">午</text>
+    </g>
+
+    <!-- 武、文两线汇合，共同引向一个结论。 -->
+    <g fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M515 177 H624 V291 H515"/>
+      <path d="M624 234 H680 M672 228 L680 234 L672 240"/>
+    </g>
+    <text x="704" y="247" font-size="38" font-weight="600" letter-spacing="2" fill="#a43d32">文武双全</text>
+  </g>
+</svg>

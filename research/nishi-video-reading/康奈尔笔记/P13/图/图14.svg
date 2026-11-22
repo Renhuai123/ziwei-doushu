@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">贪居亥子</title>
+  <desc id="desc">上方对照倪师口述中太阳在卯宫与太阴坐命的女命相貌。下方从板书中写有「贪狼」「命」的方格引出命名条件：贪狼星在亥宫或子宫，称为「贪居亥子」，又叫「泛水桃花」；底部画出批斗数前先看格的顺序。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+
+    <g stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M49 159 Q53 138 77 131 Q87 128 88 118 L88 112 H111 L112 119 Q114 128 124 131 Q149 137 155 159" fill="#f2f2f0"/>
+      <path d="M65 84 Q59 59 74 44 Q87 30 106 34 Q131 36 138 58 Q143 75 136 93 L130 106 H71Z" fill="#e6e6e3"/>
+      <path d="M69 78 Q68 102 81 113 Q90 121 101 121 Q115 121 126 110 Q136 99 134 77 Q117 73 108 55 Q96 73 69 78Z" fill="#fff"/>
+      <g fill="#fff" stroke-width="1.6">
+        <circle cx="87" cy="85" r="5.1"/>
+        <circle cx="116" cy="85" r="5.1"/>
+      </g>
+      <g fill="#343434" stroke="none">
+        <circle cx="87" cy="85" r="2.2"/>
+        <circle cx="116" cy="85" r="2.2"/>
+      </g>
+      <g fill="none" stroke-width="1.5">
+        <path d="M80 76 Q86 72 92 75 M110 75 Q116 72 122 76"/>
+        <path d="M101 88 L99 94 L103 94 M91 103 Q101 112 113 102"/>
+      </g>
+      <g stroke="#aaa" stroke-width="1.3">
+        <path d="M77 95 L81 92 M81 97 L85 94 M119 95 L123 92 M123 97 L127 94"/>
+      </g>
+    </g>
+
+    <text x="175" y="54" font-size="25" font-weight="600">太阳在卯宫</text>
+    <g x="175" font-size="18">
+      <text x="175" y="88">热情如火</text>
+      <text x="175" y="118">眼圆圆的　脸圆圆的</text>
+      <text x="175" y="148">红光满面　丰腴</text>
+    </g>
+
+    <path d="M469 37 V155" fill="none" stroke="#dededb" stroke-width="1.2"/>
+
+    <g stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M510 159 Q513 143 529 137 Q541 132 542 119 L543 109 H559 L560 119 Q561 132 573 137 Q588 143 591 159" fill="#f2f2f0"/>
+      <path d="M519 76 Q515 53 530 41 Q543 30 560 35 Q582 39 585 64 Q589 91 579 120 L570 124 L569 93 H531 L530 124 L521 120 Q515 102 519 76Z" fill="#e6e6e3"/>
+      <path d="M525 76 Q541 70 552 52 Q560 65 576 73 Q577 92 567 106 Q558 119 551 119 Q543 118 534 107 Q526 96 525 76Z" fill="#fff"/>
+      <g fill="#fff" stroke-width="1.6">
+        <path d="M530 83 Q537 73 546 82 Q540 92 530 83Z"/>
+        <path d="M555 82 Q563 73 572 82 Q565 91 555 82Z"/>
+      </g>
+      <g fill="#343434" stroke="none">
+        <circle cx="539" cy="82.5" r="3.1"/>
+        <circle cx="564" cy="82" r="3.1"/>
+      </g>
+      <g fill="none" stroke-width="1.5">
+        <path d="M530 74 Q536 70 543 72 M557 72 Q564 69 571 73"/>
+        <path d="M551 86 L549 94 L553 94 M545 104 Q551 107 558 103"/>
+      </g>
+    </g>
+
+    <text x="616" y="54" font-size="25" font-weight="600">太阴</text>
+    <text x="685" y="53" font-size="18" fill="#585858">月朗天门</text>
+    <g font-size="18">
+      <text x="616" y="88">瘦瘦的　白白皙皙的</text>
+      <text x="616" y="118">清秀</text>
+      <text x="616" y="148">两个骨碌眼睛大大的</text>
+    </g>
+
+    <path d="M48 183 H912" fill="none" stroke="#c9c9c6" stroke-width="1.2"/>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="50" y="210" width="288" height="204" stroke="#505050" stroke-width="1.7"/>
+      <path d="M122 210 V414 M266 210 V414 M50 261 H338 M50 363 H338
+               M194 210 V261 M194 363 V414 M50 312 H122 M266 312 H338"
+            stroke="#8a8a87" stroke-width="1.2"/>
+      <rect x="194" y="363" width="72" height="51" fill="#fbf5f2" stroke="#ad4436" stroke-width="2.2"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="158" y="233" font-size="19">紫微</text>
+      <text x="158" y="253" font-size="15">午</text>
+      <text x="230" y="386" font-size="20" font-weight="600">贪狼</text>
+      <text x="230" y="406" font-size="15">命</text>
+    </g>
+
+    <path d="M230 416 V432 H367 V284 H413" fill="none" stroke="#777" stroke-width="1.4" stroke-linejoin="round"/>
+    <text x="439" y="292" font-size="26" font-weight="500">贪狼星在亥宫或子宫</text>
+    <path d="M491 310 V338 M485 332 L491 339 L497 332" fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="439" y="383" font-size="32" font-weight="600">贪居亥子</text>
+    <path d="M601 365 H635 M601 373 H635" fill="none" stroke="#777" stroke-width="1.8"/>
+    <text x="667" y="383" font-size="32" font-weight="600">泛水桃花</text>
+
+    <path d="M48 455 H912" fill="none" stroke="#c9c9c6" stroke-width="1.2"/>
+    <g text-anchor="middle">
+      <text x="138" y="501" font-size="21">批斗数之前</text>
+      <text x="410" y="492" font-size="21" font-weight="600">看它的格</text>
+      <text x="410" y="517" font-size="16" fill="#606060">一种特例</text>
+      <text x="755" y="501" font-size="21">加重这方面的东西</text>
+    </g>
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M219 494 H326 M320 489 L327 494 L320 499"/>
+      <path d="M491 494 H628 M622 489 L629 494 L622 499"/>
+    </g>
+  </g>
+</svg>

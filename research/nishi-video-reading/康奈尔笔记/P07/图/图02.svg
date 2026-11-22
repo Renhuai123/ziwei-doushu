@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">十年大运命盘图</title>
+  <desc id="desc">左侧竖排课题「十年大运」，右侧命盘中央留空，外围十二格按板书位置标出可辨的九个地支。左上格和底行中间两格的字迹未能确认，留白。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="244" y="54" width="600" height="432" stroke="#343434" stroke-width="2.4"/>
+    <path d="M394 54 V486 M694 54 V486
+             M244 162 H844 M244 378 H844
+             M544 54 V162 M544 378 V486
+             M244 270 H394 M694 270 H844"
+          stroke="#656565" stroke-width="1.6"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif"
+     text-anchor="middle" fill="#262626">
+    <text x="147" y="270" writing-mode="vertical-rl" text-orientation="upright"
+          font-size="32" font-weight="600" letter-spacing="6">十年大运</text>
+
+    <g font-size="30" dominant-baseline="central">
+      <text x="469" y="108">午</text>
+      <text x="619" y="108">未</text>
+      <text x="769" y="108">申</text>
+      <text x="319" y="216">辰</text>
+      <text x="769" y="216">酉</text>
+      <text x="319" y="324">卯</text>
+      <text x="769" y="324">戌</text>
+      <text x="319" y="432">寅</text>
+      <text x="769" y="432">亥</text>
+    </g>
+  </g>
+</svg>

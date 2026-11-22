@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">同盘男命大限</title>
+  <desc id="desc">两盘都从右侧「命」所在的一格起数，起点都是5至14岁。左图女命向上进入兄弟，再沿上排向左数；右图换成男命，沿右列向下数，到底排再向左。</desc>
+
+  <defs>
+    <g id="board" fill="none" stroke-linejoin="round">
+      <rect width="416" height="376" stroke="#60605d" stroke-width="1.6"/>
+      <path d="M104 0V376 M312 0V376 M208 0V94 M208 282V376
+               M0 94H416 M0 282H416 M0 188H104 M312 188H416"
+            stroke="#b9b9b5" stroke-width="1.2"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#444441"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="red-arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#ad4034"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <g id="palaces" text-anchor="middle" font-size="20">
+      <text x="156" y="37">子女</text>
+      <text x="260" y="37">夫妻</text>
+      <text x="364" y="37">兄弟</text>
+    </g>
+    <g id="start" text-anchor="middle">
+      <text x="340" y="135" font-size="21" font-weight="600">命</text>
+      <rect x="359" y="115" width="43" height="25" rx="12.5"
+            fill="none" stroke="#777773" stroke-width="1.1"/>
+      <text x="380.5" y="133" font-size="15">化权</text>
+      <text x="364" y="166" font-size="22" font-weight="500">5-14岁</text>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282826">
+    <g transform="translate(44 82)">
+      <path d="M104 0H416V188H312V94H104Z" fill="#f5f5f2"/>
+      <use href="#board"/>
+      <use href="#palaces"/>
+      <use href="#start"/>
+
+      <g text-anchor="middle" font-size="22" font-weight="500">
+        <text x="364" y="69">15-24</text>
+        <text x="260" y="69">25-34</text>
+        <text x="156" y="69">35-44</text>
+      </g>
+      <g fill="none" stroke="#444441" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)">
+        <path d="M364 106V80"/>
+        <path d="M328 61H296"/>
+        <path d="M224 61H192"/>
+      </g>
+      <text x="208" y="201" text-anchor="middle" font-size="34" font-weight="600">女</text>
+    </g>
+
+    <g transform="translate(500 82)">
+      <path d="M312 94H416V376H208V282H312Z" fill="#f5f5f2"/>
+      <use href="#board"/>
+      <use href="#palaces" fill="#767671"/>
+      <use href="#start"/>
+
+      <g text-anchor="middle" font-size="22" font-weight="500">
+        <text x="364" y="243">15-24</text>
+        <text x="364" y="337">25-34</text>
+        <text x="260" y="337">35-44</text>
+      </g>
+      <path d="M364 177V205" fill="none" stroke="#ad4034" stroke-width="2.5"
+            stroke-linecap="round" marker-end="url(#red-arrow)"/>
+      <g fill="none" stroke="#444441" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)">
+        <path d="M364 267V297"/>
+        <path d="M328 329H296"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="208" y="179" font-size="26" font-weight="600">如果是男人</text>
+        <text x="208" y="215" font-size="21">反过来走</text>
+      </g>
+    </g>
+  </g>
+</svg>

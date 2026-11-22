@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">人位在东南角</title>
+  <desc id="desc">两幅宅图均按黑板上的方向绘制，上为南、左为东。左图画母女同住西南角，右图画女儿改住东南角，人在角内斜卧，头顶西南，脚朝东北。</desc>
+
+  <defs>
+    <marker id="move" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <g font-size="25" font-weight="600" text-anchor="middle">
+      <text x="212" y="75">女儿跟妈妈一起住在西南角</text>
+      <text x="722" y="75">人位在东南角</text>
+    </g>
+
+    <g stroke-linejoin="round">
+      <rect x="54" y="148" width="316" height="250" fill="#fff" stroke="#393939" stroke-width="2.4"/>
+      <path d="M234 149 H369 V264 H234 Z" fill="#f2f2f0"/>
+      <path d="M234 148 V264 H370" fill="none" stroke="#666" stroke-width="1.7"/>
+
+      <rect x="530" y="148" width="386" height="250" fill="#fff" stroke="#393939" stroke-width="2.4"/>
+      <path d="M531 149 H692 V302 H531 Z" fill="#f2f2f0"/>
+      <path d="M692 148 V302 H530" fill="none" stroke="#666" stroke-width="1.7"/>
+    </g>
+
+    <g font-size="17" fill="#646464" text-anchor="middle">
+      <text x="212" y="136">S</text>
+      <text x="36" y="279">E</text>
+      <text x="723" y="136">S</text>
+      <text x="512" y="279">E</text>
+    </g>
+
+    <g text-anchor="middle" font-size="21">
+      <text x="302" y="198">妈妈</text>
+      <text x="302" y="235">女儿</text>
+      <text x="302" y="334" font-size="19">爸爸住西厢</text>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="446" y="230" font-size="18">红鸾星再动</text>
+      <path d="M391 250 H499" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" marker-end="url(#move)"/>
+    </g>
+
+    <g transform="translate(611 225) rotate(45)" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="-24" y="-66" width="48" height="132" rx="3" fill="#fff" stroke="#414141" stroke-width="2"/>
+      <rect x="-17" y="-59" width="34" height="23" rx="5" fill="#f3f3f1" stroke="#aaa" stroke-width="1.1"/>
+      <circle cx="0" cy="-45" r="9" fill="#fff" stroke="#353535" stroke-width="1.7"/>
+      <path d="M-5 -34 Q-13 -33 -14 -24 L-16 1 Q-16 5 -12 5 Q-9 5 -9 1 L-7 -14
+               M5 -34 Q13 -33 14 -24 L16 1 Q16 5 12 5 Q9 5 9 1 L7 -14"
+            fill="none" stroke="#444" stroke-width="1.6"/>
+      <path d="M-5 -34 Q0 -31 5 -34 M-7 -14 L-8 8 L-7 48 Q-7 52 -3 52 L0 13
+               L3 52 Q7 52 7 48 L8 8 L7 -14"
+            fill="none" stroke="#444" stroke-width="1.6"/>
+    </g>
+
+    <g fill="none" stroke="#888" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M654 189 L673 176 H725"/>
+      <path d="M575 269 L559 285 V341 H614"/>
+    </g>
+    <circle cx="654" cy="189" r="3.7" fill="#ae4135"/>
+    <g font-size="21">
+      <text x="737" y="183">顶西南</text>
+      <text x="625" y="348">脚朝东北</text>
+    </g>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.2">
+      <path d="M302 401 V428"/>
+      <path d="M724 401 V428"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="302" y="464" font-size="21">两个坤</text>
+      <text x="724" y="464" font-size="21">东北方大利</text>
+      <text x="724" y="496" font-size="17" fill="#626262">太阳星 · 寅宫</text>
+    </g>
+  </g>
+</svg>

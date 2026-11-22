@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">太阴星在辰宫</title>
+  <desc id="desc">命盘左列第二格标出太阴星，这一格是辰宫，也是本例的子女宫。从辰宫引出的细线连到辰时，下方两端标出上午7点和9点。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <rect x="80" y="170" width="200" height="100" fill="#f5f5f3"/>
+  <g fill="none" stroke="#aaa" stroke-width="1.4">
+    <rect x="80" y="70" width="800" height="400" stroke="#626262" stroke-width="1.8"/>
+    <path d="M280 70V470 M680 70V470 M480 70V170 M480 370V470"/>
+    <path d="M80 170H880 M80 370H880 M80 270H280 M680 270H880"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <g fill="#707070" font-size="22" text-anchor="middle">
+      <text x="380" y="129">午</text>
+      <text x="180" y="329">卯</text>
+    </g>
+
+    <circle cx="106" cy="200" r="4.5" fill="#b43b30"/>
+    <text x="120" y="210" fill="#242424" font-size="29" font-weight="600">太阴星</text>
+    <g fill="#363636" font-size="21">
+      <text x="120" y="250">子女宫</text>
+      <text x="218" y="250">辰宫</text>
+    </g>
+
+    <path d="M267 242H441" fill="none" stroke="#858585" stroke-width="1.4"/>
+    <text x="480" y="251" fill="#242424" font-size="27" font-weight="600" text-anchor="middle">辰时</text>
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round">
+      <path d="M378 282H582 M378 276V288 M582 276V288"/>
+    </g>
+    <g fill="#363636" font-size="21" text-anchor="middle">
+      <text x="378" y="318">上午7点</text>
+      <text x="582" y="318">9点</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">七杀在午、紫微在巳</title>
+  <desc id="desc">左盘在上排第二格标出七殺与午命，表示七杀在午入命也称将星，盘下列出命中没有将星时看流年的讲例。右边换到紫微在巳的新盘，左上格写紫微与巳，左下格圈出同宫的巨门、太阳。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g font-size="27" font-weight="600">
+      <text x="48" y="66">将星入命</text>
+      <text x="512" y="66">紫微星在巳</text>
+    </g>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="48" y="96" width="400" height="272" stroke="#555" stroke-width="1.7"/>
+      <path d="M148 96 V368 M348 96 V368
+               M248 96 V164 M248 300 V368
+               M48 164 H448 M48 300 H448
+               M48 232 H148 M348 232 H448"
+            stroke="#aaa" stroke-width="1.2"/>
+      <rect x="512" y="96" width="400" height="272" stroke="#555" stroke-width="1.7"/>
+      <path d="M612 96 V368 M812 96 V368
+               M712 96 V164 M712 300 V368
+               M512 164 H912 M512 300 H912
+               M512 232 H612 M812 232 H912"
+            stroke="#aaa" stroke-width="1.2"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="198" y="127" font-size="23" font-weight="600">七殺</text>
+      <text x="198" y="152" font-size="17">午命</text>
+      <text x="562" y="127" font-size="23" font-weight="600">紫微</text>
+      <text x="562" y="152" font-size="17">巳</text>
+    </g>
+
+    <ellipse cx="562" cy="334" rx="43" ry="30" fill="none" stroke="#ad4033" stroke-width="2"/>
+    <g text-anchor="middle" font-size="19" font-weight="600">
+      <text x="562" y="330">巨门</text>
+      <text x="562" y="353">太阳</text>
+    </g>
+
+    <g font-size="21" font-weight="500" text-anchor="middle">
+      <text x="92" y="423">命中没有</text>
+      <text x="248" y="423">流年上有</text>
+      <text x="404" y="423">一样成格</text>
+    </g>
+    <g fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M146 415 H191 M185 410 L191 415 L185 420"/>
+      <path d="M302 415 H347 M341 410 L347 415 L341 420"/>
+    </g>
+
+    <path d="M248 435 V457" fill="none" stroke="#aaa" stroke-width="1.2"/>
+    <g font-size="18" text-anchor="middle">
+      <text x="82" y="484" fill="#666">比如说</text>
+      <text x="152" y="484">43-52</text>
+      <text x="215" y="484">七杀</text>
+      <text x="268" y="484">化权</text>
+      <text x="404" y="484">司令官</text>
+    </g>
+    <path d="M302 477 H347 M341 472 L347 477 L341 482" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

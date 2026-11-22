@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">巨日格与巨富之相</title>
+  <desc id="desc">左侧将巨门、太阳并列，示意两星入庙时成巨日格。右侧依板书在命盘中央大格圈出「相」，表示看巨富之人，除了看盘中是否成格，还要看相。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="76" y="81" font-size="31" font-weight="600">大富之人你如何看他</text>
+
+    <g text-anchor="middle">
+      <g font-size="28">
+        <text x="128" y="246">巨门</text>
+        <text x="258" y="246">太阳</text>
+      </g>
+      <path d="M128 263 V277 H258 V263 M193 277 V294"
+            fill="none" stroke="#777" stroke-width="1.6" stroke-linejoin="round"/>
+      <text x="193" y="322" font-size="22">入庙</text>
+      <path d="M193 335 V364 M188 358 L193 364 L198 358"
+            fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="193" y="408" font-size="32" font-weight="600">巨日格</text>
+      <text x="365" y="315" font-size="22" fill="#626262">还有</text>
+    </g>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="432" y="130" width="456" height="352" stroke="#505050" stroke-width="2"/>
+      <path d="M546 130 V482 M774 130 V482
+               M432 218 H888 M432 394 H888
+               M660 130 V218 M660 394 V482
+               M432 306 H546 M774 306 H888"
+            stroke="#999" stroke-width="1.4"/>
+      <circle cx="660" cy="306" r="47" stroke="#ac3d31" stroke-width="2.8"/>
+    </g>
+    <text x="660" y="323" text-anchor="middle" font-size="46" font-weight="500">相</text>
+  </g>
+</svg>

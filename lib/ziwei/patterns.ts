@@ -1025,6 +1025,28 @@ function detectKeQuanShuangHui(chart: ZiweiChart, patterns: Pattern[]) {
   });
 }
 
+// ────────────────── 《全书》四张格表 · 严格判定接入 ──────────────────
+//
+// 卷一〈定贵局〉27 /〈定富局〉6 /〈定贫贱局〉8 共 41 条命盘可判格
+// （〈定杂局〉8 条为大限格，另行架构，未收录）。严格实现见
+// patterns-dinggui/dingfu/dingpin.ts：照原文判，不放宽；安星无解的
+// 条目在源表标 unreachable，不参与判定。识别器分工：
+//  - 本文件原有 41 个识别器：宽松判据，带加分项/破格警示的 UI 文案；
+//  - 严格版：description 即原书注文，source 带原书条目序号，可溯源。
+// 同名时严格版取代宽松版（君臣庆会/府相朝垣/日月夹命/明珠出海 4 条），
+// 宽松版的 bonus/breaking 原样保留——严格条件是宽松条件的子集，
+// 宽松版能触发时其加分判定依然有效。
+// 马头带剑不参与取代：严格版已证 unreachable（注文「不是居午格」否定了
+// 项目所采读法，见 patterns-dinggui.ts 第 10 条），不会产生命中；
+// 宽松版「马头带箭」按原样保留，其判据质量已在核查报告中标 wrong。
+
+interface QuanshuHit {
+  no: number;
+  name: string;
+  note: string;
+  status: string;
+}
+
 // ────────────────── 主入口 ──────────────────
 export function detectPatterns(chart: ZiweiChart): Pattern[] {
   const patterns: Pattern[] = [];

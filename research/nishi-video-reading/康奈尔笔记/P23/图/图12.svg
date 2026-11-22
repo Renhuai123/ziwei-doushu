@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">第一次婚姻</title>
+  <desc id="desc">按这段口述，男命的太阴指太太，也指妈妈。下方以两点标出此例第一次婚姻的起止，24 岁结婚，31 岁离婚；上方的太阴化忌方格用箭头连到 31 岁这一点，表示倪师所说的「转到这个宫的时候」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <g text-anchor="middle">
+      <text x="184" y="163" font-size="27" font-weight="600">男人的命</text>
+      <text x="395" y="124" font-size="24">太太</text>
+      <text x="395" y="198" font-size="24">妈妈</text>
+    </g>
+
+    <g fill="none" stroke="#858585" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M252 153 H307 M307 116 V190 M307 116 H350 M307 190 H350"/>
+      <path d="M440 116 H483 V190 H440 M483 153 H640"/>
+    </g>
+
+    <rect x="640" y="90" width="178" height="126" fill="#f6f6f4" stroke="#414141" stroke-width="1.8"/>
+    <text x="729" y="164" text-anchor="middle" font-size="29" font-weight="600">太阴化忌</text>
+
+    <g fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M729 216 V336 M723 328 L729 336 L735 328"/>
+    </g>
+    <text x="710" y="282" text-anchor="end" font-size="21">转到这个宫的时候</text>
+
+    <path d="M184 354 H729" fill="none" stroke="#444" stroke-width="2.4"/>
+    <circle cx="184" cy="354" r="7" fill="#fff" stroke="#333" stroke-width="2.4"/>
+    <circle cx="729" cy="354" r="7.5" fill="#ad392d"/>
+
+    <g text-anchor="middle">
+      <g font-size="35" font-weight="600">
+        <text x="184" y="411">24岁</text>
+        <text x="729" y="411">31岁</text>
+      </g>
+      <g font-size="25">
+        <text x="184" y="453">结婚</text>
+        <text x="729" y="453">离婚</text>
+      </g>
+    </g>
+  </g>
+</svg>

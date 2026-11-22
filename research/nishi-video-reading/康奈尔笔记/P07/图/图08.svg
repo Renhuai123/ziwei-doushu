@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">节令与离日</title>
+  <desc id="desc">左边四个宫从下往上依次为春、夏、秋、冬；格旁两支弧形箭头分别表示男孩子顺转、女孩子逆转。右边圈起春分、夏至、秋分、冬至，这四个节令各自的前一日为离日。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g font-size="26" font-weight="600">
+      <text x="64" y="81">左边四个宫</text>
+      <text x="494" y="81">这四个节令</text>
+    </g>
+
+    <g fill="none" stroke="#c8c8c5" stroke-width="1.2">
+      <path d="M64 102 H399 M494 102 H896"/>
+    </g>
+
+    <g stroke="#454545" stroke-width="1.8">
+      <rect x="64" y="140" width="92" height="328" fill="#f7f7f5"/>
+      <path d="M64 222 H156 M64 304 H156 M64 386 H156" fill="none"/>
+    </g>
+    <g text-anchor="middle" font-size="32">
+      <text x="110" y="193">冬</text>
+      <text x="110" y="275">秋</text>
+      <text x="110" y="357">夏</text>
+      <text x="110" y="439">春</text>
+    </g>
+
+    <g fill="none" stroke="#555" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M216 257 A16 16 0 1 1 228 242 M222 236 L228 243 L234 236"/>
+      <path d="M208 377 A16 16 0 1 0 196 362 M190 356 L196 363 L202 356"/>
+    </g>
+    <g font-size="23">
+      <text x="253" y="250">男孩子顺转</text>
+      <text x="253" y="370">女孩子逆转</text>
+    </g>
+
+    <ellipse cx="695" cy="239" rx="178" ry="98" fill="#fafaf9" stroke="#454545" stroke-width="1.8"/>
+    <g text-anchor="middle" font-size="32">
+      <text x="631" y="220">春分</text>
+      <text x="631" y="283">夏至</text>
+      <text x="759" y="220">秋分</text>
+      <text x="759" y="283">冬至</text>
+    </g>
+
+    <path d="M695 337 V381 M689 374 L695 381 L701 374" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="695" y="437" text-anchor="middle" font-size="33">前一日为<tspan fill="#a4392e" font-weight="600">离日</tspan></text>
+  </g>
+</svg>

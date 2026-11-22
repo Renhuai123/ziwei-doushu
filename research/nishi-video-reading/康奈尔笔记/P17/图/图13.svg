@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">命宫对面</title>
+  <desc id="desc">上方用两个相对的宫格表示「47年」这个命例的命宫对面有天机化忌。下方截取黑板左侧写有太阴的一格，依口述圈出「权」字，旁边单列倪师关于太阳的问句。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="76" y="43" width="108" height="44" rx="2" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="130" y="73" text-anchor="middle" font-size="24" font-weight="600">47年</text>
+
+    <g fill="none" stroke="#404040" stroke-width="2">
+      <rect x="76" y="127" width="240" height="120"/>
+      <rect x="644" y="127" width="240" height="120"/>
+    </g>
+    <g text-anchor="middle" font-size="34" font-weight="600">
+      <text x="196" y="200">命宫</text>
+      <text x="764" y="200">天机化忌</text>
+    </g>
+    <path d="M316 187H440 M520 187H644" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="480" y="195" text-anchor="middle" font-size="23">对面</text>
+
+    <path d="M76 304H884" fill="none" stroke="#dedede" stroke-width="1"/>
+
+    <g fill="none" stroke-width="1.8">
+      <path d="M124 342V366 M360 342V366 M124 454V478 M360 454V478 M360 366H391 M360 454H391" stroke="#b8b8b8"/>
+      <rect x="124" y="366" width="236" height="88" stroke="#505050"/>
+    </g>
+    <text x="173" y="422" font-size="30">太阴化<tspan x="273" fill="#a13d32">权</tspan></text>
+    <circle cx="288" cy="411" r="24" fill="none" stroke="#a13d32" stroke-width="1.8"/>
+
+    <text x="656" y="422" text-anchor="middle" font-size="30">太阳是不是陷地</text>
+  </g>
+</svg>

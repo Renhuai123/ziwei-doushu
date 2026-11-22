@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">日月並明</title>
+  <desc id="desc">太陽在命盤左列第二格，太陰在右列第三格。箭頭從太陰指向太陽，盤中央寫「日月並明」，表示月亮、太陽同時亮。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="#f4f4f2">
+    <rect x="96" y="160" width="192" height="110"/>
+    <rect x="672" y="270" width="192" height="110"/>
+  </g>
+
+  <g fill="none" stroke-linejoin="round">
+    <rect x="96" y="50" width="768" height="440" stroke="#555" stroke-width="2"/>
+    <path d="M288 50 V490 M672 50 V490
+             M480 50 V160 M480 380 V490
+             M96 160 H864 M96 380 H864
+             M96 270 H288 M672 270 H864"
+          stroke="#929292" stroke-width="1.5"/>
+  </g>
+
+  <g fill="none" stroke="#414141" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M714 315 L247 225"/>
+    <path d="M262 221 L247 225 L259 235"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <g font-size="32" font-weight="500">
+      <text x="192" y="227">太陽</text>
+      <text x="768" y="337">太陰</text>
+    </g>
+    <text x="480" y="233" font-size="38" font-weight="600" letter-spacing="3">日月並明</text>
+  </g>
+</svg>

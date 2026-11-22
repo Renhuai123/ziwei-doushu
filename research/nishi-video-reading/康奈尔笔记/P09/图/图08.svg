@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">日月反背</title>
+  <desc id="desc">左上巳宫标出太阴星陷地，倪师用巳时应该出太阳、结果月亮跑出来解释其意。右列第二格是酉位，太阳星在这里也是陷地。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="64" y="62" font-size="30" font-weight="600" letter-spacing="3">日月反背</text>
+    <g font-size="22" text-anchor="middle">
+      <text x="168" y="129">上午9点到11点</text>
+      <text x="485" y="129">应该出太阳</text>
+      <text x="772" y="129" font-weight="600">结果月亮跑出来</text>
+    </g>
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M268 121 H401 m-7-5 7 5-7 5"/>
+      <path d="M562 121 H659 m-7-5 7 5-7 5"/>
+      <path d="M168 144 V170"/>
+    </g>
+    <g fill="#f5f5f3">
+      <rect x="64" y="170" width="208" height="81"/>
+      <rect x="688" y="251" width="208" height="81"/>
+    </g>
+    <g fill="none" stroke="#c4c4bf" stroke-width="1.3">
+      <rect x="64" y="170" width="832" height="324"/>
+      <path d="M272 170 V494 M688 170 V494
+               M480 170 V251 M480 413 V494
+               M64 251 H896 M64 413 H896
+               M64 332 H272 M688 332 H896"/>
+    </g>
+    <g fill="none" stroke="#555" stroke-width="1.8">
+      <rect x="64" y="170" width="208" height="81"/>
+      <rect x="688" y="251" width="208" height="81"/>
+    </g>
+    <g transform="translate(64 170)">
+      <path d="M33 16 A13 13 0 1 0 42 37 A14 14 0 0 1 33 16Z" fill="#454545"/>
+      <text x="53" y="40" font-size="25" font-weight="600">太阴星</text>
+      <text x="188" y="39" text-anchor="end" font-size="19">陷地</text>
+      <text x="18" y="67" font-size="17">巳宫</text>
+      <text x="188" y="67" text-anchor="end" font-size="17" fill="#555">兄弟宫</text>
+    </g>
+    <g transform="translate(688 251)">
+      <g transform="translate(30 30)" fill="none" stroke="#454545" stroke-width="1.8" stroke-linecap="round">
+        <circle r="8"/>
+        <path d="M0-15 V-12 M0 12 V15 M-15 0 H-12 M12 0 H15
+                 M-10.6-10.6 l2.1 2.1 M8.5 8.5 l2.1 2.1
+                 M-10.6 10.6 l2.1-2.1 M8.5-8.5 l2.1-2.1"/>
+      </g>
+      <text x="53" y="40" font-size="25" font-weight="600">太阳星</text>
+      <text x="188" y="39" text-anchor="end" font-size="19">陷地</text>
+      <text x="18" y="67" font-size="17">酉</text>
+    </g>
+  </g>
+</svg>

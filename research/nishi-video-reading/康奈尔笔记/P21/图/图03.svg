@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">本地外地与看对面</title>
+  <desc id="desc">左图以本例第一个限末年（13岁）所在处为圆心，方圆五十里为本地，圈外为外地。右图用线连接夫妻宫的天钺星与对宫的化科，并在财帛宫标出红鸾。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g font-size="26" font-weight="600">
+      <text x="48" y="67">第一个限的尾巴</text>
+      <text x="476" y="67">要看对面</text>
+    </g>
+
+    <g font-size="21">
+      <text x="48" y="145">4-13岁</text>
+      <text x="170" y="145">13岁那年在哪里</text>
+    </g>
+    <path d="M126 138 H156 M150 133 L156 138 L150 143" fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <circle cx="207" cy="335" r="125" fill="#f6f6f5" stroke="#555" stroke-width="1.8"/>
+    <path d="M237 157 V180 L207 207 V329" fill="none" stroke="#999" stroke-width="1.3" stroke-dasharray="4 5" stroke-linecap="round"/>
+    <path d="M207 335 H332 M332 329 V341" fill="none" stroke="#606060" stroke-width="1.5"/>
+    <circle cx="207" cy="335" r="5.5" fill="#333"/>
+    <g text-anchor="middle">
+      <text x="207" y="378" font-size="25" font-weight="600">本地</text>
+      <text x="270" y="322" font-size="17">方圆五十里</text>
+      <text x="383" y="343" font-size="24">外地</text>
+    </g>
+
+    <g fill="none" stroke="#858585" stroke-width="1.4" stroke-linejoin="round">
+      <rect x="476" y="110" width="432" height="360"/>
+      <path d="M584 110 V470 M800 110 V470 M476 200 H908 M476 380 H908"/>
+      <path d="M692 110 V200 M692 380 V470 M476 290 H584 M800 290 H908"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="530" y="144" font-size="19" fill="#555">财帛</text>
+      <text x="530" y="179" font-size="25" font-weight="600" fill="#ac392e">红鸾</text>
+      <text x="746" y="144" font-size="19" fill="#555">夫妻宫</text>
+      <text x="746" y="179" font-size="24" font-weight="600">天钺星</text>
+      <text x="638" y="434" font-size="24" font-weight="600">化科</text>
+    </g>
+
+    <g stroke="#444" stroke-width="1.8" fill="#fff">
+      <path d="M746 200 L638 380" fill="none"/>
+      <circle cx="746" cy="200" r="4"/>
+      <circle cx="638" cy="380" r="4"/>
+    </g>
+  </g>
+</svg>

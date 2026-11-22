@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">财帛宫里的星</title>
+  <desc id="desc">财帛宫方格内依口述顺序列出破军星、天钺星、文曲星。文曲星旁以朱红标出“化科”，箭头从此处引出倪师对本例的解读“专业技术专长”。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="108" y="80" width="380" height="380" fill="#fff" stroke="#383838" stroke-width="2"/>
+    <path d="M109 81 H487 V162 H109 Z" fill="#f5f5f3"/>
+    <path d="M108 162 H488" fill="none" stroke="#9a9a96" stroke-width="1.2"/>
+    <text x="151" y="134" font-size="33" font-weight="600">财帛</text>
+
+    <g x="151" font-size="30">
+      <text x="151" y="229">破军星</text>
+      <text x="151" y="311">天钺星</text>
+      <text x="151" y="393">文曲星</text>
+    </g>
+
+    <rect x="258" y="355" width="86" height="50" rx="3" fill="none" stroke="#ac392e" stroke-width="1.7"/>
+    <text x="301" y="390" text-anchor="middle" font-size="26" font-weight="600" fill="#ac392e">化科</text>
+
+    <path d="M351 380 H591 M581 373 L591 380 L581 387" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="615" y="391" font-size="32" font-weight="600">专业技术专长</text>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天钺独守与科甲星</title>
+  <desc id="desc">命盘右侧第二排圈出独守的天钺，圈下写「命」。天钺与文昌文曲同属科甲星，代表读书好；下方按倪师的讲法，画出考试那年流年逢到与没有会到的两种结果。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 8 5 2 8.5" fill="none" stroke="#565656" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="52" y="32" width="288" height="248" stroke="#686868" stroke-width="1.6"/>
+      <path d="M124 32V280 M268 32V280 M196 32V94 M196 218V280
+               M52 94H340 M52 218H340 M52 156H124 M268 156H340"
+            stroke="#aaa" stroke-width="1.2"/>
+      <rect x="268" y="94" width="72" height="62" stroke="#555" stroke-width="1.6"/>
+      <ellipse cx="304" cy="115" rx="28" ry="15" stroke="#ad4034" stroke-width="2.2"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="304" y="122" font-size="19" font-weight="600">天钺</text>
+      <text x="304" y="148" font-size="16">命</text>
+    </g>
+
+    <text x="430" y="74" text-anchor="middle" font-size="23">文昌文曲</text>
+    <g fill="none" stroke="#565656" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M488 67H516V115 M341 115H542" marker-end="url(#arrow)"/>
+      <rect x="555" y="87" width="138" height="56" rx="3" stroke="#393939"/>
+      <path d="M694 115H741" marker-end="url(#arrow)"/>
+    </g>
+    <text x="624" y="125" text-anchor="middle" font-size="29" font-weight="600">科甲星</text>
+    <text x="760" y="123" font-size="24">读书读得很棒</text>
+
+    <path d="M52 310H908" fill="none" stroke="#d6d6d6" stroke-width="1"/>
+
+    <text x="55" y="423" font-size="24" font-weight="600">那年要去考试</text>
+    <g fill="none" stroke="#565656" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M222 415H259 M259 370V460"/>
+      <path d="M259 370H307 M259 460H307" marker-end="url(#arrow)"/>
+    </g>
+    <g font-size="24">
+      <text x="330" y="379">流年逢到这颗星</text>
+      <text x="330" y="469">没有会到</text>
+    </g>
+    <g fill="none" stroke="#565656" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M522 370H602"/>
+      <path d="M522 460H602"/>
+    </g>
+    <g font-size="26" font-weight="600">
+      <text x="627" y="379">金榜题名</text>
+      <text x="627" y="469">就不是金榜题名了</text>
+    </g>
+  </g>
+</svg>

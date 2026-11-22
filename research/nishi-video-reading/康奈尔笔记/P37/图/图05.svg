@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">斗君看月令</title>
+  <desc id="desc">命盘外围十二格对应十二个月。以五月午时为例，沿内侧箭头从子宫数到第五格申宫，再从申宫起子时，沿外侧箭头反向数到午时，斗君落在寅宫。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#505050" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke="#626262" stroke-width="1.5" stroke-linejoin="round">
+    <rect x="168" y="46" width="680" height="448"/>
+    <path d="M338 46 V494 M678 46 V494 M168 158 H848 M168 382 H848"/>
+    <path d="M508 46 V158 M508 382 V494 M168 270 H338 M678 270 H848"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#252525">
+    <text x="105" y="225" font-size="27" font-weight="500" aria-label="看月令"><tspan x="105">看</tspan><tspan x="105" dy="38">月</tspan><tspan x="105" dy="38">令</tspan></text>
+
+    <text x="508" y="254" font-size="38" font-weight="600">斗君</text>
+    <text x="508" y="301" font-size="22">12个宫刚好12个月</text>
+
+    <g font-size="26">
+      <text x="253" y="112">巳</text>
+      <text x="423" y="112">午</text>
+      <text x="593" y="112">未</text>
+      <text x="731" y="99">申</text>
+      <text x="731" y="224">酉</text>
+      <text x="731" y="336">戌</text>
+      <text x="593" y="424">子</text>
+      <text x="423" y="424">丑</text>
+      <text x="253" y="336">卯</text>
+      <text x="253" y="224">辰</text>
+    </g>
+
+    <text x="731" y="131" font-size="18" fill="#555">五月</text>
+
+    <g fill="none" stroke="#505050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M593 445 H765 Q784 445 784 426 V281" marker-end="url(#arrow)"/>
+      <path d="M784 269 V122" marker-end="url(#arrow)"/>
+      <path d="M784 110 V102 Q784 87 799 87 Q814 87 814 102 V247" marker-end="url(#arrow)"/>
+      <path d="M814 259 V449 Q814 471 792 471 H524" marker-end="url(#arrow)"/>
+      <path d="M511 471 H279 Q253 471 253 450" marker-end="url(#arrow)"/>
+    </g>
+    <circle cx="593" cy="445" r="4" fill="#505050"/>
+
+    <text x="253" y="408" font-size="17" fill="#555">午时</text>
+    <text x="253" y="438" font-size="27" font-weight="600" fill="#ac382d">寅宫</text>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">右弼孤星独守</title>
+  <desc id="desc">命盘右侧的酉宫里只圈出右弼一颗星。倪师以此说明左辅、右弼、八座、三台中一颗星独守的情形，称为「孤星独守」，主的是孤单。下方以双向箭头对照紫微星与辅弼星相会的情形。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="60" y="78" font-size="34" font-weight="600">孤星独守</text>
+    <g font-size="23" text-anchor="middle">
+      <text x="520" y="76">左辅</text>
+      <text x="626" y="76">右弼</text>
+      <text x="732" y="76">八座</text>
+      <text x="838" y="76">三台</text>
+    </g>
+    <path d="M60 104 H900" fill="none" stroke="#bdbdb9" stroke-width="1.2"/>
+
+    <!-- 只取黑板命盘右侧的局部。相邻宫格仅保留短线。 -->
+    <g fill="none" stroke-linecap="square">
+      <path d="M124 144 V166 M124 320 V342 M300 144 V166 M300 320 V342
+               M66 166 H124 M66 320 H124" stroke="#c4c4bf" stroke-width="1.5"/>
+      <rect x="124" y="166" width="176" height="154" stroke="#484848" stroke-width="2"/>
+    </g>
+    <text x="139" y="193" font-size="18" fill="#555">酉宫</text>
+    <circle cx="212" cy="249" r="39" fill="none" stroke="#ae4034" stroke-width="2.5"/>
+    <text x="212" y="258" text-anchor="middle" font-size="26" font-weight="600">右弼</text>
+
+    <path d="M252 249 H368" fill="none" stroke="#888" stroke-width="1.4"/>
+    <text x="388" y="258" font-size="27">单独一颗星</text>
+    <path d="M546 249 H626" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="654" y="259" font-size="30" font-weight="600">主的是孤单</text>
+
+    <path d="M60 378 H900" fill="none" stroke="#d1d1cd" stroke-width="1.2"/>
+    <g text-anchor="middle">
+      <text x="152" y="461" font-size="27">紫微星</text>
+      <path d="M227 452 H404" fill="none" stroke="#555" stroke-width="1.6" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <text x="316" y="435" font-size="19" fill="#555">来会</text>
+      <text x="480" y="461" font-size="27">辅弼星</text>
+      <text x="756" y="460" font-size="24">是不是也比较好</text>
+    </g>
+  </g>
+</svg>

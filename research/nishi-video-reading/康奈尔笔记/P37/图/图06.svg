@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">斗君</title>
+  <desc id="desc">左盘从子倒数，五月到申。中盘在申起子时，顺数到午时，斗君落在寅宫；右盘从斗君起子数到年支戌，戌年的一月在子宫，再顺排十二个月。</desc>
+
+  <defs>
+    <g id="grid" fill="none" stroke="#a4a4a0" stroke-width="1.3">
+      <rect x="0" y="0" width="272" height="272" rx="2"/>
+      <path d="M68 0V272 M204 0V272 M0 68H272 M0 204H272
+               M136 0V68 M136 204V272 M0 136H68 M204 136H272"/>
+    </g>
+    <g id="arrow" fill="none" stroke="#585854" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-9 0H9 M4 -4.5L9 0 4 4.5"/>
+    </g>
+    <circle id="month-dot" r="3.2" fill="#777772"/>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282826">
+    <text x="34" y="63" font-size="30" font-weight="650">斗君</text>
+    <path d="M34 84H926" stroke="#c9c9c5" stroke-width="1"/>
+
+    <g font-size="22" font-weight="600" text-anchor="middle">
+      <text x="170" y="141">从子开始算</text>
+      <text x="480" y="141">五月的午时</text>
+      <text x="790" y="141">从斗君起子</text>
+    </g>
+
+    <g transform="translate(34 170)">
+      <path d="M136 204H204V0H272V272H136Z" fill="#f5f5f2"/>
+      <use href="#grid"/>
+      <text x="136" y="146" text-anchor="middle" font-size="24">倒转</text>
+
+      <g font-size="22" text-anchor="middle" font-weight="600">
+        <text x="170" y="234">1</text>
+        <text x="238" y="234">2</text>
+        <text x="238" y="166">3</text>
+        <text x="238" y="98">4</text>
+        <text x="226" y="30">5</text>
+      </g>
+      <circle cx="251" cy="22" r="10" fill="none" stroke="#73736e" stroke-width="1.1"/>
+      <text x="251" y="27" text-anchor="middle" font-size="14" fill="#62625e">8</text>
+      <g font-size="18" text-anchor="middle" fill="#53534f">
+        <text x="170" y="258">子</text>
+        <text x="238" y="190">戌</text>
+        <text x="238" y="122">酉</text>
+        <text x="238" y="54">申</text>
+      </g>
+      <use href="#arrow" transform="translate(204 227)"/>
+      <use href="#arrow" transform="translate(255 204) rotate(-90)"/>
+      <use href="#arrow" transform="translate(255 136) rotate(-90)"/>
+      <use href="#arrow" transform="translate(255 68) rotate(-90)"/>
+    </g>
+
+    <g transform="translate(344 170)">
+      <path d="M204 0H272V272H0V204H204Z" fill="#f5f5f2"/>
+      <use href="#grid"/>
+      <g text-anchor="middle">
+        <text x="136" y="146" font-size="24">午时</text>
+        <g font-size="22">
+          <text x="238" y="31">子</text>
+          <text x="238" y="110">丑</text>
+          <text x="238" y="178">寅</text>
+          <text x="238" y="247">卯</text>
+          <text x="170" y="247">辰</text>
+          <text x="102" y="247">巳</text>
+          <text x="34" y="233">午</text>
+        </g>
+        <text x="238" y="55" font-size="18" fill="#53534f">申</text>
+        <text x="34" y="259" font-size="20" font-weight="650" fill="#ab392f">寅宫</text>
+      </g>
+      <use href="#arrow" transform="translate(256 68) rotate(90)"/>
+      <use href="#arrow" transform="translate(256 136) rotate(90)"/>
+      <use href="#arrow" transform="translate(256 204) rotate(90)"/>
+      <use href="#arrow" transform="translate(204 239) rotate(180)"/>
+      <use href="#arrow" transform="translate(136 239) rotate(180)"/>
+      <use href="#arrow" transform="translate(68 239) rotate(180)"/>
+      <path d="M34 272V289" fill="none" stroke="#777772" stroke-width="1.2"/>
+      <text x="34" y="314" text-anchor="middle" font-size="20" font-weight="600">斗君</text>
+    </g>
+
+    <g transform="translate(654 170)">
+      <rect x="136" y="204" width="68" height="68" fill="#efefec"/>
+      <use href="#grid"/>
+      <g fill="none" stroke="#b2b2ad" stroke-width="1.1">
+        <path d="M191 238H238V34H34V238H147"/>
+      </g>
+      <g>
+        <use href="#arrow" transform="translate(136 238) rotate(180)"/>
+        <use href="#arrow" transform="translate(68 238) rotate(180)"/>
+        <use href="#arrow" transform="translate(34 204) rotate(-90)"/>
+        <use href="#arrow" transform="translate(34 136) rotate(-90)"/>
+        <use href="#arrow" transform="translate(34 68) rotate(-90)"/>
+        <use href="#arrow" transform="translate(68 34)"/>
+        <use href="#arrow" transform="translate(136 34)"/>
+        <use href="#arrow" transform="translate(204 34)"/>
+        <use href="#arrow" transform="translate(238 68) rotate(90)"/>
+        <use href="#arrow" transform="translate(238 136) rotate(90)"/>
+        <use href="#arrow" transform="translate(238 204) rotate(90)"/>
+      </g>
+      <g>
+        <use href="#month-dot" x="102" y="238"/>
+        <use href="#month-dot" x="34" y="238"/>
+        <use href="#month-dot" x="34" y="170"/>
+        <use href="#month-dot" x="34" y="102"/>
+        <use href="#month-dot" x="34" y="34"/>
+        <use href="#month-dot" x="102" y="34"/>
+        <use href="#month-dot" x="170" y="34"/>
+        <use href="#month-dot" x="238" y="34"/>
+        <use href="#month-dot" x="238" y="102"/>
+        <use href="#month-dot" x="238" y="170"/>
+        <use href="#month-dot" x="238" y="238"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="136" y="122" font-size="24" font-weight="600">戌年</text>
+        <text x="136" y="162" font-size="19" fill="#555551">12个月</text>
+        <text x="170" y="233" font-size="21" font-weight="650">一月</text>
+        <text x="170" y="258" font-size="18" fill="#53534f">子</text>
+      </g>
+      <text x="136" y="314" text-anchor="middle" font-size="20" font-weight="600">月令</text>
+    </g>
+  </g>
+</svg>

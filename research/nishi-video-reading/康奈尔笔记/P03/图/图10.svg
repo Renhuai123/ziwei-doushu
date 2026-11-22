@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">辰宫化忌</title>
+  <desc id="desc">命盘左列上格写「右肩」，第二格圈起「忌」，圈下写「辰」。左侧的「胃」圈与「忌」圈相交，表示倪师在这个例子里讲的辰宫与胃的对应关系。</desc>
+
+  <defs>
+    <linearGradient id="grid-end" gradientUnits="userSpaceOnUse" x1="634" y1="0" x2="816" y2="0">
+      <stop offset="0" stop-color="#bcbcb8"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="166" y="82" font-size="30" font-weight="600" letter-spacing="2">辰宫化忌</text>
+
+    <g fill="none" stroke="#bcbcb8" stroke-width="1.6">
+      <path d="M398 114 H634 V464 H398 Z"/>
+      <path d="M398 182 H634 M398 336 H634 M398 400 H634"/>
+      <path d="M634 114 H816 M634 182 H816 M634 400 H816 M634 464 H816" stroke="url(#grid-end)"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="516" y="158" font-size="25" fill="#60605d">右肩</text>
+
+      <ellipse cx="509" cy="243" rx="64" ry="48" fill="#fff"/>
+      <ellipse cx="398" cy="253" rx="69" ry="50" fill="#fff"/>
+      <g fill="none" stroke-width="2.6">
+        <ellipse cx="509" cy="243" rx="64" ry="48" stroke="#30302e"/>
+        <ellipse cx="398" cy="253" rx="69" ry="50" stroke="#aa4034"/>
+      </g>
+
+      <text x="398" y="268" font-size="42" font-weight="600" fill="#aa4034">胃</text>
+      <text x="509" y="258" font-size="42" font-weight="600">忌</text>
+      <text x="509" y="322" font-size="28">辰</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天喜星在福德宫</title>
+  <desc id="desc">左图画酉年男命的顺转命盘，未宫内圈出板书的三个数字，下排福德宫内用朱红圈出天喜星。右图归纳倪师在这段课里的说法：福德宫有天喜星或者红鸾星，主多婚。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929" text-anchor="middle">
+    <g fill="none" stroke-linejoin="round">
+      <rect x="44" y="62" width="504" height="408" stroke="#454545" stroke-width="2"/>
+      <path d="M170 62V470 M422 62V470 M296 62V164 M296 368V470
+               M44 164H548 M44 368H548 M44 266H170 M422 266H548"
+            stroke="#808080" stroke-width="1.4"/>
+    </g>
+
+    <g font-size="18" fill="#535353">
+      <text x="233" y="122">45-54</text>
+      <text x="485" y="222">15-24</text>
+      <text x="359" y="116">35-44</text>
+    </g>
+    <text x="359" y="88" font-size="19">未宫</text>
+    <g fill="none" stroke="#747474" stroke-width="1.3">
+      <circle cx="323" cy="140" r="14"/>
+      <circle cx="359" cy="140" r="14"/>
+      <circle cx="395" cy="140" r="14"/>
+    </g>
+    <g font-size="16">
+      <text x="323" y="146">37</text>
+      <text x="359" y="146">49</text>
+      <text x="395" y="146">25</text>
+    </g>
+
+    <g font-size="19">
+      <text x="107" y="293">巨门</text>
+      <text x="107" y="319">天机禄</text>
+      <text x="107" y="354" font-size="17" fill="#555">交友</text>
+    </g>
+
+    <path d="M266 232C277 215 300 210 318 219C328 224 335 232 338 242
+             M327 236L338 243L342 230"
+          fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="296" y="275" font-size="25" font-weight="600">酉年</text>
+    <text x="296" y="308" font-size="20">男的顺转</text>
+
+    <ellipse cx="359" cy="402" rx="49" ry="22" fill="none" stroke="#ad4034" stroke-width="2.4"/>
+    <text x="359" y="410" font-size="22" font-weight="600">天喜星</text>
+    <text x="359" y="452" font-size="19">福德宫</text>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="608" y="144" width="304" height="132" rx="3" stroke="#656565" stroke-width="1.6"/>
+      <path d="M608 200H912" stroke="#aaa" stroke-width="1.2"/>
+      <path d="M760 277V327 M752 318L760 328L768 318" stroke="#555" stroke-width="1.8"/>
+    </g>
+    <text x="760" y="181" font-size="24" font-weight="600">福德宫</text>
+    <text x="760" y="247" font-size="23">天喜星<tspan font-size="17" fill="#666">或者</tspan>红鸾星</text>
+    <text x="760" y="376" font-size="32" font-weight="600">都是多婚</text>
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">夫妻宫三方四正</title>
+  <desc id="desc">朱红三角形连接左列的夫妻宫、右上角的福德宫和底行左数第三格，另一条朱红线从夫妻宫连到右列自上而下第三格。右侧列出倪师对廉贞、天府同宫的描述，以及本例先生科权禄都没有会到的判断。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="44" y="57" font-size="29" font-weight="600" letter-spacing="2">三方四正</text>
+
+    <g fill="#f4f4f2">
+      <rect x="44" y="189" width="154" height="100"/>
+      <rect x="506" y="89" width="154" height="100"/>
+    </g>
+    <g fill="none" stroke-linejoin="round">
+      <rect x="44" y="89" width="616" height="400" stroke="#505050" stroke-width="1.6"/>
+      <path d="M198 89V489 M506 89V489 M352 89V189 M352 389V489
+               M44 189H660 M44 389H660 M44 289H198 M506 289H660"
+            stroke="#aaa" stroke-width="1.15"/>
+    </g>
+
+    <g fill="none" stroke="#ad493b" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M188 249L519 180L431 404Z"/>
+      <path d="M188 249L537 334"/>
+    </g>
+    <circle cx="188" cy="249" r="4.8" fill="#ad493b" stroke="#fff" stroke-width="1.5"/>
+
+    <text x="59" y="153" fill="#696969" font-size="18">兄弟宫</text>
+
+    <text x="59" y="216" font-size="18" font-weight="600">夫妻宫</text>
+    <g font-size="22" font-weight="600">
+      <text x="59" y="249">廉贞</text>
+      <text x="124" y="249">天府</text>
+    </g>
+    <text x="60" y="272" fill="#626262" font-size="15">清廉</text>
+
+    <text x="520" y="114" font-size="18" font-weight="600">福德宫</text>
+    <g font-size="21" font-weight="600">
+      <text x="520" y="141">武曲</text>
+      <text x="581" y="141">天相</text>
+    </g>
+    <g fill="#555" font-size="14">
+      <text x="520" y="163">陀罗星陷地</text>
+      <text x="597" y="163">右弼</text>
+      <text x="597" y="182">铃星</text>
+    </g>
+
+    <g transform="translate(702 0)">
+      <text y="115" font-size="17" fill="#666">这两个加起来</text>
+      <text y="157" font-size="29" font-weight="600">很温和</text>
+      <g font-size="20">
+        <text y="198">长得很清秀很漂亮</text>
+        <text y="232">个子不高</text>
+        <text y="266">非常正派很厚道</text>
+      </g>
+
+      <path d="M0 296H212" fill="none" stroke="#c4c4c0" stroke-width="1.2"/>
+
+      <text y="332" font-size="17" fill="#666">你注意看她的先生</text>
+      <text y="378" font-size="22">
+        <tspan font-weight="600">科权禄</tspan><tspan dx="7">都没有会到</tspan>
+      </text>
+      <path d="M15 395V421 M10 416L15 421L20 416" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text y="462" font-size="30" font-weight="600">正财</text>
+    </g>
+  </g>
+</svg>

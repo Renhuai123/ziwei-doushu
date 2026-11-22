@@ -31,7 +31,7 @@ export function formToTrueSolarTime(form: Pick<BirthFormState, 'year' | 'month' 
 
 /** BirthFormState → BirthInfo
  *
- * 子时规则（倪海厦体系/三合派标准）：
+ * 子时规则（倪海厦体系/三合派标准，以下均按真太阳时）：
  * · 23:00-23:59 = 晚子时，**按次日**排盘（日期 +1）
  * · 00:00-00:59 = 早子时，按本日排盘
  * 这与「时辰支同为子(0)」并不冲突——子时分早晚两段，需要在日期上区分。
@@ -90,6 +90,8 @@ export function searchParamsToForm(params: URLSearchParams): Partial<BirthFormSt
   const month = params.get('m');
   const day = params.get('d');
   if (!year || !month || !day) return null;
+  const rawLongitude = params.get('lo')?.trim();
+  const longitude = rawLongitude ? Number(rawLongitude) : 120;
   return {
     name: params.get('n') || '',
     year,

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">贪狼化禄与风字脸</title>
+  <desc id="desc">左侧用两个独立的宫格节录倪师所举的特例。右侧按课堂口述画出风字脸的正面轮廓，用浅灰线面表现两颧突出、颧下内凹，以及从宽腮向前收尖的形状。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#555" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g fill="none" stroke="#555" stroke-width="1.6">
+      <rect x="44" y="107" width="192" height="126"/>
+      <rect x="44" y="307" width="192" height="126"/>
+      <path d="M247 170 H283 M247 370 H283" marker-end="url(#arrow)"/>
+    </g>
+    <path d="M247 170 H283" fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+    <g text-anchor="middle">
+      <text x="140" y="157" font-size="24">贪狼在命坐庙</text>
+      <ellipse cx="140" cy="196" rx="38" ry="21" fill="none" stroke="#666" stroke-width="1.3"/>
+      <text x="140" y="204" font-size="22">化禄</text>
+
+      <ellipse cx="140" cy="348" rx="70" ry="24" fill="none" stroke="#666" stroke-width="1.3"/>
+      <text x="140" y="356" font-size="23">廉贞七杀</text>
+      <text x="140" y="408" font-size="22">福德</text>
+    </g>
+    <g font-size="25" font-weight="600">
+      <text x="298" y="179">沾酒色财气</text>
+      <text x="298" y="379">屠夫</text>
+    </g>
+
+    <path d="M461 75 V465" fill="none" stroke="#dededb" stroke-width="1"/>
+    <text x="650" y="69" text-anchor="middle" font-size="28" font-weight="600" letter-spacing="3">风字脸</text>
+
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M650 104
+               C607 104 575 129 568 169
+               C565 184 566 199 568 211
+               C562 221 555 228 553 239
+               C551 248 558 257 562 266
+               C566 278 561 294 561 305
+               Q561 320 577 336
+               Q601 361 627 382
+               Q640 393 650 394
+               Q663 393 675 382
+               Q701 361 725 336
+               Q741 320 741 305
+               C741 293 736 278 740 266
+               C744 256 751 247 749 238
+               C747 228 739 220 734 211
+               C736 194 736 179 732 163
+               C723 125 692 104 650 104 Z"
+            fill="#fcfcfb" stroke="#333" stroke-width="2.5"/>
+
+      <g fill="#eaeae7">
+        <path d="M555 240 Q572 231 593 228 Q586 239 582 247
+                 Q575 269 580 288 Q569 279 563 267 Q555 251 555 240 Z"/>
+        <path d="M747 240 Q730 231 709 228 Q716 239 720 247
+                 Q727 269 722 288 Q733 279 739 267 Q747 251 747 240 Z"/>
+      </g>
+
+      <g fill="none" stroke="#999" stroke-width="1.45">
+        <path d="M557 241 Q572 230 593 228 M745 241 Q730 230 709 228"/>
+        <path d="M582 249 Q573 270 580 288 M720 249 Q729 270 722 288"/>
+        <path d="M571 310 Q589 338 615 355 M731 310 Q713 338 687 355"/>
+      </g>
+
+      <g fill="none" stroke="#444" stroke-width="2">
+        <path d="M580 192 Q598 183 622 192 M679 192 Q701 183 721 192"/>
+        <path d="M582 209 Q600 201 620 208 Q603 217 582 209 Z
+                 M680 208 Q700 201 719 209 Q699 216 680 208 Z"/>
+        <path d="M645 215 Q646 235 641 256 Q638 267 641 271
+                 Q646 275 651 272 Q657 275 661 270
+                 Q663 267 659 263"/>
+        <path d="M632 319 Q642 315 650 316 Q657 315 667 312
+                 Q659 321 650 322 Q640 322 632 319 Z"/>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#888" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M738 233 L774 198 H805"/>
+      <path d="M726 270 L770 251 H805"/>
+      <path d="M742 308 H805"/>
+      <path d="M661 270 L690 285"/>
+      <path d="M663 319 L756 411 H798"/>
+    </g>
+    <g font-size="19">
+      <text x="815" y="204">两个颧很大</text>
+      <text x="815" y="257">凹下去的</text>
+      <text x="815" y="314">腮骨很大</text>
+      <text x="808" y="417">嘴巴尖尖的</text>
+    </g>
+    <text x="694" y="289" font-size="15">鼻子没有肉</text>
+  </g>
+</svg>

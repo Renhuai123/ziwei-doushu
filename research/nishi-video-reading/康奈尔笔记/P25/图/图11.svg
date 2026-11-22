@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">儿子、长女怎么重新安排</title>
+  <desc id="desc">房屋俯视图沿用板图的左右关系。左上切角处，儿子的床尽量贴近房间东侧；长女住右侧中间的小间，连线从这一间引向倪师所说的风泽中孚卦及其考试寓意。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <!-- 房屋轮廓与本段指到的房间。 -->
+    <path d="M83 183 L143 123 H534 V431 H83 Z" fill="#fff" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M85 184 L144 125 H274 V266 H85 Z" fill="#f5f5f3"/>
+    <rect x="393" y="221" width="139" height="87" fill="#f5f5f3"/>
+    <g fill="none" stroke="#555" stroke-width="2.2" stroke-linejoin="round">
+      <path d="M275 123 V267 H83"/>
+      <path d="M368 123 V220 H534"/>
+      <path d="M392 220 V309 H534"/>
+    </g>
+
+    <!-- 引线落在切角斜边。 -->
+    <text x="69" y="79" font-size="20">东和东南切一个角</text>
+    <path d="M163 91 V104 L114 152" fill="none" stroke="#777" stroke-width="1.4"/>
+
+    <!-- 床的长边贴近左墙，点明“这个房间的东边”。 -->
+    <g stroke="#424242" stroke-width="1.8" fill="#fff">
+      <rect x="91" y="188" width="34" height="68" rx="3"/>
+      <rect x="96" y="193" width="24" height="14" rx="3"/>
+      <path d="M92 213 H124" fill="none"/>
+    </g>
+    <path d="M84 190 V254" fill="none" stroke="#ac4034" stroke-width="4"/>
+    <text x="145" y="216" font-size="24" font-weight="600">儿子</text>
+    <text x="145" y="244" font-size="18">东边去睡</text>
+
+    <text x="451" y="180" text-anchor="middle" font-size="22" fill="#626262">女</text>
+    <text x="463" y="274" text-anchor="middle" font-size="25" font-weight="600">长女</text>
+
+    <!-- 连线只从长女所住的右侧中间小间引出。 -->
+    <g fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M534 265 H593 M586 260 L593 265 L586 270"/>
+    </g>
+    <text x="612" y="275" font-size="27" font-weight="600">风泽中孚卦</text>
+
+    <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M761 265 H784 M784 234 V296 M784 234 H808 M784 296 H808"/>
+    </g>
+    <g x="825" font-size="23">
+      <text x="825" y="242">发科甲</text>
+      <text x="825" y="304">状元</text>
+    </g>
+  </g>
+</svg>

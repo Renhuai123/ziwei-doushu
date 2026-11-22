@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">26岁的婚姻</title>
+  <desc id="desc">两条引线从圈起的26分开，一条指向26至35岁所走的福德宫大限，一条指向当年巨门星带红鸾所入的夫妻宫。两线在下方汇合，表示倪师据此判断此例26岁结婚；夫妻宫旁另从巨门星引出他对太太的描述。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M394 93 V109 H222 V140" marker-end="url(#arrow)"/>
+      <path d="M394 109 H566 V140" marker-end="url(#arrow)"/>
+    </g>
+
+    <circle cx="394" cy="61" r="32" fill="#fff" stroke="#af4035" stroke-width="2.5"/>
+    <text x="394" y="72" text-anchor="middle" font-size="32" font-weight="600">26</text>
+
+    <g fill="#fff" stroke="#484848" stroke-width="1.7">
+      <rect x="92" y="150" width="260" height="140"/>
+      <rect x="436" y="150" width="260" height="140"/>
+    </g>
+    <g fill="#f4f4f2">
+      <rect x="93" y="151" width="258" height="53"/>
+      <rect x="437" y="151" width="258" height="53"/>
+    </g>
+    <path d="M93 205 H351 M437 205 H695" fill="none" stroke="#c5c5c2" stroke-width="1.2"/>
+
+    <g text-anchor="middle">
+      <text x="222" y="187" font-size="26" font-weight="600">福德宫</text>
+      <text x="566" y="187" font-size="26" font-weight="600">夫妻宫</text>
+      <text x="222" y="243" font-size="24">26-35岁</text>
+      <text x="222" y="271" font-size="18" fill="#555">大限</text>
+      <text x="566" y="245" font-size="24" font-weight="600">巨门星带红鸾</text>
+      <text x="566" y="273" font-size="18" fill="#555">逢红鸾天喜</text>
+    </g>
+
+    <path d="M498 252 H554 M526 252 V310 H716 V202 H739" fill="none" stroke="#91918d" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g>
+      <text x="752" y="208" font-size="21" font-weight="600">太太</text>
+      <text x="752" y="245" font-size="23">形小声高量大</text>
+      <text x="752" y="276" font-size="23">凶悍</text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M222 290 V341 H566 V290"/>
+      <path d="M394 341 V364" marker-end="url(#arrow)"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="394" y="399" font-size="25">大小二限逢红鸾星</text>
+      <path d="M394 413 V437" fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)"/>
+      <text x="394" y="482" font-size="31" font-weight="600">26岁的婚姻是在劫难逃</text>
+    </g>
+  </g>
+</svg>

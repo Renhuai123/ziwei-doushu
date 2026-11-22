@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">经脉时辰歌诀</title>
+  <desc id="desc">左侧列出四句歌诀，右侧按黑板上的十二地支宫格排布。每格上方写歌诀所指的经脉，下方写对应的时辰。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <g transform="translate(62 0)">
+      <text x="0" y="138" font-size="23" font-weight="600" letter-spacing="3">歌诀</text>
+      <path d="M0 155 H244" fill="none" stroke="#aaa" stroke-width="1"/>
+      <g font-size="28" letter-spacing="3">
+        <text x="0" y="210">肺寅大卯胃辰宫</text>
+        <text x="0" y="267">脾巳心午小未中</text>
+        <text x="0" y="324">申胱酉肾心包戌</text>
+        <text x="0" y="381">亥焦子胆丑肝通</text>
+      </g>
+    </g>
+
+    <g fill="none">
+      <rect x="370" y="50" width="540" height="440" stroke="#444" stroke-width="2"/>
+      <path d="M505 50 V490 M775 50 V490
+               M370 160 H910 M370 380 H910
+               M640 50 V160 M640 380 V490
+               M370 270 H505 M775 270 H910"
+            stroke="#888" stroke-width="1.3"/>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="27" font-weight="600">
+        <text x="437.5" y="100">脾</text>
+        <text x="572.5" y="100">心</text>
+        <text x="707.5" y="100">小肠</text>
+        <text x="842.5" y="100">膀胱</text>
+
+        <text x="437.5" y="210">胃</text>
+        <text x="842.5" y="210">肾</text>
+
+        <text x="437.5" y="320">大肠</text>
+        <text x="842.5" y="320">心包</text>
+
+        <text x="437.5" y="430">肺</text>
+        <text x="572.5" y="430">肝</text>
+        <text x="707.5" y="430">胆</text>
+        <text x="842.5" y="430">三焦</text>
+      </g>
+
+      <g font-size="21" fill="#555">
+        <text x="437.5" y="135">巳</text>
+        <text x="572.5" y="135">午</text>
+        <text x="707.5" y="135">未</text>
+        <text x="842.5" y="135">申</text>
+
+        <text x="437.5" y="245">辰</text>
+        <text x="842.5" y="245">酉</text>
+
+        <text x="437.5" y="355">卯</text>
+        <text x="842.5" y="355">戌</text>
+
+        <text x="437.5" y="465">寅</text>
+        <text x="572.5" y="465">丑</text>
+        <text x="707.5" y="465">子</text>
+        <text x="842.5" y="465">亥</text>
+      </g>
+    </g>
+  </g>
+</svg>

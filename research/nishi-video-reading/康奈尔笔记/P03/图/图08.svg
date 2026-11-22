@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">看当宫</title>
+  <desc id="desc">课中举例，疾厄宫在亥，倪师先看心脏所对应的午宫。朱红圈标出午宫，箭头从午宫的杀星指向亥宫，表示将例中的判断「心脏病」记在疾厄宫；右侧列出本段提到的两项疾厄宫内容。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <rect x="44" y="26" width="122" height="42" rx="3" fill="none" stroke="#454545" stroke-width="1.4"/>
+    <text x="105" y="55" text-anchor="middle" font-size="23" font-weight="600">看当宫</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="44" y="88" width="656" height="404" stroke="#454545" stroke-width="2"/>
+      <path d="M208 88V492 M536 88V492
+               M44 189H700 M44 391H700
+               M372 88V189 M372 391V492
+               M44 290H208 M536 290H700"
+            stroke="#888" stroke-width="1.4"/>
+    </g>
+
+    <g fill="#575757" text-anchor="middle" font-size="24">
+      <text x="126" y="148">巳</text>
+      <text x="454" y="148">未</text>
+      <text x="618" y="148">申</text>
+      <text x="618" y="249">酉</text>
+      <text x="618" y="350">戌</text>
+      <text x="126" y="249">辰</text>
+      <text x="126" y="350">卯</text>
+    </g>
+
+    <circle cx="244" cy="139" r="22" fill="none" stroke="#ad4033" stroke-width="2.8"/>
+    <text x="244" y="148" text-anchor="middle" font-size="25" font-weight="600">午</text>
+    <text x="283" y="130" font-size="23" font-weight="600">心脏</text>
+    <text x="283" y="161" font-size="18">都是杀星</text>
+
+    <path d="M316 173V203 C316 239 337 256 375 279 L526 371 Q537 378 546 389 L558 405"
+          fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+    <path d="M548 401L558 405L557 394" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="570" y="422" font-size="22" font-weight="600">亥</text>
+    <text x="604" y="422" font-size="20">疾厄宫</text>
+    <text x="618" y="456" text-anchor="middle" font-size="26" font-weight="600">心脏病</text>
+    <text x="618" y="480" text-anchor="middle" font-size="16" fill="#555">致命伤</text>
+
+    <text x="755" y="228" font-size="23" font-weight="600">批疾厄</text>
+    <path d="M766 246V324H787 M766 273H787" fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round"/>
+    <g font-size="21">
+      <text x="801" y="280">五脏六腑</text>
+      <text x="801" y="331">身体体型</text>
+    </g>
+  </g>
+</svg>

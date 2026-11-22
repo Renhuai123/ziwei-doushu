@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眉毛和眼睛</title>
+  <desc id="desc">两图用同一只眼睛作对照。左图按倪师的板画把眉弧贴近眼睛，右图把眉弧抬高；图下引语是他在课上对这两种眉眼的说法。</desc>
+  <defs>
+    <path id="brow" d="M-115 8 C-83-9-45-21-5-23 C37-26 81-15 113 4 C78-8 36-15-4-12 C-44-10-80 1-108 15 Q-115 18-115 8Z" fill="#343434"/>
+    <g id="eye">
+      <path d="M-110 5 C-76-15-39-29 0-29 C44-29 83-13 110 2 C80 20 42 32 2 32 C-42 32-81 21-110 5Z" fill="#fff" stroke="#343434" stroke-width="2.8" stroke-linejoin="round"/>
+      <circle cx="1" cy="1" r="24" fill="#e9e9e7" stroke="#555" stroke-width="1.8"/>
+      <circle cx="1" cy="1" r="10" fill="#343434"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929" text-anchor="middle">
+    <g font-size="25" font-weight="600">
+      <text x="255" y="84">眼眶一陷下去</text>
+      <text x="705" y="84">眉毛眼睛比较高一点</text>
+    </g>
+
+    <use href="#brow" transform="translate(255 222)"/>
+    <use href="#eye" transform="translate(255 245)"/>
+    <use href="#brow" transform="translate(705 167)"/>
+    <use href="#eye" transform="translate(705 245)"/>
+
+    <path d="M205 217 L153 298 H111" fill="none" stroke="#858585" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="205" cy="217" r="3.2" fill="#ac4034"/>
+    <text x="111" y="326" text-anchor="start" font-size="19">几乎连在一起</text>
+
+    <g fill="none" stroke="#c7c7c3" stroke-width="1.4">
+      <path d="M77 378 V465"/>
+      <path d="M527 378 V423"/>
+    </g>
+    <g text-anchor="start" font-size="21">
+      <text x="95" y="406">「有的是她本身没有家庭观念」</text>
+      <text x="95" y="450">「有的是她没有根本没有家」</text>
+      <text x="545" y="406">「你看你落谁家谁是好福气啊」</text>
+    </g>
+  </g>
+</svg>

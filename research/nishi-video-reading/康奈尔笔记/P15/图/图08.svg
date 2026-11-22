@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">夫妻宫星曜</title>
+  <desc id="desc">同一个夫妻宫方格内列出天同、巨门、天钺和曲昌。箭头从整个宫格引出倪师对这个男命的第一个解读：他的太太多才多艺。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525" text-anchor="middle">
+    <rect x="76" y="112" width="316" height="316" fill="#fff" stroke="#393939" stroke-width="2"/>
+    <rect x="77" y="113" width="314" height="71" fill="#f4f4f2"/>
+    <path d="M77 184 H391" fill="none" stroke="#aaa" stroke-width="1"/>
+    <text x="234" y="159" font-size="30" font-weight="600">夫妻宫</text>
+
+    <g font-size="32">
+      <text x="164" y="273">天同</text>
+      <text x="304" y="273">巨门</text>
+      <text x="164" y="361">天钺</text>
+      <text x="304" y="361">曲昌</text>
+    </g>
+
+    <text x="499" y="248" font-size="20" fill="#595959">第一个意义</text>
+    <path d="M392 270 H597 M585 262 L597 270 L585 278" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="754" y="238" font-size="26">他的太太</text>
+    <text x="754" y="306" font-size="52" font-weight="600" fill="#a43c30">多才多艺</text>
+  </g>
+</svg>

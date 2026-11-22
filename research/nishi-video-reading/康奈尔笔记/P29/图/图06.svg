@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">大运十年</title>
+  <desc id="desc">两个等宽的十年区间依次排列。左段的朱红圆点标出事情发生在50岁，右段标出55-64进入的仆役宫。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525" text-anchor="middle">
+    <g font-size="34" font-weight="600">
+      <text x="280" y="162">45-54</text>
+      <text x="680" y="162">55-64</text>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5">
+      <path d="M80 196 V184 H480 V196"/>
+      <path d="M480 184 H880 V196"/>
+    </g>
+
+    <path d="M80 258 H880" fill="none" stroke="#383838" stroke-width="2"/>
+    <g fill="none" stroke="#999" stroke-width="1.5">
+      <path d="M100 252 v12 M140 252 v12 M180 252 v12 M220 252 v12 M260 252 v12
+               M340 252 v12 M380 252 v12 M420 252 v12 M460 252 v12"/>
+      <path d="M500 252 v12 M540 252 v12 M580 252 v12 M620 252 v12 M660 252 v12
+               M700 252 v12 M740 252 v12 M780 252 v12 M820 252 v12 M860 252 v12"/>
+    </g>
+    <path d="M480 245 V271" fill="none" stroke="#383838" stroke-width="2"/>
+
+    <text x="260" y="239" font-size="20" fill="#666">49</text>
+    <path d="M300 258 V326" fill="none" stroke="#777" stroke-width="1.5"/>
+    <circle cx="300" cy="258" r="7.5" fill="#b43b30" stroke="#fff" stroke-width="2"/>
+    <text x="300" y="370" font-size="28" font-weight="600">事情发生在50岁</text>
+
+    <rect x="588" y="304" width="184" height="110" fill="#f8f8f7" stroke="#555" stroke-width="1.5"/>
+    <text x="680" y="350" font-size="28" font-weight="600">仆役宫</text>
+    <text x="680" y="388" font-size="21" fill="#666">空的</text>
+  </g>
+</svg>

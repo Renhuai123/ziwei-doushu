@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微星在亥</title>
+  <desc id="desc">命盘上排中间偏右的一格用一个椭圆圈出两颗星，分别标明武曲化禄、贪狼化权。箭头循讲者手势指向下排左数第二格，格内留白。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <text x="80" y="70" font-size="32" font-weight="600">紫微星在亥</text>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect x="80" y="102" width="800" height="392" stroke="#515151" stroke-width="2"/>
+      <path d="M80 200H880 M80 396H880
+               M280 102V494 M680 102V494
+               M480 102V200 M480 396V494
+               M80 298H280 M680 298H880"
+            stroke="#999" stroke-width="1.4"/>
+    </g>
+
+    <ellipse cx="580" cy="151" rx="85" ry="41" fill="#fafaf9" stroke="#444" stroke-width="1.8"/>
+    <g text-anchor="middle" font-size="24">
+      <text x="580" y="145"><tspan font-weight="600">武曲</tspan><tspan>化禄</tspan></text>
+      <text x="580" y="176"><tspan font-weight="600">贪狼</tspan><tspan>化权</tspan></text>
+    </g>
+
+    <g fill="none" stroke="#616161" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M580 193 C580 250 538 276 481 309 S389 372 381 435"/>
+      <path d="M375 424 L381 435 L390 426"/>
+    </g>
+    <text x="501" y="336" font-size="22">同会在这边</text>
+  </g>
+</svg>

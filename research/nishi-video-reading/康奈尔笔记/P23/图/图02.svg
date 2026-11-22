@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">高者先丧</title>
+  <desc id="desc">按倪师的课堂说法，前两幅以齐平的双眼对照眉的高低，正面所见左侧为母、右侧为父；后两幅分别画两眉都高，以及眉有高低、双眼也不齐的情形。下方另列他在父母离散一例中对太阳陷地、太阴化禄的解读。</desc>
+
+  <defs>
+    <g id="brow" fill="#303030">
+      <path d="M-36 2 Q-23 -7 -7 -7 Q10 -7 31 -2 Q35 -1 34 2 Q33 5 28 4 Q8 0 -7 -1 Q-22 -1 -35 4 Q-38 5 -36 2Z"/>
+    </g>
+    <g id="eye">
+      <path d="M-33 0 Q-18 -12 0 -12 Q18 -12 33 0 Q17 12 0 12 Q-18 12 -33 0Z"
+            fill="#fff" stroke="#484848" stroke-width="2" stroke-linejoin="round"/>
+      <circle cy="0" r="4.5" fill="#484848"/>
+    </g>
+    <g id="level" fill="none" stroke="#c4c4c4" stroke-width="1.2" stroke-dasharray="4 5">
+      <path d="M-95 0 H95"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 8 10" refX="7" refY="5" markerWidth="7" markerHeight="9" orient="auto">
+      <path d="M1 1 L7 5 L1 9" fill="none" stroke="#666" stroke-width="1.3" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#272727">
+    <g font-size="22" font-weight="600">
+      <text x="38" y="64">高者先丧</text>
+      <text x="579" y="64" text-anchor="middle">两眉都很高</text>
+      <text x="816" y="64" text-anchor="middle">一个眉高一个眉低</text>
+    </g>
+    <path d="M38 81 H428 M475 81 H682 M712 81 H921" fill="none" stroke="#bbb" stroke-width="1.2"/>
+
+    <!-- 前两幅的眼位相同，只交换两眉的高低。 -->
+    <g transform="translate(130 0)">
+      <use href="#level" y="239"/>
+      <use href="#eye" x="-45" y="239"/>
+      <use href="#eye" x="45" y="239"/>
+      <use href="#brow" x="-45" y="165"/>
+      <use href="#brow" x="45" y="201"/>
+      <circle cx="-45" cy="126" r="19" fill="none" stroke="#a53f32" stroke-width="1.6"/>
+      <g text-anchor="middle" font-size="22">
+        <text x="-45" y="134" fill="#a53f32">母</text>
+        <text x="45" y="181">父</text>
+      </g>
+      <text y="300" text-anchor="middle" font-size="23" font-weight="600">妈妈先不在</text>
+    </g>
+
+    <g transform="translate(337 0)">
+      <use href="#level" y="239"/>
+      <use href="#eye" x="-45" y="239"/>
+      <use href="#eye" x="45" y="239"/>
+      <use href="#brow" x="-45" y="201"/>
+      <use href="#brow" x="45" y="165"/>
+      <g text-anchor="middle" font-size="22">
+        <text x="-45" y="181">母</text>
+        <text x="45" y="134">父</text>
+      </g>
+      <text y="300" text-anchor="middle" font-size="23" font-weight="600">父来先不在</text>
+    </g>
+    <path d="M130 321 V329 H337 V321" fill="none" stroke="#aaa" stroke-width="1.2"/>
+    <text x="234" y="358" text-anchor="middle" font-size="18" fill="#555">两个眼睛是一样的</text>
+
+    <!-- 双眉同时抬高，眼位沿用前两幅的水平线。 -->
+    <g transform="translate(579 0)">
+      <use href="#level" y="239"/>
+      <use href="#eye" x="-45" y="239"/>
+      <use href="#eye" x="45" y="239"/>
+      <use href="#brow" x="-45" y="165"/>
+      <use href="#brow" x="45" y="165"/>
+      <text y="300" text-anchor="middle" font-size="23" font-weight="600">没有后顾之忧了</text>
+    </g>
+
+    <!-- 双眼画成相同大小，仅用垂直位置表示口述的“不相等”。 -->
+    <g transform="translate(816 0)">
+      <use href="#level" y="239"/>
+      <use href="#eye" x="-45" y="207"/>
+      <use href="#eye" x="45" y="239"/>
+      <use href="#brow" x="-45" y="165"/>
+      <use href="#brow" x="45" y="201"/>
+      <text y="300" text-anchor="middle" font-size="23" font-weight="600">庶出</text>
+      <text y="358" text-anchor="middle" font-size="18" fill="#555">一个眼睛在上面</text>
+    </g>
+
+    <path d="M38 388 H922" fill="none" stroke="#b5b5b5" stroke-width="1.2"/>
+
+    <!-- 太阳未定位入宫；只将板书可辨的太阴化禄放入方格。 -->
+    <text x="38" y="453" font-size="22" font-weight="600">父母亲会离散</text>
+    <g text-anchor="middle" font-size="20">
+      <text x="360" y="435">太阳星陷地</text>
+      <rect x="281" y="449" width="158" height="39" fill="none" stroke="#888" stroke-width="1.3"/>
+      <text x="360" y="476">太阴·化禄</text>
+    </g>
+    <g fill="none" stroke="#666" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M454 427 H467 V469 H454"/>
+      <path d="M467 448 H535" marker-end="url(#arrow)"/>
+    </g>
+    <text x="559" y="456" font-size="22" font-weight="600">她从小是由母亲来抚养她的</text>
+  </g>
+</svg>

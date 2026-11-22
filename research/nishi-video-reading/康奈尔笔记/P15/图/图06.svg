@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">三方四正与三才</title>
+  <desc id="desc">左图在男命十二宫格中，从命宫连到财帛、官禄和迁移，以朱红圈出本例福德宫的化忌。右图按课堂说法把命、运、人画成等宽的三份，用大于号表示人和运合起来大于天命。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g font-size="26" font-weight="600">
+      <text x="34" y="55">三方四正</text>
+      <text x="636" y="55">三才</text>
+    </g>
+
+    <!-- 十二宫沿外圈排列，中央留给连线。 -->
+    <g fill="#f4f4f2">
+      <rect x="34" y="87" width="140" height="103"/>
+      <rect x="454" y="190" width="140" height="103"/>
+      <rect x="34" y="293" width="140" height="103"/>
+      <rect x="174" y="396" width="140" height="103"/>
+    </g>
+    <rect x="34" y="87" width="560" height="412" fill="none" stroke="#444" stroke-width="1.7"/>
+    <path d="M174 87V499 M454 87V499
+             M314 87V190 M314 396V499
+             M34 190H594 M34 396H594
+             M34 293H174 M454 293H594"
+          fill="none" stroke="#90908c" stroke-width="1.15"/>
+
+    <!-- 三角形连命、财、官，另一线由命宫直达迁移宫。 -->
+    <path d="M454 241.5 L174 190 L244 396 Z M454 241.5 L174 344.5"
+          fill="none" stroke="#50504d" stroke-width="2.1" stroke-linejoin="round"/>
+    <g fill="#50504d" stroke="#fff" stroke-width="1.3">
+      <circle cx="454" cy="241.5" r="4.5"/>
+      <circle cx="174" cy="190" r="4"/>
+      <circle cx="244" cy="396" r="4"/>
+      <circle cx="174" cy="344.5" r="4"/>
+    </g>
+
+    <g font-size="21" font-weight="600">
+      <text x="49" y="118">财帛宫</text>
+      <text x="471" y="221">命宫</text>
+      <text x="49" y="332">迁移宫</text>
+      <text x="190" y="433">官禄</text>
+      <text x="330" y="433">田宅宫</text>
+      <text x="470" y="433">福德宫</text>
+    </g>
+
+    <g font-size="18">
+      <text x="49" y="148">太阴</text>
+      <text x="98" y="148" font-size="16">权</text>
+      <text x="49" y="174">禄存</text>
+
+      <text x="191" y="125">贪狼</text>
+      <text x="209" y="162" text-anchor="middle">禄</text>
+
+      <text x="471" y="251">太阳</text>
+      <text x="527" y="251">天梁</text>
+      <text x="471" y="278">天喜</text>
+
+      <text x="49" y="366">红鸾</text>
+      <text x="190" y="469">天魁</text>
+
+      <text x="330" y="469">紫微</text>
+      <text x="390" y="469" text-anchor="middle">科</text>
+      <text x="470" y="469">天机</text>
+      <text x="546" y="469" text-anchor="middle">化忌</text>
+    </g>
+    <g fill="none" stroke="#777773" stroke-width="1.15">
+      <ellipse cx="106" cy="142" rx="13" ry="12"/>
+      <ellipse cx="209" cy="155" rx="15" ry="14"/>
+      <ellipse cx="390" cy="462" rx="15" ry="14"/>
+    </g>
+    <ellipse cx="546" cy="462" rx="26" ry="16" fill="none" stroke="#b43b30" stroke-width="2.2"/>
+
+    <!-- 等宽三份与下方算式按同一顺序对齐。 -->
+    <g text-anchor="middle">
+      <g font-size="19">
+        <text x="685" y="175">人事</text>
+        <text x="783" y="175">地理</text>
+        <text x="881" y="175">天文</text>
+      </g>
+      <rect x="636" y="196" width="294" height="91" fill="#f4f4f2" stroke="#777773" stroke-width="1.3"/>
+      <path d="M734 196V287 M832 196V287" fill="none" stroke="#777773" stroke-width="1.3"/>
+      <g font-size="22" font-weight="600">
+        <text x="685" y="231">人</text>
+        <text x="783" y="231">运</text>
+        <text x="881" y="231">命</text>
+      </g>
+      <g font-size="19" fill="#555552">
+        <text x="685" y="265">1/3</text>
+        <text x="783" y="265">1/3</text>
+        <text x="881" y="265">1/3</text>
+      </g>
+      <g font-size="24" font-weight="600">
+        <text x="685" y="369">人</text>
+        <text x="783" y="369">运</text>
+        <text x="881" y="369">天命</text>
+      </g>
+    </g>
+    <path d="M727 360H741 M734 353V367 M825 352L839 360L825 368"
+          fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

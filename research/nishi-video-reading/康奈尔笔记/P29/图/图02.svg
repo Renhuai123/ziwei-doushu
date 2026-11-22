@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眼尾与坤宫</title>
+  <desc id="desc">左图以深浅轮廓画出两侧眼尾的暗色凹陷，对应倪师所说的「主夫妻死别」。右图画出掌心，以朱红圈标出小指根下方的坤宫，对应他说的「夫妻」。</desc>
+  <defs>
+    <g id="eye" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-51-20 C-27-39 4-39 38-23 C16-29-2-30-18-27 C-31-25-42-21-51-17Z" fill="#686868"/>
+      <path d="M-44 0 Q-8-31 40 5 Q6 27-23 14 Q-35 9-44 0Z" fill="#fff" stroke="#303030" stroke-width="2.5"/>
+      <path d="M-12-10 Q-16 0-10 9 Q-3 17 6 12 Q17 6 12-8" fill="#a3a3a3" stroke="#454545" stroke-width="1.5"/>
+      <circle cx="0" cy="1" r="5" fill="#343434"/>
+      <path d="M-38-7 Q-6-29 29-7 M-30 17 Q-10 28 11 23" fill="none" stroke="#aaa" stroke-width="1.3"/>
+      <path d="M-75-9 Q-60-14-44-1 Q-49 13-65 20 Q-76 11-75-9Z" fill="#dedede"/>
+      <path d="M-70-5 Q-59-8-46 0 Q-52 12-64 15 Q-71 9-70-5Z" fill="#999"/>
+      <path d="M-64-2 Q-56-3-47 1 Q-53 8-62 10 Q-65 5-64-2Z" fill="#434343"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#686868" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <path d="M480 53 V489" stroke="#dedede" stroke-width="1"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <g fill="none" stroke="#555" stroke-width="1.4">
+      <rect x="54" y="43" width="96" height="43" rx="3"/>
+      <rect x="523" y="43" width="96" height="43" rx="3"/>
+    </g>
+    <g text-anchor="middle" font-size="23" font-weight="600">
+      <text x="102" y="73">眼尾</text>
+      <text x="571" y="73">手掌</text>
+    </g>
+
+    <g fill="none" stroke="#b6b6b6" stroke-width="1.6" stroke-linecap="round">
+      <path d="M91 150 Q77 192 87 235 Q90 250 98 263 M405 150 Q419 192 409 235 Q406 250 398 263"/>
+      <path d="M235 195 Q239 213 232 230 M261 195 Q257 213 264 230"/>
+    </g>
+    <use href="#eye" transform="translate(170 203)"/>
+    <use href="#eye" transform="translate(326 203) scale(-1 1)"/>
+
+    <g fill="none" stroke="#868686" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M109 224 L127 269 H201 M387 224 L369 269 H295"/>
+    </g>
+    <text x="248" y="276" text-anchor="middle" font-size="21">两个眼睛</text>
+
+    <g text-anchor="middle">
+      <text x="248" y="349" font-size="23">凹陷下去，而且是黑色的</text>
+      <path d="M248 372 V422" fill="none" stroke="#686868" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="248" y="475" font-size="29" font-weight="600">主夫妻死别</text>
+    </g>
+
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <path d="M671 392
+               C672 371 662 358 647 342
+               C632 325 618 305 603 287
+               C591 273 578 259 583 250
+               C589 239 603 244 614 254
+               L642 279 Q650 286 653 276
+               C654 260 650 234 647 211
+               L640 147 C638 127 644 119 652 119
+               C661 119 665 128 667 141
+               L679 211 Q681 218 684 211
+               L680 116 C679 100 684 91 693 91
+               C703 91 708 100 708 115
+               L712 209 Q714 215 717 209
+               L721 130 C722 115 728 108 736 109
+               C745 110 749 118 748 133
+               L744 220 Q745 226 749 219
+               L759 164 C762 151 768 147 775 149
+               C783 151 785 159 783 172
+               L775 233 C773 253 775 272 772 292
+               C770 316 763 339 750 358
+               Q742 371 743 392" fill="#fafafa" stroke="#353535" stroke-width="2.5"/>
+      <g fill="none" stroke="#aaa" stroke-width="1.4">
+        <path d="M650 282 Q680 303 681 342"/>
+        <path d="M673 247 Q710 238 751 252"/>
+      </g>
+      <circle cx="759" cy="241" r="8" fill="none" stroke="#ad4037" stroke-width="2.4"/>
+      <path d="M769 241 H823" fill="none" stroke="#777" stroke-width="1.4"/>
+    </g>
+    <text x="834" y="249" font-size="23" font-weight="600">坤宫</text>
+    <path d="M708 399 V422" fill="none" stroke="#686868" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="708" y="475" text-anchor="middle" font-size="29" font-weight="600">夫妻</text>
+  </g>
+</svg>

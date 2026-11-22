@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微在午</title>
+  <desc id="desc">紫微在上排第二格的午宫时，太阳固定在左列自上数第三格，太阴固定在右下角。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+  <g fill="none" stroke-linejoin="round">
+    <rect x="120" y="46" width="720" height="448" stroke="#393939" stroke-width="2.4"/>
+    <path d="M300 46V494 M660 46V494
+             M120 158H840 M120 382H840
+             M480 46V158 M480 382V494
+             M120 270H300 M660 270H840"
+          stroke="#707070" stroke-width="1.6"/>
+  </g>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+    <g fill="#262626" font-size="32" font-weight="500">
+      <text x="390" y="114">紫微</text>
+      <text x="210" y="338">太阳</text>
+      <text x="750" y="450">太阴</text>
+    </g>
+    <text x="460" y="145" fill="#a63d32" font-size="21">午</text>
+  </g>
+</svg>

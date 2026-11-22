@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天柱纹</title>
+  <desc id="desc">掌心朝前，朱红色的天柱纹从掌根「坎」字圈的右上沿连续向上，接到中指根部。右侧标出倪师所说的「发的是科甲」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 掌心轮廓。腕部留开口。 -->
+    <path d="M351 495
+             C352 472 347 458 330 440
+             C306 415 291 392 275 366
+             L233 300
+             C225 287 222 276 230 269
+             C240 260 254 267 267 280
+             L307 322
+             C317 332 325 332 328 319
+             C332 302 330 282 328 261
+             L317 125
+             C315 106 322 94 335 93
+             C349 92 358 102 360 120
+             L374 230
+             C375 239 383 239 384 229
+             L388 75
+             C389 56 397 45 411 45
+             C426 45 434 56 434 75
+             L435 222
+             C435 234 443 236 445 224
+             L457 105
+             C459 87 467 78 480 79
+             C494 80 500 91 498 108
+             L488 243
+             C487 253 495 256 498 246
+             L517 169
+             C521 154 529 147 540 150
+             C553 153 557 165 553 181
+             L537 273
+             C532 302 533 332 526 362
+             C519 394 505 419 487 440
+             C472 458 465 472 464 495"
+          fill="#fafaf9" stroke="#353535" stroke-width="2.8"/>
+
+    <!-- 淡线仅勾出指根、拇指掌垫和腕褶。 -->
+    <g stroke="#c5c5c1" stroke-width="1.5">
+      <path d="M332 247 Q349 242 365 245"/>
+      <path d="M391 233 Q411 228 430 233"/>
+      <path d="M450 241 Q465 238 481 245"/>
+      <path d="M500 266 Q513 263 525 269"/>
+      <path d="M330 327 C354 342 366 366 369 393"/>
+      <path d="M354 463 Q403 475 463 461"/>
+    </g>
+
+    <circle cx="388" cy="424" r="24" stroke="#777" stroke-width="1.5"/>
+    <path d="M405 407 C412 384 417 358 417 330
+             C417 296 411 265 411 231"
+          stroke="#b43b30" stroke-width="4.4"/>
+
+    <g stroke="#888" stroke-width="1.3">
+      <path d="M443 63 H505"/>
+      <path d="M424 330 L566 302 H610"/>
+    </g>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <text x="388" y="432" text-anchor="middle" font-size="23">坎</text>
+    <text x="517" y="70" font-size="21">中指头</text>
+    <text x="626" y="312" font-size="34" font-weight="600">天柱纹</text>
+    <text x="627" y="353" font-size="23">发的是科甲</text>
+  </g>
+</svg>

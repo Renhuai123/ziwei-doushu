@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">例一离婚原因</title>
+  <desc id="desc">左侧画出黑板命盘的局部，用朱红标出倪师指着说「陀罗」的左上格。右侧依口述画出她二十七岁逢到官符、受人拖累而卷入是非纠纷，继而先生不谅解她、与她离散的经过。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#686868" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#252525">
+    <g font-size="25" font-weight="600">
+      <text x="54" y="81">第二年她陀罗星进来</text>
+      <text x="525" y="81">27岁的时候逢到官符</text>
+    </g>
+
+    <!-- 命盘局部。灰线延伸处表示黑板上相邻的格界。 -->
+    <g fill="none" stroke="#aaa" stroke-width="1.5" stroke-linecap="square">
+      <path d="M54 119 H455 M54 119 V429 M195 119 V429 M324 119 V245"/>
+      <path d="M54 245 H455 M54 403 H195"/>
+    </g>
+    <rect x="54" y="119" width="141" height="126" fill="none" stroke="#b43b30" stroke-width="2.5"/>
+    <text x="124.5" y="193" text-anchor="middle" font-size="32" font-weight="600">陀罗</text>
+
+    <g fill="#666" text-anchor="middle" font-size="21">
+      <text x="259" y="189">天相</text>
+      <text x="388" y="222">财帛</text>
+      <text x="124.5" y="290">贪狼</text>
+      <text x="124.5" y="334" font-size="18">54-63</text>
+      <text x="124.5" y="369">交友</text>
+    </g>
+    <rect x="238" y="274" width="98" height="47" rx="2" fill="none" stroke="#aaa" stroke-width="1.4"/>
+    <text x="287" y="305" text-anchor="middle" fill="#666" font-size="21">酉年</text>
+
+    <!-- 顺着口述向下读；「巨门」旁接它所指的是非纠纷。 -->
+    <g fill="none" stroke="#686868" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M623 100 V137"/>
+      <path d="M623 183 V222"/>
+      <path d="M623 268 V325"/>
+      <path d="M623 372 V415"/>
+    </g>
+    <g text-anchor="middle" font-size="24">
+      <text x="623" y="168">受到别人的拖累</text>
+      <text x="623" y="254">受到官司是非纠纷</text>
+      <text x="623" y="357">先生呢不谅解她</text>
+      <text x="623" y="452" font-size="28" font-weight="600">跟她离散</text>
+    </g>
+    <path d="M806 246 H735" fill="none" stroke="#888" stroke-width="1.4" marker-end="url(#arrow)"/>
+    <text x="819" y="253" font-size="21" fill="#555">巨门</text>
+  </g>
+</svg>

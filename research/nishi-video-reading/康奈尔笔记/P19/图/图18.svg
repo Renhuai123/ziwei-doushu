@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">贪居子午与虚岁</title>
+  <desc id="desc">上方分列贪狼在子、午的说法，标出夫妻宫、子女宫及34至43岁大运所看的流年星曜。下方按板书上下列出83和50，以朱圈标出虚岁34岁，右侧从37逆数到她来找倪师的34岁。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <text x="48" y="68" font-size="28" font-weight="600">贪居子午</text>
+
+    <g fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M101 192 H127 M127 139 V245 M127 139 H152 M127 245 H152"/>
+      <circle cx="177" cy="139" r="24"/>
+      <circle cx="177" cy="245" r="24"/>
+      <path d="M209 139 H244" marker-end="url(#arrow)"/>
+      <path d="M209 245 H244" marker-end="url(#arrow)"/>
+      <ellipse cx="302" cy="245" rx="47" ry="26"/>
+    </g>
+    <g text-anchor="middle" font-size="24" dominant-baseline="central">
+      <text x="72" y="192" font-weight="600">贪狼</text>
+      <text x="177" y="139">子</text>
+      <text x="177" y="245">午</text>
+      <text x="302" y="139">桃花命</text>
+      <text x="302" y="245">火贵</text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.5">
+      <rect x="407" y="43" width="195" height="267"/>
+      <path d="M407 177 H602"/>
+      <rect x="648" y="43" width="264" height="267"/>
+    </g>
+    <g font-size="19" fill="#555">
+      <text x="427" y="78">夫妻宫</text>
+      <text x="427" y="211">子女宫</text>
+    </g>
+    <text x="427" y="132" font-size="24" letter-spacing="3">廉贞天府</text>
+    <text x="427" y="251" font-size="21">空的</text>
+    <text x="427" y="290" font-size="19" fill="#666">34.</text>
+
+    <text x="670" y="79" font-size="22" font-weight="600">大运34-43十年</text>
+    <path d="M670 98 H890" fill="none" stroke="#ccc" stroke-width="1"/>
+    <text x="670" y="132" font-size="18" fill="#555">流年</text>
+    <g font-size="23">
+      <text x="670" y="174">太阳化权</text>
+      <text x="670" y="220">天梁</text>
+      <text x="670" y="269">文昌化<tspan x="739">忌</tspan></text>
+    </g>
+    <ellipse cx="750.5" cy="260" rx="15.5" ry="18" fill="none" stroke="#555" stroke-width="1.5"/>
+
+    <path d="M48 348 H912" fill="none" stroke="#bdbdbd" stroke-width="1.2"/>
+
+    <g font-size="18" fill="#555">
+      <text x="443" y="396" text-anchor="middle">虚岁</text>
+      <text x="833" y="396" text-anchor="middle">逆转</text>
+    </g>
+    <g text-anchor="middle" dominant-baseline="central" font-size="30">
+      <text x="326" y="420">83</text>
+      <text x="326" y="466">50</text>
+      <text x="833" y="443">37</text>
+      <text x="712" y="443">36</text>
+      <text x="591" y="443">35</text>
+    </g>
+    <g fill="none" stroke="#555" stroke-width="1.7" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M799 443 H748"/>
+      <path d="M679 443 H627"/>
+      <path d="M558 443 H507"/>
+    </g>
+    <ellipse cx="443" cy="443" rx="53" ry="33" fill="none" stroke="#af3c30" stroke-width="2.3"/>
+    <text x="443" y="443" text-anchor="middle" dominant-baseline="central" font-size="30" font-weight="600" fill="#af3c30">34岁</text>
+    <text x="443" y="510" text-anchor="middle" font-size="20">来找我</text>
+  </g>
+</svg>

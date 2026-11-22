@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">红丝贯睛和血丝布满</title>
+  <desc id="desc">两幅眼睛正面图并排对照。左图用一条朱红细线横贯黑珠子，右图用灰色细线画出布满眼白的血丝，黑珠子内没有血丝；图下分别标出倪师口述中对应的说法。</desc>
+  <defs>
+    <path id="eye" d="M-165 0 C-121-44-62-64 0-64 C62-64 121-44 165 0 C120 41 62 64 0 64 C-62 64-120 41-165 0Z"/>
+    <clipPath id="eye-clip">
+      <use href="#eye"/>
+    </clipPath>
+    <circle id="iris" r="52" fill="#e3e3e1" stroke="#393939" stroke-width="2.6"/>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424" text-anchor="middle">
+    <g font-size="28" font-weight="600">
+      <text x="250" y="106">红丝贯睛</text>
+      <text x="710" y="106">红丝没有贯睛</text>
+    </g>
+    <text x="710" y="142" font-size="19" fill="#555">整个血丝布满</text>
+
+    <g transform="translate(250 260)" stroke-linejoin="round" stroke-linecap="round">
+      <use href="#eye" fill="white" stroke="#303030" stroke-width="3"/>
+      <use href="#iris"/>
+      <path d="M-151 1 C-109-3-78 3-46 1 S14-2 48 0 S112 2 151-1"
+            fill="none" stroke="#af392e" stroke-width="3"/>
+    </g>
+    <g fill="none" stroke="#787878" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M214 169 H231 L246 208"/>
+    </g>
+    <text x="203" y="175" text-anchor="end" font-size="18" fill="#555">黑珠子</text>
+
+    <g transform="translate(710 260)" stroke-linejoin="round" stroke-linecap="round">
+      <use href="#eye" fill="white"/>
+      <g clip-path="url(#eye-clip)" fill="none" stroke="#777" stroke-width="1.5">
+        <path d="M-160-3 Q-138-10-121-8 T-86-12 L-62-8 M-124-8 Q-115-19-105-23 M-94-10 L-83-21"/>
+        <path d="M-126-32 Q-108-29-96-34 T-63-35 M-97-34 L-88-43"/>
+        <path d="M-81-53 Q-69-45-58-48 L-43-45"/>
+        <path d="M-155 8 Q-136 6-119 14 T-84 17 L-61 21 M-119 14 Q-107 9-99 9 M-89 17 L-78 27"/>
+        <path d="M-112 38 Q-98 31-83 36 T-57 39 M-82 36 L-72 46"/>
+        <path d="M-60 56 Q-46 48-34 52"/>
+        <path d="M158-4 Q138-6 120-14 T88-16 L65-20 M122-13 L109-5 M96-17 L83-29"/>
+        <path d="M118-36 Q100-29 87-35 T58-38 M87-35 L76-45"/>
+        <path d="M68-54 Q53-48 40-51"/>
+        <path d="M159 4 Q139 13 122 9 T91 11 L62 6 M126 10 L113 22 M94 10 L82 2"/>
+        <path d="M128 31 Q112 24 97 30 T65 31 M96 30 L83 41"/>
+        <path d="M86 50 Q72 43 60 47 L45 44"/>
+      </g>
+      <use href="#iris"/>
+      <use href="#eye" fill="none" stroke="#303030" stroke-width="3"/>
+    </g>
+
+    <g stroke="#aaa" stroke-width="1.4">
+      <path d="M250 338 V363"/>
+      <path d="M710 338 V363"/>
+    </g>
+    <g font-size="25" font-weight="600">
+      <text x="250" y="403">事情发生在自己身上</text>
+      <text x="710" y="403">去当和事佬</text>
+    </g>
+    <text x="250" y="440" font-size="20" fill="#555">自己想不开</text>
+  </g>
+</svg>

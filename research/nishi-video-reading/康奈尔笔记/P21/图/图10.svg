@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">天相入命</title>
+  <desc id="desc">取两个宫格，分别画出命中有天相、财帛宫有禄存星，对应倪师所说的「很好啊」和「非常善于理财」。两格之间单列化科，对应「可以读书」。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M2 1.5 L8 5 L2 8.5" fill="none" stroke="#666" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g stroke="#555" stroke-width="1.6">
+      <rect x="126" y="53" width="238" height="132" fill="#fff"/>
+      <rect x="126" y="355" width="238" height="132" fill="#fff"/>
+    </g>
+    <g fill="#f3f3f1">
+      <rect x="127" y="54" width="236" height="39"/>
+      <rect x="127" y="356" width="236" height="39"/>
+    </g>
+    <path d="M126 94 H364 M126 396 H364" fill="none" stroke="#aaa" stroke-width="1"/>
+
+    <g font-size="22" fill="#494949">
+      <text x="145" y="81">命</text>
+      <text x="145" y="383">财帛宫</text>
+    </g>
+    <g text-anchor="middle" font-size="36" font-weight="600">
+      <text x="245" y="152">天相</text>
+      <text x="245" y="283">化科</text>
+      <text x="245" y="454">禄存星</text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.7" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M386 139 H493"/>
+      <path d="M304 270 H493"/>
+      <path d="M386 441 H493"/>
+    </g>
+    <g font-size="34">
+      <text x="527" y="151">很好啊</text>
+      <text x="527" y="282">可以读书</text>
+      <text x="527" y="453">非常善于理财</text>
+    </g>
+  </g>
+</svg>

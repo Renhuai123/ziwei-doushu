@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">明珠出海格</title>
+  <desc id="desc">上排午的右邻是未宫。命宫在未时，两条斜线从命宫连向左下的月朗天门和右下的日照雷门，表示三方四正会到这两格；依这段口述，命宫有没有星都称明珠出海格。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <text x="88" y="70" font-size="33" font-weight="600" letter-spacing="3">明珠出海格</text>
+
+    <rect x="88" y="106" width="784" height="384" fill="#fff" stroke="#666" stroke-width="1.7"/>
+    <path d="M480 107 H676 V202 H480 Z M89 298 H284 V394 H89 Z M676 394 H871 V489 H676 Z" fill="#f5f5f3"/>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.25">
+      <path d="M284 106 V490 M676 106 V490"/>
+      <path d="M480 106 V202 M480 394 V490"/>
+      <path d="M88 202 H872 M88 394 H872"/>
+      <path d="M88 298 H284 M676 298 H872"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="382" y="150" font-size="24">紫微</text>
+      <text x="382" y="182" font-size="19" fill="#555">午</text>
+
+      <text x="578" y="147" font-size="27" font-weight="600">命宫</text>
+      <text x="651" y="133" font-size="17" fill="#555">未</text>
+      <text x="578" y="180" font-size="19">不管你有没有星</text>
+    </g>
+
+    <path d="M284 346 L578 202 L704 394" fill="none" stroke="#444" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="284" cy="346" r="3.5" fill="#444"/>
+    <circle cx="704" cy="394" r="3.5" fill="#444"/>
+    <circle cx="578" cy="202" r="5.8" fill="#ad4033" stroke="#fff" stroke-width="1.5"/>
+
+    <g text-anchor="middle">
+      <text x="539" y="303" font-size="21" fill="#444">三方四正会到</text>
+      <text x="186" y="355" font-size="25" font-weight="600">月朗天门</text>
+      <text x="774" y="451" font-size="25" font-weight="600">日照雷门</text>
+    </g>
+  </g>
+</svg>

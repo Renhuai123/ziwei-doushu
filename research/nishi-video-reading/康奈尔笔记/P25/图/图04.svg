@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">科权禄三会</title>
+  <desc id="desc">三条细线从写有紫微、天相的格子连到本例的三处宫位：化科在财帛，权在迁移，化禄在官禄身宫。朱红细圈对应板书上圈起的「廉貞·化祿」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <text x="88" y="57" font-size="30" font-weight="600" letter-spacing="2">科权禄三会</text>
+
+    <g fill="#f5f5f3">
+      <rect x="676" y="85" width="196" height="104"/>
+      <rect x="676" y="293" width="196" height="104"/>
+      <rect x="480" y="397" width="196" height="104"/>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.4">
+      <rect x="88" y="85" width="784" height="416" stroke="#373737" stroke-width="2"/>
+      <path d="M284 85 V501 M676 85 V501"/>
+      <path d="M480 85 V189 M480 397 V501"/>
+      <path d="M88 189 H872 M88 397 H872"/>
+      <path d="M88 293 H284 M676 293 H872"/>
+    </g>
+
+    <g fill="none" stroke="#838383" stroke-width="1.7" stroke-linecap="round">
+      <path d="M284 241 L676 189"/>
+      <path d="M284 241 L676 345"/>
+      <path d="M284 241 L578 397"/>
+    </g>
+    <g fill="#616161">
+      <circle cx="284" cy="241" r="4"/>
+      <circle cx="676" cy="189" r="3"/>
+      <circle cx="676" cy="345" r="3"/>
+      <circle cx="578" cy="397" r="3"/>
+    </g>
+
+    <g text-anchor="middle">
+      <g font-size="23">
+        <text x="186" y="234">紫微</text>
+        <text x="186" y="267">天相</text>
+      </g>
+
+      <g font-size="21" fill="#484848">
+        <text x="774" y="119">官禄身宫</text>
+        <text x="774" y="330">迁移</text>
+        <text x="578" y="434">财帛</text>
+      </g>
+
+      <ellipse cx="774" cy="153" rx="72" ry="23" fill="none" stroke="#ac4134" stroke-width="1.8"/>
+      <text x="774" y="162" font-size="25" font-weight="600">廉貞·化祿</text>
+      <g font-size="27" font-weight="600">
+        <text x="774" y="370">权</text>
+        <text x="578" y="474">化科</text>
+      </g>
+    </g>
+  </g>
+</svg>

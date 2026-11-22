@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">紫微在未宫</title>
+  <desc id="desc">上排从左数第三格标出紫微在未宫。右下格并列廉贞、贪狼，以括线标出两星落陷，接到倪师在这段课中所称的「自杀的格」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g transform="translate(54 62)">
+    <rect x="292" y="0" width="146" height="104" fill="#f4f4f2"/>
+    <rect x="438" y="312" width="146" height="104" fill="#f4f4f2"/>
+
+    <g fill="none" stroke-linejoin="round">
+      <rect width="584" height="416" stroke="#454545" stroke-width="2"/>
+      <path d="M146 0V416 M438 0V416
+               M0 104H584 M0 312H584
+               M292 0V104 M292 312V416
+               M0 208H146 M438 208H584"
+            stroke="#858585" stroke-width="1.4"/>
+    </g>
+
+    <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle">
+      <text x="365" y="49" font-size="29" font-weight="600" fill="#242424">紫微</text>
+      <text x="365" y="80" font-size="21" fill="#555">未</text>
+
+      <g font-size="25" font-weight="500" fill="#242424">
+        <text x="505" y="355">廉贞</text>
+        <text x="505" y="391">贪狼</text>
+      </g>
+    </g>
+
+    <path d="M543 345H550V381H543 M550 363H602"
+          fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="670" y="434" font-size="25" fill="#333">落陷</text>
+    <path d="M735 425H772 M765 419L772 425L765 431"
+          fill="none" stroke="#666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="789" y="434" font-size="26" font-weight="600" fill="#a33e32">自杀的格</text>
+  </g>
+</svg>

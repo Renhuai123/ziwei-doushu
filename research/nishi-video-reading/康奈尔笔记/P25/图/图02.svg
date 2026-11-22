@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">先以十年大运为主</title>
+  <desc id="desc">左侧按黑板上下两格排出大运，箭头从下方的33–42岁指向上方的43–52岁。右侧对应倪师对此例的讲法：犯刑到42岁为止，留下的前科影响了随后十年。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828">
+    <rect x="56" y="34" width="256" height="48" rx="3" fill="none" stroke="#454545" stroke-width="1.5"/>
+    <text x="184" y="66" text-anchor="middle" font-size="24" font-weight="600">先以十年大运为主</text>
+
+    <g stroke="#474747" stroke-width="1.7">
+      <rect x="98" y="117" width="340" height="360" fill="#fff"/>
+      <path d="M98 297H438" fill="none"/>
+    </g>
+
+    <g font-size="23">
+      <text x="126" y="157">财帛</text>
+      <text x="126" y="213">贪狼文昌</text>
+      <text x="410" y="273" text-anchor="end" font-size="26" font-weight="600">43-52</text>
+
+      <text x="126" y="341">巨门</text>
+      <text x="126" y="384">天机</text>
+      <text x="126" y="427">天钺</text>
+      <text x="321" y="341">天刑</text>
+      <text x="410" y="454" text-anchor="end" font-size="26" font-weight="600">33-42</text>
+    </g>
+
+    <g fill="none" stroke="#606060" stroke-width="1.4">
+      <circle cx="203" cy="333" r="17"/>
+      <circle cx="203" cy="376" r="17"/>
+    </g>
+    <g text-anchor="middle" font-size="21">
+      <text x="203" y="340">忌</text>
+      <text x="203" y="383">科</text>
+    </g>
+
+    <g fill="none" stroke="#707070" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M87 410H63V207H86"/>
+      <path d="M78 201L86 207L78 213"/>
+    </g>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.3">
+      <path d="M438 207H504"/>
+      <path d="M438 410H504"/>
+    </g>
+
+    <g text-anchor="middle">
+      <text x="700" y="217" font-size="31" font-weight="600">很辛苦啊孤单呐</text>
+
+      <g fill="none" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M700 382V332 M700 286V240"/>
+        <path d="M693 249L700 240L707 249"/>
+      </g>
+
+      <text x="700" y="318" font-size="25" font-weight="600" fill="#a43e32">有前科</text>
+      <text x="700" y="419" font-size="28" font-weight="600">犯刑到伤人</text>
+      <text x="700" y="455" font-size="22" fill="#555">到42岁为止</text>
+    </g>
+  </g>
+</svg>

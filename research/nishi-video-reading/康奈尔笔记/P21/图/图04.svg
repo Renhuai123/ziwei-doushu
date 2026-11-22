@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">巨门太阳会命</title>
+  <desc id="desc">命盘左上格标太阳，右下格标巨门，两星隔盘相对。盘心依板书竖写格名「巨日格」。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#292929">
+    <text x="480" y="58" font-size="26" font-weight="500" letter-spacing="2">巨门太阳会命</text>
+
+    <g fill="#f3f3f1">
+      <rect x="152" y="92" width="164" height="104"/>
+      <rect x="644" y="404" width="164" height="104"/>
+    </g>
+
+    <g fill="none" stroke="#777" stroke-width="1.5">
+      <path d="M152 196H808 M152 404H808"/>
+      <path d="M316 92V508 M644 92V508"/>
+      <path d="M480 92V196 M480 404V508"/>
+      <path d="M152 300H316 M644 300H808"/>
+    </g>
+    <rect x="152" y="92" width="656" height="416" fill="none" stroke="#454545" stroke-width="2"/>
+
+    <g font-size="29" font-weight="500" letter-spacing="2">
+      <text x="234" y="154">太阳</text>
+      <text x="726" y="466">巨门</text>
+    </g>
+
+    <text x="480" y="265" font-size="37" font-weight="600" fill="#a43b30"><tspan x="480">巨</tspan><tspan x="480" dy="47">日</tspan><tspan x="480" dy="47">格</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">眼睛和鼻纹</title>
+  <desc id="desc">按倪师课堂的画法并列两张正面脸。左图用两条水平虚线对照两眼一上一下的夸张画法，右图用一道朱红竖线标出他所说的父母鼻子中间的直纹。</desc>
+  <defs>
+    <path id="face" d="M0-132 C64-132 101-90 101-28 C101 22 87 70 59 101 C38 123 17 134 0 134 C-17 134-38 123-59 101 C-87 70-101 22-101-28 C-101-90-64-132 0-132Z"/>
+    <path id="eye" d="M-22 0 Q-3-15 22 0 Q3 12-22 0Z"/>
+    <path id="nose" d="M-4-5 L-16 44 Q0 49 16 44 L4-5"/>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" text-anchor="middle" fill="#242424">
+    <g font-size="26" font-weight="600">
+      <text x="250" y="69">这是看他</text>
+      <text x="710" y="69">再一看他爸爸妈妈</text>
+    </g>
+
+    <g fill="none" stroke="#464646" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(250 255)">
+        <use href="#face"/>
+        <g stroke="#aaa" stroke-width="1.2" stroke-dasharray="5 5">
+          <path d="M-83-22 H79"/>
+          <path d="M-83 10 H79"/>
+        </g>
+        <g stroke="#303030">
+          <path d="M-68-44 Q-49-56-25-46 M25-13 Q47-22 68-10" stroke-width="3"/>
+          <use href="#eye" transform="translate(-46 -22)" fill="#fff"/>
+          <use href="#eye" transform="translate(46 10)" fill="#fff"/>
+        </g>
+        <use href="#nose" stroke="#707070"/>
+      </g>
+
+      <g transform="translate(710 255)">
+        <use href="#face"/>
+        <path d="M-68-37 Q-49-48-25-39 M25-39 Q49-48 68-37" stroke-width="3"/>
+        <use href="#eye" transform="translate(-46 -16)"/>
+        <use href="#eye" transform="translate(46 -16)"/>
+        <use href="#nose" stroke="#707070"/>
+        <path d="M0 0 V41" stroke="#ad4035" stroke-width="3.6"/>
+      </g>
+    </g>
+
+    <g font-size="24" font-weight="500">
+      <text x="250" y="444">一上一下</text>
+      <text x="710" y="444">鼻子中间有直纹</text>
+    </g>
+    <text x="250" y="482" font-size="19" fill="#555">庶出领养</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">科权禄忌</title>
+  <desc id="desc">上方示意批盘时先圈出科、权、禄、忌，下方按板书并排画出兄弟格与命格。兄弟格分别引出倪师对天刑和化忌的解释，命格从同圈的巨门、太阳引出他对本例女命的说法。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1 L8 5 L2 9" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#262626">
+    <g text-anchor="middle">
+      <text x="266" y="92" font-size="25" font-weight="600">批八字</text>
+      <g fill="none" stroke="#575757" stroke-width="1.5">
+        <circle cx="379" cy="82" r="24"/>
+        <circle cx="439" cy="82" r="24"/>
+        <circle cx="499" cy="82" r="24"/>
+        <circle cx="559" cy="82" r="24"/>
+      </g>
+      <g font-size="25">
+        <text x="379" y="91">科</text>
+        <text x="439" y="91">权</text>
+        <text x="499" y="91">禄</text>
+        <text x="559" y="91">忌</text>
+      </g>
+      <text x="661" y="90" font-size="21">圈起来</text>
+    </g>
+    <path d="M64 135 H896" stroke="#d6d6d6" stroke-width="1"/>
+
+    <rect x="268" y="185" width="424" height="258" fill="#fff"/>
+    <rect x="268" y="389" width="424" height="54" fill="#f4f4f2"/>
+    <g fill="none" stroke="#454545" stroke-width="1.7">
+      <rect x="268" y="185" width="424" height="258"/>
+      <path d="M480 185 V443"/>
+    </g>
+    <path d="M268 389 H692" stroke="#b9b9b9" stroke-width="1.2"/>
+
+    <g text-anchor="middle">
+      <ellipse cx="374" cy="226" rx="45" ry="22" fill="none" stroke="#626262" stroke-width="1.5"/>
+      <text x="374" y="234" font-size="23">天刑</text>
+      <text x="374" y="287" font-size="23">贪狼</text>
+      <text x="374" y="324" font-size="23">武曲</text>
+      <circle cx="374" cy="357" r="21" fill="none" stroke="#b13e32" stroke-width="2.3"/>
+      <text x="374" y="365" font-size="23">忌</text>
+
+      <ellipse cx="586" cy="262" rx="48" ry="54" fill="none" stroke="#626262" stroke-width="1.5"/>
+      <text x="586" y="253" font-size="25">巨门</text>
+      <text x="586" y="293" font-size="25">太阳</text>
+      <text x="586" y="354" font-size="22">文曲</text>
+    </g>
+
+    <g font-size="21" font-weight="600">
+      <text x="291" y="423">兄弟</text>
+      <text x="503" y="423">命</text>
+    </g>
+    <g text-anchor="end" font-size="18" fill="#595959">
+      <text x="455" y="422">15-24</text>
+      <text x="667" y="422">5-14</text>
+    </g>
+
+    <g fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M328 226 H225"/>
+      <path d="M352 357 H225"/>
+      <path d="M635 262 H808"/>
+    </g>
+    <g text-anchor="end" font-size="23">
+      <text x="207" y="234">是非官司刑克</text>
+      <text x="207" y="365">兄弟夭折</text>
+    </g>
+    <text x="753" y="246" text-anchor="middle" font-size="18" fill="#595959">女孩子</text>
+    <text x="826" y="271" font-size="26" font-weight="600">偏房</text>
+  </g>
+</svg>

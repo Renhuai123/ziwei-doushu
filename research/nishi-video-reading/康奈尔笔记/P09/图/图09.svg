@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">旺夫命</title>
+  <desc id="desc">上方以日月并列，示意倪师所说的日月都旺、天生好手。下方画太阳旺的太太向丈夫说出看法，丈夫侧耳听她，太太身旁点出她自己也很辛苦。</desc>
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#292929">
+    <g fill="none" stroke="#393939" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="99" cy="99" r="19"/>
+      <path d="M99 69v-6 M99 129v6 M69 99h-6 M129 99h6
+               M78 78l-5-5 M120 120l5 5 M78 120l-5 5 M120 78l5-5"/>
+      <path d="M184 76 C169 78 161 91 165 105 C169 120 186 127 199 118
+               C188 119 178 111 176 101 C174 92 177 82 184 76Z" fill="#f1f1ef"/>
+    </g>
+    <text x="230" y="109" font-size="27">太阳日月都是旺的</text>
+
+    <path d="M478 99H588 M579 93l9 6-9 6" fill="none" stroke="#777" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="628" y="108" font-size="34" font-weight="600">天生好手</text>
+    <text x="630" y="144" font-size="20" fill="#555">她即使没有读过书</text>
+
+    <path d="M63 190H897" stroke="#d2d2cf" stroke-width="1.3"/>
+
+    <text x="210" y="248" text-anchor="middle" font-size="25" font-weight="600">太太是太阳旺的</text>
+    <text x="750" y="248" text-anchor="middle" font-size="25">那你是当局者迷</text>
+
+    <!-- 太太面向右侧，伸手说出看法。 -->
+    <g stroke="#383838" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M161 350 C148 335 152 305 167 290 C180 277 205 279 217 293
+               C209 307 202 316 190 321 C189 336 180 347 166 356Z" fill="#e6e6e3"/>
+      <path d="M216 293 C222 299 223 307 223 313 L230 323 L223 325
+               C223 338 217 345 206 345 L205 356
+               M187 337 Q188 349 181 356" fill="none"/>
+      <path d="M146 409 Q149 369 181 354 Q193 363 206 354 Q222 358 232 374
+               L245 390 L271 378 L280 366 Q283 363 285 366 L281 376
+               L299 370 Q304 370 301 374 L285 386 L247 406 Q240 410 234 405
+               L212 385 M215 390 L216 409" fill="none"/>
+      <circle cx="217" cy="313" r="1.7" fill="#383838" stroke="none"/>
+    </g>
+
+    <!-- 丈夫面向左侧，微微前倾。 -->
+    <g stroke="#383838" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M708 304 Q708 286 728 281 Q751 275 765 292 Q775 305 767 325
+               L757 340 L749 332 Q756 317 750 312 Q744 308 740 317
+               L735 309 L733 298 Q722 306 708 304Z" fill="#e6e6e3"/>
+      <path d="M709 304 L707 317 L700 327 L707 330 Q708 344 719 346
+               L727 345 L730 355 M756 336 Q754 346 762 352
+               M746 320 Q752 315 750 323 L746 328" fill="none"/>
+      <path d="M697 409 Q701 372 729 353 L739 365 L761 351
+               Q786 356 799 377 Q806 389 810 409
+               M762 352 L751 374 L739 365 M719 386 L715 409" fill="none"/>
+      <circle cx="713" cy="317" r="1.7" fill="#383838" stroke="none"/>
+    </g>
+
+    <text x="492" y="331" text-anchor="middle" font-size="32" font-weight="600">你要多听她的</text>
+    <path d="M337 352H648 M639 346l9 6-9 6" fill="none" stroke="#ad4034" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <path d="M187 424v22" stroke="#999" stroke-width="1.3"/>
+    <text x="68" y="480" font-size="23">旺夫命的女孩子很辛苦</text>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">七岁落父母宫</title>
+  <desc id="desc">左图从一岁数起，数到圈中的七，落在父母宫。右图示意倪师所说的右弼星或左辅星单星入守时，通常主的是孤单。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#282828" text-anchor="middle">
+    <text x="259" y="78" font-size="27" font-weight="600">七岁刚好落什么</text>
+
+    <g fill="none" stroke="#aaa" stroke-width="1.4">
+      <rect x="49" y="111" width="420" height="352" stroke="#626262" stroke-width="1.8"/>
+      <path d="M49 199 H469 M49 375 H469
+               M154 111 V463 M364 111 V463
+               M259 111 V199 M259 375 V463
+               M49 287 H154 M364 287 H469"/>
+    </g>
+
+    <rect x="364" y="287" width="105" height="88" fill="#f6f6f4" stroke="#565656" stroke-width="1.8"/>
+
+    <text x="178" y="286" font-size="19">一岁</text>
+    <g fill="none" stroke="#888" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M178 297 V312 H353"/>
+      <path d="M346 307 L353 312 L346 317"/>
+    </g>
+    <g fill="#fff" stroke="#777" stroke-width="1.5">
+      <circle cx="178" cy="312" r="3.3"/>
+      <circle cx="206" cy="312" r="3.3"/>
+      <circle cx="234" cy="312" r="3.3"/>
+      <circle cx="262" cy="312" r="3.3"/>
+      <circle cx="290" cy="312" r="3.3"/>
+      <circle cx="318" cy="312" r="3.3"/>
+    </g>
+
+    <circle cx="416.5" cy="312" r="17.5" fill="#fff" stroke="#ad4034" stroke-width="2.4"/>
+    <text x="416.5" y="321" font-size="26" font-weight="600" fill="#ad4034">7</text>
+    <text x="416.5" y="358" font-size="23" font-weight="600">父母宫</text>
+
+    <g>
+      <text x="598" y="163" font-size="26" font-weight="600">右弼星</text>
+      <text x="730" y="161" font-size="19" fill="#666">或者是</text>
+      <text x="862" y="163" font-size="26" font-weight="600">左辅星</text>
+
+      <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M598 181 V194 H862 V181 M730 194 V229"/>
+        <path d="M724 222 L730 229 L736 222"/>
+      </g>
+
+      <rect x="645" y="242" width="170" height="60" rx="3" fill="#f6f6f4" stroke="#666" stroke-width="1.5"/>
+      <text x="730" y="281" font-size="26" font-weight="600">单星入守</text>
+
+      <g fill="none" stroke="#777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M730 314 V352 M724 345 L730 352 L736 345"/>
+      </g>
+      <text x="730" y="397" font-size="23">通常主的是<tspan font-size="30" font-weight="600">孤单</tspan></text>
+    </g>
+  </g>
+</svg>

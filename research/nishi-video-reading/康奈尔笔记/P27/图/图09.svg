@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">相上看子女</title>
+  <desc id="desc">正面画出双眼和居中的鼻子，以浅灰标出两侧眼袋下方。按这段口述，画面左侧是本人右眼，对应女儿；画面右侧是本人左眼，对应儿子。</desc>
+
+  <defs>
+    <g id="eye" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M254 177 Q313 150 398 173" fill="none" stroke="#454545" stroke-width="4"/>
+      <path d="M250 218 C278 190 335 184 378 204 Q394 212 405 225
+               C374 239 336 247 302 241 Q270 236 250 218Z"
+            fill="#fff" stroke="#303030" stroke-width="2.8"/>
+      <path d="M312 197 A23 23 0 1 0 350 196" fill="none" stroke="#555" stroke-width="2"/>
+      <circle cx="331" cy="214" r="8" fill="#363636"/>
+      <path d="M260 245 C296 271 356 276 398 249
+               C387 270 359 285 328 284 C297 283 273 268 260 245Z"
+            fill="#e6e6e3"/>
+      <path d="M260 245 C296 271 356 276 398 249" fill="none" stroke="#81817d" stroke-width="1.8"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="540" fill="#fff"/>
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif" fill="#242424">
+    <rect x="48" y="38" width="160" height="48" rx="3" fill="none" stroke="#484848" stroke-width="1.5"/>
+    <text x="128" y="70" text-anchor="middle" font-size="24" font-weight="600">眼袋下方</text>
+
+    <use href="#eye"/>
+    <use href="#eye" transform="translate(960 0) scale(-1 1)"/>
+
+    <path d="M465 219 C463 253 455 292 443 323
+             Q440 331 449 333 Q480 339 511 333 Q520 331 517 323
+             C505 292 497 253 495 219"
+          fill="none" stroke="#4a4a48" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g fill="none" stroke="#777773" stroke-width="1.5" stroke-linecap="round">
+      <path d="M329 275 V355"/>
+      <path d="M631 275 V355"/>
+    </g>
+    <g fill="#565653">
+      <circle cx="329" cy="275" r="3.5"/>
+      <circle cx="631" cy="275" r="3.5"/>
+    </g>
+    <g text-anchor="middle" font-size="28" font-weight="500">
+      <text x="329" y="397">女儿（右）</text>
+      <text x="631" y="397">儿子（左）</text>
+    </g>
+  </g>
+</svg>

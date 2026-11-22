@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">右弼星在父母宫</title>
+  <desc id="desc">命盘右列中段的父母宫内标出右弼星，旁注「孤星」。盘外另列倪师的假设：如果三十四至四十三岁遇右弼，这段期间主孤单。</desc>
+
+  <rect width="960" height="540" fill="#fff"/>
+
+  <g font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+    <g fill="none" stroke="#aaa" stroke-width="1.5">
+      <rect x="52" y="58" width="512" height="424"/>
+      <path d="M180 58V482 M436 58V482
+               M308 58V164 M308 376V482
+               M52 164H564 M52 376H564
+               M52 270H180 M436 270H564"/>
+    </g>
+
+    <rect x="436" y="270" width="128" height="106" fill="#faf9f7" stroke="#333" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="500" y="298" font-size="18" fill="#424242">父母</text>
+      <text x="500" y="335" font-size="30" font-weight="600" fill="#ad3d30">右弼星</text>
+      <text x="500" y="361" font-size="17" fill="#424242">孤星</text>
+    </g>
+
+    <g text-anchor="middle" fill="#666">
+      <text x="244" y="406" font-size="17">财</text>
+      <text x="217" y="450" font-size="20">武曲</text>
+      <text x="271" y="450" font-size="20">贪狼</text>
+    </g>
+
+    <g text-anchor="middle" fill="#292929">
+      <text x="757" y="214" font-size="22">如果这个人34-43是右弼</text>
+      <path d="M757 235V282 M751 275L757 282L763 275" fill="none" stroke="#777" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="757" y="329" font-size="31" font-weight="600">34-43主孤单</text>
+    </g>
+  </g>
+</svg>
