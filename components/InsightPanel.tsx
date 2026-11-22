@@ -157,6 +157,29 @@ const PALACE_ROLES: Record<string, string> = {
 
 /** Render AI markdown: **【Title】** → gold header, **bold** → strong */
 function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
+  if (!text && streaming) {
+    return (
+      <div>
+        <style>{`@keyframes ip-dot{0%,80%,100%{transform:scale(0.6);opacity:0.3}40%{transform:scale(1);opacity:0.8}}`}</style>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 0' }}>
+          <span style={{ fontSize: '11px', color: 'var(--t-faint)', fontStyle: 'italic' }}>
+            Đang phân tích lá số
+          </span>
+          <span style={{ display: 'inline-flex', gap: '3px', alignItems: 'center' }}>
+            {[0, 1, 2].map(i => (
+              <span key={i} style={{
+                width: '4px', height: '4px', borderRadius: '50%',
+                background: 'var(--t-gold)', opacity: 0.6,
+                animation: `ip-dot 1.2s ease-in-out ${i * 0.2}s infinite`,
+                display: 'inline-block',
+              }} />
+            ))}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   const lines = text.split('\n');
   return (
     <div className="space-y-0.5">
