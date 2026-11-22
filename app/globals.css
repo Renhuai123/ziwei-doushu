@@ -715,6 +715,16 @@ tr:hover > th[scope="row"] { color: var(--ac) !important; }
 .seg-btn[aria-pressed="true"] { color: var(--tx-0); border-color: var(--ac); background: var(--ac-bg); }
 .seg-btn:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
 
+/* 命盘与 AI 侧栏的进场动画（取代 framer-motion）；延迟用内联 animation-delay，fill both 让延迟期间保持初始态 */
+@keyframes pop-in  { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes drop-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.anim-pop  { animation: pop-in .35s ease-out both; }
+.anim-rise { animation: rise-in .25s ease-out both; }
+.anim-drop { animation: drop-in .2s ease-out both; }
+.anim-fade { animation: fade-in .3s ease both; }
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up, .field-error, .field-summary { animation: none; opacity: 1; transform: none; }
+  .animate-fade-up, .field-error, .field-summary,
+  .anim-pop, .anim-rise, .anim-drop, .anim-fade { animation: none; opacity: 1; transform: none; }
 }

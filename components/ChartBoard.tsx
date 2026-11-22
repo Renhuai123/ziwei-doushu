@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
 import { BRANCHES } from '@/lib/ziwei/constants';
 import { boshiShenName, jiangQianShenName, suiQianShenName } from '@/lib/ziwei/shier-shen';
@@ -133,12 +132,9 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
         })}
 
         {/* 中央信息区 */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-col items-center justify-center p-4 gap-3"
-          style={{ gridRow: '2 / 4', gridColumn: '2 / 4', background: 'var(--t-bg)' }}
+        <div
+          className="anim-pop flex flex-col items-center justify-center p-4 gap-3"
+          style={{ gridRow: '2 / 4', gridColumn: '2 / 4', background: 'var(--t-bg)', animationDelay: '0.5s' }}
         >
           <div className="text-5xl select-none leading-none" style={{ color: 'var(--t-gold)', opacity: 0.12, filter: 'drop-shadow(0 0 12px rgba(180,120,30,0.15))' }}>
             ☯
@@ -169,18 +165,13 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
             {chart.lunarInfo.lunarYear}·{chart.lunarInfo.isLeapMonth ? '闰' : ''}
             {chart.lunarInfo.lunarMonth}·{chart.lunarInfo.lunarDay}
           </div>
-        </motion.div>
+        </div>
 
         {/* ── 三方四正 SVG 连线（绝对定位在 grid 内部，受 overflow:hidden 裁切） ── */}
-        <AnimatePresence>
-          {sanFangBranches !== null && (
-            <motion.div
+        {sanFangBranches !== null && (
+            <div
               key={`sf-${selectedBranch}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="pointer-events-none"
+              className="anim-fade pointer-events-none"
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -243,17 +234,14 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
                   );
                 })()}
               </svg>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
       </div>
 
       {/* 图例 */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
-        className="mt-3 flex items-center justify-center gap-2 text-[9px] flex-wrap"
+      <div
+        className="anim-fade mt-3 flex items-center justify-center gap-2 text-[9px] flex-wrap"
+        style={{ animationDelay: '0.7s' }}
       >
         {[
           { h: '化禄', c: 'text-emerald-500 border-emerald-500/30' },
@@ -266,7 +254,7 @@ export default function ChartBoard({ chart, onStarSelect, onPalaceSelect, onSiHu
         <span className="px-1.5 py-0.5 rounded-full" style={{ color: 'var(--t-faint)', border: '1px solid var(--t-border)' }}>
           点击宫位看三方四正
         </span>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
 import { fitHistory } from '@/lib/ai/history';
@@ -371,18 +370,12 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
           <div className="pt-1"><SkeletonLines thin widths={[70, 100, 92, 100, 64]} label="命格解读生成中" /></div>
         )}
 
-        <AnimatePresence initial={false}>
-          {messages.map((msg, i) => {
+        {messages.map((msg, i) => {
             if (msg.role === 'user' && msg.hidden) return null;
 
             if (msg.role === 'user') {
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-end"
-                >
+                <div key={i} className="anim-rise flex justify-end">
                   <div
                     className="max-w-[85%] rounded-xl px-3 py-2 text-[13px]"
                     style={{
@@ -393,18 +386,14 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   >
                     {msg.content}
                   </div>
-                </motion.div>
+                </div>
               );
             }
 
             // Assistant message
             const isLastMsg = i === messages.length - 1;
             return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
+              <div key={i} className="anim-rise">
                 <div
                   className="text-[11px] tracking-widest mb-2 flex items-center gap-1.5"
                   style={{ color: 'var(--tx-3)' }}
@@ -413,10 +402,9 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   命理解读
                 </div>
                 <ReadingMarkdown compact text={msg.content} streaming={loading && isLastMsg} />
-              </motion.div>
+              </div>
             );
           })}
-        </AnimatePresence>
       </div>
 
       {/* ── Input ── */}
