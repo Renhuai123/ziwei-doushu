@@ -5,8 +5,9 @@ const NOTICE_DEFAULT = '\n\n（AI 服务暂时不可用，解读已中断，请�
 const NOTICE_AUTH = '\n\n（AI 服务鉴权失败，请检查服务端的 API Key 配置。）';
 const NOTICE_BUSY = '\n\n（AI 服务繁忙或额度受限，请稍后重试。）';
 
-function deltaFrame(text: string): Uint8Array {
-  return encoder.encode(`data: ${JSON.stringify({ delta: { text } })}\n\n`);
+function deltaFrame(text: string, error = false): Uint8Array {
+  // error: true 标记服务端补上的中断提示，客户端据此不缓存这次回复
+  return encoder.encode(`data: ${JSON.stringify(error ? { delta: { text }, error: true } : { delta: { text } })}\n\n`);
 }
 
 function errorNotice(error: unknown): string {
@@ -34,7 +35,7 @@ export function sseResponse(source: AsyncIterable<string>, signal?: AbortSignal)
           return;
         }
         console.error('[ai] upstream failed:', error instanceof Error ? error.message : error);
-        controller.enqueue(deltaFrame(errorNotice(error)));
+        controller.enqueue(deltaFrame(errorNotice(error), true));
         controller.enqueue(DONE_FRAME);
         controller.close();
       }

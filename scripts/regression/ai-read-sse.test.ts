@@ -12,8 +12,8 @@ function stream(chunks: Uint8Array[]) {
 
 async function read(chunks: Uint8Array[]) {
   const seen: string[] = [];
-  const text = await readSseText(stream(chunks), t => seen.push(t));
-  return { text, seen };
+  const result = await readSseText(stream(chunks), t => seen.push(t));
+  return { ...result, seen };
 }
 
 async function main() {
@@ -40,11 +40,19 @@ async function main() {
     cancel() { cancelled = true; },
   });
   const afterDone = await readSseText(open, () => {});
-  assert.equal(afterDone, '完');
+  assert.deepEqual(afterDone, { text: '完', done: true, failed: false });
   assert.equal(cancelled, true, 'the reader is cancelled after [DONE]');
 
   // 流结束时最后一行没有换行也要解析；坏帧跳过不影响后续
   assert.equal((await read([enc.encode('data: {bad json}\n\n' + frame('好') + 'data: {"delta":{"text":"尾"}}')])).text, '好尾');
+
+  // 完整与否、是否被服务端中断，供调用方决定能不能缓存
+  const whole = await read([enc.encode(frame('全') + 'data: [DONE]\n\n')]);
+  assert.deepEqual([whole.done, whole.failed], [true, false]);
+  const cut = await read([enc.encode(frame('半'))]);
+  assert.deepEqual([cut.text, cut.done, cut.failed], ['半', false, false], 'no [DONE]: the stream was cut off');
+  const errored = await read([enc.encode(frame('前文') + 'data: {"delta":{"text":"（中断）"},"error":true}\n\ndata: [DONE]\n\n')]);
+  assert.deepEqual([errored.text, errored.done, errored.failed], ['前文（中断）', true, true]);
 
   console.log('readSseText byte-split regressions passed');
 }

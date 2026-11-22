@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
 import { readSseText } from '@/lib/ai/read-sse';
+import { cacheReply, getCachedReply, replyKey } from '@/lib/ai/reply-cache';
 import { fitHistory } from '@/lib/ai/history';
 import ReadingMarkdown from './ReadingMarkdown';
 import SkeletonLines from './SkeletonLines';
@@ -14,7 +15,11 @@ interface Message {
   content: string;
   hidden?: boolean; // don't show user bubble for auto/topic messages
   local?: boolean;  // 前端自己生成的提示（如失败），不作为对话上下文发给 AI
+  cached?: boolean; // 来自本标签页的缓存，可重新生成
+  request?: ApiMessage[]; // 产生这条回复的请求，重新生成时原样再发
 }
+
+type ApiMessage = { role: 'user' | 'assistant'; content: string };
 
 interface SelectedSiHua {
   starName: string;
@@ -162,6 +167,17 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
   const lastPalaceBranch = useRef<number | undefined>(undefined);
   const lastSiHuaKey = useRef<string | undefined>(undefined);
   const scrollRef = useRef<HTMLDivElement>(null);
+  // 进行中的请求；离开页面或重新生成时取消，服务端随之停止生成，不再计费
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      // 开发模式的 StrictMode 会卸载后立刻重新挂载；延后一拍，确认真的离开了才取消
+      setTimeout(() => { if (!mountedRef.current) abortRef.current?.abort(); }, 0);
+    };
+  }, []);
 
   // Keep refs in sync
   useEffect(() => { messagesRef.current = messages; }, [messages]);
@@ -174,12 +190,30 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
     }
   }, [messages]);
 
-  const streamResponse = async (apiMessages: { role: 'user' | 'assistant'; content: string }[]) => {
+  const finish = () => {
+    setLoading(false);
+    loadingRef.current = false;
+  };
+
+  const streamResponse = async (apiMessages: ApiMessage[], fresh = false) => {
+    // 同一张盘、同样的对话，本标签页里已有完整回复就直接用（刷新后的命格总览最常见）
+    const key = replyKey(chart.birthInfo, apiMessages);
+    const cached = fresh ? null : getCachedReply(key);
+    if (cached) {
+      setMessages(prev => [...prev, { role: 'assistant', content: cached, cached: true, request: apiMessages }]);
+      finish();
+      return;
+    }
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
     try {
       const res = await fetch('/api/interpret', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chart, messages: apiMessages }),
+        signal: controller.signal,
       });
       const notice = await readNotConfiguredNotice(res);
       if (notice) {
@@ -195,19 +229,31 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
       if (!res.body) throw new Error('无响应流');
 
       setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-      await readSseText(res.body, text => {
+      const reply = await readSseText(res.body, text => {
         setMessages(prev => {
           const updated = [...prev];
           updated[updated.length - 1] = { role: 'assistant', content: text };
           return updated;
         });
       });
+      // 只缓存完整、没被服务端中断的回复
+      if (reply.done && !reply.failed && reply.text) cacheReply(key, reply.text);
     } catch {
+      if (controller.signal.aborted) return; // 主动取消（离开页面或重新生成），不算失败
       setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。', local: true }]);
     } finally {
-      setLoading(false);
-      loadingRef.current = false;
+      if (abortRef.current === controller) abortRef.current = null;
+      finish();
     }
+  };
+
+  // 丢掉缓存的这条回复，按原请求重新向 AI 要一次
+  const regenerate = (request: ApiMessage[]) => {
+    if (loadingRef.current) return;
+    loadingRef.current = true;
+    setLoading(true);
+    setMessages(prev => prev.slice(0, -1));
+    streamResponse(request, true);
   };
 
   const sendMessage = (text: string, hidden = false) => {
@@ -391,6 +437,19 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
                   命理解读
                 </div>
                 <ReadingMarkdown compact text={msg.content} streaming={loading && isLastMsg} />
+                {msg.cached && msg.request && isLastMsg && !loading && (
+                  <p className="mt-2 text-[11px]" style={{ color: 'var(--tx-3)' }}>
+                    本标签页之前生成过这段解读，直接显示了缓存。
+                    <button
+                      type="button"
+                      onClick={() => regenerate(msg.request!)}
+                      className="ml-1 underline underline-offset-2"
+                      style={{ color: 'var(--ac)' }}
+                    >
+                      重新生成
+                    </button>
+                  </p>
+                )}
               </div>
             );
           })}

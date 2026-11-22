@@ -25,6 +25,8 @@ async function main() {
   assert.equal(failed.length, 3);
   assert.equal(failed[0], delta('前半'));
   assert.match(JSON.parse(failed[1].slice(6)).delta.text, /AI 服务暂时不可用/);
+  assert.equal(JSON.parse(failed[1].slice(6)).error, true, 'the interruption notice is marked so clients do not cache it');
+  assert.equal(JSON.parse(failed[0].slice(6)).error, undefined, 'normal deltas carry no error flag');
   assert.equal(failed[2], 'data: [DONE]');
 
   async function* beforeStart() {

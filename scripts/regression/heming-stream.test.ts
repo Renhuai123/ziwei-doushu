@@ -12,7 +12,7 @@ assert.ok(start >= 0 && end > start);
 const body = `export function makeRun(ctx) {
   const {chartA,chartB,formA,formB,generateChart,formToBirthInfo,setFormError,
     setAnalyzing,setAnalysis,setAnalysisError,setChartA,setChartB,fetch,
-    setNotConfiguredNotice,readNotConfiguredNotice,setRateLimitNotice,readRateLimitNotice,readSseText,analysisRef} = ctx;
+    setNotConfiguredNotice,readNotConfiguredNotice,setRateLimitNotice,readRateLimitNotice,readSseText,analysisRef,abortRef} = ctx;
   const useCallback = (fn) => fn;
   ${source.slice(start, end)}
   return runAnalysis;
@@ -33,7 +33,7 @@ async function consume(chunks: Uint8Array[]) {
     setAnalysis: (value: string) => { text = value; },
     setAnalysisError: (value: boolean) => { failed = value; },
     setNotConfiguredNotice: noop, readNotConfiguredNotice,
-  setRateLimitNotice: noop, readRateLimitNotice, readSseText, analysisRef: { current: null },
+  setRateLimitNotice: noop, readRateLimitNotice, readSseText, analysisRef: { current: null }, abortRef: { current: null },
     fetch: async () => ({ status: 200, ok: true, body: new ReadableStream({
       start(controller) { for (const chunk of chunks) controller.enqueue(chunk); controller.close(); },
     }) }),
@@ -60,7 +60,7 @@ async function main() {
     setChartA: noop, setChartB: noop, setFormError: noop, setAnalyzing: noop,
     setAnalysis: noop, setAnalysisError: noop,
     setNotConfiguredNotice: (value: string | null) => { notice = value; },
-    readNotConfiguredNotice, setRateLimitNotice: noop, readRateLimitNotice, readSseText, analysisRef: { current: null },
+    readNotConfiguredNotice, setRateLimitNotice: noop, readRateLimitNotice, readSseText, analysisRef: { current: null }, abortRef: { current: null },
     fetch: async () => Response.json({ error: 'ai-not-configured', missing: 'DEEPSEEK_API_KEY' }, { status: 503 }),
   })();
   assert.match(notice ?? '', /\.env\.local[\s\S]*AI_PROVIDER[\s\S]*DEEPSEEK_API_KEY/, '503 shows the setup hint');
@@ -71,10 +71,46 @@ async function main() {
     setChartA: noop, setChartB: noop, setFormError: noop, setAnalyzing: noop,
     setAnalysis: noop, setAnalysisError: noop, setNotConfiguredNotice: noop, readNotConfiguredNotice,
     setRateLimitNotice: (value: string | null) => { limitNotice = value; }, readRateLimitNotice, readSseText,
-    analysisRef: { current: null },
+    analysisRef: { current: null }, abortRef: { current: null },
     fetch: async () => Response.json({ error: 'rate-limited', retryAfter: 90 }, { status: 429, headers: { 'Retry-After': '90' } }),
   })();
   assert.equal(limitNotice, 'AI 解读请求太频繁，请约 2 分钟后再试。命盘本身不受影响。', '429 says how long to wait');
+  // 开始新一次分析时取消上一次：旧请求不报错，加载状态交给新的一次
+  const abortRef = { current: null as AbortController | null };
+  const signals: AbortSignal[] = [];
+  let analyzing = false;
+  let errored = false;
+  let releaseSecond = () => {};
+  const runs = moduleExports.makeRun({
+    chartA: {}, chartB: {}, formA: form, formB: form,
+    generateChart: async () => ({}), formToBirthInfo: () => ({}),
+    setChartA: noop, setChartB: noop, setFormError: noop,
+    setAnalyzing: (v: boolean) => { analyzing = v; }, setAnalysis: noop,
+    setAnalysisError: (v: boolean) => { errored = errored || v; },
+    setNotConfiguredNotice: noop, readNotConfiguredNotice, setRateLimitNotice: noop, readRateLimitNotice,
+    readSseText, analysisRef: { current: null }, abortRef,
+    fetch: (_url: string, init: { signal: AbortSignal }) => {
+      signals.push(init.signal);
+      const first = signals.length === 1;
+      return new Promise((resolve, reject) => {
+        init.signal.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')));
+        if (!first) releaseSecond = () => resolve(new Response('data: {"delta":{"text":"新"}}\n\ndata: [DONE]\n\n'));
+      });
+    },
+  });
+  const firstRun = runs();
+  await new Promise(r => setTimeout(r, 0));
+  const secondRun = runs();
+  await firstRun;
+  assert.equal(signals[0].aborted, true, 'the first request is aborted');
+  assert.equal(errored, false, 'an aborted request is not shown as a failure');
+  assert.equal(analyzing, true, 'the second run still owns the loading state');
+  await new Promise(r => setTimeout(r, 0));
+  releaseSecond();
+  await secondRun;
+  assert.equal(analyzing, false);
+  assert.equal(abortRef.current, null);
+
   console.log('Heming SSE byte-fragment regressions passed');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

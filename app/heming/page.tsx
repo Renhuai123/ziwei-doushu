@@ -75,6 +75,17 @@ export default function HemingPage() {
   const [rateLimitNotice, setRateLimitNotice] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const analysisRef = useRef<HTMLDivElement>(null);
+  // 进行中的 AI 请求；离开页面时取消，服务端随之停止生成，不再计费
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      // 开发模式的 StrictMode 会卸载后立刻重新挂载；延后一拍，确认真的离开了才取消
+      setTimeout(() => { if (!mountedRef.current) abortRef.current?.abort(); }, 0);
+    };
+  }, []);
 
   // 从「最近排过」填入：换 key 让表单按 initialData 重新挂载，挂载后 onFormSave 会同步回 formA / formB
   const [initA, setInitA] = useState<BirthFormState | undefined>();
@@ -115,6 +126,10 @@ export default function HemingPage() {
     setAnalysisError(false);
     setNotConfiguredNotice(null);
     setRateLimitNotice(null);
+    // 重新分析或追问时，取消还没生成完的上一次
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     try {
       // 每次按当前表单起盘，避免编辑出生信息后复用旧盘。
@@ -135,6 +150,7 @@ export default function HemingPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chartA: cA, chartB: cB, question: q ?? undefined }),
+        signal: controller.signal,
       });
       const notice = await readNotConfiguredNotice(res);
       if (notice) { setNotConfiguredNotice(notice); throw new Error(notice); }
@@ -146,9 +162,14 @@ export default function HemingPage() {
       // scroll to analysis
       setTimeout(() => analysisRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } catch {
-      setAnalysisError(true);
+      // 主动取消（离开页面或开始了新一次分析）不算失败
+      if (!controller.signal.aborted) setAnalysisError(true);
     } finally {
-      setAnalyzing(false);
+      // 已被新一次分析接手时，加载状态交给新的那次
+      if (abortRef.current === controller) {
+        abortRef.current = null;
+        setAnalyzing(false);
+      }
     }
   }, [formA, formB, generateChart]);
 
