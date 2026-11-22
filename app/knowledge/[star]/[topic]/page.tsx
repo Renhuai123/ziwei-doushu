@@ -27,6 +27,7 @@ import {
   SLUG_TO_STAR,
 } from '@/lib/seo/knowledge';
 import { SITE_URL } from '@/lib/site';
+import { JsonLd } from '@/lib/seo/json-ld';
 
 // 允许动态参数：如果某个 star/topic 组合不在 generateStaticParams 列表中
 // 也允许运行时按需渲染，避免中文 URL 编码问题导致 404
@@ -100,7 +101,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd data={jsonLd} />
       <SiteHeader />
       <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
         <Breadcrumb items={[
