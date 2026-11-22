@@ -8,9 +8,9 @@ interface ScrollIntroProps {
   skipLabel?: string;
 }
 
-const BEIDOU = ['天枢', '天璇', '天玑', '天权', '玉衡', '开阳', '摇光'];
+const BEIDOU = ['Thiên Xu', 'Thiên Tuyền', 'Thiên Cơ', 'Thiên Quyền', 'Ngọc Hành', 'Khai Dương', 'Dao Quang'];
 
-export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: ScrollIntroProps) {
+export default function ScrollIntro({ onComplete, skipLabel = 'Bỏ qua' }: ScrollIntroProps) {
   // visible：整个 intro 是否在显示
   // unrolled：卷轴是否已展开（控制内容浮现）
   const [visible, setVisible] = useState(true);
@@ -159,7 +159,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   textShadow: '0 1px 0 rgba(255,250,235,0.3)',
                   whiteSpace: 'nowrap',
                 }}>
-                  紫微命盘
+                  Lá Số Tử Vi
                 </h1>
 
                 {/* 副标 楷体 */}
@@ -172,7 +172,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   marginBottom: '6px',
                   whiteSpace: 'nowrap',
                 }}>
-                  观 天 之 象 · 察 人 之 命
+                  Xem thiên tượng · Luận nhân mệnh
                 </div>
                 <div style={{
                   fontSize: 'clamp(11px, 1.2vw, 14px)',
@@ -182,7 +182,7 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                   whiteSpace: 'nowrap',
                   opacity: 0.85,
                 }}>
-                  倪海厦《天纪》正宗体系
+                  Hệ thống chính tông Nghê Hải Hạ《Thiên Kỷ》
                 </div>
 
                 {/* 朱砂方印 */}
@@ -208,8 +208,8 @@ export default function ScrollIntro({ onComplete, skipLabel = '跳 过' }: Scrol
                     fontSize: 'clamp(11px, 1.2vw, 13px)',
                   }}
                 >
-                  <div style={{ display: 'flex', gap: '0' }}><span>王</span><span>多</span></div>
-                  <div style={{ display: 'flex', gap: '0' }}><span>鱼</span><span>印</span></div>
+                  <div style={{ display: 'flex', gap: '0' }}><span>紫</span><span>微</span></div>
+                  <div style={{ display: 'flex', gap: '0' }}><span>斗</span><span>數</span></div>
                 </motion.div>
 
                 {/* 底部装饰：八卦 */}
