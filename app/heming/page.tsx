@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect, type ReactNode } from 'react';
 import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
@@ -9,6 +9,8 @@ import PageIntro from '@/components/PageIntro';
 import ReadingMarkdown from '@/components/ReadingMarkdown';
 import SkeletonLines from '@/components/SkeletonLines';
 import AiSetupNotice from '@/components/AiSetupNotice';
+import { RecentPicker } from '@/components/RecentCharts';
+import { saveToHistory } from '@/lib/ziwei/history';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 
@@ -35,7 +37,7 @@ const QUICK_QUESTIONS = [
   '财运是否互补？',
 ];
 
-function PartyLabel({ mark, title }: { mark: string; title: string }) {
+function PartyLabel({ mark, title, children }: { mark: string; title: string; children?: ReactNode }) {
   return (
     <div className="flex items-center gap-2.5 mb-3">
       <span
@@ -45,6 +47,7 @@ function PartyLabel({ mark, title }: { mark: string; title: string }) {
         {mark}
       </span>
       <h2 className="text-[14px] font-medium" style={{ color: 'var(--tx-0)' }}>{title}</h2>
+      {children && <div className="ml-auto min-w-0">{children}</div>}
     </div>
   );
 }
@@ -67,6 +70,16 @@ export default function HemingPage() {
   const [notConfiguredNotice, setNotConfiguredNotice] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const analysisRef = useRef<HTMLDivElement>(null);
+
+  // 从「最近排过」填入：换 key 让表单按 initialData 重新挂载，挂载后 onFormSave 会同步回 formA / formB
+  const [initA, setInitA] = useState<BirthFormState | undefined>();
+  const [initB, setInitB] = useState<BirthFormState | undefined>();
+  const [keyA, setKeyA] = useState(0);
+  const [keyB, setKeyB] = useState(0);
+
+  // 合盘成功排出的两张盘也记进「最近排过」，排盘页和下次合盘都能直接选
+  useEffect(() => { if (chartA && formA) saveToHistory(formA); }, [chartA]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (chartB && formB) saveToHistory(formB); }, [chartB]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ─── 起盘（单次调用，返回 chart 给统一流程使用）──────────
   // 开源版不含后端 /api/generate：直接用本仓库的排盘引擎在浏览器里起盘
@@ -165,8 +178,10 @@ export default function HemingPage() {
         {/* 双方表单：中间一枚「合」字印连接两侧 */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4">
           <section aria-label="甲方出生信息" className="min-w-0">
-            <PartyLabel mark="甲" title="甲方" />
-            <BirthForm hideSubmit onSubmit={() => {}} onFormSave={setFormA} />
+            <PartyLabel mark="甲" title="甲方">
+              <RecentPicker label="从最近排过填入甲方" onPick={f => { setInitA(f); setKeyA(k => k + 1); }} />
+            </PartyLabel>
+            <BirthForm key={keyA} initialData={initA} hideSubmit onSubmit={() => {}} onFormSave={setFormA} />
           </section>
 
           <div aria-hidden className="hidden md:flex flex-col items-center pt-10">
@@ -181,8 +196,10 @@ export default function HemingPage() {
           </div>
 
           <section aria-label="乙方出生信息" className="min-w-0">
-            <PartyLabel mark="乙" title="乙方" />
-            <BirthForm hideSubmit onSubmit={() => {}} onFormSave={setFormB} />
+            <PartyLabel mark="乙" title="乙方">
+              <RecentPicker label="从最近排过填入乙方" onPick={f => { setInitB(f); setKeyB(k => k + 1); }} />
+            </PartyLabel>
+            <BirthForm key={keyB} initialData={initB} hideSubmit onSubmit={() => {}} onFormSave={setFormB} />
           </section>
         </div>
 

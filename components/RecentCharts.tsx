@@ -48,3 +48,25 @@ export default function RecentCharts({ onPick, disabled }: { onPick: (form: Birt
     </section>
   );
 }
+
+/** 合盘等场景的紧凑版：一个下拉框，从最近排过的出生信息里选一组填入表单。 */
+export function RecentPicker({ onPick, label }: { onPick: (form: BirthFormState) => void; label: string }) {
+  const { history } = useHistory();
+  if (history.length === 0) return null;
+
+  return (
+    <select
+      aria-label={label}
+      value=""
+      onChange={e => {
+        const entry = history.find(h => h.id === e.target.value);
+        if (entry) onPick(entry.form);
+      }}
+      className="h-8 max-w-[11rem] min-w-0 truncate rounded-lg border border-[var(--bdr-med)] bg-[var(--bg-1)] px-2 text-[12px] outline-none transition-colors focus-visible:border-[var(--ac)]"
+      style={{ color: 'var(--tx-2)' }}
+    >
+      <option value="" disabled>从最近排过填入…</option>
+      {history.map(h => <option key={h.id} value={h.id}>{h.label}</option>)}
+    </select>
+  );
+}
