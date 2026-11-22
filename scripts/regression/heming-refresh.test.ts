@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
 import { readNotConfiguredNotice, readRateLimitNotice } from '../../lib/ai/not-configured';
+import { readSseText } from '../../lib/ai/read-sse';
 import { formToBirthInfo } from '../../lib/ziwei/share';
 import type { BirthInfo } from '../../lib/ziwei/types';
 
@@ -13,7 +14,7 @@ assert.ok(start >= 0 && end > start);
 const body = `export function makeRun(ctx) {
   const {chartA,chartB,formA,formB,generateChart,formToBirthInfo,setFormError,
     setAnalyzing,setAnalysis,setAnalysisError,setChartA,setChartB,fetch,
-    setNotConfiguredNotice,readNotConfiguredNotice,setRateLimitNotice,readRateLimitNotice,analysisRef} = ctx;
+    setNotConfiguredNotice,readNotConfiguredNotice,setRateLimitNotice,readRateLimitNotice,readSseText,analysisRef} = ctx;
   const useCallback = (fn) => fn;
   ${source.slice(start, end)}
   return runAnalysis;
@@ -36,7 +37,7 @@ const context = () => ({
   setChartB: (value: unknown) => { chartB = value; },
   setFormError: noop, setAnalyzing: noop, setAnalysis: noop, setAnalysisError: noop,
   setNotConfiguredNotice: noop, readNotConfiguredNotice,
-  setRateLimitNotice: noop, readRateLimitNotice, analysisRef: { current: null },
+  setRateLimitNotice: noop, readRateLimitNotice, readSseText, analysisRef: { current: null },
   fetch: async (_url: string, options: { body: string }) => {
     requests.push(JSON.parse(options.body));
     return { status: 200, ok: true, body: new ReadableStream({ start(controller) { controller.close(); } }) };

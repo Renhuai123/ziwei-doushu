@@ -16,7 +16,7 @@ export function useColors(theme: Theme) {
     textPrimary:  d ? '#e8eef6'                               : '#1a1d24',
     textSecond:   d ? '#b8c6df'                               : '#3a3f4a',
     textMuted:    d ? '#9db0d0'                               : '#5a6275',
-    textFaint:    d ? 'rgba(240,246,255,0.56)'                : '#9da4b3',
+    textFaint:    d ? 'rgba(240,246,255,0.56)'                : '#646b7b', // 亮色在底色上 4.6:1，满足 WCAG AA
     // 冷色 accent（B 方案核心）：呼应暗色 quan 蓝；用于装饰性 glow / 链接 / 高亮
     accent:       d ? '#3a78d4'                               : '#3a5a82',
     accentSoft:   d ? 'rgba(58,120,212,0.18)'                 : 'rgba(58,90,130,0.10)',

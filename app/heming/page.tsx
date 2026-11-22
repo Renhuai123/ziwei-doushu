@@ -4,6 +4,7 @@ import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
 import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
+import { readSseText } from '@/lib/ai/read-sse';
 import SiteHeader from '@/components/SiteHeader';
 import PageIntro from '@/components/PageIntro';
 import ReadingMarkdown from '@/components/ReadingMarkdown';
@@ -141,29 +142,7 @@ export default function HemingPage() {
       if (limitNotice) { setRateLimitNotice(limitNotice); throw new Error(limitNotice); }
       if (!res.ok || !res.body) throw new Error();
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let text = '';
-      let pendingLine = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        pendingLine += decoder.decode(value, { stream: true });
-        const lines = pendingLine.split('\n');
-        pendingLine = lines.pop() ?? '';
-        for (const rawLine of lines) {
-          const line = rawLine.endsWith('\r') ? rawLine.slice(0, -1) : rawLine;
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const delta = JSON.parse(data).delta?.text ?? '';
-            text += delta;
-            setAnalysis(text);
-          } catch { /* skip */ }
-        }
-      }
+      await readSseText(res.body, setAnalysis);
       // scroll to analysis
       setTimeout(() => analysisRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } catch {
