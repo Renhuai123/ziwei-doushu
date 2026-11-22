@@ -724,7 +724,30 @@ tr:hover > th[scope="row"] { color: var(--ac) !important; }
 .anim-drop { animation: drop-in .2s ease-out both; }
 .anim-fade { animation: fade-in .3s ease both; }
 
+/* 首页：进场（.enter）、滚动到视口（.reveal，由 components/Reveal.tsx 加 data-in）、hero 视差、滚动提示 */
+@keyframes enter-in {
+  from { opacity: 0; transform: translate(var(--enter-x, 0), var(--enter-y, 0)) scale(var(--enter-scale, 1)); }
+  to   { opacity: 1; transform: none; }
+}
+.enter { animation: enter-in var(--enter-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--enter-delay, 0s) both; }
+.reveal {
+  opacity: 0;
+  transform: translate(var(--reveal-x, 0), var(--reveal-y, 0)) scale(var(--reveal-scale, 1));
+  transition: opacity var(--reveal-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0s),
+              transform var(--reveal-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0s);
+}
+.reveal[data-in] { opacity: 1; transform: none; }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+.float-y { animation: float-y 2s ease-in-out infinite; }
+/* 视差只在支持滚动驱动动画的浏览器里启用（Chrome/Edge/Safari 26+）；不支持时 hero 保持静止 */
+@keyframes hero-parallax { 55% { opacity: 0; } to { opacity: 0; transform: translateY(28%); } }
+@supports (animation-timeline: scroll()) {
+  .hero-parallax { animation: hero-parallax linear both; animation-timeline: scroll(root); animation-range: 0 90svh; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up, .field-error, .field-summary,
-  .anim-pop, .anim-rise, .anim-drop, .anim-fade { animation: none; opacity: 1; transform: none; }
+  .anim-pop, .anim-rise, .anim-drop, .anim-fade,
+  .enter, .float-y, .hero-parallax { animation: none; opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
