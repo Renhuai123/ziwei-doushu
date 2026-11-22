@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useLayoutEffect, useState } from 'react';
 
 export type Theme = 'dark' | 'light';
 
@@ -8,40 +8,63 @@ const ThemeContext = createContext<{
   toggle: () => void;
 }>({ theme: 'dark', toggle: () => {} });
 
-function getInitialTheme(): Theme {
-  if (typeof document !== 'undefined') {
-    const attr = document.documentElement.getAttribute('data-theme');
-    if (attr === 'light' || attr === 'dark') return attr;
-  }
-  return 'dark';
+function ThemeToggleButton({ theme, onToggle }: { theme: Theme; onToggle: () => void }) {
+  return (
+    <button
+      onClick={onToggle}
+      aria-label={theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối'}
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        zIndex: 9000,
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        border: '1px solid var(--t-border)',
+        background: 'var(--t-bg)',
+        color: 'var(--t-gold)',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '18px',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+        transition: 'opacity 0.2s, transform 0.2s',
+      }}
+      onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.opacity = '0.8'; (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)'; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.opacity = '1'; (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)'; }}
+    >
+      {theme === 'dark' ? '☀️' : '🌙'}
+    </button>
+  );
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>('dark');
 
-  useEffect(() => {
-    setMounted(true);
+  useLayoutEffect(() => {
     const saved = localStorage.getItem('ziwei-theme') as Theme | null;
-    if (saved === 'light' || saved === 'dark') setTheme(saved);
+    const initial = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+    setTheme(initial);
+    document.documentElement.setAttribute('data-theme', initial);
   }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    const root = document.documentElement;
-    root.setAttribute('data-theme', theme);
-    localStorage.setItem('ziwei-theme', theme);
-  }, [theme, mounted]);
 
   const toggle = () => {
     const root = document.documentElement;
     root.classList.add('theme-transitioning');
-    setTheme(t => t === 'dark' ? 'light' : 'dark');
+    setTheme(t => {
+      const next = t === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ziwei-theme', next);
+      return next;
+    });
     setTimeout(() => root.classList.remove('theme-transitioning'), 420);
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggle }}>
+      <ThemeToggleButton theme={theme} onToggle={toggle} />
       {children}
     </ThemeContext.Provider>
   );
