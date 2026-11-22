@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Star } from '@/lib/ziwei/types';
 import { STAR_DESCRIPTIONS } from '@/lib/ziwei/constants';
+import { viStar, viSiHua } from '@/lib/i18n/vi';
 
 interface StarDetailPanelProps {
   star: Star | null;
@@ -9,7 +10,7 @@ interface StarDetailPanelProps {
   onClose: () => void;
 }
 
-// 倪海厦体系各星详细解读（参考顾祥弘《飞星紫微斗数全书》及南北山人《紫微斗数全书》）
+// Giải thích chi tiết từng sao theo hệ thống Nghê Hải Hạ (tham khảo Cố Tường Hoằng và Nam Bắc Sơn Nhân)
 const STAR_DETAIL: Record<string, {
   niHaixia: string;
   classical: string;
@@ -21,152 +22,152 @@ const STAR_DETAIL: Record<string, {
   health: string;
 }> = {
   '紫微': {
-    niHaixia: '倪师认为紫微是皇帝星，坐命宫者有孤傲之气，喜独处，不喜被人管辖。紫微需要左辅右弼相夹才能发挥帝王气质，否则只是孤君，富而不贵。紫微在辰戌宫最佳，与天府形成双星格局，财官双美，可出将入相。紫微最怕火星、铃星、擎羊、陀罗同宫，加煞则孤贵，有权而无财。',
-    classical: '古诀：「紫微帝座临命主尊贵，统领众星，坐命者主权威显达。」南北山人注：「紫微守命于辰位，财官双美，出将入相，位至三公；子宫安命者，富贵不耐久，日后不美。」',
-    bestPalace: '命宫（辰戌）、官禄宫',
-    worstPalace: '疾厄宫、夫妻宫',
-    career: '政界、管理层、独立创业，天生帝王气质，适合独当一面的领导岗位',
-    relationship: '感情被动，自尊心强，需对方主动，有孤独倾向，晚婚则吉',
-    wealth: '财运稳定，守成强于进取，辰戌位财官双美，最宜积累型投资',
-    health: '土属性，注意脾胃、消化系统。忌过劳，宜保持规律作息',
+    niHaixia: 'Thầy Nghê nhận định Tử Vi là sao Hoàng Đế, người an Mệnh tại cung này có khí chất cô ngạo, thích ở một mình, không thích bị người khác quản. Tử Vi cần có Tả Phù Hữu Bật kẹp hai bên mới phát huy được khí chất đế vương, nếu không chỉ là vua cô độc, giàu mà không quý. Tử Vi tại Thìn Tuất là tốt nhất, hội cùng Thiên Phủ tạo thành cách cục song tinh, tài quan lưỡng mỹ, có thể ra tướng vào tướng. Tử Vi sợ nhất Hỏa Tinh, Linh Tinh, Kình Dương, Đà La đồng cung, gặp sát tinh thì cô quý, có quyền mà không có tài.',
+    classical: 'Cổ quyết: "Tử Vi đế tọa lâm mệnh chủ tôn quý, thống lĩnh chúng tinh, tọa mệnh giả chủ quyền uy hiển đạt." Nam Bắc Sơn Nhân chú: "Tử Vi thủ mệnh tại cung Thìn, tài quan lưỡng mỹ, ra tướng vào tướng, vị chí tam công; an mệnh tại cung Tý thì giàu sang không bền."',
+    bestPalace: 'Mệnh (Thìn Tuất), Quan Lộc',
+    worstPalace: 'Tật Ách, Phu Thê',
+    career: 'Chính trường, quản lý, khởi nghiệp độc lập — thiên phú đế vương khí, phù hợp vị trí lãnh đạo độc lập',
+    relationship: 'Thụ động trong tình cảm, tự trọng cao, cần đối phương chủ động, có xu hướng cô độc, lấy muộn thì tốt',
+    wealth: 'Tài vận ổn định, giữ của hơn tiến công; Thìn Tuất tài quan lưỡng mỹ, phù hợp đầu tư tích lũy',
+    health: 'Thuộc Thổ, lưu ý tỳ vị và hệ tiêu hóa. Tránh làm việc quá sức, nên duy trì giờ giấc điều độ',
   },
   '天机': {
-    niHaixia: '倪师说天机是参谋星，最聪明的星，但聪明外漏则伤身。天机化忌最麻烦，代表聪明反被聪明误。天机属木，善变灵动，在命宫者思维敏捷，但往往多谋少决，需离开故乡远行才能发展，应事机变、随机应变是其最大特质。',
-    classical: '古诀：「为人生精滑，自好作经营，天机星属木，商买皆多机见，离宗必远亲，机谋必远离亲。」南北山人注：「天机居庙旺地，主人生精明，善策划；居陷地则暗淡，人人皆从商为业。」',
-    bestPalace: '命宫（卯位）、官禄宫',
-    worstPalace: '夫妻宫',
-    career: '技术专家、谋士、研究员、IT、策划，动脑胜于动手，适合离乡发展',
-    relationship: '感情多变，想法太多，难以专一，宜晚婚，婚后需学会放下思虑',
-    wealth: '靠智慧与技能赚钱，不擅守财，以专业技术为业则财运稳定',
-    health: '木属性，注意肝胆、神经系统。心思过重易失眠，宜练习静心冥想',
+    niHaixia: 'Thầy Nghê nói Thiên Cơ là sao tham mưu, thông minh nhất nhưng thông minh lộ ngoài thì hại thân. Thiên Cơ Hóa Kỵ rắc rối nhất, đại diện cho thông minh bị thông minh hại. Thiên Cơ thuộc Mộc, linh hoạt biến ảo, người an Mệnh tại đây tư duy nhanh nhạy nhưng thường nhiều mưu ít quyết, cần rời quê hương ra xa mới có thể phát triển.',
+    classical: 'Cổ quyết: "Vi nhân sinh tinh hoạt, tự hảo tác kinh doanh, Thiên Cơ tinh thuộc Mộc, thương mãi giai đa cơ kiến, ly tông tất viễn thân." Nam Bắc Sơn Nhân chú: "Thiên Cơ cư miếu vượng địa, chủ nhân sinh tinh minh, thiện sách hoạch; cư hãm địa tắc ám đạm."',
+    bestPalace: 'Mệnh (cung Mão), Quan Lộc',
+    worstPalace: 'Phu Thê',
+    career: 'Chuyên gia kỹ thuật, mưu sĩ, nghiên cứu viên, IT, lập kế hoạch — dùng trí hơn tay chân, phù hợp phát triển xa quê',
+    relationship: 'Tình cảm hay thay đổi, nhiều suy nghĩ, khó chung thủy, nên lấy muộn, sau hôn nhân cần học buông bỏ',
+    wealth: 'Kiếm tiền bằng trí tuệ và kỹ năng, không giỏi giữ của; làm việc chuyên môn thì tài vận ổn định',
+    health: 'Thuộc Mộc, lưu ý gan mật, hệ thần kinh. Tâm tư nặng nề dễ mất ngủ, nên luyện thiền định',
   },
   '太阳': {
-    niHaixia: '倪师认为太阳是大男人主义的星，在卯至午位入庙，光明正大；午后渐落陷。太阳坐命的人慷慨好面子，男命宜，女命太强势。太阳代表父亲与长辈，在命宫主人性格外向开朗，喜被众人看见，最宜公职或公众事业。落陷者先勤后懒，孤寡劳碌。',
-    classical: '古诀：「太阳居午为入庙，光辉大放，主贵显，男命最佳；落陷则孤寡劳碌，先勤后懒。」南北山人注：「太阳在午宫守命，财官双美，出将入相；辰位安命，中年财官变美，乙年生人遇凶亦大利。」',
-    bestPalace: '命宫（卯至午）、官禄宫',
-    worstPalace: '夫妻宫（女命）、疾厄宫',
-    career: '公职、政界、管理、公关、教育、传媒，喜欢站在众人面前，适合公众事业',
-    relationship: '男命缘佳但花心，女命独立强势，婚姻需磨合，宜找温柔体贴的伴侣',
-    wealth: '财运靠努力，慷慨好施，不擅积累；入庙财运旺，落陷财运起伏',
-    health: '火属性，注意心脏、眼睛。落陷位时易过劳，需注意充分休息',
+    niHaixia: 'Thầy Nghê nhận định Thái Dương là sao đại nam nhân chủ nghĩa, từ cung Mão đến Ngọ thì nhập miếu, quang minh chính đại; sau Ngọ dần lạc hãm. Người an Mệnh Thái Dương hào phóng trọng thể diện, hợp nam mệnh, nữ mệnh thì quá mạnh. Thái Dương đại diện cho cha và bậc trưởng thượng, ở Mệnh chủ tính cách hướng ngoại vui vẻ, thích được mọi người nhìn thấy, hợp nhất với công chức hoặc sự nghiệp công cộng. Lạc hãm thì chăm chỉ trước lười biếng sau, cô quả lao lực.',
+    classical: 'Cổ quyết: "Thái Dương cư Ngọ vi nhập miếu, quang huy đại phóng, chủ quý hiển, nam mệnh tốt nhất; lạc hãm tắc cô quả lao lực." Nam Bắc Sơn Nhân chú: "Thái Dương tại cung Ngọ thủ mệnh, tài quan lưỡng mỹ, ra tướng vào tướng; Thìn vị an mệnh, trung niên tài quan biến mỹ."',
+    bestPalace: 'Mệnh (Mão đến Ngọ), Quan Lộc',
+    worstPalace: 'Phu Thê (nữ mệnh), Tật Ách',
+    career: 'Công chức, chính trường, quản lý, quan hệ công chúng, giáo dục, truyền thông — thích đứng trước đám đông',
+    relationship: 'Nam mệnh duyên tốt nhưng đa tình, nữ mệnh độc lập mạnh mẽ, hôn nhân cần mài giũa, nên chọn bạn đời dịu dàng',
+    wealth: 'Tài vận nhờ cố gắng, hào phóng hay cho, không giỏi tích lũy; nhập miếu tài vận thịnh, lạc hãm tài vận thất thường',
+    health: 'Thuộc Hỏa, lưu ý tim và mắt. Lạc hãm dễ làm việc quá sức, cần chú ý nghỉ ngơi đầy đủ',
   },
   '武曲': {
-    niHaixia: '倪师视武曲为财帛主星，刚硬不屈，最怕孤克。武曲坐命的人意志坚定，适合金融、理财，但感情上太直，容易伤人。武曲化忌要小心意外血光。武曲在辰戌丑未得旺地，与七杀同宫可成将财格，是极佳的财富格局。',
-    classical: '古诀：「武曲属金，刚强之性，一生多刑克；守命于旺地，出将入相。」南北山人注：「武曲守命，三方四正俱吉，财官双美，武职加辅弼昌曲，亦主大贵；与七杀同宫，为将财格，主大富。」',
-    bestPalace: '命宫（辰戌丑未）、财帛宫、官禄宫',
-    worstPalace: '夫妻宫',
-    career: '金融、军警、会计、工程，执行力极强，适合需要魄力与决断力的领域',
-    relationship: '感情直来直往，缺乏情趣，需要温柔伴侣互补，忌感情孤克',
-    wealth: '财星本命，财运极强，理财能力超群，辰戌位财官双美',
-    health: '金属性，注意肺部、呼吸系统、牙齿。化忌时需防意外血光之灾',
+    niHaixia: 'Thầy Nghê xem Vũ Khúc là chính tinh Tài Bạch, cứng rắn không khuất phục, sợ nhất cô khắc. Người an Mệnh Vũ Khúc ý chí kiên định, phù hợp tài chính, lý tài, nhưng trong tình cảm quá thẳng thắn, dễ làm tổn thương người. Vũ Khúc Hóa Kỵ cần cẩn thận tai nạn huyết quang. Vũ Khúc tại Thìn Tuất Sửu Mùi đắc vượng địa, hội cùng Thất Sát có thể thành Tướng Tài cách, là cách cục tài phú cực tốt.',
+    classical: 'Cổ quyết: "Vũ Khúc thuộc Kim, cương cường chi tính, nhất sinh đa hình khắc; thủ mệnh tại vượng địa, ra tướng vào tướng." Nam Bắc Sơn Nhân chú: "Vũ Khúc thủ mệnh, tam phương tứ chính đều cát, tài quan lưỡng mỹ; hội Tả Phù Hữu Bật Văn Xương Văn Khúc cũng chủ đại quý; đồng cung Thất Sát thành Tướng Tài cách, chủ đại phú."',
+    bestPalace: 'Mệnh (Thìn Tuất Sửu Mùi), Tài Bạch, Quan Lộc',
+    worstPalace: 'Phu Thê',
+    career: 'Tài chính, quân cảnh, kế toán, kỹ thuật — năng lực thực thi cực mạnh, phù hợp lĩnh vực cần quyết đoán và khí phách',
+    relationship: 'Tình cảm thẳng thắn, thiếu tình tứ, cần bạn đời dịu dàng bù đắp, tránh tình cảm cô khắc',
+    wealth: 'Tài tinh bản mệnh, tài vận cực mạnh, năng lực lý tài xuất chúng; Thìn Tuất tài quan lưỡng mỹ',
+    health: 'Thuộc Kim, lưu ý phổi, hệ hô hấp, răng. Hóa Kỵ cần đề phòng tai nạn huyết quang',
   },
   '天同': {
-    niHaixia: '倪师说天同是福星，最懒的星。天同坐命喜享福，不爱竞争，适合稳定工作。天同与天梁同宫最好，可以享福又有保障。天同化禄是最美的化禄，主一生衣食无忧，快乐悠游。天同忌落陷，落陷则福减，需与凶星化解。',
-    classical: '古诀：「天同为福德之星，坐命者享福有余，主一生逍遥自在，不必劳苦。」南北山人注：「天同守命，三方无煞，一生快乐，衣食丰足；加吉星则富贵双全，为人温和，多人缘。」',
-    bestPalace: '命宫、福德宫',
-    worstPalace: '官禄宫',
-    career: '服务业、娱乐、餐饮、文艺，轻松愉快的环境最适合，忌高压竞争',
-    relationship: '感情温和，不主动，容易被动接受，婚姻较稳定，性格随和可亲',
-    wealth: '财运不突出，靠稳定薪资，不擅投机，衣食无忧但难大富',
-    health: '水属性，注意肾脏、膀胱。体质较弱，宜适度运动，保持轻松心态',
+    niHaixia: 'Thầy Nghê nói Thiên Đồng là sao Phúc Đức, sao lười nhất. Người an Mệnh Thiên Đồng thích hưởng phúc, không thích cạnh tranh, hợp công việc ổn định. Thiên Đồng hội cùng Thiên Lương là tốt nhất, vừa hưởng phúc lại có bảo đảm. Thiên Đồng Hóa Lộc là Hóa Lộc đẹp nhất, chủ cả đời no đủ sung sướng. Thiên Đồng sợ lạc hãm, lạc hãm thì giảm phúc, cần hóa giải cùng hung tinh.',
+    classical: 'Cổ quyết: "Thiên Đồng vi Phúc Đức chi tinh, tọa mệnh giả hưởng phúc hữu dư, chủ nhất sinh tiêu dao tự tại." Nam Bắc Sơn Nhân chú: "Thiên Đồng thủ mệnh, tam phương vô sát, nhất sinh khoái lạc, y thực phong túc; gia cát tinh tắc phú quý song toàn."',
+    bestPalace: 'Mệnh, Phúc Đức',
+    worstPalace: 'Quan Lộc',
+    career: 'Dịch vụ, giải trí, ẩm thực, văn nghệ — môi trường thoải mái vui vẻ là phù hợp nhất, tránh áp lực cạnh tranh cao',
+    relationship: 'Tình cảm ôn hòa, không chủ động, dễ bị động chấp nhận, hôn nhân khá ổn định, tính cách dễ mến',
+    wealth: 'Tài vận không nổi bật, dựa vào lương ổn định, không giỏi đầu cơ, no đủ nhưng khó giàu lớn',
+    health: 'Thuộc Thủy, lưu ý thận, bàng quang. Thể chất hơi yếu, nên vận động điều độ, giữ tâm thái nhẹ nhàng',
   },
   '廉贞': {
-    niHaixia: '倪师认为廉贞是次桃花，才华横溢但感情复杂。廉贞化忌非常凶，代表官司、牢狱、意外。廉贞与天相同宫则化凶为吉，成为行政印绶之格。廉贞五行属火，性格刚烈，一生多起伏，才艺出众，若能守正不邪，可成大器。',
-    classical: '古诀：「廉贞为次桃花，才华横溢，感情多波折；廉相同宫，化凶为吉，成行政印绶格，可掌权柄。」南北山人注：「廉贞守命，见吉星则才华出众，化忌则官司缠身，主血光之灾，须防。」',
-    bestPalace: '官禄宫（配天相）、命宫（化禄时）',
-    worstPalace: '命宫（化忌时）、夫妻宫',
-    career: '艺术、娱乐、法律、公职（配天相），才艺出众，宜守正业方能长久',
-    relationship: '桃花多，感情复杂，容易遭遇感情纠纷，宜晚婚，选择稳重伴侣',
-    wealth: '财运起伏，靠才艺谋财，化忌时防财务纠纷与法律风险',
-    health: '火属性，注意心脏、血液、肝脏。化忌时防意外与手术，留意血光',
+    niHaixia: 'Thầy Nghê nhận định Liêm Trinh là thứ đào hoa, tài hoa hơn người nhưng tình cảm phức tạp. Liêm Trinh Hóa Kỵ cực hung, đại diện cho kiện tụng, tù ngục, tai nạn. Liêm Trinh hội cùng Thiên Tướng thì hóa hung thành cát, trở thành cách cục hành chính ấn thụ. Liêm Trinh ngũ hành thuộc Hỏa, tính cách cứng rắn, một đời nhiều thăng trầm, tài nghệ xuất chúng, nếu giữ chính nghiệp thì có thể thành đại khí.',
+    classical: 'Cổ quyết: "Liêm Trinh vi thứ đào hoa, tài hoa hơn người, tình cảm đa ba chiết; Liêm Tướng đồng cung, hóa hung thành cát, thành hành chính ấn thụ cách, có thể nắm quyền." Nam Bắc Sơn Nhân chú: "Liêm Trinh thủ mệnh, kiến cát tinh tắc tài hoa xuất chúng; Hóa Kỵ tắc quan tụng triền thân, chủ huyết quang chi tai."',
+    bestPalace: 'Quan Lộc (phối Thiên Tướng), Mệnh (khi Hóa Lộc)',
+    worstPalace: 'Mệnh (khi Hóa Kỵ), Phu Thê',
+    career: 'Nghệ thuật, giải trí, luật pháp, công chức (phối Thiên Tướng) — tài nghệ xuất chúng, giữ chính nghiệp mới bền lâu',
+    relationship: 'Đào hoa nhiều, tình cảm phức tạp, dễ gặp rắc rối tình ái, nên lấy muộn, chọn bạn đời đứng đắn',
+    wealth: 'Tài vận thất thường, kiếm tiền bằng tài nghệ; Hóa Kỵ cần đề phòng tranh chấp tài chính và rủi ro pháp lý',
+    health: 'Thuộc Hỏa, lưu ý tim, máu, gan. Hóa Kỵ cần đề phòng tai nạn và phẫu thuật, chú ý huyết quang',
   },
   '天府': {
-    niHaixia: '倪师说天府是财库星，守成之星，不主动发财但能守住财富。天府坐命者稳重保守，女命最佳，能旺夫兴家。天府最喜紫微同宫或对照，形成双星格局，财官双美。天府怕空劫夹，见空劫则财库见底，守不住财。',
-    classical: '古诀：「天府为财库之星，守命者稳重保守，主积财旺家；女命逢之，能旺夫益子，家道兴隆。」南北山人注：「天府守命，三方吉聚，财官双美，富贵安康；遇空劫，则财库破漏，难以积财。」',
-    bestPalace: '命宫、财帛宫、田宅宫',
-    worstPalace: '迁移宫',
-    career: '行政管理、财务、保险、房地产，求稳不冒险，适合守成型职业',
-    relationship: '感情稳定，顾家，是好的伴侣，注重家庭安全感与经济保障',
-    wealth: '财运极佳，守财能力强，最适合积累型投资与不动产置业',
-    health: '土属性，注意脾胃、消化。体质稳健，宜保持规律饮食与生活',
+    niHaixia: 'Thầy Nghê nói Thiên Phủ là sao Tài Khố, sao giữ gìn, không chủ động phát tài nhưng có thể giữ được của. Người an Mệnh Thiên Phủ ổn trọng bảo thủ, nữ mệnh tốt nhất, có thể vượng phu hưng gia. Thiên Phủ thích nhất Tử Vi đồng cung hoặc đối chiếu, tạo thành cách cục song tinh, tài quan lưỡng mỹ. Thiên Phủ sợ Địa Không Địa Kiếp kẹp, gặp Không Kiếp thì kho tài bị trống, giữ không được của.',
+    classical: 'Cổ quyết: "Thiên Phủ vi tài khố chi tinh, thủ mệnh giả ổn trọng bảo thủ, chủ tích tài vượng gia; nữ mệnh phùng chi, năng vượng phu ích tử, gia đạo hưng long." Nam Bắc Sơn Nhân chú: "Thiên Phủ thủ mệnh, tam phương cát tụ, tài quan lưỡng mỹ, phú quý an khang; ngộ Không Kiếp tắc tài khố phá lậu, nan dĩ tích tài."',
+    bestPalace: 'Mệnh, Tài Bạch, Điền Trạch',
+    worstPalace: 'Thiên Di',
+    career: 'Hành chính quản lý, tài chính, bảo hiểm, bất động sản — cầu ổn không mạo hiểm, phù hợp nghề nghiệp giữ gìn',
+    relationship: 'Tình cảm ổn định, trọng gia đình, là bạn đời tốt, coi trọng an toàn tài chính và cảm giác bình yên',
+    wealth: 'Tài vận cực tốt, năng lực giữ của mạnh, phù hợp nhất đầu tư tích lũy và bất động sản',
+    health: 'Thuộc Thổ, lưu ý tỳ vị và tiêu hóa. Thể chất ổn định, nên duy trì ăn uống và sinh hoạt điều độ',
   },
   '太阴': {
-    niHaixia: '倪师认为太阴是财星，利女命，也是男命母亲和妻子的代表星。太阴入庙则财运极佳，陷地则财运受阻。太阴化忌要注意女性亲人的问题。太阴在亥子位入庙，光辉全照，代表优雅细腻，感情丰富，重视内心世界与精神生活。',
-    classical: '古诀：「太阴为财星，利女命；亥子入庙，光辉全照，财运极旺；午位落陷，忧郁多情，财运平淡。」南北山人注：「太阴守命，入庙者财富优厚，女命尤佳；落陷者需努力方能致富，情感细腻。」',
-    bestPalace: '命宫（亥子）、财帛宫',
-    worstPalace: '命宫（午位陷地）',
-    career: '财务、金融、房地产、艺术、教育，细腻耐心，适合需要美感与温柔的职业',
-    relationship: '感情温柔细腻，重视内心感受，需要有安全感的稳定关系',
-    wealth: '入庙财运极旺，落陷则需努力；理财细心，善于积累，不擅冒险',
-    health: '水属性，注意肾脏、子宫（女命）。情绪波动影响健康，宜保持心情舒畅',
+    niHaixia: 'Thầy Nghê nhận định Thái Âm là tài tinh, lợi nữ mệnh, cũng là sao đại diện cho mẹ và vợ của nam mệnh. Thái Âm nhập miếu thì tài vận cực tốt, lạc địa thì tài vận bị cản. Thái Âm Hóa Kỵ cần chú ý vấn đề của người thân nữ. Thái Âm tại Hợi Tý nhập miếu, quang huy toàn chiếu, đại diện cho sự thanh lịch tế nhị, tình cảm phong phú, coi trọng nội tâm và đời sống tinh thần.',
+    classical: 'Cổ quyết: "Thái Âm vi tài tinh, lợi nữ mệnh; Hợi Tý nhập miếu, quang huy toàn chiếu, tài vận cực vượng; Ngọ vị lạc hãm, ưu uất đa tình." Nam Bắc Sơn Nhân chú: "Thái Âm thủ mệnh, nhập miếu giả tài phú ưu hậu, nữ mệnh vưu gia; lạc hãm giả cần nỗ lực mới có thể phát tài."',
+    bestPalace: 'Mệnh (Hợi Tý), Tài Bạch',
+    worstPalace: 'Mệnh (Ngọ vị lạc hãm)',
+    career: 'Tài chính, bất động sản, nghệ thuật, giáo dục — tế nhị kiên nhẫn, phù hợp nghề cần thẩm mỹ và sự dịu dàng',
+    relationship: 'Tình cảm dịu dàng tế nhị, coi trọng nội tâm, cần mối quan hệ ổn định có cảm giác an toàn',
+    wealth: 'Nhập miếu tài vận cực thịnh, lạc hãm thì cần cố gắng; lý tài cẩn thận, giỏi tích lũy, không thích mạo hiểm',
+    health: 'Thuộc Thủy, lưu ý thận, tử cung (nữ mệnh). Cảm xúc thất thường ảnh hưởng sức khỏe, nên giữ tâm trạng thoải mái',
   },
   '贪狼': {
-    niHaixia: '倪师说贪狼是最多才多艺的星，桃花最重。贪狼化禄入命则魅力四射，人见人爱。贪狼属晚发之星，中年后才能真正发达。贪狼在寅申位入庙最佳，桃花旺盛，才艺超群；化禄后财运大发，但若遇空劫则一生多波折，难聚财。',
-    classical: '古诀：「贪狼发福亨通，多才多艺，桃花最重；然难过三十岁，晚发者众。落陷遇煞反吉，此系贪狼落陷之理。」南北山人注：「贪狼守命，遇吉则福禄多寿，发福亨通；但久后不得善终，故宜修身养德，方可善终。」',
-    bestPalace: '命宫（化禄）、福德宫、迁移宫',
-    worstPalace: '疾厄宫',
-    career: '艺术、娱乐、公关、销售、风水五术，靠人脉与才艺，多才多艺型',
-    relationship: '桃花极旺，感情多元化，宜晚婚，婚后需克制桃花方能白首偕老',
-    wealth: '靠人脉和才艺赚钱，财运中晚年才稳，化禄后财源广进，早年宜稳守',
-    health: '木属性（含水），注意肝脏、肾脏。桃花过旺易耗损精力，宜节制调养',
+    niHaixia: 'Thầy Nghê nói Tham Lang là sao đa tài đa nghệ nhất, đào hoa nặng nhất. Tham Lang Hóa Lộc nhập Mệnh thì sức hút bốn phương, ai cũng yêu quý. Tham Lang là sao phát muộn, trung niên trở đi mới thực sự phát đạt. Tham Lang tại Dần Thân nhập miếu tốt nhất, đào hoa thịnh, tài nghệ siêu quần; Hóa Lộc sau đó tài vận đại phát, nhưng gặp Không Kiếp thì một đời nhiều ba chiết, khó tụ tài.',
+    classical: 'Cổ quyết: "Tham Lang phát phúc hanh thông, đa tài đa nghệ, đào hoa trọng nhất; nhưng khó qua ba mươi tuổi, phát muộn giả nhiều." Nam Bắc Sơn Nhân chú: "Tham Lang thủ mệnh, ngộ cát tắc phúc lộc đa thọ, phát phúc hanh thông; nhưng lâu sau không được thiện chung, cần tu thân dưỡng đức mới có thể thiện chung."',
+    bestPalace: 'Mệnh (Hóa Lộc), Phúc Đức, Thiên Di',
+    worstPalace: 'Tật Ách',
+    career: 'Nghệ thuật, giải trí, quan hệ công chúng, bán hàng, phong thủy ngũ thuật — dựa vào nhân mạch và tài nghệ',
+    relationship: 'Đào hoa cực thịnh, tình cảm đa dạng, nên lấy muộn, sau hôn nhân cần kiềm chế đào hoa mới có thể đầu bạc bên nhau',
+    wealth: 'Kiếm tiền bằng nhân mạch và tài nghệ, tài vận trung vãn niên mới ổn; Hóa Lộc thì tài nguyên rộng mở, sớm nên thủ',
+    health: 'Thuộc Mộc (kèm Thủy), lưu ý gan, thận. Đào hoa quá thịnh dễ hao tổn tinh lực, nên tiết chế điều dưỡng',
   },
   '巨门': {
-    niHaixia: '倪师认为巨门是口舌是非星，但化禄化权后转吉，变成靠口才赚钱的格局。巨门坐命多疑，善辩，适合律师、教师、销售。巨门最忌化忌，主口舌是非不断，甚至引发诉讼。巨门在子午位较佳，口才好，主以言语立身。',
-    classical: '古诀：「巨门为暗曜，主口舌是非；化禄权则转为以口才谋生，主富贵。」南北山人注：「巨门守命，逢化禄权，以口舌为业者大吉；化忌则口舌连累，官司缠身，需谨慎言语。」',
-    bestPalace: '官禄宫（化禄权）、命宫（子午）',
-    worstPalace: '夫妻宫、疾厄宫（化忌）',
-    career: '律师、教师、销售、主持人、谈判专家，口才是核心竞争力',
-    relationship: '多疑多虑，容易想太多，沟通是婚姻关键，需选有耐心的伴侣',
-    wealth: '靠口才和专业技能赚钱，化禄后财运较佳，化忌防财务纠纷口舌连累',
-    health: '水属性，注意肾脏、耳朵、口腔。多思多虑易伤身，宜学习放松减压',
+    niHaixia: 'Thầy Nghê nhận định Cự Môn là sao khẩu thiệt thị phi, nhưng Hóa Lộc Hóa Quyền sau đó trở thành cách cục kiếm tiền bằng khẩu tài. Người an Mệnh Cự Môn đa nghi, biện luận tốt, phù hợp luật sư, giáo viên, bán hàng. Cự Môn sợ nhất Hóa Kỵ, chủ khẩu thiệt thị phi không ngừng, thậm chí dẫn đến kiện tụng. Cự Môn tại Tý Ngọ thì khá tốt, miệng lưỡi tốt, chủ lập thân bằng ngôn ngữ.',
+    classical: 'Cổ quyết: "Cự Môn vi ám diệu, chủ khẩu thiệt thị phi; Hóa Lộc Quyền tắc chuyển vi dĩ khẩu tài mưu sinh, chủ phú quý." Nam Bắc Sơn Nhân chú: "Cự Môn thủ mệnh, phùng Hóa Lộc Quyền, dĩ khẩu thiệt vi nghiệp giả đại cát; Hóa Kỵ tắc khẩu thiệt liên lụy, quan tụng triền thân."',
+    bestPalace: 'Quan Lộc (Hóa Lộc Quyền), Mệnh (Tý Ngọ)',
+    worstPalace: 'Phu Thê, Tật Ách (Hóa Kỵ)',
+    career: 'Luật sư, giáo viên, bán hàng, MC, chuyên gia đàm phán — khẩu tài là năng lực cạnh tranh cốt lõi',
+    relationship: 'Đa nghi đa lự, dễ suy nghĩ nhiều, giao tiếp là chìa khóa hôn nhân, cần chọn bạn đời kiên nhẫn',
+    wealth: 'Kiếm tiền bằng khẩu tài và kỹ năng chuyên môn; Hóa Lộc thì tài vận khá tốt; Hóa Kỵ cần đề phòng tranh chấp tài chính',
+    health: 'Thuộc Thủy, lưu ý thận, tai, miệng. Suy nghĩ nhiều dễ hại thân, nên học cách thư giãn giảm áp',
   },
   '天相': {
-    niHaixia: '倪师说天相是印绶星，负责行政庶务。天相坐命者中规中矩，适合公职行政。天相最需要有强星相配才能发挥，单独坐命较平淡。天相最喜廉贞相伴，形成廉相格，可主行政大权；最怕破军同宫，形成刑忌夹印格，主凶险。',
-    classical: '古诀：「天相为印绶之星，主行政庶务；廉相同宫，化凶为吉，掌行政大权。」南北山人注：「天相守命，中规中矩，适合公职；得廉贞相配，可成国家栋梁；破军同守，则刑克难免。」',
-    bestPalace: '官禄宫、命宫（配廉贞）',
-    worstPalace: '财帛宫、命宫（配破军则刑忌夹印）',
-    career: '公职、行政管理、秘书、助理，擅长辅助支持型角色，需要强星引路',
-    relationship: '感情稳定，忠厚老实，是好的伴侣，但需要对方主导方向',
-    wealth: '财运平稳，靠薪资积累，不适合冒险投资，守成型理财最宜',
-    health: '水属性，注意肾脏、淋巴系统。体质中等，宜保持规律生活习惯',
+    niHaixia: 'Thầy Nghê nói Thiên Tướng là sao ấn thụ, phụ trách hành chính sự vụ. Người an Mệnh Thiên Tướng khuôn phép quy củ, phù hợp công chức hành chính. Thiên Tướng cần có sao mạnh đi kèm mới phát huy được, đơn độc tọa Mệnh thì khá bình thường. Thiên Tướng thích nhất Liêm Trinh hội, tạo thành Liêm Tướng cách, có thể nắm đại quyền hành chính; sợ nhất Phá Quân đồng cung, tạo thành Hình Kỵ Giáp Ấn cách, chủ hung hiểm.',
+    classical: 'Cổ quyết: "Thiên Tướng vi ấn thụ chi tinh, chủ hành chính thứ vụ; Liêm Tướng đồng cung, hóa hung thành cát, chưởng hành chính đại quyền." Nam Bắc Sơn Nhân chú: "Thiên Tướng thủ mệnh, khuôn phép quy củ, thích hợp công chức; đắc Liêm Trinh tương phối, có thể thành quốc gia đống lương; Phá Quân đồng thủ, tắc hình khắc nan miễn."',
+    bestPalace: 'Quan Lộc, Mệnh (phối Liêm Trinh)',
+    worstPalace: 'Tài Bạch, Mệnh (phối Phá Quân thì Hình Kỵ Giáp Ấn)',
+    career: 'Công chức, hành chính quản lý, thư ký, trợ lý — giỏi vai trò hỗ trợ, cần sao mạnh dẫn đường',
+    relationship: 'Tình cảm ổn định, trung hậu thành thật, là bạn đời tốt, nhưng cần đối phương định hướng',
+    wealth: 'Tài vận bình ổn, dựa vào tích lũy lương bổng, không phù hợp đầu tư mạo hiểm, lý tài thủ thành là tốt nhất',
+    health: 'Thuộc Thủy, lưu ý thận, hệ bạch huyết. Thể chất trung bình, nên duy trì thói quen sinh hoạt điều độ',
   },
   '天梁': {
-    niHaixia: '倪师认为天梁是荫星，能保护别人，也代表医药宗教。天梁坐命者有长辈缘，早年多磨难，晚年享福。天梁最怕化忌，代表长辈或健康有问题。天梁与太阳同宫最佳，日月并明，贵人庇荫，一生有贵人相助，终得平安。',
-    classical: '古诀：「天梁为荫星，主庇荫保护；坐命者有长辈缘，早年受磨练，晚年享清福。」南北山人注：「天梁守命，须逢吉星方能发达；遇太阳同宫，日月并明，主贵显，一生多贵人相助。」',
-    bestPalace: '命宫、父母宫、福德宫',
-    worstPalace: '命宫（化忌时）、财帛宫',
-    career: '医疗、宗教、法律、社工、慈善，喜帮助别人，有荫庇众人之心',
-    relationship: '感情多与年龄差距较大者，或缘分晚来，需等待耐心方得良缘',
-    wealth: '财运靠贵人相助，早年财运不佳，晚年财运才稳固，宜守不宜冲',
-    health: '土属性，注意脾胃、骨骼。需重视老年健康保健，宜早做预防调养',
+    niHaixia: 'Thầy Nghê nhận định Thiên Lương là sao âm đức, có thể bảo hộ người khác, cũng đại diện cho y dược tôn giáo. Người an Mệnh Thiên Lương có duyên với bậc trưởng thượng, thuở nhỏ nhiều gian nan, vãn niên hưởng phúc. Thiên Lương sợ nhất Hóa Kỵ, đại diện cho vấn đề sức khỏe của trưởng bối. Thiên Lương hội cùng Thái Dương là tốt nhất, nhật nguyệt tịnh minh, quý nhân che chở, cả đời có quý nhân giúp đỡ.',
+    classical: 'Cổ quyết: "Thiên Lương vi âm tinh, chủ tỳ âm bảo hộ; tọa mệnh giả hữu trưởng bối duyên, sớm thụ ma luyện, vãn niên hưởng thanh phúc." Nam Bắc Sơn Nhân chú: "Thiên Lương thủ mệnh, cần phùng cát tinh mới phát đạt; ngộ Thái Dương đồng cung, nhật nguyệt tịnh minh, chủ quý hiển, nhất sinh đa quý nhân tương trợ."',
+    bestPalace: 'Mệnh, Phụ Mẫu, Phúc Đức',
+    worstPalace: 'Mệnh (khi Hóa Kỵ), Tài Bạch',
+    career: 'Y tế, tôn giáo, luật pháp, công tác xã hội, từ thiện — thích giúp đỡ người khác, có lòng âm đức',
+    relationship: 'Tình cảm thường với người chênh lệch tuổi tác, hoặc duyên đến muộn, cần kiên nhẫn chờ đợi mới có nhân duyên tốt',
+    wealth: 'Tài vận nhờ quý nhân trợ giúp; sớm tài vận không tốt, vãn niên mới ổn định; nên thủ không nên xung',
+    health: 'Thuộc Thổ, lưu ý tỳ vị, xương cốt. Cần chú trọng sức khỏe lúc lớn tuổi, nên phòng ngừa và điều dưỡng sớm',
   },
   '七杀': {
-    niHaixia: '倪师说七杀是将军星，果决冲劲强，但有孤克之性。七杀坐命必须有辅星化解孤性，否则六亲缘薄。七杀与武曲同宫是将财格，极佳。七杀最怕竹罗三限（羊陀火铃齐照），主大凶，须防意外。七杀化禄后反为吉，可成大将之材。',
-    classical: '古诀：「七杀为将军之星，果决冲劲强；守命者孤克性重，六亲缘薄。」南北山人注：「七杀守命，三合吉聚则大贵；遇竹罗三限（羊陀火铃），主大凶，防意外之灾，防刑克。」',
-    bestPalace: '命宫（有辅星）、官禄宫',
-    worstPalace: '夫妻宫、父母宫',
-    career: '军警、创业、金融交易、独当一面的领域，需要快速决断与魄力',
-    relationship: '感情孤克，难找合适伴侣，需要能包容强势个性的对象，宜晚婚',
-    wealth: '财运波动大，有机会大富，也有大起大落；武曲同宫可成将财格大贵',
-    health: '金属性，注意肺部、大肠。性情急躁易伤身，宜学习控制情绪与修身',
+    niHaixia: 'Thầy Nghê nói Thất Sát là sao Tướng Quân, quả quyết xung khí mạnh, nhưng có tính cô khắc. Thất Sát tọa Mệnh cần có sao phụ hóa giải cô tính, nếu không thì lục thân duyên mỏng. Thất Sát hội cùng Vũ Khúc là Tướng Tài cách, cực tốt. Thất Sát sợ nhất Trúc La Tam Hạn (Kình Dương Đà La Hỏa Linh hội chiếu), chủ đại hung, cần phòng tai nạn. Thất Sát Hóa Lộc sau đó phản vi cát, có thể thành đại tướng chi tài.',
+    classical: 'Cổ quyết: "Thất Sát vi tướng quân chi tinh, quả quyết xung khí mạnh; thủ mệnh giả cô khắc tính trọng, lục thân duyên mỏng." Nam Bắc Sơn Nhân chú: "Thất Sát thủ mệnh, tam hợp cát tụ tắc đại quý; ngộ Trúc La Tam Hạn, chủ đại hung, phòng tai nạn, phòng hình khắc."',
+    bestPalace: 'Mệnh (có sao phụ), Quan Lộc',
+    worstPalace: 'Phu Thê, Phụ Mẫu',
+    career: 'Quân cảnh, khởi nghiệp, giao dịch tài chính, lĩnh vực độc lập — cần quyết đoán nhanh và khí phách',
+    relationship: 'Tình cảm cô khắc, khó tìm bạn đời phù hợp, cần người bao dung tính cách mạnh mẽ, nên lấy muộn',
+    wealth: 'Tài vận biến động lớn, có cơ hội đại phú nhưng cũng đại khởi đại lạc; Vũ Khúc đồng cung có thể thành Tướng Tài cách đại quý',
+    health: 'Thuộc Kim, lưu ý phổi, đại tràng. Tính khí nóng nảy dễ hại thân, nên học kiểm soát cảm xúc và tu dưỡng',
   },
   '破军': {
-    niHaixia: '倪师说破军是最能破旧立新的星，也是最孤克的星之一。破军化禄后才变好，代表能破而后立。破军坐命六亲缘薄，但开创能力极强。破军最适合改革、创新；化禄时财运转旺，一破一立，终能成就事业。',
-    classical: '古诀：「破军为最能破旧立新之星，坐命者孤克，六亲缘薄，然开创能力超强；化禄后破而后立，可成大业。」南北山人注：「破军守命，一生多波折；化禄者，破财之后方能重建，财运终归好转，主晚年成就。」',
-    bestPalace: '官禄宫（化禄）、迁移宫',
-    worstPalace: '夫妻宫、父母宫',
-    career: '开创型事业、军警、改革、变革管理，适合不断开拓新领域的先驱型工作',
-    relationship: '感情多波折，离合不定，六亲缘薄，需选择独立且包容力强的伴侣',
-    wealth: '财运起伏大，化禄后财运转好；守成则财退，需不断开创新局才能积财',
-    health: '水属性，注意肾脏、膀胱、生殖系统。体质起伏，宜保持规律运动习惯',
+    niHaixia: 'Thầy Nghê nói Phá Quân là sao phá cũ lập mới nhất, cũng là một trong những sao cô khắc nhất. Phá Quân Hóa Lộc sau đó mới trở nên tốt, đại diện cho phá rồi lập. Người an Mệnh Phá Quân lục thân duyên mỏng nhưng năng lực khai sáng cực mạnh. Phá Quân phù hợp nhất cải cách, sáng tạo; Hóa Lộc thì tài vận chuyển thịnh, phá một lập một, cuối cùng có thể thành tựu sự nghiệp.',
+    classical: 'Cổ quyết: "Phá Quân vi tối năng phá cũ lập mới chi tinh, tọa mệnh giả cô khắc, lục thân duyên mỏng, nhiên khai sáng năng lực siêu cường; Hóa Lộc giả, phá nhi hậu lập, có thể thành đại nghiệp." Nam Bắc Sơn Nhân chú: "Phá Quân thủ mệnh, nhất sinh đa ba chiết; Hóa Lộc giả, phá tài chi hậu mới có thể trùng kiến, tài vận chung quy hảo chuyển, chủ vãn niên thành tựu."',
+    bestPalace: 'Quan Lộc (Hóa Lộc), Thiên Di',
+    worstPalace: 'Phu Thê, Phụ Mẫu',
+    career: 'Sự nghiệp khai sáng, quân cảnh, cải cách, quản lý thay đổi — phù hợp người tiên phong không ngừng mở lãnh địa mới',
+    relationship: 'Tình cảm nhiều ba chiết, ly hợp bất định, lục thân duyên mỏng, cần chọn bạn đời độc lập và bao dung',
+    wealth: 'Tài vận thất thường lớn; Hóa Lộc sau đó tài vận chuyển tốt; thủ thành thì tài lui, cần không ngừng khai sáng mới có thể tích tài',
+    health: 'Thuộc Thủy, lưu ý thận, bàng quang, hệ sinh sản. Thể chất thất thường, nên duy trì thói quen vận động điều độ',
   },
 };
 
 const levelConfig = {
-  major: { label: '主星', color: 'text-amber-400 border-amber-500/30 bg-amber-500/10' },
-  lucky: { label: '吉星', color: 'text-sky-400 border-sky-500/30 bg-sky-500/10' },
-  sha:   { label: '煞星', color: 'text-red-400 border-red-500/30 bg-red-500/10' },
-  minor: { label: '杂星', color: 'text-slate-400 border-slate-500/25 bg-slate-500/10' },
+  major: { label: 'Chính tinh', color: 'text-amber-400 border-amber-500/30 bg-amber-500/10' },
+  lucky: { label: 'Cát tinh', color: 'text-sky-400 border-sky-500/30 bg-sky-500/10' },
+  sha:   { label: 'Sát tinh', color: 'text-red-400 border-red-500/30 bg-red-500/10' },
+  minor: { label: 'Tạp diệu', color: 'text-slate-400 border-slate-500/25 bg-slate-500/10' },
 };
 
 const siHuaColors: Record<string, string> = {
@@ -191,10 +192,10 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
           transition={{ duration: 0.2 }}
           className="card-glass rounded-xl overflow-hidden"
         >
-          {/* 标题栏 */}
+          {/* Thanh tiêu đề */}
           <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: '1px solid var(--t-border)' }}>
             <div className="flex items-center gap-2">
-              <span className="text-xl font-bold" style={{ color: 'var(--t-gold)' }}>{star.name}</span>
+              <span className="text-xl font-bold" style={{ color: 'var(--t-gold)' }}>{viStar(star.name)}</span>
               {typeConfig && (
                 <span className={`text-[10px] px-1.5 py-0.5 rounded-full border ${typeConfig.color}`}>
                   {typeConfig.label}
@@ -202,7 +203,7 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
               )}
               {star.siHua && (
                 <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-medium ${siHuaColors[star.siHua] || ''}`}>
-                  化{star.siHua}
+                  Hóa {viSiHua(star.siHua)}
                 </span>
               )}
             </div>
@@ -210,19 +211,19 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
           </div>
 
           <div className="p-4 space-y-4 overflow-y-auto max-h-[560px]">
-            {/* 基本信息 */}
+            {/* Thông tin cơ bản */}
             {desc && (
               <div className="flex flex-wrap gap-1.5">
                 {[
-                  `五行 · ${desc.element}`,
-                  `性质 · ${desc.nature}`,
-                  ...(palaceName ? [`位置 · ${palaceName}`] : []),
-                  ...(star.brightness ? [star.brightness === 'bright' ? '庙旺' : star.brightness === 'dim' ? '落陷' : '平和'] : []),
+                  `Ngũ Hành · ${desc.element}`,
+                  `Tính chất · ${desc.nature}`,
+                  ...(palaceName ? [`Vị trí · ${palaceName}`] : []),
+                  ...(star.brightness ? [star.brightness === 'bright' ? 'Miếu Vượng' : star.brightness === 'dim' ? 'Lạc Hãm' : 'Bình Hòa'] : []),
                 ].map(tag => (
                   <div key={tag} className="text-[10px] px-2 py-1 rounded-full"
                     style={{
                       border: '1px solid var(--t-border)',
-                      color: tag.includes('庙旺') ? '#eab308' : tag.includes('落陷') ? '#ef4444' : 'var(--t-text2)',
+                      color: tag.includes('Miếu') ? '#eab308' : tag.includes('Lạc') ? '#ef4444' : 'var(--t-text2)',
                     }}>
                     {tag}
                   </div>
@@ -230,10 +231,10 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
               </div>
             )}
 
-            {/* 关键词 */}
+            {/* Từ khóa đặc tính */}
             {desc && (
               <div>
-                <div className="text-[10px] tracking-widest mb-1.5" style={{ color: 'var(--t-faint)' }}>星曜特质</div>
+                <div className="text-[10px] tracking-widest mb-1.5" style={{ color: 'var(--t-faint)' }}>Đặc tính sao</div>
                 <div className="flex flex-wrap gap-1.5">
                   {desc.keywords.split('·').map(k => (
                     <span key={k} className="text-[11px] px-2 py-0.5 rounded-full"
@@ -245,23 +246,23 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
               </div>
             )}
 
-            {/* 古书原文 */}
+            {/* Cổ thư nguyên văn */}
             {detail && (
               <div className="rounded-xl p-3" style={{ background: 'rgba(212,168,67,0.04)', border: '1px solid rgba(212,168,67,0.12)' }}>
                 <div className="text-[10px] tracking-widest mb-1.5 flex items-center gap-1" style={{ color: 'var(--t-gold)', opacity: 0.7 }}>
-                  古书原文
+                  Cổ thư nguyên văn
                 </div>
                 <p className="text-[11px] leading-relaxed italic" style={{ color: 'var(--t-gold)', opacity: 0.8 }}>{detail.classical}</p>
               </div>
             )}
 
-            {/* 倪海厦解读 */}
+            {/* Nghê Hải Hạ luận giải */}
             {detail && (
               <>
                 <div>
                   <div className="text-[10px] tracking-widest mb-1.5 flex items-center gap-1.5" style={{ color: 'var(--t-faint)' }}>
                     <span className="w-3 h-px inline-block" style={{ background: 'var(--t-border-acc)' }} />
-                    倪海厦老师解读
+                    Thầy Nghê Hải Hạ luận giải
                     <span className="w-3 h-px inline-block" style={{ background: 'var(--t-border-acc)' }} />
                   </div>
                   <p className="text-xs leading-relaxed" style={{ color: 'var(--t-text2)' }}>{detail.niHaixia}</p>
@@ -269,10 +270,10 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
 
                 <div className="grid grid-cols-1 gap-2">
                   {[
-                    { label: '事业方向', value: detail.career, icon: '◈' },
-                    { label: '感情特质', value: detail.relationship, icon: '♡' },
-                    { label: '财运分析', value: detail.wealth, icon: '◆' },
-                    { label: '健康提示', value: detail.health, icon: '☯' },
+                    { label: 'Hướng sự nghiệp', value: detail.career, icon: '◈' },
+                    { label: 'Đặc tính tình cảm', value: detail.relationship, icon: '♡' },
+                    { label: 'Phân tích tài vận', value: detail.wealth, icon: '◆' },
+                    { label: 'Lưu ý sức khỏe', value: detail.health, icon: '☯' },
                   ].map(item => (
                     <div key={item.label} className="card-inner rounded-lg p-3">
                       <div className="text-[10px] mb-1 flex items-center gap-1" style={{ color: 'var(--t-faint)' }}>
@@ -286,40 +287,40 @@ export default function StarDetailPanel({ star, palaceName, onClose }: StarDetai
 
                 <div className="grid grid-cols-2 gap-2">
                   <div className="text-[10px] p-2.5 rounded-lg" style={{ border: '1px solid rgba(74,222,128,0.15)', background: 'rgba(74,222,128,0.05)' }}>
-                    <div className="text-emerald-500 mb-0.5 font-medium">最佳宫位</div>
+                    <div className="text-emerald-500 mb-0.5 font-medium">Cung tốt nhất</div>
                     <div className="text-emerald-500/70">{detail.bestPalace}</div>
                   </div>
                   <div className="text-[10px] p-2.5 rounded-lg" style={{ border: '1px solid rgba(248,113,113,0.15)', background: 'rgba(248,113,113,0.05)' }}>
-                    <div className="text-red-500 mb-0.5 font-medium">注意宫位</div>
+                    <div className="text-red-500 mb-0.5 font-medium">Cung cần lưu ý</div>
                     <div className="text-red-500/70">{detail.worstPalace}</div>
                   </div>
                 </div>
               </>
             )}
 
-            {/* 辅星/煞星说明 */}
+            {/* Giải thích cát tinh / sát tinh */}
             {!detail && star.type !== 'major' && (
               <div className="text-xs leading-relaxed" style={{ color: 'var(--t-text2)' }}>
                 {star.type === 'lucky' && (
                   <>
-                    {star.name === '文昌' && '文昌入宫，主学业考试顺利，文书印鉴有利，宜从事文字相关工作。古诀：「文昌科甲，主文章显达，逢考必第。」'}
-                    {star.name === '文曲' && '文曲入宫，主才艺出众，口才佳，善于表达，艺术天赋强。古诀：「文曲为才艺之星，能文能武，口才胜人。」'}
-                    {star.name === '左辅' && '左辅入宫，主贵人相助，有人提携，该宫位事项受到善意支持。古诀：「左辅为助力之星，坐命则贵人多，逢凶化吉。」'}
-                    {star.name === '右弼' && '右弼入宫，主贵人相助，多出女性贵人，该宫位事项有人协助。古诀：「右弼为阴助之星，多女性贵人，化险为夷。」'}
-                    {star.name === '天魁' && '天魁入宫，主白天出生的贵人，男性贵人多，逢凶化吉之力。古诀：「天魁为天乙贵人，逢之必有贵人扶持。」'}
-                    {star.name === '天钺' && '天钺入宫，主夜晚出生的贵人，女性贵人多，增添吉祥之气。古诀：「天钺为玉堂贵人，主阴助，女贵人多。」'}
-                    {star.name === '禄存' && '禄存入宫，主财禄守成，该宫位有财气，但属于保守型财运。古诀：「禄存为财禄之星，主守财有余，进财稳健。」'}
-                    {star.name === '天马' && '天马入宫，主奔波动荡，动中求财，宜主动出击，不宜守株待兔。古诀：「天马主动，逢禄则财禄双全，动中生财。」'}
+                    {star.name === '文昌' && 'Văn Xương nhập cung, chủ học nghiệp thi cử thuận lợi, văn thư ấn tín có lợi, nên làm việc liên quan đến văn chữ. Cổ quyết: "Văn Xương khoa giáp, chủ văn chương hiển đạt, phùng khảo tất đệ."'}
+                    {star.name === '文曲' && 'Văn Khúc nhập cung, chủ tài nghệ xuất chúng, khẩu tài tốt, giỏi biểu đạt, thiên phú nghệ thuật mạnh. Cổ quyết: "Văn Khúc vi tài nghệ chi tinh, năng văn năng võ, khẩu tài thắng nhân."'}
+                    {star.name === '左辅' && 'Tả Phù nhập cung, chủ quý nhân tương trợ, có người đề bạt, cung vị đó được thiện ý phù trợ. Cổ quyết: "Tả Phù vi trợ lực chi tinh, tọa mệnh tắc quý nhân đa, phùng hung hóa cát."'}
+                    {star.name === '右弼' && 'Hữu Bật nhập cung, chủ quý nhân tương trợ, nhiều quý nhân nữ, cung vị đó có người hiệp trợ. Cổ quyết: "Hữu Bật vi âm trợ chi tinh, đa nữ tính quý nhân, hóa hiểm vi di."'}
+                    {star.name === '天魁' && 'Thiên Khôi nhập cung, chủ quý nhân sinh ban ngày, nhiều quý nhân nam, có lực phùng hung hóa cát. Cổ quyết: "Thiên Khôi vi thiên ất quý nhân, phùng chi tất hữu quý nhân phù trì."'}
+                    {star.name === '天钺' && 'Thiên Việt nhập cung, chủ quý nhân sinh ban đêm, nhiều quý nhân nữ, thêm khí cát tường. Cổ quyết: "Thiên Việt vi ngọc đường quý nhân, chủ âm trợ, nữ quý nhân đa."'}
+                    {star.name === '禄存' && 'Lộc Tồn nhập cung, chủ tài lộc thủ thành, cung vị đó có tài khí, nhưng thuộc loại tài vận bảo thủ. Cổ quyết: "Lộc Tồn vi tài lộc chi tinh, chủ thủ tài hữu dư, tiến tài ổn kiện."'}
+                    {star.name === '天马' && 'Thiên Mã nhập cung, chủ bôn ba động đãng, động trung cầu tài, nên chủ động xuất kích, không nên thủ cũ. Cổ quyết: "Thiên Mã chủ động, phùng lộc tắc tài lộc song toàn, động trung sinh tài."'}
                   </>
                 )}
                 {star.type === 'sha' && (
                   <>
-                    {star.name === '地空' && '地空入宫，主该宫位事项有落空感，精神耗散，宜注意心理健康。古诀：「地空主虚耗，入命宫者多精神迷茫，须防空想。」'}
-                    {star.name === '地劫' && '地劫入宫，主该宫位事项有意外损失，财物需谨慎，防小人。古诀：「地劫主劫财，入命宫者财运受损，防意外之失。」'}
-                    {star.name === '火星' && '火星入宫，主该宫位事项急躁冲动，情绪波动，但若遇贪狼则反吉。古诀：「火星主急燥，然遇贪狼同宫，反为火贪格，主暴发。」'}
-                    {star.name === '铃星' && '铃星入宫，主该宫位事项有暗中阻碍，防背后小人，凡事宜低调。古诀：「铃星主暗煞，入命者多暗中受敌，须防背后是非。」'}
-                    {star.name === '擎羊' && '擎羊入宫，主刑克，该宫位事项多波折，有血光之灾或意外。古诀：「擎羊为刑克之星，入命宫者多刑克，须防意外血光。」'}
-                    {star.name === '陀罗' && '陀罗入宫，主是非缠身，该宫位事项拖延不决，凡事宜早做准备。古诀：「陀罗主是非拖延，入命宫者做事迟缓，须防纠缠不清。」'}
+                    {star.name === '地空' && 'Địa Không nhập cung, chủ cung vị đó có cảm giác hư không, tinh thần hao tán, nên chú ý sức khỏe tâm lý. Cổ quyết: "Địa Không chủ hư hao, nhập mệnh cung giả đa tinh thần mê mang, tu phòng không tưởng."'}
+                    {star.name === '地劫' && 'Địa Kiếp nhập cung, chủ cung vị đó có tổn thất bất ngờ, tài vật cần thận trọng, phòng tiểu nhân. Cổ quyết: "Địa Kiếp chủ kiếp tài, nhập mệnh cung giả tài vận thụ tổn, phòng ý ngoại chi thất."'}
+                    {star.name === '火星' && 'Hỏa Tinh nhập cung, chủ cung vị đó nóng vội xung động, cảm xúc biến động; nhưng nếu gặp Tham Lang thì phản cát. Cổ quyết: "Hỏa Tinh chủ cấp táo, nhiên ngộ Tham Lang đồng cung, phản vi Hỏa Tham cách, chủ bạo phát."'}
+                    {star.name === '铃星' && 'Linh Tinh nhập cung, chủ cung vị đó có ngầm trở ngại, phòng tiểu nhân phía sau, làm việc nên thấp điệu. Cổ quyết: "Linh Tinh chủ ám sát, nhập mệnh giả đa ám trung thụ địch, tu phòng bối hậu thị phi."'}
+                    {star.name === '擎羊' && 'Kình Dương nhập cung, chủ hình khắc, cung vị đó nhiều ba chiết, có huyết quang hoặc tai nạn. Cổ quyết: "Kình Dương vi hình khắc chi tinh, nhập mệnh cung giả đa hình khắc, tu phòng ý ngoại huyết quang."'}
+                    {star.name === '陀罗' && 'Đà La nhập cung, chủ thị phi triền thân, cung vị đó trì trệ không quyết, làm gì cũng nên chuẩn bị sớm. Cổ quyết: "Đà La chủ thị phi trì diên, nhập mệnh cung giả làm việc chậm chạp, tu phòng vướng vít không rõ."'}
                   </>
                 )}
               </div>
