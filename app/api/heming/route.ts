@@ -2,6 +2,7 @@ import { describeChart } from '@/lib/ai/chart-context';
 import { loadAiConfig } from '@/lib/ai/config';
 import { hemingKnowledge, hemingSystemPrompt } from '@/lib/ai/prompts';
 import { chartFromClient, jsonResponse, parseQuestion, readJsonBody } from '@/lib/ai/request';
+import { rateLimited } from '@/lib/ai/rate-limit';
 import { sseResponse } from '@/lib/ai/sse';
 import { streamText } from '@/lib/ai/stream';
 
@@ -22,6 +23,8 @@ export async function POST(request: Request): Promise<Response> {
 
   const ai = loadAiConfig();
   if (!ai.ok) return jsonResponse(503, { error: 'ai-not-configured', missing: ai.missing });
+  const limited = rateLimited(request);
+  if (limited) return limited;
 
   const source = streamText(ai.config, {
     system: hemingSystemPrompt(

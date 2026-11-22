@@ -10,3 +10,13 @@ export async function readNotConfiguredNotice(res: Response): Promise<string | n
     `并填入缺少的环境变量 ${variable}，保存后重启服务。示例见 .env.example。`
   );
 }
+
+/** Client-safe: turns the API's 429 reply into a Chinese "try again later" message, or null for any other response. */
+export function readRateLimitNotice(res: Response): string | null {
+  if (res.status !== 429) return null;
+  const seconds = Number(res.headers.get('Retry-After'));
+  const wait = Number.isFinite(seconds) && seconds > 0
+    ? seconds < 60 ? `${Math.ceil(seconds)} 秒` : `${Math.ceil(seconds / 60)} 分钟`
+    : '几分钟';
+  return `AI 解读请求太频繁，请约 ${wait}后再试。命盘本身不受影响。`;
+}

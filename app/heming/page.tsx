@@ -3,7 +3,7 @@ import { useState, useCallback, useRef, useEffect, type ReactNode } from 'react'
 import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
-import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
+import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
 import SiteHeader from '@/components/SiteHeader';
 import PageIntro from '@/components/PageIntro';
 import ReadingMarkdown from '@/components/ReadingMarkdown';
@@ -70,6 +70,8 @@ export default function HemingPage() {
   const [analysisError, setAnalysisError] = useState(false);
   // /api/heming 返回 503（AI 未配置）时给出配置提示，而不是让用户反复重试
   const [notConfiguredNotice, setNotConfiguredNotice] = useState<string | null>(null);
+  // 返回 429（请求太频繁）时提示等多久，而不是笼统的「暂时不可用」
+  const [rateLimitNotice, setRateLimitNotice] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const analysisRef = useRef<HTMLDivElement>(null);
 
@@ -111,6 +113,7 @@ export default function HemingPage() {
     setAnalysis('');
     setAnalysisError(false);
     setNotConfiguredNotice(null);
+    setRateLimitNotice(null);
 
     try {
       // 每次按当前表单起盘，避免编辑出生信息后复用旧盘。
@@ -134,6 +137,8 @@ export default function HemingPage() {
       });
       const notice = await readNotConfiguredNotice(res);
       if (notice) { setNotConfiguredNotice(notice); throw new Error(notice); }
+      const limitNotice = readRateLimitNotice(res);
+      if (limitNotice) { setRateLimitNotice(limitNotice); throw new Error(limitNotice); }
       if (!res.ok || !res.body) throw new Error();
 
       const reader = res.body.getReader();
@@ -282,7 +287,7 @@ export default function HemingPage() {
             )}
 
             {analysisError && !notConfiguredNotice && (
-              <p className="text-[14px]" style={{ color: 'var(--tx-2)' }}>分析暂时不可用，请稍后重试。</p>
+              <p className="text-[14px]" style={{ color: 'var(--tx-2)' }}>{rateLimitNotice ?? '分析暂时不可用，请稍后重试。'}</p>
             )}
 
             {/* 追问（分析完成后） */}

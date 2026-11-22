@@ -1,7 +1,7 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
-import { readNotConfiguredNotice } from '@/lib/ai/not-configured';
+import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
 import { fitHistory } from '@/lib/ai/history';
 import ReadingMarkdown from './ReadingMarkdown';
 import SkeletonLines from './SkeletonLines';
@@ -183,6 +183,11 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
       const notice = await readNotConfiguredNotice(res);
       if (notice) {
         setSetupHint(notice);
+        return;
+      }
+      const limitNotice = readRateLimitNotice(res);
+      if (limitNotice) {
+        setMessages(prev => [...prev, { role: 'assistant', content: limitNotice, local: true }]);
         return;
       }
       if (!res.ok) throw new Error('请求失败');

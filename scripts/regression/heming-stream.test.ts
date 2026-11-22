@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
-import { readNotConfiguredNotice } from '../../lib/ai/not-configured';
+import { readNotConfiguredNotice, readRateLimitNotice } from '../../lib/ai/not-configured';
 
 // Feed real byte chunks through the page's original reader callback.
 const source = readFileSync(new URL('../../app/heming/page.tsx', import.meta.url), 'utf8');
@@ -11,7 +11,7 @@ assert.ok(start >= 0 && end > start);
 const body = `export function makeRun(ctx) {
   const {chartA,chartB,formA,formB,generateChart,formToBirthInfo,setFormError,
     setAnalyzing,setAnalysis,setAnalysisError,setChartA,setChartB,fetch,
-    setNotConfiguredNotice,readNotConfiguredNotice,analysisRef} = ctx;
+    setNotConfiguredNotice,readNotConfiguredNotice,setRateLimitNotice,readRateLimitNotice,analysisRef} = ctx;
   const useCallback = (fn) => fn;
   ${source.slice(start, end)}
   return runAnalysis;
@@ -31,7 +31,8 @@ async function consume(chunks: Uint8Array[]) {
     setChartA: noop, setChartB: noop, setFormError: noop, setAnalyzing: noop,
     setAnalysis: (value: string) => { text = value; },
     setAnalysisError: (value: boolean) => { failed = value; },
-    setNotConfiguredNotice: noop, readNotConfiguredNotice, analysisRef: { current: null },
+    setNotConfiguredNotice: noop, readNotConfiguredNotice,
+  setRateLimitNotice: noop, readRateLimitNotice, analysisRef: { current: null },
     fetch: async () => ({ status: 200, ok: true, body: new ReadableStream({
       start(controller) { for (const chunk of chunks) controller.enqueue(chunk); controller.close(); },
     }) }),
@@ -58,10 +59,21 @@ async function main() {
     setChartA: noop, setChartB: noop, setFormError: noop, setAnalyzing: noop,
     setAnalysis: noop, setAnalysisError: noop,
     setNotConfiguredNotice: (value: string | null) => { notice = value; },
-    readNotConfiguredNotice, analysisRef: { current: null },
+    readNotConfiguredNotice, setRateLimitNotice: noop, readRateLimitNotice, analysisRef: { current: null },
     fetch: async () => Response.json({ error: 'ai-not-configured', missing: 'DEEPSEEK_API_KEY' }, { status: 503 }),
   })();
   assert.match(notice ?? '', /\.env\.local[\s\S]*AI_PROVIDER[\s\S]*DEEPSEEK_API_KEY/, '503 shows the setup hint');
+  let limitNotice: string | null = null;
+  await moduleExports.makeRun({
+    chartA: {}, chartB: {}, formA: form, formB: form,
+    generateChart: async () => ({}), formToBirthInfo: () => ({}),
+    setChartA: noop, setChartB: noop, setFormError: noop, setAnalyzing: noop,
+    setAnalysis: noop, setAnalysisError: noop, setNotConfiguredNotice: noop, readNotConfiguredNotice,
+    setRateLimitNotice: (value: string | null) => { limitNotice = value; }, readRateLimitNotice,
+    analysisRef: { current: null },
+    fetch: async () => Response.json({ error: 'rate-limited', retryAfter: 90 }, { status: 429, headers: { 'Retry-After': '90' } }),
+  })();
+  assert.equal(limitNotice, 'AI 解读请求太频繁，请约 2 分钟后再试。命盘本身不受影响。', '429 says how long to wait');
   console.log('Heming SSE byte-fragment regressions passed');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });
