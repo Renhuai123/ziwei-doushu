@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import type { BirthFormState } from '@/components/BirthForm';
 
 /**
@@ -43,8 +43,11 @@ export function readHistory(): HistoryEntry[] {
   }
 }
 
+const listeners = new Set<() => void>();
+
 function writeHistory(entries: HistoryEntry[]) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(entries)); } catch { /* 隐私模式等不可写时静默 */ }
+  listeners.forEach(l => l());
 }
 
 /** 记下一次成功起盘；同一份出生信息只留最新一条。 */
@@ -53,21 +56,29 @@ export function saveToHistory(form: BirthFormState): void {
   writeHistory([entry, ...readHistory().filter(e => !sameBirth(e.form, form))].slice(0, MAX_ENTRIES));
 }
 
+// useSyncExternalStore 要求同一份数据返回同一个引用：按原始字符串缓存解析结果
+const EMPTY: HistoryEntry[] = [];
+let cache: { raw: string | null; entries: HistoryEntry[] } = { raw: null, entries: EMPTY };
+function snapshot(): HistoryEntry[] {
+  let raw: string | null = null;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch { /* 不可读时视为空 */ }
+  if (raw !== cache.raw) cache = { raw, entries: raw ? readHistory() : EMPTY };
+  return cache.entries;
+}
+
+function subscribe(onChange: () => void) {
+  listeners.add(onChange);
+  const onStorage = (e: StorageEvent) => { if (e.key === STORAGE_KEY) onChange(); }; // 其他标签页
+  window.addEventListener('storage', onStorage);
+  return () => {
+    listeners.delete(onChange);
+    window.removeEventListener('storage', onStorage);
+  };
+}
+
 export function useHistory() {
-  const [history, setHistory] = useState<HistoryEntry[]>([]);
-
-  useEffect(() => { setHistory(readHistory()); }, []);
-
-  const remove = useCallback((id: string) => {
-    const next = readHistory().filter(e => e.id !== id);
-    writeHistory(next);
-    setHistory(next);
-  }, []);
-
-  const clear = useCallback(() => {
-    writeHistory([]);
-    setHistory([]);
-  }, []);
-
+  const history = useSyncExternalStore(subscribe, snapshot, () => EMPTY);
+  const remove = (id: string) => writeHistory(readHistory().filter(e => e.id !== id));
+  const clear = () => writeHistory([]);
   return { history, remove, clear };
 }

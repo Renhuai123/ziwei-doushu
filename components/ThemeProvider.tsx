@@ -1,42 +1,48 @@
 'use client';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useSyncExternalStore } from 'react';
 
 export type Theme = 'dark' | 'light';
+
+const STORAGE_KEY = 'ziwei-theme';
 
 const ThemeContext = createContext<{
   theme: Theme;
   toggle: () => void;
 }>({ theme: 'dark', toggle: () => {} });
 
-function getInitialTheme(): Theme {
-  if (typeof document !== 'undefined') {
-    const attr = document.documentElement.getAttribute('data-theme');
-    if (attr === 'light' || attr === 'dark') return attr;
-  }
-  return 'dark';
+/**
+ * 主题的唯一来源是 <html data-theme>：layout 里的内联脚本在首屏渲染前按 localStorage 设好它，
+ * 这里只订阅它的变化。服务端快照固定为 dark，水合时 React 会先用服务端值再切到真实值，不会报水合不一致。
+ */
+function readTheme(): Theme {
+  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+}
+
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  // 其他标签页切换主题时同步过来
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY && (e.newValue === 'light' || e.newValue === 'dark')) {
+      document.documentElement.setAttribute('data-theme', e.newValue);
+    }
+  };
+  window.addEventListener('storage', onStorage);
+  return () => {
+    observer.disconnect();
+    window.removeEventListener('storage', onStorage);
+  };
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem('ziwei-theme') as Theme | null;
-    if (saved === 'light' || saved === 'dark') setTheme(saved);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    const root = document.documentElement;
-    root.setAttribute('data-theme', theme);
-    localStorage.setItem('ziwei-theme', theme);
-  }, [theme, mounted]);
+  const theme = useSyncExternalStore(subscribe, readTheme, () => 'dark' as Theme);
 
   const toggle = () => {
     const root = document.documentElement;
+    const next: Theme = readTheme() === 'dark' ? 'light' : 'dark';
     root.classList.add('theme-transitioning');
-    setTheme(t => t === 'dark' ? 'light' : 'dark');
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch { /* 隐私模式下不可写时只在本页生效 */ }
     setTimeout(() => root.classList.remove('theme-transitioning'), 420);
   };
 

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace, Star } from '@/lib/ziwei/types';
-import { BRANCHES, STEMS } from '@/lib/ziwei/constants';
+import { BRANCHES } from '@/lib/ziwei/constants';
 import { boshiShenName, jiangQianShenName, suiQianShenName } from '@/lib/ziwei/shier-shen';
 import PalaceCell from './PalaceCell';
 import TimeNav, { type TimeView, getYearStemIndex, buildSiHuaOverlay } from './TimeNav';
@@ -28,18 +28,6 @@ const BRANCH_SVG_POS: Record<number, [number, number]> = {
   3: [12.5, 62.5],                                     10: [87.5, 62.5],
   2: [12.5, 87.5], 1: [37.5, 87.5], 0: [62.5, 87.5], 11: [87.5, 87.5],
 };
-
-// 绕盘面顺时针排列（用于三方四正四边形排序）
-const CLOCKWISE_INDEX: Record<number, number> = {
-  5: 0, 6: 1, 7: 2, 8: 3,
-  9: 4, 10: 5,
-  11: 6, 0: 7, 1: 8, 2: 9,
-  3: 10, 4: 11,
-};
-
-function sortClockwise(branches: number[]): number[] {
-  return [...branches].sort((a, b) => CLOCKWISE_INDEX[a] - CLOCKWISE_INDEX[b]);
-}
 
 /** 三方四正：本宫 + 对宫 + 两个三合宫 */
 function getSanFangSiZheng(branch: number): [number, number, number, number] {

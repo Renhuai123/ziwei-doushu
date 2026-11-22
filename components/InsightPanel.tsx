@@ -174,6 +174,73 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
     }
   }, [messages]);
 
+  const streamResponse = async (apiMessages: { role: 'user' | 'assistant'; content: string }[]) => {
+    try {
+      const res = await fetch('/api/interpret', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chart, messages: apiMessages }),
+      });
+      const notice = await readNotConfiguredNotice(res);
+      if (notice) {
+        setSetupHint(notice);
+        return;
+      }
+      if (!res.ok) throw new Error('请求失败');
+      if (!res.body) throw new Error('无响应流');
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let assistantText = '';
+
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        for (const line of chunk.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6);
+          if (data === '[DONE]') break;
+          try {
+            const delta = JSON.parse(data).delta?.text ?? '';
+            assistantText += delta;
+            setMessages(prev => {
+              const updated = [...prev];
+              updated[updated.length - 1] = { role: 'assistant', content: assistantText };
+              return updated;
+            });
+          } catch { /* skip */ }
+        }
+      }
+    } catch {
+      setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。', local: true }]);
+    } finally {
+      setLoading(false);
+      loadingRef.current = false;
+    }
+  };
+
+  const sendMessage = (text: string, hidden = false) => {
+    if (!text.trim() || loadingRef.current) return;
+    loadingRef.current = true;
+    setLoading(true);
+
+    const userMsg: Message = { role: 'user', content: text, hidden };
+    // Capture current messages synchronously via ref (avoids stale closure)
+    const apiMessages = fitHistory(
+      [...messagesRef.current, userMsg]
+        .filter(m => !m.local)
+        .map(m => ({ role: m.role, content: m.content })),
+    );
+
+    setMessages(prev => [...prev, userMsg]);
+    setInput('');
+    streamResponse(apiMessages);
+  };
+
+  // 以下 effect 调用 sendMessage，放在它的定义之后
   // Auto-generate 命格总览 on mount
   useEffect(() => {
     if (autoLoaded.current) return;
@@ -242,72 +309,6 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
 
     sendMessage(prompt, true);
   }, [selectedSiHua]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const streamResponse = async (apiMessages: { role: 'user' | 'assistant'; content: string }[]) => {
-    try {
-      const res = await fetch('/api/interpret', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chart, messages: apiMessages }),
-      });
-      const notice = await readNotConfiguredNotice(res);
-      if (notice) {
-        setSetupHint(notice);
-        return;
-      }
-      if (!res.ok) throw new Error('请求失败');
-      if (!res.body) throw new Error('无响应流');
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantText = '';
-
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split('\n')) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const delta = JSON.parse(data).delta?.text ?? '';
-            assistantText += delta;
-            setMessages(prev => {
-              const updated = [...prev];
-              updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-              return updated;
-            });
-          } catch { /* skip */ }
-        }
-      }
-    } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。', local: true }]);
-    } finally {
-      setLoading(false);
-      loadingRef.current = false;
-    }
-  };
-
-  const sendMessage = (text: string, hidden = false) => {
-    if (!text.trim() || loadingRef.current) return;
-    loadingRef.current = true;
-    setLoading(true);
-
-    const userMsg: Message = { role: 'user', content: text, hidden };
-    // Capture current messages synchronously via ref (avoids stale closure)
-    const apiMessages = fitHistory(
-      [...messagesRef.current, userMsg]
-        .filter(m => !m.local)
-        .map(m => ({ role: m.role, content: m.content })),
-    );
-
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
-    streamResponse(apiMessages);
-  };
 
   const handleTopicClick = (topicKey: string) => {
     if (loadingRef.current) return;

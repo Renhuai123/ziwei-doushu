@@ -41,9 +41,6 @@ export interface Pattern {
 const SHA_NAMES = ['擎羊', '陀罗', '火星', '铃星', '地空', '地劫'];
 const SHA_HARD = ['擎羊', '陀罗', '火星', '铃星'];   // 四煞
 const SHA_KONG = ['地空', '地劫'];                  // 空劫
-const ZUO_YOU = ['左辅', '右弼'];
-const CHANG_QU = ['文昌', '文曲'];
-const KUI_YUE = ['天魁', '天钺'];
 
 // ────────────────── 辅助函数 ──────────────────
 function getMajorStarNames(palace: Palace): string[] {
@@ -830,7 +827,6 @@ function detectMaTouDaiJian(chart: ZiweiChart, ming: Palace, patterns: Pattern[]
 
   const required = ['擎羊于午宫坐命'];
   const bonus: string[] = [];
-  const breaking: string[] = [];
   if (sanFangAllStars(chart).has('七杀') || sanFangAllStars(chart).has('破军')) bonus.push('再会七杀或破军（武职大贵）');
   if (sanFangAllStars(chart).has('天魁') || sanFangAllStars(chart).has('天钺')) bonus.push('魁钺加照');
 

@@ -16,7 +16,7 @@ import { generateChart } from '../../lib/ziwei/algorithm';
 let passed = 0;
 const ok = (name: string, cond: boolean) => { assert.ok(cond, `❌ ${name}`); console.log(`  ✅ ${name}`); passed++; };
 const sizhu = (y: number, mo: number, d: number, h: number) =>
-  (generateChart({ year: y, month: mo, day: d, hour: h, gender: 'male' } as any) as any).lunarInfo;
+  generateChart({ year: y, month: mo, day: d, hour: h, gender: 'male' }).lunarInfo;
 
 // ① 会员案例：2004-02-04 丑时(立春19:56前) → 节气年柱癸未、月柱乙丑
 const m = sizhu(2004, 2, 4, 1);

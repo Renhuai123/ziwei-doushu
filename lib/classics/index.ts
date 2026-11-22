@@ -5,7 +5,7 @@
  * 数据为 JSON 静态打包，零 DB 依赖、零网络请求
  */
 
-import type { Book, Paragraph, SearchHit } from './types';
+import type { Book, SearchHit } from './types';
 import { guSuiFu } from './data/gusuifu';
 import { ziWeiQuanJi } from './data/quanji';
 import { ziWeiQuanShu } from './data/quanshu';

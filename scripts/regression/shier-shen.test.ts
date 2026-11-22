@@ -80,7 +80,6 @@ assert.equal(suiNames.size, 12, '岁前十二神在十二宫不得重复');
 assert.equal(jiangNames.size, 12, '将前十二神在十二宫不得重复');
 assert.equal(boshiNames.size, 12, '博士十二神在十二宫不得重复');
 
-const palaceAt = (branch: number) => chart.palaces.find((p) => p.branch === branch)!;
 assert.equal(suiQianShenName(chart.lunarInfo.yearBranch, 6), '岁建', '午年午宫应为岁建');
 assert.equal(suiQianShenName(chart.lunarInfo.yearBranch, 0), '岁破', '午年子宫（对宫）应为岁破');
 assert.equal(jiangQianShenName(chart.lunarInfo.yearBranch, 6), '将星', '午年（寅午戌）将星在午');

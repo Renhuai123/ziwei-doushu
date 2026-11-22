@@ -8,7 +8,7 @@ on:
 
 jobs:
   check:
-    name: 类型检查 + 排盘回归
+    name: 类型检查 + 代码检查 + 排盘回归
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +24,9 @@ jobs:
 
       - name: 类型检查
         run: npm run typecheck
+
+      - name: 代码检查（ESLint）
+        run: npm run lint
 
       - name: 排盘引擎回归
         run: npm test

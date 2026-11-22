@@ -9,11 +9,13 @@ import SkeletonLines from './SkeletonLines';
 const TOPICS = Object.keys(TOPIC_LABEL) as TopicKey[];
 
 type State = { phase: 'loading' } | { phase: 'error' } | { phase: 'done'; result: ReadingResult };
+/** 已返回的结果连同它对应的请求；请求变了（换盘或重试）而结果还没回来时即为加载中。 */
+type Settled = { key: string; state: State };
 
 const muted = { color: 'var(--tx-2)' } as const;
 
 export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
-  const [state, setState] = useState<State>({ phase: 'loading' });
+  const [settled, setSettled] = useState<Settled | null>(null);
   const [attempt, setAttempt] = useState(0);
   const [topic, setTopic] = useState<TopicKey>('overview');
   const articleRef = useRef<HTMLElement>(null);
@@ -25,9 +27,11 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
   };
   const { year, month, day, hour, gender } = chart.birthInfo;
 
+  const requestKey = `${year}-${month}-${day}-${hour}-${gender}-${attempt}`;
+  const state: State = settled?.key === requestKey ? settled.state : { phase: 'loading' };
+
   useEffect(() => {
     const ctrl = new AbortController();
-    setState({ phase: 'loading' });
     fetch('/api/readings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,10 +39,10 @@ export default function ReadingsPanel({ chart }: { chart: ZiweiChart }) {
       signal: ctrl.signal,
     })
       .then((r) => (r.ok ? (r.json() as Promise<ReadingResult>) : Promise.reject(new Error(String(r.status)))))
-      .then((result) => setState({ phase: 'done', result }))
-      .catch((e) => { if (!ctrl.signal.aborted) { console.error(e); setState({ phase: 'error' }); } });
+      .then((result) => setSettled({ key: requestKey, state: { phase: 'done', result } }))
+      .catch((e) => { if (!ctrl.signal.aborted) { console.error(e); setSettled({ key: requestKey, state: { phase: 'error' } }); } });
     return () => ctrl.abort();
-  }, [year, month, day, hour, gender, attempt]);
+  }, [year, month, day, hour, gender, attempt, requestKey]);
 
   let body: React.ReactNode;
   if (state.phase === 'loading') {

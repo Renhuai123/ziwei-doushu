@@ -74,6 +74,7 @@ export default function ChatPanel({ chart }: ChatPanelProps) {
             try {
               const parsed = JSON.parse(data);
               const delta = parsed.delta?.text ?? '';
+              // eslint-disable-next-line react-hooks/immutability -- 未被引用的组件（是否删除待维护者决定），不改其逻辑
               assistantText += delta;
               setMessages(prev => {
                 const updated = [...prev];

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import StarField from '@/components/StarField';
@@ -232,6 +232,8 @@ const STAR_BRIEF: Record<string, { attr: string; brief: string }> = {
 
 // ─── 功能视觉装饰 ────────────────────────────────────────
 function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType<typeof useColors> }) {
+  // 只有第 2 屏（星曜选择）用到；hook 必须在任何条件分支之前调用
+  const [sel, setSel] = useState<string | null>(null);
   if (index === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-5">
@@ -262,7 +264,6 @@ function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType
   }
 
   if (index === 1) {
-    const [sel, setSel] = useState<string | null>(null);
     const selInfo = sel ? (STAR_BRIEF[sel] ?? SIHUA_BRIEF[sel] ?? null) : null;
     return (
       <div className="flex flex-col gap-4 h-full justify-center">
