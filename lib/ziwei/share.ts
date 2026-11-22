@@ -1,14 +1,32 @@
 import type { BirthFormState } from '@/components/BirthForm';
 import type { BirthInfo } from './types';
-import { branchFromSolarMinutes, resolveZiweiDayOffset, shiftGregorianDate } from './true-solar-time';
+import { calculateTrueSolarTime, resolveZiweiDayOffset, shiftGregorianDate } from './true-solar-time';
 
-/** 根据北京时间 + 经度计算真太阳时时辰支 (0-11) */
-export function calcTrueSolarBranch(clockHour: number, clockMinute: number, longitude: number): number {
-  const clockMins = clockHour * 60 + clockMinute;
-  const offset = (longitude - 120) * 4;
-  const solar = ((clockMins + offset) % 1440 + 1440) % 1440;
-  if (solar >= 1380 || solar < 60) return 0;
-  return Math.floor((solar - 60) / 120) + 1;
+/** Kinh tuyến trung tâm của múi giờ đồng hồ (độ). UTC+8 → 120°, UTC+7 → 105°. */
+function clockMeridian(utcOffsetMinutes?: number): number {
+  return utcOffsetMinutes !== undefined && Number.isFinite(utcOffsetMinutes) ? utcOffsetMinutes / 4 : 120;
+}
+
+/** Số phút hiệu chỉnh kinh độ: (kinh độ nơi sinh − kinh tuyến múi giờ) × 4 */
+export function longitudeOffsetMinutes(longitude: number, utcOffsetMinutes?: number): number {
+  return (longitude - clockMeridian(utcOffsetMinutes)) * 4;
+}
+
+function isValidLongitude(longitude: number): boolean {
+  return longitude >= -180 && longitude <= 180;
+}
+
+/** Giờ mặt trời thực của form — dùng chung cho cả preview và submit, bao gồm phương trình thời gian. */
+export function formToTrueSolarTime(form: Pick<BirthFormState, 'year' | 'month' | 'day' | 'clockHour' | 'clockMinute' | 'province' | 'longitude' | 'utcOffsetMinutes'>) {
+  return calculateTrueSolarTime({
+    year: parseInt(form.year) || 0,
+    month: parseInt(form.month) || 0,
+    day: parseInt(form.day) || 0,
+    clockHour: parseInt(form.clockHour) || 0,
+    clockMinute: parseInt(form.clockMinute) || 0,
+    longitude: form.province ? form.longitude : undefined,
+    utcOffsetMinutes: form.utcOffsetMinutes,
+  });
 }
 
 /** BirthFormState → BirthInfo
@@ -24,14 +42,12 @@ export function formToBirthInfo(form: BirthFormState): BirthInfo {
   let d = parseInt(form.day) || 0;
   let hour = 0;
 
-  // 晚子时换日按真太阳时判定，与时辰支同一口径（见 true-solar-time.ts 的 resolveZiweiDayOffset）。
-  // 只看钟表 23 点会和经度校正后的时辰错位：东经 100° 钟表 23:30 是真太阳时 22:10 亥时，不该换日。
+  // Đổi ngày giờ Tý muộn theo giờ mặt trời thực (cùng khẩu kính với chi giờ).
   if (!form.unknownTime) {
-    const solar = (parseInt(form.clockHour) || 0) * 60 + (parseInt(form.clockMinute) || 0) + (form.longitude - 120) * 4;
-    const normalizedMinutes = ((solar % 1440) + 1440) % 1440;
-    hour = branchFromSolarMinutes(normalizedMinutes);
-    const dayOffset = resolveZiweiDayOffset({ dayOffset: Math.floor(solar / 1440), normalizedMinutes, branch: hour });
-    if (dayOffset !== 0 && y > 0 && m > 0 && d > 0) {
+    const solar = formToTrueSolarTime(form);
+    hour = solar.branch;
+    const dayOffset = resolveZiweiDayOffset(solar);
+    if (dayOffset !== 0 && solar.dateValid) {
       ({ year: y, month: m, day: d } = shiftGregorianDate({ year: y, month: m, day: d }, dayOffset));
     }
   }
@@ -62,7 +78,8 @@ export function formToSearchParams(form: BirthFormState): URLSearchParams {
   }
   if (form.province) p.set('p', form.province);
   if (form.city) p.set('c', form.city);
-  if (form.longitude && form.longitude !== 120) p.set('lo', String(form.longitude));
+  if (form.longitude !== 120 && isValidLongitude(form.longitude)) p.set('lo', String(form.longitude));
+  if (form.utcOffsetMinutes !== undefined && form.utcOffsetMinutes !== 480) p.set('tz', String(form.utcOffsetMinutes));
   p.set('g', form.gender === 'male' ? 'm' : 'f');
   return p;
 }
@@ -83,7 +100,8 @@ export function searchParamsToForm(params: URLSearchParams): Partial<BirthFormSt
     clockMinute: params.get('mi') || '0',
     province: params.get('p') || '',
     city: params.get('c') || '',
-    longitude: parseFloat(params.get('lo') || '120'),
+    longitude: (() => { const rawLo = params.get('lo')?.trim(); const lo = rawLo ? Number(rawLo) : 120; return isValidLongitude(lo) ? lo : 120; })(),
+    utcOffsetMinutes: params.get('tz') !== null ? parseInt(params.get('tz')!, 10) : undefined,
     gender: params.get('g') === 'f' ? 'female' : 'male',
   };
 }

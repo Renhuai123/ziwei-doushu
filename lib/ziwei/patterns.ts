@@ -17,6 +17,9 @@
 
 import 'server-only';
 import type { ZiweiChart, Palace, Star, SiHua } from './types';
+import { detectDingGui } from './patterns-dinggui';
+import { detectDingFu } from './patterns-dingfu';
+import { detectDingPin } from './patterns-dingpin';
 
 // ────────────────── 类型 ──────────────────
 export interface PatternCondition {
@@ -1079,7 +1082,52 @@ export function detectPatterns(chart: ZiweiChart): Pattern[] {
   detectKuiYueTongHui(chart, patterns);
   detectKeQuanShuangHui(chart, patterns);
 
-  return patterns;
+  // ── 《全书》卷一四张格表严格判定接入 ──────────────────────────────────
+  // 定贵局 27 / 定富局 6 / 定贫贱局 8 条命盘可判格（定杂局 8 条为运限格，另行架构）。
+  // 同名时严格版取代宽松版，宽松版的 bonus/breaking 原样保留。
+  const strict = detectQuanshuStrict(chart);
+  const looseByName = new Map(patterns.map(p => [p.name, p]));
+  const out = patterns.slice();
+  for (const s of strict) {
+    const loose = looseByName.get(s.name);
+    if (loose) {
+      const idx = out.indexOf(loose);
+      out[idx] = {
+        ...s,
+        conditions: {
+          required: s.conditions!.required,
+          bonus: loose.conditions?.bonus,
+          breaking: loose.conditions?.breaking,
+        },
+      };
+    } else {
+      out.push(s);
+    }
+  }
+  return out;
+}
+
+interface QuanshuHit { no: number; name: string; note: string; status: string }
+
+function detectQuanshuStrict(chart: ZiweiChart): Pattern[] {
+  const out: Pattern[] = [];
+  const push = (hits: QuanshuHit[], table: string, level: Pattern['level']) => {
+    for (const h of hits) {
+      const tag = h.status === 'disputed' ? '〔Cách cục tranh luận: chú thích có nhiều cách đọc, dùng cách thông dụng nhất〕' : '';
+      out.push({
+        name: h.name,
+        level,
+        description: `Điều ${h.no}: 「${h.note}」${tag}`,
+        palaces: ['命宫'],
+        conditions: { required: [`《Toàn Thư》${table} điều ${h.no}: ${h.note}`] },
+        source: `《紫微斗数全书·卷一·${table}》第${h.no}条`,
+      });
+    }
+  };
+  push(detectDingGui(chart), '定贵局', 'excellent');
+  push(detectDingFu(chart), '定富局', 'good');
+  push(detectDingPin(chart), '定贫贱局', 'caution');
+  return out;
 }
 
 // ────────────────── 命宫摘要（保持向后兼容）──────────────────

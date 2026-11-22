@@ -7,3 +7,10 @@ dist/
 *.tsbuildinfo
 .DS_Store
 node_modules
+
+# Dataset v4.0 (tải từ GitHub Release, không commit)
+/data/dataset-v4/
+/data/dataset-v4-all/
+# Trace AI (lib/ai/trace.ts)
+/data/traces/
+/infra/langfuse/.env

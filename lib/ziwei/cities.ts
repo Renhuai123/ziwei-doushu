@@ -6,7 +6,12 @@ export interface CityInfo {
 export interface ProvinceInfo {
   name: string;
   cities: CityInfo[];
+  /** Múi giờ chuẩn của đồng hồ nơi sinh (phút, đông dương). Không có = giờ Bắc Kinh UTC+8 (480). */
+  utcOffsetMinutes?: number;
 }
+
+/** Giờ chuẩn mặc định khi tỉnh không khai báo múi giờ (UTC+8, giờ Bắc Kinh). */
+export const DEFAULT_UTC_OFFSET_MINUTES = 480;
 
 // ★ 2026-10-07 用户反馈「出生地点还不够全」→ 补全全国区县（直辖市以外 2724 个，挂在各地级市下）。
 //   区县不放进本表：本表经 BirthForm → LocationPicker 在 /chart、/heming 首屏静态依赖图上，
@@ -14,6 +19,39 @@ export interface ProvinceInfo {
 //   打开地点选择框时才动态加载（lib/ziwei/county-data.ts）。区县选中后城市字段存成「地级市·区县」，
 //   见 lib/ziwei/county-label.ts。省直辖县级单位（仙桃、海南各市县、新疆兵团各市）仍是本表的市一级。
 export const PROVINCES: ProvinceInfo[] = [
+  // ─── Việt Nam (UTC+7) ─────────────────────────────────
+  // Cả nước dùng UTC+7 từ 13/06/1975; ngày sinh trước mốc đó ở miền Nam (UTC+8) cần tự quy đổi.
+  {
+    name: 'Việt Nam',
+    utcOffsetMinutes: 420,
+    cities: [
+      { name: 'TP. Hồ Chí Minh', longitude: 106.70 },
+      { name: 'Hà Nội', longitude: 105.85 },
+      { name: 'Hải Phòng', longitude: 106.68 },
+      { name: 'Đà Nẵng', longitude: 108.22 },
+      { name: 'Cần Thơ', longitude: 105.78 },
+      { name: 'Huế', longitude: 107.59 },
+      { name: 'Biên Hòa', longitude: 106.82 },
+      { name: 'Bình Dương (Thủ Dầu Một)', longitude: 106.65 },
+      { name: 'Vũng Tàu', longitude: 107.08 },
+      { name: 'Nha Trang', longitude: 109.19 },
+      { name: 'Đà Lạt', longitude: 108.44 },
+      { name: 'Quy Nhơn', longitude: 109.22 },
+      { name: 'Buôn Ma Thuột', longitude: 108.05 },
+      { name: 'Vinh', longitude: 105.69 },
+      { name: 'Thanh Hóa', longitude: 105.78 },
+      { name: 'Nam Định', longitude: 106.17 },
+      { name: 'Hạ Long', longitude: 107.08 },
+      { name: 'Long Xuyên', longitude: 105.43 },
+      { name: 'Mỹ Tho', longitude: 106.36 },
+      { name: 'Rạch Giá', longitude: 105.08 },
+      { name: 'Cà Mau', longitude: 105.15 },
+      { name: 'Phan Thiết', longitude: 108.10 },
+      { name: 'Pleiku', longitude: 108.00 },
+      { name: 'Thái Nguyên', longitude: 105.84 },
+      { name: 'Lào Cai', longitude: 103.97 },
+    ],
+  },
   // ─── 直辖市 ───────────────────────────────────────────
   {
     name: '北京市',
@@ -699,6 +737,5 @@ export const PROVINCES: ProvinceInfo[] = [
     ],
   },
 
-  // 注：海外出生暂未支持，因 share.ts 真太阳时算法假设输入为北京时间(UTC+8)。
-  // 海外用户请把当地时间换算成北京时间再填写（或填出生时所在的中国时区相对城市）。
+  // Ngoài Trung Quốc: khai báo utcOffsetMinutes cho tỉnh/quốc gia (xem mục Việt Nam ở đầu bảng).
 ];
