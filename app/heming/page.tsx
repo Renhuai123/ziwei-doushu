@@ -11,6 +11,8 @@ import SkeletonLines from '@/components/SkeletonLines';
 import AiSetupNotice from '@/components/AiSetupNotice';
 import { RecentPicker } from '@/components/RecentCharts';
 import { saveToHistory } from '@/lib/ziwei/history';
+import { formsFromHemingHash, hemingHash, replaceHash } from '@/lib/ziwei/chart-link';
+import { CopyLinkButton, RestoreFromHash } from '@/components/ShareLink';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 
@@ -80,6 +82,8 @@ export default function HemingPage() {
   // 合盘成功排出的两张盘也记进「最近排过」，排盘页和下次合盘都能直接选
   useEffect(() => { if (chartA && formA) saveToHistory(formA); }, [chartA]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (chartB && formB) saveToHistory(formB); }, [chartB]); // eslint-disable-line react-hooks/exhaustive-deps
+  // 合盘成功后把双方出生信息写进地址的 #：刷新后回填，也可复制链接分享（打开链接不会自动调用 AI）
+  useEffect(() => { if (chartA && chartB && formA && formB) replaceHash(hemingHash(formA, formB)); }, [chartA, chartB]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ─── 起盘（单次调用，返回 chart 给统一流程使用）──────────
   // 开源版不含后端 /api/generate：直接用本仓库的排盘引擎在浏览器里起盘
@@ -175,6 +179,11 @@ export default function HemingPage() {
           分别填写两个人的出生信息，先并排对照双方命盘要点，再由 AI 按倪海厦体系分析匹配度、相处方式与关键年份。适用于感情、合伙、亲子与朋友。
         </PageIntro>
 
+        <RestoreFromHash
+          parse={formsFromHemingHash}
+          onFound={({ a, b }) => { setInitA(a); setInitB(b); setKeyA(k => k + 1); setKeyB(k => k + 1); }}
+          onInvalid={() => { replaceHash(''); setFormError('这个合盘链接不完整或有误，请重新填写双方出生信息。'); }}
+        />
         {/* 双方表单：中间一枚「合」字印连接两侧 */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4">
           <section aria-label="甲方出生信息" className="min-w-0">
@@ -216,6 +225,7 @@ export default function HemingPage() {
           <p role="status" className="text-[13px] min-h-[1.25rem]" style={{ color: formError ? '#dc2626' : 'var(--tx-3)' }}>
             {formError ?? (chartA ? '改了出生信息后点「重新合盘」即可更新' : '两方信息都填齐后即可开始')}
           </p>
+          {chartA && chartB && <CopyLinkButton label="复制合盘链接" />}
         </div>
 
         {/* 双方命盘对照（起盘即显示，不依赖 AI） */}

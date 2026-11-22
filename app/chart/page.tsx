@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import RecentCharts from '@/components/RecentCharts';
+import { CopyLinkButton, RestoreFromHash } from '@/components/ShareLink';
 import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
 import ReadingsPanel from '@/components/ReadingsPanel';
@@ -9,6 +10,7 @@ import SiteHeader from '@/components/SiteHeader';
 import PageIntro from '@/components/PageIntro';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 import { saveToHistory } from '@/lib/ziwei/history';
+import { chartHash, formFromHash, replaceHash } from '@/lib/ziwei/chart-link';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
 import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
@@ -30,6 +32,8 @@ export default function ChartPage() {
 
   usePrefetchEngine();
 
+  const pick = (form: BirthFormState) => { setFormKey(k => k + 1); cast(formToBirthInfo(form), form); };
+
   const cast = async (info: BirthInfo, form: BirthFormState) => {
     setEngineLoading(true);
     setSubmitError(null);
@@ -46,6 +50,7 @@ export default function ChartPage() {
     try {
       setChart(engine.generateChart(info));
       saveToHistory(form);
+      replaceHash(chartHash(form)); // 刷新可恢复，也可直接复制地址分享
       window.scrollTo({ top: 0 });
     } catch (e) {
       console.error(e);
@@ -65,7 +70,12 @@ export default function ChartPage() {
           <PageIntro eyebrow="紫微斗数 · 排盘" title="输入生辰，排出你的命盘" className="mb-10">
             填写公历出生日期与时间，即时排出十二宫、主辅星曜与四化。填了出生地，时辰会按真太阳时校正。
           </PageIntro>
-          <RecentCharts disabled={engineLoading} onPick={form => { setFormKey(k => k + 1); cast(formToBirthInfo(form), form); }} />
+          <RestoreFromHash
+            parse={formFromHash}
+            onFound={pick}
+            onInvalid={() => { replaceHash(''); setSubmitError('这个命盘链接不完整或有误，请重新填写出生信息。'); }}
+          />
+          <RecentCharts disabled={engineLoading} onPick={pick} />
           <BirthForm
             key={formKey}
             loading={engineLoading}
@@ -113,13 +123,16 @@ export default function ChartPage() {
               ))}
             </dl>
           </div>
-          <button
-            type="button"
-            className="chip shrink-0 self-start sm:self-auto"
-            onClick={() => { setChart(null); setSelectedPalace(null); }}
-          >
-            <span aria-hidden>↺</span> 重新起盘
-          </button>
+          <div className="flex shrink-0 gap-2 self-start sm:self-auto">
+            <CopyLinkButton />
+            <button
+              type="button"
+              className="chip shrink-0"
+              onClick={() => { setChart(null); setSelectedPalace(null); replaceHash(''); }}
+            >
+              <span aria-hidden>↺</span> 重新起盘
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] items-start">
