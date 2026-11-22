@@ -5,7 +5,6 @@ import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
 import { generateChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
-import { MY_BIRTH_PROFILE } from '@/lib/profile';
 
 /**
  * 命盘页 —— 开源版「排盘引擎 Demo」
@@ -27,10 +26,8 @@ export default function ChartPage() {
         <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 8 }}>Lập lá số Tử Vi Đẩu Số</h1>
         <p style={{ color: '#888', marginBottom: 32, fontSize: 14, lineHeight: 1.7 }}>
           Nhập ngày, giờ và nơi sinh — engine mã nguồn mở sẽ lập lá số ngay lập tức.
-          <br />
-          (Form đã điền sẵn hồ sơ của bạn: 25/07/2001 · 01:30 UTC+7 · TP. Hồ Chí Minh.)
         </p>
-        <BirthForm initialData={MY_BIRTH_PROFILE} onSubmit={(info: BirthInfo) => setChart(generateChart(info))} />
+        <BirthForm onSubmit={(info: BirthInfo) => setChart(generateChart(info))} />
       </main>
     );
   }

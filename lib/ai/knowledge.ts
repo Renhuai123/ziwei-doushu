@@ -52,8 +52,14 @@ function niEntries(): NiEntry[] {
   return niCache;
 }
 
-const CLASSIC_PARAGRAPHS = ALL_BOOKS.flatMap(b =>
-  b.chapters.flatMap(c => c.paragraphs.map(p => ({ book: b.title, chapter: c.title, text: p.text }))));
+let classicCache: { book: string; chapter: string; text: string }[] | null = null;
+function classicParagraphs() {
+  if (!classicCache) {
+    classicCache = ALL_BOOKS.flatMap(b =>
+      b.chapters.flatMap(c => c.paragraphs.map(p => ({ book: b.title, chapter: c.title, text: p.text }))));
+  }
+  return classicCache;
+}
 
 // ─── Ngữ cảnh lá số ──────────────────────────────────────────────────────────
 
@@ -311,10 +317,10 @@ export async function knowledgeBlock(chart: ZiweiChart, question: string, tr?: T
 
   // ── Cổ thư
   const sClassics = span('knowledge.classics');
-  const classics = pick(CLASSIC_PARAGRAPHS, p => scoreText(`${p.chapter} ${p.text}`, f) - offFocusPenalty(p.chapter, f),
+  const classics = pick(classicParagraphs(), p => scoreText(`${p.chapter} ${p.text}`, f) - offFocusPenalty(p.chapter, f),
     p => `- ${p.text} —《${p.book}·${p.chapter}》`, BUDGET_CLASSICS);
   if (classics.length) sections.push({ label: 'classics', body: `## [Nguồn: Cổ thư] Ghi tên sách cụ thể khi trích: Toàn Thư, Toàn Tập hoặc Cốt Tủy Phú\n${classics.join('\n')}` });
-  sClassics?.end({ output: { paragraphs: classics.length }, metadata: { pool: CLASSIC_PARAGRAPHS.length } });
+  sClassics?.end({ output: { paragraphs: classics.length }, metadata: { pool: classicParagraphs().length } });
 
   // ── Tư liệu Phu Thê: chỉ khi câu hỏi về tình cảm / hôn nhân.
   const fuqi = f.palaceOf('夫妻');
