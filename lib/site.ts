@@ -6,3 +6,6 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3
 
 /** 只取域名部分，用于界面上展示（如分享卡底部） */
 export const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '');
+
+/** 浏览器地址栏 / 状态栏颜色，与 globals.css 两套主题的 --bg-0 一致 */
+export const THEME_COLOR = { dark: '#020810', light: '#FAFAF9' } as const;

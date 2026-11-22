@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, THEME_COLOR } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: '紫微命盘 · 倪海厦正宗紫微斗数',
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
       '360-site-verification': process.env.NEXT_PUBLIC_360_VERIFICATION || '',
     },
   },
+};
+
+// 默认深色；用户切到浅色后由 ThemeProvider 同步改这个 meta
+export const viewport: Viewport = {
+  themeColor: THEME_COLOR.dark,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

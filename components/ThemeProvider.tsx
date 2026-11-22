@@ -1,5 +1,6 @@
 'use client';
-import { createContext, useContext, useSyncExternalStore } from 'react';
+import { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
+import { THEME_COLOR } from '@/lib/site';
 
 export type Theme = 'dark' | 'light';
 
@@ -36,6 +37,11 @@ function subscribe(onChange: () => void) {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(subscribe, readTheme, () => 'dark' as Theme);
+
+  // 手机浏览器地址栏跟着主题变色（layout 里输出的默认值是深色）
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[theme]);
+  }, [theme]);
 
   const toggle = () => {
     const root = document.documentElement;
