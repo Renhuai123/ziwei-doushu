@@ -1,13 +1,16 @@
 'use client';
 import { useState } from 'react';
-import BirthForm from '@/components/BirthForm';
+import BirthForm, { type BirthFormState } from '@/components/BirthForm';
+import RecentCharts from '@/components/RecentCharts';
 import ChartBoard from '@/components/ChartBoard';
 import InsightPanel from '@/components/InsightPanel';
 import ReadingsPanel from '@/components/ReadingsPanel';
 import SiteHeader from '@/components/SiteHeader';
 import PageIntro from '@/components/PageIntro';
 import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
+import { saveToHistory } from '@/lib/ziwei/history';
 import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
+import { formToBirthInfo } from '@/lib/ziwei/share';
 import type { BirthInfo, ZiweiChart, Palace } from '@/lib/ziwei/types';
 
 /**
@@ -20,7 +23,39 @@ export default function ChartPage() {
   const [engineLoading, setEngineLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  /** 最近一次提交的表单：「重新起盘」回到表单时原样回填，改一个时辰不用全部重填。 */
+  const [lastForm, setLastForm] = useState<BirthFormState | null>(null);
+  /** 从历史重排时换 key，让表单按新的 initialData 重新挂载。 */
+  const [formKey, setFormKey] = useState(0);
+
   usePrefetchEngine();
+
+  const cast = async (info: BirthInfo, form: BirthFormState) => {
+    setEngineLoading(true);
+    setSubmitError(null);
+    setLastForm(form);
+    let engine: Awaited<ReturnType<typeof loadEngine>>;
+    try {
+      engine = await loadEngine();
+    } catch (e) {
+      console.error(e);
+      setSubmitError('排盘程序没能下载完成，请检查网络后再点一次「立即起盘」。');
+      setEngineLoading(false);
+      return;
+    }
+    try {
+      setChart(engine.generateChart(info));
+      saveToHistory(form);
+      window.scrollTo({ top: 0 });
+    } catch (e) {
+      console.error(e);
+      setSubmitError(e instanceof RangeError
+        ? '这组出生信息排不了盘，请核对日期是否真实存在（例如 2 月 30 日）。'
+        : '排盘时出了点问题，请稍后再试。');
+    } finally {
+      setEngineLoading(false);
+    }
+  };
 
   if (!chart) {
     return (
@@ -30,32 +65,12 @@ export default function ChartPage() {
           <PageIntro eyebrow="紫微斗数 · 排盘" title="输入生辰，排出你的命盘" className="mb-10">
             填写公历出生日期与时间，即时排出十二宫、主辅星曜与四化。填了出生地，时辰会按真太阳时校正。
           </PageIntro>
+          <RecentCharts disabled={engineLoading} onPick={form => { setFormKey(k => k + 1); cast(formToBirthInfo(form), form); }} />
           <BirthForm
+            key={formKey}
             loading={engineLoading}
-            onSubmit={async (info: BirthInfo) => {
-              setEngineLoading(true);
-              setSubmitError(null);
-              let engine: Awaited<ReturnType<typeof loadEngine>>;
-              try {
-                engine = await loadEngine();
-              } catch (e) {
-                console.error(e);
-                setSubmitError('排盘程序没能下载完成，请检查网络后再点一次「立即起盘」。');
-                setEngineLoading(false);
-                return;
-              }
-              try {
-                setChart(engine.generateChart(info));
-                window.scrollTo({ top: 0 });
-              } catch (e) {
-                console.error(e);
-                setSubmitError(e instanceof RangeError
-                  ? '这组出生信息排不了盘，请核对日期是否真实存在（例如 2 月 30 日）。'
-                  : '排盘时出了点问题，请稍后再试。');
-              } finally {
-                setEngineLoading(false);
-              }
-            }}
+            initialData={lastForm ?? undefined}
+            onSubmit={cast}
           />
           {submitError && (
             <p role="alert" className="mt-4 rounded-xl px-4 py-3 text-[14px] leading-relaxed" style={{ background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.3)', color: 'var(--tx-0)' }}>

@@ -26,8 +26,8 @@ export default function LibrarySearch({ defaultValue = '' }: { defaultValue?: st
     <form
       role="search"
       onSubmit={submit}
-      className="flex items-center gap-2 rounded-xl p-1.5 transition-colors focus-within:border-[var(--ac-bdr)]"
-      style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr-med)' }}
+      className="flex items-center gap-2 rounded-xl border border-[var(--bdr-med)] p-1.5 transition-colors focus-within:border-[var(--ac)]"
+      style={{ background: 'var(--bg-1)' }}
     >
       <label htmlFor="library-q" className="sr-only">搜索古籍原文</label>
       <input

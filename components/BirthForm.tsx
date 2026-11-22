@@ -22,7 +22,8 @@ export interface BirthFormState {
 }
 
 interface BirthFormProps {
-  onSubmit: (info: BirthInfo) => void;
+  /** 第二个参数是提交时的原始表单，用来记历史 / 回填。 */
+  onSubmit: (info: BirthInfo, form: BirthFormState) => void;
   loading?: boolean;
   initialData?: Partial<BirthFormState>;
   onFormSave?: (data: BirthFormState) => void;
@@ -132,7 +133,7 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
     onFormSave?.({ ...form });
     // 统一走 lib/ziwei/share.ts 的转换：它负责晚子时换日（23:00–23:59 按次日排盘）。
     // 在这里手拼 BirthInfo 会绕过这条规则，使 /chart 与 /heming 对同一份输入排出相差一天的盘。
-    onSubmit(formToBirthInfo(form));
+    onSubmit(formToBirthInfo(form), { ...form });
   };
 
   // ─── 样式变量 ────────────────────────────────────────────
