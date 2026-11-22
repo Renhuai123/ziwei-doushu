@@ -33,6 +33,7 @@
   --quan: #1A56A8;
   --ke:   #8A7018;
   --ji:   #A83228;
+  --err:  #dc2626;
 
   /* 边框 */
   --bdr:      rgba(0,0,0,0.07);
@@ -76,6 +77,7 @@
   --ac-dim: #e8c060;
   --ac-bg:  rgba(212,168,67,0.10);
   --ac-bdr: rgba(212,168,67,0.25);
+  --err: #f87171;
 
   --bdr:      rgba(255,255,255,0.07);
   --bdr-med:  rgba(255,255,255,0.12);
@@ -674,3 +676,45 @@ tr:hover > th[scope="row"] { color: var(--ac) !important; }
 .legal-prose strong { color: var(--tx-0); font-weight: 600; }
 .legal-prose a { color: var(--ac); text-decoration: underline; text-underline-offset: 4px; }
 .legal-prose code { font-size: .9em; padding: 0 .3em; border-radius: 4px; background: var(--bar-bg); }
+
+/* 出生信息表单 */
+.field {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--bdr-med);
+  color: var(--tx-0);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.field::placeholder { color: var(--tx-3); }
+.field:focus-visible { border-color: var(--ac); box-shadow: 0 0 0 3px var(--ac-bg); }
+.field[aria-invalid="true"] { border-color: var(--err); }
+.field:disabled { opacity: .45; cursor: not-allowed; }
+.field-label { display: block; font-size: 12px; color: var(--tx-2); margin-bottom: 6px; letter-spacing: .04em; }
+.field-note { font-size: 12px; color: var(--tx-3); margin-top: 6px; line-height: 1.6; }
+.field-error { font-size: 12px; color: var(--err); margin-top: 4px; animation: fade-in .18s ease; }
+.field-summary {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 12px;
+  background: var(--ac-bg); border: 1px solid var(--ac-bdr);
+  color: var(--tx-1); font-size: 13px;
+  animation: fade-in .2s ease;
+}
+.seg-btn {
+  flex: 1; height: 44px; border-radius: 12px;
+  background: var(--bg-1); border: 1px solid var(--bdr-med);
+  color: var(--tx-2); font-size: 14px; font-weight: 500;
+  transition: border-color .15s ease, background .15s ease, color .15s ease, transform .1s ease;
+}
+.seg-btn:hover { color: var(--tx-0); border-color: var(--bdr-heavy); }
+.seg-btn:active { transform: scale(.98); }
+.seg-btn[aria-pressed="true"] { color: var(--tx-0); border-color: var(--ac); background: var(--ac-bg); }
+.seg-btn:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .field-error, .field-summary { animation: none; opacity: 1; transform: none; }
+}
