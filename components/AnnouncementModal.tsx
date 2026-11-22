@@ -106,26 +106,6 @@ export default function AnnouncementModal() {
               >×</button>
             </div>
 
-            {/* 限时免费 banner（最关键信息，置顶强调）*/}
-            <div style={{
-              margin: '14px 22px 0',
-              padding: '12px 16px',
-              background: 'linear-gradient(135deg, #fff5e3 0%, #ffe1c0 100%)',
-              border: '1.5px dashed rgba(232,132,62,0.5)',
-              borderRadius: '12px',
-              flexShrink: 0,
-              textAlign: 'center',
-            }}>
-              <div style={{ fontSize: '10px', letterSpacing: '0.3em', color: '#c45a2d', marginBottom: '4px', fontWeight: 600 }}>
-                LIMITED TIME · Tri ân có thời hạn
-              </div>
-              <div style={{ fontSize: '14px', color: '#8b3a1a', fontWeight: 600, lineHeight: 1.6 }}>
-                <span style={{ fontSize: '16px', color: '#c45a2d', fontWeight: 700 }}>1/5 — 8/5</span>
-                <br />
-                Toàn bộ tính năng + hỏi đáp AI đều mở miễn phí
-              </div>
-            </div>
-
             {/* 正文（可滚动）*/}
             <div style={{
               padding: '18px 28px 24px',
@@ -160,9 +140,6 @@ export default function AnnouncementModal() {
               </p>
               <p style={{ margin: '0 0 12px' }}>
                 Còn những câu kiểu &ldquo;việc bạn đang xem những thứ này, thật ra cũng là một phần của số mệnh&rdquo;, tôi xin không bình luận thêm.
-              </p>
-              <p style={{ margin: '0 0 12px' }}>
-                Mấy hôm nay tài khoản bị Xiaohongshu (Tiểu Hồng Thư) tạm khóa, <strong style={{ color: '#c45a2d' }}>từ ngày 3/5 sẽ cập nhật bình thường trở lại.</strong>
               </p>
               <p style={{ margin: '0 0 16px', color: '#3d2f10', fontWeight: 500 }}>
                 Cuối cùng, thật lòng chúc mọi người ngày càng hiểu bản thân hơn, yêu bản thân hơn, và ngày càng có khả năng yêu thương những người bên cạnh.
