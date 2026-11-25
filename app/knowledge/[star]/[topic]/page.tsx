@@ -13,6 +13,8 @@
  */
 
 import Link from 'next/link';
+import SiteHeader from '@/components/SiteHeader';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import type { TopicKey } from '@/lib/ziwei/db-analysis';
 import {
@@ -25,6 +27,7 @@ import {
   SLUG_TO_STAR,
 } from '@/lib/seo/knowledge';
 import { SITE_URL } from '@/lib/site';
+import { JsonLd } from '@/lib/seo/json-ld';
 
 // 允许动态参数：如果某个 star/topic 组合不在 generateStaticParams 列表中
 // 也允许运行时按需渲染，避免中文 URL 编码问题导致 404
@@ -43,9 +46,9 @@ export async function generateMetadata({ params }: { params: Promise<{ star: str
   const data = getKnowledge(star, topic as TopicKey);
   if (!data.exists) return {};
 
-  const title = `${star}入${data.palaceName}宫 · ${data.topicLabel} · 倪海厦体系详解`;
+  const title = `${star}入${data.palaceTitle} · ${data.topicLabel} · 倪海厦体系详解`;
   const description = data.parsed.dingdiao
-    || `${star}入${data.palaceName}宫的紫微斗数解读 — 基于倪海厦《天纪》体系与古籍《紫微斗数全集》《骨髓赋》。`;
+    || `${star}入${data.palaceTitle}的紫微斗数解读 — 基于倪海厦《天纪》体系与古籍《紫微斗数全集》《骨髓赋》。`;
 
   return {
     title,
@@ -74,8 +77,6 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
   const data = getKnowledge(star, topic as TopicKey);
   if (!data.exists) notFound();
 
-  // 同主星其他 topic
-  const otherTopicsForStar = ALL_TOPICS.filter(t => t !== topic && getKnowledge(star, t).exists);
   // 同 topic 其他主星
   const otherStarsForTopic = ALL_STARS.filter(s => s !== star && getKnowledge(s, topic as TopicKey).exists);
 
@@ -83,7 +84,7 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `${star}入${data.palaceName}宫 · ${data.topicLabel}`,
+    headline: `${star}入${data.palaceTitle} · ${data.topicLabel}`,
     description: data.parsed.dingdiao,
     author: { '@type': 'Organization', name: '紫微研究 · 倪海厦正宗' },
     publisher: {
@@ -99,216 +100,134 @@ export default async function KnowledgePage({ params }: { params: Promise<{ star
   };
 
   return (
-    <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    <>
+      <JsonLd data={jsonLd} />
+      <SiteHeader />
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-8 sm:pt-10">
+        <Breadcrumb items={[
+          { label: '星曜知识', href: '/knowledge' },
+          { label: star, href: `/knowledge/${slug}/overview` },
+          { label: `${data.palaceTitle} · ${data.topicLabel}` },
+        ]} />
 
-      {/* 顶栏 */}
-      <div className="px-6 py-4 flex items-center justify-between"
-        style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
-        <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
-          ← 首页
-        </Link>
-        <div style={{ fontSize: '12px', color: 'var(--tx-3)', letterSpacing: '0.2em' }}>
-          倪师方法论 · 知识库
-        </div>
-        <Link href="/chart" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em', textDecoration: 'none' }}>
-          起盘 →
-        </Link>
-      </div>
-
-      <article className="max-w-3xl mx-auto px-6 py-12">
-        {/* 面包屑 */}
-        <nav style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.1em', marginBottom: '16px' }}>
-          <Link href="/" style={{ color: 'var(--tx-3)', textDecoration: 'none' }}>首页</Link>
-          <span style={{ margin: '0 8px' }}>/</span>
-          <Link href="/knowledge" style={{ color: 'var(--tx-3)', textDecoration: 'none' }}>知识库</Link>
-          <span style={{ margin: '0 8px' }}>/</span>
-          <span>{star}</span>
-          <span style={{ margin: '0 8px' }}>·</span>
-          <span style={{ color: 'var(--ac)' }}>{data.palaceName}宫</span>
-        </nav>
-
-        {/* 标题区 */}
-        <header style={{ marginBottom: '36px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.25em', marginBottom: '8px' }}>
-            {data.topicLabel} · 倪海厦体系详解
-          </div>
-          <h1 style={{ fontSize: 'clamp(28px, 5vw, 44px)', fontWeight: 700, color: 'var(--tx-0)', letterSpacing: '0.1em', lineHeight: 1.2 }}>
-            {star}入{data.palaceName}宫
-          </h1>
-          {STAR_BRIEF_SEO[star] && (
-            <p style={{ fontSize: '13px', color: 'var(--tx-2)', marginTop: '14px', lineHeight: 1.8 }}>
-              {STAR_BRIEF_SEO[star]}
-            </p>
-          )}
-        </header>
-
-        {/* 内容 4 段 */}
-        {data.parsed.dingdiao && (
-          <Section title="一句话定调" gradient>
-            <p style={{ fontSize: '17px', color: 'var(--tx-0)', lineHeight: 1.9, fontWeight: 500, letterSpacing: '0.04em' }}>
-              {data.parsed.dingdiao}
-            </p>
-          </Section>
-        )}
-
-        {data.parsed.lundian && (
-          <Section title="核心论断">
-            <div style={{ fontSize: '15px', color: 'var(--tx-0)', lineHeight: 2, letterSpacing: '0.02em', whiteSpace: 'pre-wrap' }}>
-              {data.parsed.lundian}
-            </div>
-          </Section>
-        )}
-
-        {data.parsed.yiju && (
-          <Section title="命盘依据">
-            <div style={{ fontSize: '14px', color: 'var(--tx-0)', lineHeight: 2, letterSpacing: '0.02em', whiteSpace: 'pre-wrap' }}>
-              {data.parsed.yiju}
-            </div>
-          </Section>
-        )}
-
-        {data.parsed.chuchu && (
-          <Section title="经典出处" minimal>
-            <div style={{ fontSize: '13px', color: 'var(--tx-2)', lineHeight: 2, letterSpacing: '0.02em', whiteSpace: 'pre-wrap' }}>
-              {data.parsed.chuchu}
-            </div>
-          </Section>
-        )}
-
-        {/* CTA */}
-        <div style={{
-          margin: '40px 0 30px',
-          padding: '24px',
-          background: 'linear-gradient(135deg, rgba(212,169,72,0.15) 0%, rgba(184,146,42,0.06) 100%)',
-          borderRadius: '14px',
-          border: '1px solid rgba(184,146,42,0.3)',
-          textAlign: 'center',
-        }}>
-          <div style={{ fontSize: '14px', color: 'var(--tx-0)', fontWeight: 600, letterSpacing: '0.1em', marginBottom: '6px' }}>
-            想看你自己命盘的{data.topicLabel}？
-          </div>
-          <div style={{ fontSize: '12px', color: 'var(--tx-2)', marginBottom: '16px' }}>
-            输入生辰起盘 · 倪师正宗解读 · AI 答疑伴学
-          </div>
-          <Link href="/chart" style={{
-            display: 'inline-block',
-            padding: '12px 28px',
-            background: 'linear-gradient(135deg, #d4a948 0%, #b8922a 100%)',
-            color: 'white',
-            borderRadius: '999px',
-            fontSize: '14px',
-            fontWeight: 600,
-            letterSpacing: '0.15em',
-            textDecoration: 'none',
-            boxShadow: '0 4px 12px rgba(184,146,42,0.3)',
-          }}>
-            立即起盘 →
-          </Link>
-        </div>
-
-        {/* 内链：同主星其他 topic */}
-        <Section title={`${star}星的其他宫位解读`} minimal>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {otherTopicsForStar.map(t => {
-              const d = getKnowledge(star, t);
-              return (
-                <Link
-                  key={t}
-                  href={`/knowledge/${slug}/${t}`}
-                  style={{
-                    fontSize: '12px',
-                    padding: '6px 12px',
-                    background: 'var(--bg-card)',
-                    border: '1px solid rgba(184,146,42,0.25)',
-                    borderRadius: '999px',
-                    color: 'var(--tx-2)',
-                    textDecoration: 'none',
-                  }}
-                >
-                  {star}入{d.palaceName}
-                </Link>
-              );
-            })}
-          </div>
-        </Section>
-
-        {/* 内链：同 topic 其他主星 */}
-        <Section title={`其他主星入${data.palaceName}宫的解读`} minimal>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {otherStarsForTopic.slice(0, 13).map(s => (
-              <Link
-                key={s}
-                href={`/knowledge/${STAR_TO_SLUG[s]}/${topic}`}
-                style={{
-                  fontSize: '12px',
-                  padding: '6px 12px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid rgba(184,146,42,0.25)',
-                  borderRadius: '999px',
-                  color: 'var(--tx-2)',
-                  textDecoration: 'none',
-                }}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
+          <article className="min-w-0">
+            <header className="mb-10">
+              <p className="eyebrow mb-3">{data.topicLabel}</p>
+              <h1
+                className="text-[30px] sm:text-[40px] font-semibold leading-tight tracking-[0.06em]"
+                style={{ color: 'var(--tx-0)' }}
               >
-                {s}入{data.palaceName}
+                {star}入{data.palaceTitle}
+              </h1>
+              {STAR_BRIEF_SEO[star] && (
+                <p className="mt-3 text-[14px] leading-relaxed max-w-[60ch]" style={{ color: 'var(--tx-3)' }}>
+                  {STAR_BRIEF_SEO[star]}
+                </p>
+              )}
+            </header>
+
+            {data.parsed.dingdiao && (
+              <blockquote
+                className="mb-12 max-w-[68ch] pl-5 text-[19px] sm:text-[21px] leading-[1.7] font-medium"
+                style={{ color: 'var(--tx-0)', borderLeft: '2px solid var(--ac)', textWrap: 'pretty' }}
+              >
+                {data.parsed.dingdiao}
+              </blockquote>
+            )}
+
+            <div className="reading-prose">
+              {data.parsed.lundian && (
+                <>
+                  <h3>核心论断</h3>
+                  <Paragraphs text={data.parsed.lundian} />
+                </>
+              )}
+              {data.parsed.yiju && (
+                <>
+                  <h3>命盘依据</h3>
+                  <Paragraphs text={data.parsed.yiju} />
+                </>
+              )}
+            </div>
+
+            {data.parsed.chuchu && (
+              <section aria-labelledby="sources-title" className="mt-10 max-w-[68ch] rounded-xl p-5" style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr)' }}>
+                <h2 id="sources-title" className="text-[13px] font-semibold mb-3 tracking-[0.08em]" style={{ color: 'var(--tx-0)' }}>
+                  经典出处
+                </h2>
+                <ul className="space-y-2.5">
+                  {data.parsed.chuchu.split('\n').filter(l => l.trim()).map((line, i) => (
+                    <li key={i} className="text-[13px] leading-[1.8]" style={{ color: 'var(--tx-2)' }}>{line}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            <section className="card-glass mt-12 max-w-[68ch] rounded-2xl p-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-[15px] font-semibold mb-1" style={{ color: 'var(--tx-0)' }}>看看你自己命盘的{data.topicLabel}</p>
+                <p className="text-[13px]" style={{ color: 'var(--tx-2)' }}>输入生辰起盘，十三个主题逐项解读。</p>
+              </div>
+              <Link
+                href="/chart"
+                className="btn-cta h-11 shrink-0 px-6 text-[14px] tracking-[0.1em]"
+              >
+                立即起盘
               </Link>
-            ))}
-          </div>
-        </Section>
+            </section>
 
-        {/* 古籍库链接 */}
-        <div style={{
-          marginTop: '40px',
-          padding: '16px 20px',
-          background: 'rgba(184,146,42,0.04)',
-          border: '1px dashed rgba(184,146,42,0.25)',
-          borderRadius: '10px',
-          textAlign: 'center',
-        }}>
-          <div style={{ fontSize: '11px', color: 'var(--ac-dim)', letterSpacing: '0.15em', marginBottom: '6px' }}>
-            想读原典？
-          </div>
-          <Link href="/library" style={{ fontSize: '13px', color: 'var(--ac)', fontWeight: 500, letterSpacing: '0.1em', textDecoration: 'none' }}>
-            📜 查阅古籍原典库 — 紫微斗数全集 / 全书 / 骨髓赋 →
-          </Link>
+            <section aria-labelledby="same-palace-title" className="mt-14 max-w-[68ch]">
+              <h2 id="same-palace-title" className="text-[14px] font-semibold mb-3" style={{ color: 'var(--tx-0)' }}>
+                其他主星入{data.palaceTitle}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {otherStarsForTopic.map(s => (
+                  <Link key={s} href={`/knowledge/${STAR_TO_SLUG[s]}/${topic}`} className="chip">
+                    {s}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </article>
+
+          {/* 本星十三宫目录 */}
+          <aside aria-label={`${star}在各宫的解读`} className="lg:sticky lg:top-20 lg:self-start">
+            <p className="text-[12px] mb-2 px-3 tracking-[0.12em]" style={{ color: 'var(--tx-3)' }}>{star} · 十三宫</p>
+            <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-1">
+              {ALL_TOPICS.filter(t => getKnowledge(star, t).exists).map(t => {
+                const d = getKnowledge(star, t);
+                const current = t === topic;
+                return (
+                  <li key={t}>
+                    <Link
+                      href={`/knowledge/${slug}/${t}`}
+                      aria-current={current ? 'page' : undefined}
+                      className="topic-link"
+                    >
+                      <span>{d.palaceTitle}</span>
+                      <span className="text-[11px]" style={{ color: 'var(--tx-3)' }}>{d.topicLabel}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
         </div>
-      </article>
+      </main>
 
-      {/* 页脚 */}
-      <footer style={{ borderTop: '1px solid rgba(184,146,42,0.15)', padding: '20px 24px', textAlign: 'center', fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.1em' }}>
-        <div style={{ marginBottom: '6px' }}>紫微研究 · 基于倪海厦正宗体系 · 仅供学习参考</div>
-        <div style={{ opacity: 0.85 }}>本平台不构成任何医疗、投资、法律或重大决策建议</div>
+      <footer className="px-6 py-6 text-center text-[12px] leading-relaxed" style={{ borderTop: '1px solid var(--bdr)', color: 'var(--tx-3)' }}>
+        <p>基于倪海厦正宗体系 · 仅供学习参考</p>
+        <p>本平台不构成任何医疗、投资、法律或重大决策建议</p>
       </footer>
-    </div>
+    </>
   );
 }
 
-function Section({ title, children, gradient, minimal }: { title: string; children: React.ReactNode; gradient?: boolean; minimal?: boolean }) {
+function Paragraphs({ text }: { text: string }) {
   return (
-    <section style={{ marginBottom: minimal ? '24px' : '32px' }}>
-      <h2 style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        fontSize: '13px',
-        color: 'var(--ac)',
-        fontWeight: 600,
-        letterSpacing: '0.2em',
-        marginBottom: '12px',
-      }}>
-        <span style={{ width: '4px', height: '14px', background: 'var(--ac)', borderRadius: '2px' }} />
-        {title}
-      </h2>
-      <div style={{
-        background: gradient
-          ? 'linear-gradient(135deg, rgba(212,169,72,0.12) 0%, rgba(184,146,42,0.04) 100%)'
-          : 'white',
-        border: '1px solid rgba(184,146,42,0.15)',
-        borderRadius: '10px',
-        padding: minimal ? '14px 18px' : '20px 22px',
-      }}>
-        {children}
-      </div>
-    </section>
+    <>
+      {text.split(/\n+/).filter(p => p.trim()).map((p, i) => <p key={i}>{p}</p>)}
+    </>
   );
 }

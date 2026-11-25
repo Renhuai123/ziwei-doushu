@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 import { STEMS, SI_HUA_TABLE } from '@/lib/ziwei/constants';
 import type { ZiweiChart } from '@/lib/ziwei/types';
 
@@ -144,11 +143,8 @@ export default function TimeNav({
 
       {/* 叠加四化说明行 */}
       {overlayInfo && (
-        <motion.div
-          initial={{ opacity: 0, y: -4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex items-center gap-2 mt-1.5 px-1 flex-wrap"
+        <div
+          className="anim-drop flex items-center gap-2 mt-1.5 px-1 flex-wrap"
         >
           <span className="text-[9px]" style={{ color: 'var(--t-faint)' }}>
             {view === 'daxian' ? '大限' : `${liunianYear}`}·{overlayInfo.stemName}年四化：
@@ -162,7 +158,7 @@ export default function TimeNav({
               </span>
             );
           })}
-        </motion.div>
+        </div>
       )}
     </div>
   );

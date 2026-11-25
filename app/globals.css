@@ -18,7 +18,7 @@
   --tx-0: #0D0D0B;
   --tx-1: #1A1A18;
   --tx-2: #4A4A45;
-  --tx-3: #8A8A82;
+  --tx-3: #686860; /* 在 bg-0 至 bg-2 上都满足 WCAG AA 4.5:1 */
   --tx-inv: #F0EDE8;
   --tx-inv2: rgba(240,237,232,0.65);
 
@@ -33,6 +33,7 @@
   --quan: #1A56A8;
   --ke:   #8A7018;
   --ji:   #A83228;
+  --err:  #dc2626;
 
   /* 边框 */
   --bdr:      rgba(0,0,0,0.07);
@@ -76,6 +77,7 @@
   --ac-dim: #e8c060;
   --ac-bg:  rgba(212,168,67,0.10);
   --ac-bdr: rgba(212,168,67,0.25);
+  --err: #f87171;
 
   --bdr:      rgba(255,255,255,0.07);
   --bdr-med:  rgba(255,255,255,0.12);
@@ -434,3 +436,318 @@ body {
    select 本身是半透明底 + 浅色字，Windows 上原生下拉列表是白底，浅灰字配白底看不清（#14） */
 [data-theme="dark"] select { color-scheme: dark; }
 [data-theme="dark"] select option { background-color: var(--bg-2); color: var(--tx-1); }
+
+/* Components use these --t-* names, which the open-source snapshot never defined; alias them to the theme tokens above. */
+:root, [data-theme] {
+  --t-gold: var(--ac);
+  --t-text: var(--tx-0);
+  --t-text1: var(--tx-1);
+  --t-text2: var(--tx-2);
+  --t-faint: var(--tx-3);
+  --t-border: var(--bdr);
+  --t-border-acc: var(--ac-bdr);
+  --t-bg: var(--bg-0);
+  --t-card: var(--bg-card);
+  --t-surface: var(--bg-1);
+}
+
+/* ─── 命盘工作台（/chart）表面 ───────────────────────────────
+   展示柜：近似底色的斜向渐变 + 顶部受光、向下淡出的细边。金色只给激活态和小块数据。 */
+:root {
+  --case-from: #ffffff;
+  --case-to: #fbfaf6;
+  --case-rim: rgba(0,0,0,0.08);
+  --case-glow: rgba(255,255,255,0.9);
+  --bar-bg: rgba(250,250,249,0.78);
+}
+[data-theme="dark"] {
+  --case-from: #0d1628;
+  --case-to: #070d1a;
+  --case-rim: rgba(255,255,255,0.08);
+  --case-glow: rgba(255,255,255,0.22);
+  --bar-bg: rgba(2,8,16,0.72);
+}
+
+.card-glass {
+  position: relative;
+  background: linear-gradient(200deg, var(--case-from) 14%, var(--case-to));
+  border: 1px solid var(--case-rim);
+  box-shadow: var(--sh-sm);
+}
+.card-glass::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--case-glow);
+  -webkit-mask-image: linear-gradient(#000, transparent 38%);
+          mask-image: linear-gradient(#000, transparent 38%);
+  pointer-events: none;
+}
+
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bar-bg);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+          backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid var(--bdr);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: var(--ac);
+  font-weight: 500;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--bdr-med);
+  color: var(--tx-2);
+  font-size: 13px;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.chip:hover { color: var(--tx-0); border-color: var(--bdr-heavy); }
+.chip:focus-visible, .nav-link:focus-visible, .topic-link:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  font-size: 13px;
+  color: var(--tx-3);
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  transition: color .15s ease, background .15s ease;
+}
+.nav-link:hover { color: var(--tx-0); }
+.nav-link[aria-current="page"] { color: var(--tx-0); background: var(--ac-bg); }
+
+/* 解读阅读栏 */
+.topic-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  color: var(--tx-3);
+  text-align: left;
+  transition: color .15s ease, background .15s ease;
+}
+.topic-link:hover { color: var(--tx-0); background: var(--bg-1); }
+.topic-link[aria-selected="true"],
+.topic-link[aria-current="page"] {
+  color: var(--tx-0);
+  background: var(--ac-bg);
+  box-shadow: inset 2px 0 0 var(--ac);
+}
+.reading-prose { max-width: 68ch; }
+.reading-prose h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tx-0);
+  margin: 32px 0 10px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reading-prose h3::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: var(--ac);
+}
+.reading-prose h3:first-child { margin-top: 0; }
+.reading-prose p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--tx-2);
+  margin: 0 0 12px;
+  text-wrap: pretty;
+}
+.reading-prose strong { color: var(--tx-0); font-weight: 600; }
+
+/* 亮色下命盘里的浅黄 / 浅色字对白底不够对比，换成同色相的深一档 */
+:root:not([data-theme="dark"]) .palace-cell .text-amber-300 { color: #b45309; }
+:root:not([data-theme="dark"]) .palace-cell .text-amber-500 { color: #92400e; }
+:root:not([data-theme="dark"]) .palace-cell .text-amber-700\/80 { color: rgba(120,53,15,0.75); }
+:root:not([data-theme="dark"]) .palace-cell .text-yellow-400 { color: #a16207; }
+:root:not([data-theme="dark"]) .palace-cell .text-emerald-400 { color: #047857; }
+:root:not([data-theme="dark"]) .palace-cell .text-blue-400 { color: #1d4ed8; }
+:root:not([data-theme="dark"]) .palace-cell .text-red-400 { color: #b91c1c; }
+:root:not([data-theme="dark"]) .palace-cell .text-purple-400 { color: #7e22ce; }
+
+/* 星曜知识「星 × 宫」矩阵格 */
+.matrix-cell {
+  display: block;
+  height: 26px;
+  margin: 0 auto;
+  max-width: 44px;
+  border-radius: 6px;
+  border: 1px solid var(--bdr);
+  background: var(--bg-1);
+  position: relative;
+  transition: background .15s ease, border-color .15s ease;
+}
+.matrix-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ac);
+  opacity: .55;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.matrix-cell:hover { background: var(--ac-bg); border-color: var(--ac-bdr); }
+.matrix-cell:hover::after { opacity: 1; transform: scale(1.6); }
+.matrix-cell:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+tr:hover > th[scope="row"] { color: var(--ac) !important; }
+
+/* 古籍搜索高亮与段落定位 */
+.search-snippet mark {
+  background: var(--ac-bg);
+  color: var(--ac);
+  box-shadow: inset 0 -1px 0 var(--ac-bdr);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.classic-para:target,
+.classic-para[data-hit] { background: var(--ac-bg); border-radius: var(--r-sm); }
+
+/* 跳到正文：平时藏在视口外，键盘 Tab 聚焦时出现 */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 60;
+  padding: 8px 14px;
+  border-radius: var(--r-sm);
+  background: var(--ac);
+  color: var(--bg-0);
+  font-size: 13px;
+  font-weight: 600;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 8px; outline: 2px solid var(--tx-0); outline-offset: 2px; }
+
+/* 窄面板里的解读（AI 侧栏） */
+.reading-prose.is-compact h3 { font-size: 13px; margin: 18px 0 6px; }
+.reading-prose.is-compact h3:first-child { margin-top: 0; }
+.reading-prose.is-compact p { font-size: 13px; line-height: 1.8; margin-bottom: 6px; }
+
+/* 主操作按钮（金色渐变），起盘 / 合盘等 */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #9a6210, #c88020);
+  color: #fff8e8;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(140,100,20,0.26);
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn-cta:hover { transform: translateY(-1px); }
+.btn-cta:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+/* 隐私政策 / 服务条款正文 */
+.legal-prose { color: var(--tx-1); font-size: 15px; line-height: 1.85; }
+.legal-prose h2 { color: var(--tx-0); font-size: 17px; font-weight: 600; margin: 2.25rem 0 .75rem; text-wrap: balance; }
+.legal-prose p + p, .legal-prose ul + p { margin-top: .75rem; }
+.legal-prose ul { list-style: disc; padding-left: 1.25rem; margin-top: .5rem; }
+.legal-prose li + li { margin-top: .4rem; }
+.legal-prose strong { color: var(--tx-0); font-weight: 600; }
+.legal-prose a { color: var(--ac); text-decoration: underline; text-underline-offset: 4px; }
+.legal-prose code { font-size: .9em; padding: 0 .3em; border-radius: 4px; background: var(--bar-bg); }
+
+/* 出生信息表单 */
+.field {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--bdr-med);
+  color: var(--tx-0);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.field::placeholder { color: var(--tx-3); }
+.field:focus-visible { border-color: var(--ac); box-shadow: 0 0 0 3px var(--ac-bg); }
+.field[aria-invalid="true"] { border-color: var(--err); }
+.field:disabled { opacity: .45; cursor: not-allowed; }
+.field-label { display: block; font-size: 12px; color: var(--tx-2); margin-bottom: 6px; letter-spacing: .04em; }
+.field-note { font-size: 12px; color: var(--tx-3); margin-top: 6px; line-height: 1.6; }
+.field-error { font-size: 12px; color: var(--err); margin-top: 4px; animation: fade-in .18s ease; }
+.field-summary {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 12px;
+  background: var(--ac-bg); border: 1px solid var(--ac-bdr);
+  color: var(--tx-1); font-size: 13px;
+  animation: fade-in .2s ease;
+}
+.seg-btn {
+  flex: 1; height: 44px; border-radius: 12px;
+  background: var(--bg-1); border: 1px solid var(--bdr-med);
+  color: var(--tx-2); font-size: 14px; font-weight: 500;
+  transition: border-color .15s ease, background .15s ease, color .15s ease, transform .1s ease;
+}
+.seg-btn:hover { color: var(--tx-0); border-color: var(--bdr-heavy); }
+.seg-btn:active { transform: scale(.98); }
+.seg-btn[aria-pressed="true"] { color: var(--tx-0); border-color: var(--ac); background: var(--ac-bg); }
+.seg-btn:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+
+/* 命盘与 AI 侧栏的进场动画（取代 framer-motion）；延迟用内联 animation-delay，fill both 让延迟期间保持初始态 */
+@keyframes pop-in  { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes drop-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.anim-pop  { animation: pop-in .35s ease-out both; }
+.anim-rise { animation: rise-in .25s ease-out both; }
+.anim-drop { animation: drop-in .2s ease-out both; }
+.anim-fade { animation: fade-in .3s ease both; }
+
+/* 首页：进场（.enter）、滚动到视口（.reveal，由 components/Reveal.tsx 加 data-in）、hero 视差、滚动提示 */
+@keyframes enter-in {
+  from { opacity: 0; transform: translate(var(--enter-x, 0), var(--enter-y, 0)) scale(var(--enter-scale, 1)); }
+  to   { opacity: 1; transform: none; }
+}
+.enter { animation: enter-in var(--enter-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--enter-delay, 0s) both; }
+.reveal {
+  opacity: 0;
+  transform: translate(var(--reveal-x, 0), var(--reveal-y, 0)) scale(var(--reveal-scale, 1));
+  transition: opacity var(--reveal-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0s),
+              transform var(--reveal-dur, .6s) cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0s);
+}
+.reveal[data-in] { opacity: 1; transform: none; }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+.float-y { animation: float-y 2s ease-in-out infinite; }
+/* 视差只在支持滚动驱动动画的浏览器里启用（Chrome/Edge/Safari 26+）；不支持时 hero 保持静止 */
+@keyframes hero-parallax { 55% { opacity: 0; } to { opacity: 0; transform: translateY(28%); } }
+@supports (animation-timeline: scroll()) {
+  .hero-parallax { animation: hero-parallax linear both; animation-timeline: scroll(root); animation-range: 0 90svh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .field-error, .field-summary,
+  .anim-pop, .anim-rise, .anim-drop, .anim-fade,
+  .enter, .float-y, .hero-parallax { animation: none; opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

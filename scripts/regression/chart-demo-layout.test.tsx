@@ -33,7 +33,7 @@ const stubRequire = (name: string) => {
   if (name === '@/components/InsightPanel') return { default: InsightPanel };
   if (name === '@/components/TimeNav') return { default: TimeNav };
   if (name === '@/components/BirthForm') return { default: () => null };
-  if (name === '@/lib/ziwei/algorithm') return { generateChart };
+  if (name === '@/lib/ziwei/load-engine') return { loadEngine: async () => ({ generateChart }), usePrefetchEngine: () => {} };
   return require(name);
 };
 new Function('require', 'exports', output)(stubRequire, exports);

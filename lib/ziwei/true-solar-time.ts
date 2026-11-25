@@ -42,7 +42,6 @@ export interface TrueSolarTimeResult {
   branch: number;
 }
 
-const MINUTES_PER_DAY = 1440;
 const SECONDS_PER_DAY = 86400;
 const mod = (value: number, base: number) => ((value % base) + base) % base;
 

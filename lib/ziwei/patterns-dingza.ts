@@ -44,9 +44,6 @@ const starsAt = (c: ZiweiChart, branch: number): Star[] => palaceAt(c, branch).s
 const has = (c: ZiweiChart, branch: number, name: string): boolean =>
   starsAt(c, branch).some(s => s.name === name);
 
-const starOf = (c: ZiweiChart, branch: number, name: string): Star | undefined =>
-  starsAt(c, branch).find(s => s.name === name);
-
 const majorsAt = (c: ZiweiChart, branch: number): Star[] =>
   starsAt(c, branch).filter(s => s.type === 'major');
 

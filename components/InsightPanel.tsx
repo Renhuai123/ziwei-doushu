@@ -1,14 +1,25 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { ZiweiChart, Palace } from '@/lib/ziwei/types';
+import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
+import { readSseText } from '@/lib/ai/read-sse';
+import { cacheReply, getCachedReply, replyKey } from '@/lib/ai/reply-cache';
+import { fitHistory } from '@/lib/ai/history';
+import ReadingMarkdown from './ReadingMarkdown';
+import SkeletonLines from './SkeletonLines';
+import AiSetupNotice from './AiSetupNotice';
 import type { TimeView } from './TimeNav';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
   hidden?: boolean; // don't show user bubble for auto/topic messages
+  local?: boolean;  // 前端自己生成的提示（如失败），不作为对话上下文发给 AI
+  cached?: boolean; // 来自本标签页的缓存，可重新生成
+  request?: ApiMessage[]; // 产生这条回复的请求，重新生成时原样再发
 }
+
+type ApiMessage = { role: 'user' | 'assistant'; content: string };
 
 interface SelectedSiHua {
   starName: string;
@@ -144,55 +155,29 @@ const PALACE_ROLES: Record<string, string> = {
   '父母宫': '父母关系、文书契约',
 };
 
-/** Render AI markdown: **【Title】** → gold header, **bold** → strong */
-function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
-  const lines = text.split('\n');
-  return (
-    <div className="space-y-0.5">
-      {lines.map((line, i) => {
-        const sectionMatch = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (sectionMatch) {
-          return (
-            <div key={i} className="pt-3 pb-0.5 first:pt-0">
-              <span className="text-[11px] font-semibold tracking-wide" style={{ color: 'var(--t-gold)' }}>
-                【{sectionMatch[1]}】
-              </span>
-            </div>
-          );
-        }
-        if (line.trim() === '') return <div key={i} className="h-1" />;
-        const parts = line.split(/\*\*(.+?)\*\*/);
-        return (
-          <div key={i} className="text-[11px] leading-relaxed" style={{ color: 'var(--t-text2)' }}>
-            {parts.map((part, j) =>
-              j % 2 === 0
-                ? part
-                : <strong key={j} className="font-medium" style={{ color: 'var(--t-text)' }}>{part}</strong>
-            )}
-          </div>
-        );
-      })}
-      {streaming && (
-        <span
-          className="inline-block w-1.5 h-3 ml-0.5 animate-pulse rounded-sm align-middle"
-          style={{ background: 'var(--t-gold)', opacity: 0.6 }}
-        />
-      )}
-    </div>
-  );
-}
-
 export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: InsightPanelProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [activeTopic, setActiveTopic] = useState<string>('overview');
+  const [setupHint, setSetupHint] = useState<string | null>(null);
   const messagesRef = useRef<Message[]>([]); // always-current copy for closures
   const loadingRef = useRef(false);
   const autoLoaded = useRef(false);
   const lastPalaceBranch = useRef<number | undefined>(undefined);
   const lastSiHuaKey = useRef<string | undefined>(undefined);
   const scrollRef = useRef<HTMLDivElement>(null);
+  // 进行中的请求；离开页面或重新生成时取消，服务端随之停止生成，不再计费
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      // 开发模式的 StrictMode 会卸载后立刻重新挂载；延后一拍，确认真的离开了才取消
+      setTimeout(() => { if (!mountedRef.current) abortRef.current?.abort(); }, 0);
+    };
+  }, []);
 
   // Keep refs in sync
   useEffect(() => { messagesRef.current = messages; }, [messages]);
@@ -205,6 +190,91 @@ export default function InsightPanel({ chart, selectedPalace, selectedSiHua }: I
     }
   }, [messages]);
 
+  const finish = () => {
+    setLoading(false);
+    loadingRef.current = false;
+  };
+
+  const streamResponse = async (apiMessages: ApiMessage[], fresh = false) => {
+    // 同一张盘、同样的对话，本标签页里已有完整回复就直接用（刷新后的命格总览最常见）
+    const key = replyKey(chart.birthInfo, apiMessages);
+    const cached = fresh ? null : getCachedReply(key);
+    if (cached) {
+      setMessages(prev => [...prev, { role: 'assistant', content: cached, cached: true, request: apiMessages }]);
+      finish();
+      return;
+    }
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    try {
+      const res = await fetch('/api/interpret', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chart, messages: apiMessages }),
+        signal: controller.signal,
+      });
+      const notice = await readNotConfiguredNotice(res);
+      if (notice) {
+        setSetupHint(notice);
+        return;
+      }
+      const limitNotice = readRateLimitNotice(res);
+      if (limitNotice) {
+        setMessages(prev => [...prev, { role: 'assistant', content: limitNotice, local: true }]);
+        return;
+      }
+      if (!res.ok) throw new Error('请求失败');
+      if (!res.body) throw new Error('无响应流');
+
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+      const reply = await readSseText(res.body, text => {
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1] = { role: 'assistant', content: text };
+          return updated;
+        });
+      });
+      // 只缓存完整、没被服务端中断的回复
+      if (reply.done && !reply.failed && reply.text) cacheReply(key, reply.text);
+    } catch {
+      if (controller.signal.aborted) return; // 主动取消（离开页面或重新生成），不算失败
+      setMessages(prev => [...prev, { role: 'assistant', content: '解读失败，请稍后重试。', local: true }]);
+    } finally {
+      if (abortRef.current === controller) abortRef.current = null;
+      finish();
+    }
+  };
+
+  // 丢掉缓存的这条回复，按原请求重新向 AI 要一次
+  const regenerate = (request: ApiMessage[]) => {
+    if (loadingRef.current) return;
+    loadingRef.current = true;
+    setLoading(true);
+    setMessages(prev => prev.slice(0, -1));
+    streamResponse(request, true);
+  };
+
+  const sendMessage = (text: string, hidden = false) => {
+    if (!text.trim() || loadingRef.current) return;
+    loadingRef.current = true;
+    setLoading(true);
+
+    const userMsg: Message = { role: 'user', content: text, hidden };
+    // Capture current messages synchronously via ref (avoids stale closure)
+    const apiMessages = fitHistory(
+      [...messagesRef.current, userMsg]
+        .filter(m => !m.local)
+        .map(m => ({ role: m.role, content: m.content })),
+    );
+
+    setMessages(prev => [...prev, userMsg]);
+    setInput('');
+    streamResponse(apiMessages);
+  };
+
+  // 以下 effect 调用 sendMessage，放在它的定义之后
   // Auto-generate 命格总览 on mount
   useEffect(() => {
     if (autoLoaded.current) return;
@@ -274,68 +344,6 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
     sendMessage(prompt, true);
   }, [selectedSiHua]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const streamResponse = async (apiMessages: { role: 'user' | 'assistant'; content: string }[]) => {
-    try {
-      const res = await fetch('/api/interpret', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chart, messages: apiMessages }),
-      });
-      if (res.status === 404) throw new Error('api-missing');
-      if (!res.ok) throw new Error('请求失败');
-      if (!res.body) throw new Error('无响应流');
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantText = '';
-
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split('\n')) {
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const delta = JSON.parse(data).delta?.text ?? '';
-            assistantText += delta;
-            setMessages(prev => {
-              const updated = [...prev];
-              updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-              return updated;
-            });
-          } catch { /* skip */ }
-        }
-      }
-    } catch (e) {
-      const missing = e instanceof Error && e.message === 'api-missing';
-      setMessages(prev => [...prev, { role: 'assistant', content: missing ? '开源版不含 AI 解读接口（/api/interpret），需要你自己实现后才能用，详见 README「快速开始」。排盘本身不需要任何 API Key。' : '解读失败，请稍后重试。' }]);
-    } finally {
-      setLoading(false);
-      loadingRef.current = false;
-    }
-  };
-
-  const sendMessage = (text: string, hidden = false) => {
-    if (!text.trim() || loadingRef.current) return;
-    loadingRef.current = true;
-    setLoading(true);
-
-    const userMsg: Message = { role: 'user', content: text, hidden };
-    // Capture current messages synchronously via ref (avoids stale closure)
-    const apiMessages = [...messagesRef.current, userMsg].map(m => ({
-      role: m.role,
-      content: m.content,
-    }));
-
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
-    streamResponse(apiMessages);
-  };
-
   const handleTopicClick = (topicKey: string) => {
     if (loadingRef.current) return;
     setActiveTopic(topicKey);
@@ -347,10 +355,14 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
   };
 
   return (
-    <div className="flex flex-col h-[min(44rem,80dvh)] min-h-0 min-w-0 rounded-xl overflow-hidden card-glass">
+    <div className={`flex flex-col ${setupHint ? 'h-auto' : 'h-[min(44rem,80dvh)]'} min-h-0 min-w-0 rounded-2xl overflow-hidden card-glass`}>
 
       {/* ── Topic buttons ── */}
-      <div className="flex-shrink-0 px-2 pt-2.5 pb-2" style={{ borderBottom: '1px solid var(--t-border)' }}>
+      <div className="flex-shrink-0 px-3 pt-3 pb-3" style={{ borderBottom: '1px solid var(--bdr)' }}>
+        <div className="flex items-center justify-between mb-2.5 px-1">
+          <span className="text-[13px] font-semibold" style={{ color: 'var(--tx-0)' }}>AI 解读</span>
+          <span className="text-[11px]" style={{ color: 'var(--tx-3)' }}>点宫位可单独分析</span>
+        </div>
         <div className="grid grid-cols-6 gap-1">
           {TOPICS.map(t => {
             const isActive = activeTopic === t.key;
@@ -358,12 +370,13 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
               <button
                 key={t.key}
                 onClick={() => handleTopicClick(t.key)}
-                disabled={loading}
-                className="py-1.5 text-[10px] font-medium rounded-lg transition-all duration-150 disabled:opacity-40"
+                disabled={loading || !!setupHint}
+                aria-pressed={isActive}
+                className="py-1.5 text-[12px] font-medium rounded-lg transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{
-                  background: isActive ? 'rgba(212,168,67,0.12)' : 'transparent',
-                  border: `1px solid ${isActive ? 'rgba(212,168,67,0.3)' : 'var(--t-border)'}`,
-                  color: isActive ? 'var(--t-gold)' : 'var(--t-faint)',
+                  background: isActive ? 'var(--ac-bg)' : 'transparent',
+                  border: `1px solid ${isActive ? 'var(--ac-bdr)' : 'var(--bdr)'}`,
+                  color: isActive ? 'var(--ac)' : 'var(--tx-3)',
                 }}
               >
                 {t.label}
@@ -377,86 +390,96 @@ ${selectedSiHua.starName}化${selectedSiHua.siHua}落在【${palaceName}】，�
       <div ref={scrollRef} className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-4 min-h-0">
 
         {/* Loading state before first message */}
-        {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center">
-            <div className="text-4xl mb-3" style={{ color: 'var(--t-gold)', opacity: 0.1 }}>✦</div>
-            <p className="text-[10px] animate-pulse" style={{ color: 'var(--t-faint)' }}>命格解读生成中…</p>
+        {setupHint ? (
+          <div className="flex flex-col justify-center h-full px-2">
+            <div
+              aria-hidden
+              className="mb-4 grid h-10 w-10 place-items-center rounded-full text-[16px]"
+              style={{ border: '1px solid var(--ac-bdr)', background: 'var(--ac-bg)', color: 'var(--ac)' }}
+            >
+              ✦
+            </div>
+            <AiSetupNotice title="AI 解读未启用" unaffected="命盘与下方十三个主题的解读都可正常查看。" hint={setupHint} />
           </div>
+        ) : messages.length === 0 && (
+          <div className="pt-1"><SkeletonLines thin widths={[70, 100, 92, 100, 64]} label="命格解读生成中" /></div>
         )}
 
-        <AnimatePresence initial={false}>
-          {messages.map((msg, i) => {
+        {messages.map((msg, i) => {
             if (msg.role === 'user' && msg.hidden) return null;
 
             if (msg.role === 'user') {
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-end"
-                >
+                <div key={i} className="anim-rise flex justify-end">
                   <div
-                    className="max-w-[85%] rounded-xl px-3 py-2 text-[11px]"
+                    className="max-w-[85%] rounded-xl px-3 py-2 text-[13px]"
                     style={{
-                      background: 'rgba(212,168,67,0.08)',
-                      border: '1px solid rgba(212,168,67,0.18)',
-                      color: 'var(--t-gold)',
+                      background: 'var(--ac-bg)',
+                      border: '1px solid var(--ac-bdr)',
+                      color: 'var(--tx-0)',
                     }}
                   >
                     {msg.content}
                   </div>
-                </motion.div>
+                </div>
               );
             }
 
             // Assistant message
             const isLastMsg = i === messages.length - 1;
             return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
+              <div key={i} className="anim-rise">
                 <div
-                  className="text-[9px] tracking-widest mb-2 flex items-center gap-1.5"
-                  style={{ color: 'var(--t-faint)' }}
+                  className="text-[11px] tracking-widest mb-2 flex items-center gap-1.5"
+                  style={{ color: 'var(--tx-3)' }}
                 >
-                  <span style={{ color: 'var(--t-gold)', opacity: 0.4 }}>✦</span>
+                  <span style={{ color: 'var(--ac)' }}>✦</span>
                   命理解读
                 </div>
-                <AiContent text={msg.content} streaming={loading && isLastMsg} />
-              </motion.div>
+                <ReadingMarkdown compact text={msg.content} streaming={loading && isLastMsg} />
+                {msg.cached && msg.request && isLastMsg && !loading && (
+                  <p className="mt-2 text-[11px]" style={{ color: 'var(--tx-3)' }}>
+                    本标签页之前生成过这段解读，直接显示了缓存。
+                    <button
+                      type="button"
+                      onClick={() => regenerate(msg.request!)}
+                      className="ml-1 underline underline-offset-2"
+                      style={{ color: 'var(--ac)' }}
+                    >
+                      重新生成
+                    </button>
+                  </p>
+                )}
+              </div>
             );
           })}
-        </AnimatePresence>
       </div>
 
       {/* ── Input ── */}
-      <div className="flex-shrink-0 px-3 pb-3 pt-2" style={{ borderTop: '1px solid var(--t-border)' }}>
+      <div className="flex-shrink-0 px-3 pb-3 pt-3" style={{ borderTop: '1px solid var(--bdr)' }}>
         <div className="flex gap-2">
           <input
             type="text"
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleSend()}
-            placeholder="继续追问，如：今年适合换工作吗？"
-            disabled={loading}
-            className="flex-1 rounded-lg px-3 py-2 text-[11px] focus:outline-none transition-colors"
+            placeholder={setupHint ? '配置 AI 后可追问' : '继续追问，如：今年适合换工作吗？'}
+            aria-label="追问内容"
+            disabled={loading || !!setupHint}
+            className="flex-1 min-w-0 rounded-lg px-3 h-10 text-[13px] outline-none transition-colors focus:border-[var(--ac-bdr)] disabled:cursor-not-allowed"
             style={{
-              background: 'var(--t-card)',
-              border: '1px solid var(--t-border)',
-              color: 'var(--t-text)',
+              background: 'var(--bg-1)',
+              border: '1px solid var(--bdr-med)',
+              color: 'var(--tx-0)',
             }}
           />
           <button
             onClick={handleSend}
-            disabled={loading || !input.trim()}
-            className="px-3 py-2 rounded-lg text-[11px] font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            disabled={loading || !input.trim() || !!setupHint}
+            className="px-4 h-10 rounded-lg text-[13px] font-medium transition-opacity disabled:opacity-35 disabled:cursor-not-allowed"
             style={{
-              background: 'rgba(212,168,67,0.15)',
-              border: '1px solid rgba(212,168,67,0.25)',
-              color: 'var(--t-gold)',
+              background: 'var(--ac)',
+              color: 'var(--bg-0)',
             }}
           >
             {loading ? '…' : '追问'}

@@ -1,57 +1,62 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useCallback, useRef, useEffect, type ReactNode } from 'react';
 import BirthForm, { type BirthFormState } from '@/components/BirthForm';
 import { formToBirthInfo } from '@/lib/ziwei/share';
-import { generateChart as buildChart } from '@/lib/ziwei/algorithm';
 import type { BirthInfo, ZiweiChart } from '@/lib/ziwei/types';
-import { useTheme } from '@/components/ThemeProvider';
+import { readNotConfiguredNotice, readRateLimitNotice } from '@/lib/ai/not-configured';
+import { readSseText } from '@/lib/ai/read-sse';
+import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
+import ReadingMarkdown from '@/components/ReadingMarkdown';
+import SkeletonLines from '@/components/SkeletonLines';
+import AiSetupNotice from '@/components/AiSetupNotice';
+import { RecentPicker } from '@/components/RecentCharts';
+import { saveToHistory } from '@/lib/ziwei/history';
+import { formsFromHemingHash, hemingHash, replaceHash } from '@/lib/ziwei/chart-link';
+import { CopyLinkButton, RestoreFromHash } from '@/components/ShareLink';
+import { loadEngine, usePrefetchEngine } from '@/lib/ziwei/load-engine';
+import { BRANCHES, SHICHEN } from '@/lib/ziwei/constants';
 
-// ─── AiContent 渲染器（与 InsightPanel 一致）────────────────
-function AiContent({ text, streaming }: { text: string; streaming?: boolean }) {
-  const lines = text.split('\n');
+/** 一方命盘的要点：命宫主星、五行局、当前大限。 */
+function chartFacts(chart: ZiweiChart) {
+  const ming = chart.palaces.find(p => p.branch === chart.mingGongBranch);
+  const majors = ming?.stars.filter(s => s.type === 'major').map(s => s.name + (s.siHua ? `化${s.siHua}` : '')) ?? [];
+  const dx = chart.currentDaXianIndex >= 0 ? chart.daXians[chart.currentDaXianIndex] : null;
+  const { year, month, day, hour, gender } = chart.birthInfo;
+  return [
+    { label: '出生', value: `${year}.${month}.${day} ${SHICHEN[hour]?.name ?? ''} · ${gender === 'male' ? '男' : '女'}` },
+    { label: '命宫', value: `${BRANCHES[chart.mingGongBranch]}宫 · ${majors.length ? majors.join(' ') : '空宫'}` },
+    { label: '身宫', value: `${BRANCHES[chart.shenGongBranch]}宫` },
+    { label: '五行局', value: chart.wuxingJuName },
+    { label: '当前大限', value: dx ? `${dx.startAge}–${dx.endAge}岁 · ${dx.palaceName}` : '童限' },
+  ];
+}
+
+const QUICK_QUESTIONS = [
+  '感情匹配度如何？',
+  '适合合伙创业吗？',
+  '两人结婚是否合适？',
+  '哪方面最容易产生矛盾？',
+  '财运是否互补？',
+];
+
+function PartyLabel({ mark, title, children }: { mark: string; title: string; children?: ReactNode }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-      {lines.map((line, i) => {
-        const sectionMatch = line.match(/^\*\*【(.+?)】\*\*$/);
-        if (sectionMatch) {
-          return (
-            <div key={i} style={{ paddingTop: i === 0 ? 0 : '14px', paddingBottom: '4px' }}>
-              <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--ac)', letterSpacing: '0.04em' }}>
-                【{sectionMatch[1]}】
-              </span>
-            </div>
-          );
-        }
-        if (line.trim() === '') return <div key={i} style={{ height: '4px' }} />;
-        const parts = line.split(/\*\*(.+?)\*\*/);
-        return (
-          <div key={i} style={{ fontSize: '13px', lineHeight: 1.75, color: 'var(--tx-2)' }}>
-            {parts.map((part, j) =>
-              j % 2 === 0
-                ? part
-                : <strong key={j} style={{ fontWeight: 500, color: 'var(--tx-0)' }}>{part}</strong>
-            )}
-          </div>
-        );
-      })}
-      {streaming && (
-        <span style={{
-          display: 'inline-block', width: '7px', height: '13px',
-          background: 'var(--ac)', opacity: 0.5, borderRadius: '2px',
-          animation: 'pulse 1s ease-in-out infinite',
-          verticalAlign: 'middle', marginLeft: '2px',
-        }} />
-      )}
+    <div className="flex items-center gap-2.5 mb-3">
+      <span
+        className="grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold"
+        style={{ border: '1px solid var(--ac-bdr)', background: 'var(--ac-bg)', color: 'var(--ac)' }}
+      >
+        {mark}
+      </span>
+      <h2 className="text-[14px] font-medium" style={{ color: 'var(--tx-0)' }}>{title}</h2>
+      {children && <div className="ml-auto min-w-0">{children}</div>}
     </div>
   );
 }
 
 export default function HemingPage() {
-  const router = useRouter();
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
+  usePrefetchEngine();
   // ─── 双方命盘状态 ─────────────────────────────────────────
   const [chartA, setChartA] = useState<ZiweiChart | null>(null);
   const [chartB, setChartB] = useState<ZiweiChart | null>(null);
@@ -64,15 +69,41 @@ export default function HemingPage() {
   const [analyzing, setAnalyzing] = useState(false);
   const [question, setQuestion] = useState('');
   const [analysisError, setAnalysisError] = useState(false);
-  // 开源版不含 /api/heming：接口 404 时单独说明，而不是让用户反复重试
-  const [apiMissing, setApiMissing] = useState(false);
+  // /api/heming 返回 503（AI 未配置）时给出配置提示，而不是让用户反复重试
+  const [notConfiguredNotice, setNotConfiguredNotice] = useState<string | null>(null);
+  // 返回 429（请求太频繁）时提示等多久，而不是笼统的「暂时不可用」
+  const [rateLimitNotice, setRateLimitNotice] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const analysisRef = useRef<HTMLDivElement>(null);
+  // 进行中的 AI 请求；离开页面时取消，服务端随之停止生成，不再计费
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      // 开发模式的 StrictMode 会卸载后立刻重新挂载；延后一拍，确认真的离开了才取消
+      setTimeout(() => { if (!mountedRef.current) abortRef.current?.abort(); }, 0);
+    };
+  }, []);
+
+  // 从「最近排过」填入：换 key 让表单按 initialData 重新挂载，挂载后 onFormSave 会同步回 formA / formB
+  const [initA, setInitA] = useState<BirthFormState | undefined>();
+  const [initB, setInitB] = useState<BirthFormState | undefined>();
+  const [keyA, setKeyA] = useState(0);
+  const [keyB, setKeyB] = useState(0);
+
+  // 合盘成功排出的两张盘也记进「最近排过」，排盘页和下次合盘都能直接选
+  useEffect(() => { if (chartA && formA) saveToHistory(formA); }, [chartA]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (chartB && formB) saveToHistory(formB); }, [chartB]); // eslint-disable-line react-hooks/exhaustive-deps
+  // 合盘成功后把双方出生信息写进地址的 #：刷新后回填，也可复制链接分享（打开链接不会自动调用 AI）
+  useEffect(() => { if (chartA && chartB && formA && formB) replaceHash(hemingHash(formA, formB)); }, [chartA, chartB]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ─── 起盘（单次调用，返回 chart 给统一流程使用）──────────
   // 开源版不含后端 /api/generate：直接用本仓库的排盘引擎在浏览器里起盘
   const generateChart = useCallback(async (info: BirthInfo): Promise<ZiweiChart | null> => {
     try {
+      const { generateChart: buildChart } = await loadEngine();
       return buildChart(info);
     } catch {
       return null;
@@ -93,6 +124,12 @@ export default function HemingPage() {
     setAnalyzing(true);
     setAnalysis('');
     setAnalysisError(false);
+    setNotConfiguredNotice(null);
+    setRateLimitNotice(null);
+    // 重新分析或追问时，取消还没生成完的上一次
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     try {
       // 每次按当前表单起盘，避免编辑出生信息后复用旧盘。
@@ -101,7 +138,8 @@ export default function HemingPage() {
         generateChart(formToBirthInfo(formB!)),
       ]);
       if (!cA || !cB) {
-        setAnalysisError(true);
+        // 失败的是排盘（多半是引擎没下载完），不是 AI 分析，提示放在按钮下方
+        setFormError('排盘没有成功：请检查网络后重试，或核对双方日期是否真实存在。');
         setAnalyzing(false);
         return;
       }
@@ -112,258 +150,190 @@ export default function HemingPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chartA: cA, chartB: cB, question: q ?? undefined }),
+        signal: controller.signal,
       });
-      if (res.status === 404) { setApiMissing(true); throw new Error('api-missing'); }
+      const notice = await readNotConfiguredNotice(res);
+      if (notice) { setNotConfiguredNotice(notice); throw new Error(notice); }
+      const limitNotice = readRateLimitNotice(res);
+      if (limitNotice) { setRateLimitNotice(limitNotice); throw new Error(limitNotice); }
       if (!res.ok || !res.body) throw new Error();
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let text = '';
-      let pendingLine = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        pendingLine += decoder.decode(value, { stream: true });
-        const lines = pendingLine.split('\n');
-        pendingLine = lines.pop() ?? '';
-        for (const rawLine of lines) {
-          const line = rawLine.endsWith('\r') ? rawLine.slice(0, -1) : rawLine;
-          if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6);
-          if (data === '[DONE]') break;
-          try {
-            const delta = JSON.parse(data).delta?.text ?? '';
-            text += delta;
-            setAnalysis(text);
-          } catch { /* skip */ }
-        }
-      }
+      await readSseText(res.body, setAnalysis);
       // scroll to analysis
       setTimeout(() => analysisRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } catch {
-      setAnalysisError(true);
+      // 主动取消（离开页面或开始了新一次分析）不算失败
+      if (!controller.signal.aborted) setAnalysisError(true);
     } finally {
-      setAnalyzing(false);
+      // 已被新一次分析接手时，加载状态交给新的那次
+      if (abortRef.current === controller) {
+        abortRef.current = null;
+        setAnalyzing(false);
+      }
     }
   }, [formA, formB, generateChart]);
 
-  const cardStyle = {
-    background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.9)',
-    border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(200,160,60,0.2)'}`,
-    borderRadius: '16px',
-    padding: '24px',
-  };
-
-  const labelStyle = {
-    fontSize: '10px', letterSpacing: '0.4em', color: 'var(--ac)', opacity: 0.7,
-    marginBottom: '16px', display: 'block',
-  };
+  const cardStyle = 'card-glass rounded-2xl';
+  const showResult = analyzing || !!analysis || analysisError;
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-0)' }}>
-      {/* 顶栏 */}
-      <header style={{
-        position: 'sticky', top: 0, zIndex: 50,
-        background: isDark ? 'rgba(2,8,16,0.88)' : 'rgba(250,245,235,0.92)',
-        backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid var(--bdr)',
-        display: 'flex', alignItems: 'center', padding: '0 24px', height: '52px', gap: '16px',
-      }}>
-        <button
-          onClick={() => router.push('/')}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '4px', fontSize: '13px',
-            color: 'var(--tx-3)', background: 'none', border: 'none', cursor: 'pointer',
-          }}
-        >
-          <span style={{ fontSize: '16px' }}>‹</span>
-          <span>返回</span>
-        </button>
-        <div style={{ width: '1px', height: '20px', background: 'var(--bdr-med)' }} />
-        <span style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em' }}>合盘分析</span>
-        <div style={{ flex: 1 }} />
-        <span style={{ fontSize: '11px', color: 'var(--tx-3)' }}>感情 · 合伙 · 亲子 · 朋友</span>
-      </header>
+    <>
+      <SiteHeader />
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
+        <PageIntro eyebrow="紫微斗数 · 合盘" title="两张命盘，看缘分与相处">
+          分别填写两个人的出生信息，先并排对照双方命盘要点，再由 AI 按倪海厦体系分析匹配度、相处方式与关键年份。适用于感情、合伙、亲子与朋友。
+        </PageIntro>
 
-      {/* 主体 */}
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px 80px' }}>
+        <RestoreFromHash
+          parse={formsFromHemingHash}
+          onFound={({ a, b }) => { setInitA(a); setInitB(b); setKeyA(k => k + 1); setKeyB(k => k + 1); }}
+          onInvalid={() => { replaceHash(''); setFormError('这个合盘链接不完整或有误，请重新填写双方出生信息。'); }}
+        />
+        {/* 双方表单：中间一枚「合」字印连接两侧 */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-4">
+          <section aria-label="甲方出生信息" className="min-w-0">
+            <PartyLabel mark="甲" title="甲方">
+              <RecentPicker label="从最近排过填入甲方" onPick={f => { setInitA(f); setKeyA(k => k + 1); }} />
+            </PartyLabel>
+            <BirthForm key={keyA} initialData={initA} hideSubmit onSubmit={() => {}} onFormSave={setFormA} />
+          </section>
 
-        {/* 标题 */}
-        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-          <div style={{ fontSize: '28px', color: 'var(--ac)', opacity: 0.15, marginBottom: '12px' }}>☯</div>
-          <h1 style={{ fontSize: '22px', fontWeight: 600, letterSpacing: '0.15em', color: 'var(--tx-0)', marginBottom: '8px' }}>
-            紫微合盘
-          </h1>
-          <p style={{ fontSize: '13px', color: 'var(--tx-3)', lineHeight: 1.6 }}>
-            输入两个人的出生信息，AI 基于倪海厦体系分析双方命盘的缘分匹配度、感情走向与相处建议
+          <div aria-hidden className="hidden md:flex flex-col items-center pt-10">
+            <div className="w-px flex-1" style={{ background: 'linear-gradient(to bottom, transparent, var(--ac-bdr))' }} />
+            <div
+              className="my-3 grid h-12 w-12 place-items-center rounded-full text-[18px] font-semibold"
+              style={{ border: '1px solid var(--ac-bdr)', background: 'var(--bg-0)', color: 'var(--ac)', boxShadow: '0 0 0 6px var(--ac-bg)' }}
+            >
+              合
+            </div>
+            <div className="w-px flex-1" style={{ background: 'linear-gradient(to top, transparent, var(--ac-bdr))' }} />
+          </div>
+
+          <section aria-label="乙方出生信息" className="min-w-0">
+            <PartyLabel mark="乙" title="乙方">
+              <RecentPicker label="从最近排过填入乙方" onPick={f => { setInitB(f); setKeyB(k => k + 1); }} />
+            </PartyLabel>
+            <BirthForm key={keyB} initialData={initB} hideSubmit onSubmit={() => {}} onFormSave={setFormB} />
+          </section>
+        </div>
+
+        {/* 主操作 */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <button
+            type="button"
+            onClick={() => runAnalysis()}
+            disabled={analyzing}
+            className="btn-cta h-12 px-10 text-[15px] tracking-[0.12em]"
+          >
+            {analyzing ? '分析中…' : chartA ? '重新合盘' : '开始合盘'}
+          </button>
+          <p role="status" className="text-[13px] min-h-[1.25rem]" style={{ color: formError ? '#dc2626' : 'var(--tx-3)' }}>
+            {formError ?? (chartA ? '改了出生信息后点「重新合盘」即可更新' : '两方信息都填齐后即可开始')}
           </p>
+          {chartA && chartB && <CopyLinkButton label="复制合盘链接" />}
         </div>
 
-        {/* 双栏表单 */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}
-          className="heming-grid">
-          {/* 甲方 */}
-          <div style={cardStyle}>
-            <span style={labelStyle}>甲方 — A</span>
-            <BirthForm
-              hideSubmit
-              onSubmit={() => {}}
-              onFormSave={setFormA}
-            />
-          </div>
-
-          {/* 乙方 */}
-          <div style={cardStyle}>
-            <span style={labelStyle}>乙方 — B</span>
-            <BirthForm
-              hideSubmit
-              onSubmit={() => {}}
-              onFormSave={setFormB}
-            />
-          </div>
-        </div>
-
-        {/* ═══ 大合盘分析框（视觉中心，始终显示）════════════════ */}
-        <div ref={analysisRef} style={{
-          ...cardStyle,
-          minHeight: '320px',
-          padding: '32px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: (!analysis && !analyzing) ? 'center' : 'flex-start',
-        }}>
-          {/* 区块标题 */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: (analysis || analyzing) ? '20px' : '24px' }}>
-            <span style={{ color: 'var(--ac)', opacity: 0.6 }}>◉</span>
-            <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: 'var(--tx-3)' }}>合盘分析 · HEMING</span>
-          </div>
-
-          {/* 状态分支 */}
-          {!analysis && !analyzing && (
-            <div style={{ textAlign: 'center', padding: '32px 0' }}>
-              <div style={{ fontSize: '13px', color: 'var(--tx-3)', marginBottom: '24px', lineHeight: 1.7 }}>
-                填好双方出生信息后，点击下方按钮<br />
-                AI 将基于倪海厦体系深度分析两人缘分匹配度
-              </div>
-              <button
-                onClick={() => runAnalysis()}
-                style={{
-                  padding: '14px 40px', borderRadius: 'var(--r-pill)', border: 'none',
-                  background: 'linear-gradient(135deg, #9a6210, #c88020)',
-                  color: '#fff8e8', fontSize: '14px', fontWeight: 600,
-                  letterSpacing: '0.15em', cursor: 'pointer',
-                  boxShadow: '0 4px 16px rgba(140,100,20,0.25)',
-                  transition: 'transform 0.15s',
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
-              >
-                开始合盘分析
-              </button>
-              {formError && (
-                <div style={{ marginTop: '20px', fontSize: '13px', color: '#dc2626' }}>
-                  {formError}
-                </div>
-              )}
+        {/* 双方命盘对照（起盘即显示，不依赖 AI） */}
+        {chartA && chartB && (
+          <section aria-label="双方命盘对照" className={`${cardStyle} mt-8 p-5 sm:p-6`}>
+            <div className="flex items-baseline justify-between mb-4">
+              <h2 className="text-[16px] font-semibold" style={{ color: 'var(--tx-0)' }}>双方命盘对照</h2>
+              <span className="text-[12px]" style={{ color: 'var(--tx-3)' }}>按当前填写的出生信息排盘</span>
             </div>
-          )}
-
-          {analyzing && !analysis && (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '40px 0', color: 'var(--tx-3)', fontSize: '13px' }}>
-              <div style={{
-                width: '14px', height: '14px',
-                border: '2px solid var(--bdr-med)', borderTopColor: 'var(--ac)',
-                borderRadius: '50%', animation: 'spin 0.8s linear infinite',
-              }} />
-              正在对比双方命盘…
+            <div className="overflow-x-auto -mx-1 px-1">
+              <table className="w-full min-w-[480px] text-[13px] border-collapse">
+                <thead>
+                  <tr>
+                    <th className="w-24" />
+                    {[chartA, chartB].map((c, i) => (
+                      <th key={i} scope="col" className="text-left font-medium pb-3" style={{ color: 'var(--ac)' }}>
+                        {i === 0 ? '甲方' : '乙方'}{c.birthInfo.name ? ` · ${c.birthInfo.name}` : ''}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {chartFacts(chartA).map((row, r) => (
+                    <tr key={row.label} style={{ borderTop: '1px solid var(--bdr)' }}>
+                      <th scope="row" className="text-left font-normal py-2.5 pr-4 whitespace-nowrap" style={{ color: 'var(--tx-3)' }}>
+                        {row.label}
+                      </th>
+                      <td className="py-2.5 pr-4 tabular-nums" style={{ color: 'var(--tx-1)' }}>{row.value}</td>
+                      <td className="py-2.5 tabular-nums" style={{ color: 'var(--tx-1)' }}>{chartFacts(chartB)[r].value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          )}
-
-          {analysis && <AiContent text={analysis} streaming={analyzing} />}
-
-          {analysisError && (
-            <div style={{ padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--bdr)', background: 'var(--bg-card)', fontSize: '13px', color: 'var(--tx-2)', marginTop: '12px' }}>
-              {apiMissing
-                ? '开源版不含合盘 AI 分析接口（/api/heming），需要你自己实现后才能用。两人的命盘可以分别到「排盘」页（/chart）查看。'
-                : '分析暂时不可用，请重试。'}
-            </div>
-          )}
-        </div>
-
-        {/* ═══ 针对合盘的追问聊天框（仅分析完成后显示）═══════════ */}
-        {analysis && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '16px' }}>
-            <div style={{ fontSize: '11px', letterSpacing: '0.2em', color: 'var(--tx-3)', marginBottom: '4px' }}>
-              针对此次合盘继续追问
-            </div>
-
-            {/* 快捷问题 */}
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              {[
-                '感情匹配度如何？',
-                '适合合伙创业吗？',
-                '两人结婚是否合适？',
-                '哪方面最容易产生矛盾？',
-                '财运是否互补？',
-              ].map(q => (
-                <button
-                  key={q}
-                  onClick={() => { setQuestion(q); runAnalysis(q); }}
-                  disabled={analyzing}
-                  style={{
-                    fontSize: '12px', padding: '6px 14px',
-                    borderRadius: 'var(--r-pill)',
-                    border: '1px solid var(--bdr-med)',
-                    background: 'transparent', color: 'var(--tx-2)',
-                    cursor: analyzing ? 'not-allowed' : 'pointer',
-                    opacity: analyzing ? 0.5 : 1,
-                    transition: 'border-color 0.15s',
-                  }}
-                  onMouseEnter={e => { if (!analyzing) (e.currentTarget as HTMLElement).style.borderColor = 'var(--ac-bdr)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--bdr-med)'; }}
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-
-            {/* 输入框 + 追问按钮 */}
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <input
-                type="text"
-                value={question}
-                onChange={e => setQuestion(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter' && !analyzing) runAnalysis(question || undefined); }}
-                placeholder="继续追问，如：哪几年是两人感情关键期？"
-                disabled={analyzing}
-                className="input-base"
-                style={{ fontSize: '13px', flex: 1 }}
-              />
-              <button
-                onClick={() => runAnalysis(question || undefined)}
-                disabled={analyzing}
-                style={{
-                  padding: '10px 20px', borderRadius: 'var(--r-sm)', border: 'none',
-                  background: analyzing ? 'var(--bg-2)' : 'var(--tx-0)',
-                  color: analyzing ? 'var(--tx-3)' : 'white',
-                  fontSize: '13px', fontWeight: 500,
-                  cursor: analyzing ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.15s', whiteSpace: 'nowrap',
-                }}
-              >
-                {analyzing ? '分析中…' : '继续追问'}
-              </button>
-            </div>
-          </div>
+          </section>
         )}
-      </div>
 
-      <style>{`
-        @media (max-width: 680px) {
-          .heming-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-    </div>
+        {/* AI 合盘分析 */}
+        {showResult && (
+          <section ref={analysisRef} aria-label="合盘分析" aria-busy={analyzing} className={`${cardStyle} mt-6 p-5 sm:p-8 scroll-mt-20`}>
+            <div className="flex items-center gap-2 mb-6">
+              <span style={{ color: 'var(--ac)' }}>✦</span>
+              <h2 className="text-[16px] font-semibold" style={{ color: 'var(--tx-0)' }}>AI 合盘分析</h2>
+            </div>
+
+            {analyzing && !analysis && (
+              <div className="max-w-[68ch]"><SkeletonLines widths={[64, 100, 92, 100, 80, 48]} label="正在对比双方命盘" /></div>
+            )}
+
+            {analysis && <ReadingMarkdown text={analysis} streaming={analyzing} />}
+
+            {analysisError && notConfiguredNotice && (
+              <AiSetupNotice title="AI 合盘未启用" unaffected="上方的双方命盘对照不受影响。" hint={notConfiguredNotice} />
+            )}
+
+            {analysisError && !notConfiguredNotice && (
+              <p className="text-[14px]" style={{ color: 'var(--tx-2)' }}>{rateLimitNotice ?? '分析暂时不可用，请稍后重试。'}</p>
+            )}
+
+            {/* 追问（分析完成后） */}
+            {analysis && (
+              <div className="mt-10 pt-6" style={{ borderTop: '1px solid var(--bdr)' }}>
+                <p className="text-[13px] font-medium mb-3" style={{ color: 'var(--tx-0)' }}>针对这次合盘继续追问</p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {QUICK_QUESTIONS.map(q => (
+                    <button
+                      key={q}
+                      type="button"
+                      className="chip disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={() => { setQuestion(q); runAnalysis(q); }}
+                      disabled={analyzing}
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={question}
+                    onChange={e => setQuestion(e.target.value)}
+                    onKeyDown={e => { if (e.key === 'Enter' && !analyzing) runAnalysis(question || undefined); }}
+                    placeholder="如：哪几年是两人感情关键期？"
+                    aria-label="追问内容"
+                    disabled={analyzing}
+                    className="flex-1 min-w-0 rounded-lg px-3 h-11 text-[14px] outline-none transition-colors focus:border-[var(--ac-bdr)]"
+                    style={{ background: 'var(--bg-1)', border: '1px solid var(--bdr-med)', color: 'var(--tx-0)' }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => runAnalysis(question || undefined)}
+                    disabled={analyzing}
+                    className="px-5 h-11 rounded-lg text-[14px] font-medium whitespace-nowrap transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                    style={{ background: 'var(--ac)', color: 'var(--bg-0)' }}
+                  >
+                    {analyzing ? '分析中…' : '追问'}
+                  </button>
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+      </main>
+    </>
   );
 }

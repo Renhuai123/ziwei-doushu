@@ -19,7 +19,6 @@ const PALACE_12 = ['命宫','兄弟','夫妻','子女','财帛','疾厄','迁移
 
 let failures = 0;
 const fail = (msg: string) => { console.error(`  ✗ ${msg}`); failures++; };
-const ok = (msg: string) => console.log(`  ✓ ${msg}`);
 
 // ── 采样: 跨年代/月/时辰/性别, 覆盖足够多命盘形态 ──
 const samples: BirthInfo[] = [];

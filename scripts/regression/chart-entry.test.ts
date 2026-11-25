@@ -25,7 +25,7 @@ import {
 import { generateChart } from '../../lib/ziwei/algorithm';
 import { formToBirthInfo } from '../../lib/ziwei/share';
 import type { BirthFormState } from '../../components/BirthForm';
-import type { BirthInfo } from '../../lib/ziwei/types';
+import type { BirthInfo, ZiweiChart } from '../../lib/ziwei/types';
 
 let passed = 0;
 let failed = 0;
@@ -47,16 +47,16 @@ function eq(name: string, actual: unknown, expected: unknown) {
 }
 
 /** 取盘的「盘面指纹」——用于 golden 一致性断言 */
-function fingerprint(chart: any) {
+function fingerprint(chart: ZiweiChart) {
   return {
     mingGong: chart.mingGongBranch,
     shenGong: chart.shenGongBranch,
     wuxingJu: chart.wuxingJu,
     palaces: chart.palaces
-      .map((p: any) => `${p.name}:${p.branch}:${p.stars.map((s: any) => s.name).join('')}`)
+      .map(p => `${p.name}:${p.branch}:${p.stars.map(s => s.name).join('')}`)
       .sort(),
     siHua: chart.palaces
-      .flatMap((p: any) => p.stars.filter((s: any) => s.siHua).map((s: any) => `${p.name}:${s.name}:${s.siHua}`))
+      .flatMap(p => p.stars.filter(s => s.siHua).map(s => `${p.name}:${s.name}:${s.siHua}`))
       .sort(),
   };
 }
@@ -239,7 +239,7 @@ assertConsistent({
       { year: 1985, month: 8, day: 8, hour: 4, gender: 'male', longitude: 120 },
       { year: 1985, month: 8, day: 8, clockHour: 25, clockMinute: 0 },
     );
-  } catch (e) {
+  } catch {
     threw = true;
   }
   check('非法钟点（25 时）→ 抛错，不静默出错盘', threw);

@@ -1,115 +1,76 @@
 /**
  * 古籍原典查询库 · 主页
- *
- * 列出所有收录古籍 + 全局搜索入口
+ * 全文搜索入口 + 收录古籍列表
  */
 
 import Link from 'next/link';
-import { ALL_BOOKS, TOTAL_PARAGRAPHS } from '@/lib/classics';
+import SiteHeader from '@/components/SiteHeader';
+import PageIntro from '@/components/PageIntro';
+import { ALL_BOOKS, SUGGESTED_QUERIES, TOTAL_PARAGRAPHS } from '@/lib/classics';
 import LibrarySearch from './LibrarySearch';
 
 export const metadata = {
   title: '倪师方法论 · 古籍原典库 · 紫微斗数全集 / 全书 / 骨髓赋',
+  alternates: { canonical: '/library' },
   description: '紫微斗数权威古籍全文检索：《紫微斗数全集》《紫微斗数全书》《骨髓赋》倪海厦《天纪》引证来源',
 };
 
 export default function LibraryHomePage() {
   return (
-    <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
-      {/* 顶栏 */}
-      <div className="px-6 py-4 flex items-center justify-between"
-        style={{ borderBottom: '1px solid rgba(184,146,42,0.15)', background: 'var(--bg-page)' }}>
-        <Link href="/" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.3em', textDecoration: 'none' }}>
-          ← 返回首页
-        </Link>
-        <div style={{ fontSize: '12px', color: 'var(--tx-3)', letterSpacing: '0.3em' }}>
-          古籍原典库 · CLASSICS
-        </div>
-        <Link href="/chart" style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em', textDecoration: 'none' }}>
-          起盘 →
-        </Link>
-      </div>
+    <>
+      <SiteHeader />
+      <main id="main" className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 pb-24 pt-10 sm:pt-14">
+        <PageIntro eyebrow="古籍原典" title="回到原文，查每一句出处" className="mb-8">
+          收录 <strong style={{ color: 'var(--tx-0)' }}>{ALL_BOOKS.length}</strong> 部紫微斗数古籍、
+          <strong style={{ color: 'var(--tx-0)' }}>{TOTAL_PARAGRAPHS}</strong> 段原文，可全文搜索，也可逐章阅读。
+        </PageIntro>
 
-      {/* Hero */}
-      <div className="text-center px-6 py-16">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to right, transparent, rgba(184,146,42,0.4))' }} />
-          <span style={{ fontSize: '11px', color: 'var(--ac)', letterSpacing: '0.4em' }}>NI HAI XIA · CURRICULUM</span>
-          <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to left, transparent, rgba(184,146,42,0.4))' }} />
+        <div className="max-w-[640px] mb-14">
+          <LibrarySearch />
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-[12px]" style={{ color: 'var(--tx-3)' }}>试试</span>
+            {SUGGESTED_QUERIES.map(q => (
+              <Link key={q} href={`/library/search?q=${encodeURIComponent(q)}`} className="chip !h-7 !text-[12px]">
+                {q}
+              </Link>
+            ))}
+          </div>
         </div>
-        <h1 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 700, color: 'var(--tx-0)', letterSpacing: '0.15em', marginBottom: '12px' }}>
-          倪师方法论 · 古籍原典库
-        </h1>
-        <p style={{ fontSize: '14px', color: 'var(--tx-2)', letterSpacing: '0.1em', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7 }}>
-          紫微斗数权威古籍全文检索<br />
-          收录 <strong style={{ color: 'var(--ac)' }}>{ALL_BOOKS.length}</strong> 部古籍 · 共 <strong style={{ color: 'var(--ac)' }}>{TOTAL_PARAGRAPHS}</strong> 段精华
+
+        <section aria-labelledby="books-title">
+          <h2 id="books-title" className="text-[16px] font-semibold mb-4" style={{ color: 'var(--tx-0)' }}>收录古籍</h2>
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {ALL_BOOKS.map(book => (
+              <li key={book.slug}>
+                <Link
+                  href={`/library/${book.slug}`}
+                  className="card-glass group flex h-full flex-col rounded-2xl p-6 transition-transform hover:-translate-y-0.5"
+                >
+                  <span className="text-[12px] tracking-[0.12em] mb-2" style={{ color: 'var(--tx-3)' }}>
+                    {book.dynasty} · {book.author.split(' ')[0]}
+                  </span>
+                  <span className="text-[20px] font-semibold tracking-[0.08em] mb-3" style={{ color: 'var(--tx-0)' }}>
+                    《{book.title}》
+                  </span>
+                  <span className="text-[13px] leading-[1.75] mb-5 flex-1" style={{ color: 'var(--tx-2)' }}>
+                    {book.intro}
+                  </span>
+                  <span className="flex items-center justify-between text-[12px]" style={{ color: 'var(--tx-3)' }}>
+                    <span className="tabular-nums">
+                      {book.chapters.length} 章 · {book.chapters.reduce((s, c) => s + c.paragraphs.length, 0)} 段
+                    </span>
+                    <span className="transition-colors group-hover:text-[var(--ac)]">阅读 →</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <p className="mt-14 max-w-[640px] text-[12px] leading-[1.8]" style={{ color: 'var(--tx-3)' }}>
+          所收古籍均为公版（明代刊本）。内容持续完善，计划补全《紫微斗数全集》全本与倪海厦《天纪》引证目录；发现错误欢迎指正。
         </p>
-      </div>
-
-      {/* 搜索 */}
-      <div className="max-w-2xl mx-auto px-6 mb-12">
-        <LibrarySearch />
-      </div>
-
-      {/* 古籍列表 */}
-      <div className="max-w-5xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ALL_BOOKS.map(book => (
-            <Link
-              key={book.slug}
-              href={`/library/${book.slug}`}
-              style={{
-                display: 'block',
-                background: 'var(--bg-card)',
-                border: '1px solid rgba(184,146,42,0.2)',
-                borderRadius: '14px',
-                padding: '24px',
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-                boxShadow: '0 2px 8px rgba(184,146,42,0.06)',
-              }}
-              className="hover:shadow-lg"
-            >
-              <div style={{ fontSize: '11px', color: 'var(--tx-3)', letterSpacing: '0.2em', marginBottom: '6px' }}>
-                {book.dynasty} · {book.author.split(' ')[0]}
-              </div>
-              <div style={{ fontSize: '20px', fontWeight: 600, color: 'var(--tx-0)', marginBottom: '10px', letterSpacing: '0.1em' }}>
-                《{book.title}》
-              </div>
-              <div style={{ fontSize: '12px', color: 'var(--tx-2)', lineHeight: 1.7, marginBottom: '14px' }}>
-                {book.intro}
-              </div>
-              <div style={{ display: 'flex', gap: '12px', fontSize: '11px', color: 'var(--tx-3)' }}>
-                <span>{book.chapters.length} 章节</span>
-                <span style={{ color: 'rgba(184,146,42,0.4)' }}>·</span>
-                <span>{book.chapters.reduce((s, c) => s + c.paragraphs.length, 0)} 段精华</span>
-              </div>
-              <div style={{
-                display: 'inline-flex',
-                marginTop: '14px',
-                fontSize: '11px',
-                color: 'var(--ac)',
-                letterSpacing: '0.15em',
-                fontWeight: 500,
-              }}>
-                进入查阅 →
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* 底部说明 */}
-        <div style={{ marginTop: '60px', padding: '24px', background: 'rgba(184,146,42,0.05)', borderRadius: '10px', textAlign: 'center' }}>
-          <div style={{ fontSize: '11px', color: 'var(--ac-dim)', fontWeight: 600, letterSpacing: '0.15em', marginBottom: '8px' }}>
-            关于本库
-          </div>
-          <div style={{ fontSize: '12px', color: 'var(--tx-2)', lineHeight: 1.8, maxWidth: '600px', margin: '0 auto' }}>
-            所收录古籍均为公版（明代刊本）。<br />
-            内容持续完善，未来将补全《紫微斗数全集》全本与倪海厦《天纪》引证目录。<br />
-            如发现任何错误请联系我们。
-          </div>
-        </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 }

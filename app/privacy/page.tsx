@@ -1,71 +1,72 @@
-export const metadata = { title: '隐私政策 · 紫微命盘', description: '紫微命盘隐私政策' };
+import LegalPage from '@/components/LegalPage';
+
+export const metadata = {
+  title: '隐私政策 · 紫微命盘',
+  description: '紫微命盘如何处理你的出生信息：排盘在浏览器完成，最近排过的记录只存本机，AI 解读时才把命盘发给 AI 服务商。',
+  alternates: { canonical: '/privacy' },
+};
+
+const REPO = 'https://github.com/Renhuai123/ziwei-doushu';
 
 export default function PrivacyPage() {
   return (
-    <>
-      <header style={{ position: 'sticky', top: 0, zIndex: 50, background: 'var(--bg-0)', borderBottom: '1px solid var(--bdr)', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <a href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--tx-3)', textDecoration: 'none' }}>
-          <span style={{ fontSize: '16px' }}>‹</span>
-          <span>返回首页</span>
-        </a>
-        <div style={{ width: '1px', height: '20px', background: 'var(--bdr-med)' }} />
-        <span style={{ fontSize: '12px', color: 'var(--ac)', letterSpacing: '0.2em' }}>紫微命盘</span>
-      </header>
-      <main style={{ maxWidth: 800, margin: '0 auto', padding: '60px 24px 80px', color: 'var(--tx-1)', lineHeight: 1.8 }}>
-        <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 8 }}>隐私政策</h1>
-        <p style={{ fontSize: 12, color: 'var(--tx-3)', marginBottom: 32 }}>最后更新：2026年4月</p>
+    <LegalPage
+      title="隐私政策"
+      updated="2026年11月"
+      other={{ href: '/terms', label: '服务条款' }}
+      intro="本站不设账号、不收费、没有广告。下面按实际代码说明你的数据去了哪里。"
+    >
+      <h2>1. 出生信息与排盘</h2>
+      <p>
+        你填写的姓名（选填）、公历出生日期与时间、性别、出生地，<strong>在你的浏览器里直接排盘</strong>，
+        排盘这一步不会把它们发到本站服务器。
+      </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>1. 我们收集的信息</h2>
-      <p>为提供紫微命盘排盘与解读服务，我们可能收集以下信息：</p>
-      <ul style={{ paddingLeft: 24 }}>
-        <li><strong>命盘必要信息</strong>：姓名（选填）、出生公历年月日、出生时辰、性别、出生地经度</li>
-        <li><strong>账号信息（注册后）</strong>：手机号（用于短信验证与会员服务）</li>
-        <li><strong>交互信息</strong>：你在站内的点击、浏览、命盘历史记录</li>
-        <li><strong>反馈信息</strong>：你对解读内容的"准 / 不准"打分与文字反馈</li>
-        <li><strong>支付信息</strong>：购买会员或单项服务时通过第三方支付（支付宝 / 微信支付）处理，本平台不存储完整卡号或密码</li>
+      <h2>2. 只存在你这台设备上的数据</h2>
+      <p>本站用浏览器的 localStorage 保存两样东西，不使用 cookie：</p>
+      <ul>
+        <li><strong>主题偏好</strong>：暗色或亮色。</li>
+        <li><strong>最近排过</strong>：最近 6 组出生信息，用于在排盘页、合盘页一键重排。可以在排盘页逐条删除或「全部清除」。</li>
       </ul>
+      <p>这些数据不会上传；清除浏览器的网站数据也会一并删除。</p>
+      <p>
+        排盘或合盘后，地址栏 <code>#</code> 后面会带上这组出生信息，用于刷新后恢复命盘。浏览器不会把 <code>#</code> 之后的内容发给服务器；
+        但你复制、分享这个链接时，收到的人能看到其中的出生信息（含填写的姓名）。点「重新起盘」会清掉它。
+      </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>2. 我们如何使用信息</h2>
-      <ul style={{ paddingLeft: 24 }}>
-        <li>命盘信息仅用于本次解读与你账号下的历史命盘记录</li>
-        <li>手机号用于注册、登录、订单通知</li>
-        <li>反馈信息用于持续改进命理内容质量（脱敏后聚合分析）</li>
-        <li>聚合数据可能用于行业研究与平台优化</li>
+      <h2>3. 使用 AI 解读时</h2>
+      <p>
+        只有当你主动使用 AI 解读（命盘页的 AI 侧栏、合盘分析）时，命盘内容才会经本站服务器转发给站长配置的 AI 服务商
+        （本项目支持 Anthropic Claude、DeepSeek 等，具体由部署者在服务器环境变量中选择）。发送的内容包括：
+      </p>
+      <ul>
+        <li>出生日期、时辰、性别，以及由此排出的农历、四柱、十二宫星曜与四化；</li>
+        <li>你在对话框里输入的问题和此前的对话。</li>
       </ul>
+      <p>
+        你填写的<strong>姓名不会写进发给 AI 的内容</strong>。本站服务器只转发请求，不保存对话记录。
+        AI 服务商如何处理收到的数据，以其各自的隐私政策为准。
+      </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>3. 信息共享与第三方</h2>
-      <p>除以下情形外，我们不会向第三方共享你的个人信息：</p>
-      <ul style={{ paddingLeft: 24 }}>
-        <li>支付服务商（支付宝 / 微信支付）：处理订单结算</li>
-        <li>短信服务商（如阿里云短信）：发送验证码</li>
-        <li>云服务商（如 Vercel / Cloudflare / 阿里云）：技术承载</li>
-        <li>AI 解读服务（如 Anthropic Claude）：处理你的"自由追问"对话（已做匿名化）</li>
-        <li>司法机关或政府部门基于法律法规的合法要求</li>
-      </ul>
+      <h2>4. 访问统计</h2>
+      <p>
+        站点部署在 Vercel 时会启用 Vercel Web Analytics，统计匿名的页面访问量（访问了哪个页面、来源、设备与浏览器类型、国家或地区），
+        不使用 cookie，不包含你填写的出生信息。服务器与网络服务商也可能按常规记录访问日志（如 IP 地址、访问时间）。
+      </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>4. 信息安全</h2>
-      <p>我们采取业界常见的技术与管理手段保护你的信息（HTTPS 传输加密、数据库加密存储、访问权限控制等）。但请注意，互联网传输无法保证 100% 安全。</p>
+      <h2>5. 自行部署的站点</h2>
+      <p>
+        本站代码以 MIT 协议开源（<a href={REPO}>{REPO.replace('https://', '')}</a>）。
+        他人部署的站点可能改动了代码或接入了其他服务，其数据处理以该站点的说明为准。
+      </p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>5. 你的权利</h2>
-      <ul style={{ paddingLeft: 24 }}>
-        <li><strong>查询</strong>：可通过账号中心查看你的所有历史命盘与订单</li>
-        <li><strong>删除</strong>：联系客服删除账号下指定命盘 / 注销账号</li>
-        <li><strong>导出</strong>：可申请导出你的全部个人数据</li>
-      </ul>
+      <h2>6. 未成年人</h2>
+      <p>命理内容面向成年人。未成年人请在监护人陪同下使用，不要把解读当作重大决定的依据。</p>
 
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>6. Cookie 与本地存储</h2>
-      <p>本站使用 cookie / localStorage 用于：保存你的暗黑/亮色主题偏好、最近的命盘历史、会员登录状态。你可在浏览器设置中关闭，但部分功能可能受影响。</p>
-
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>7. 未成年人</h2>
-      <p>本平台命理内容面向 18 岁以上成年用户。未成年人请在监护人同意下使用，并不得将解读用于重大人生决策。</p>
-
-      <h2 style={{ fontSize: 18, marginTop: 32, marginBottom: 12 }}>8. 政策变更</h2>
-      <p>本政策可能不定期更新。重大变更将以显著方式通知。继续使用即表示同意更新后的版本。</p>
-
-        <p style={{ marginTop: 48, fontSize: 12, color: 'var(--tx-3)' }}>
-          <a href="/terms" style={{ color: 'var(--ac)' }}>服务条款</a> · <a href="/" style={{ color: 'var(--ac)' }}>返回首页</a>
-        </p>
-      </main>
-    </>
+      <h2>7. 政策变更与联系</h2>
+      <p>
+        数据处理方式改变时会更新本页，并修改顶部的日期。有疑问请在 <a href={`${REPO}/issues`}>GitHub Issues</a> 提出。
+      </p>
+    </LegalPage>
   );
 }

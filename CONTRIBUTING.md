@@ -20,11 +20,12 @@
 ```bash
 npm ci               # 按 package-lock.json 安装
 npm run typecheck    # 类型检查
+npm run lint         # 代码检查（ESLint）
 npm test             # 排盘回归
 ```
 
 - 一个 PR 只做一件事，说明里写清改了什么、为什么。
-- **改排盘结果的**：附上对照证据（出处，或其他排盘软件的截图），并在 `scripts/regression/` 加回归测试、登记到 `package.json` 的 `test` 脚本。没有出处的口径改动一般不收。
+- **改排盘结果的**：附上对照证据（出处，或其他排盘软件的截图），并在 `scripts/regression/` 加回归测试（文件名以 `.test.ts` 或 `.test.tsx` 结尾，`npm test` 会自动收进来）。没有出处的口径改动一般不收。
 - CI 会在每次 push 和 PR 上跑同一套检查。
 
 ## 许可
@@ -37,4 +38,4 @@ npm test             # 排盘回归
 
 ---
 
-**English.** Issues and PRs are welcome. This repo is an open snapshot of the charting engine behind ouranic.cn; the interpretation database, AI prompts and all `/api/*` backend routes are not included, so AI features return 404 by design. For a chart you believe is wrong, please use the "Chart result question" form with full birth data and a reference result. Before opening a PR, run `npm ci`, `npm run typecheck` and `npm test`; changes to chart results need evidence and a regression test.
+**English.** Issues and PRs are welcome. This repo is an open snapshot of the charting engine behind ouranic.cn; the interpretation database, AI prompts and all `/api/*` backend routes are not included, so AI features return 404 by design. For a chart you believe is wrong, please use the "Chart result question" form with full birth data and a reference result. Before opening a PR, run `npm ci`, `npm run typecheck`, `npm run lint` and `npm test`; changes to chart results need evidence and a regression test.

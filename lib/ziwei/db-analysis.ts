@@ -1,14 +1,27 @@
 /**
- * lib/ziwei/db-analysis —— 开源占位版（论断内容库不在开源范围）
+ * lib/ziwei/db-analysis —— 主星论断内容库
  *
- * 线上完整版包含 14 主星 × 13 宫位语境的详细命理论断（一句话定调 / 核心论断 /
- * 命盘依据 / 经典出处），属于核心内容、不随排盘引擎开源。此文件仅保留 SEO
- * 知识页框架所需的「类型 + 宫位/主题标签」（紫微斗数通用术语，非独有内容），
- * 论断内容库 STAR_DB 置空 —— 因此知识库详情页会生成 0 条静态路由。
- *
- * 排盘内核（安星算法、四化、格局识别、古籍原文）完全开放，
- * 见 lib/ziwei 下的 algorithm.ts / patterns.ts / sihua.ts 等。
+ * STAR_DB 收 14 主星 × 13 个宫位语境的论断（一句话定调 / 核心论断 /
+ * 命盘依据 / 经典出处），每颗星一个文件，见 lib/ziwei/star-db/<slug>.ts。
+ * 内容为本仓库原创撰写；经典出处只引用仓库内的古籍数据
+ * （lib/classics/data）与倪海厦《天纪》原话（docs/tianji-ziwei），
+ * 引文逐字核对由 scripts/regression/star-db.test.ts 守护。
  */
+
+import ziwei from './star-db/ziwei';
+import tianji from './star-db/tianji';
+import taiyang from './star-db/taiyang';
+import wuqu from './star-db/wuqu';
+import tiantong from './star-db/tiantong';
+import lianzhen from './star-db/lianzhen';
+import tianfu from './star-db/tianfu';
+import taiyin from './star-db/taiyin';
+import tanlang from './star-db/tanlang';
+import jumen from './star-db/jumen';
+import tianxiang from './star-db/tianxiang';
+import tianliang from './star-db/tianliang';
+import qisha from './star-db/qisha';
+import pojun from './star-db/pojun';
 
 export type TopicKey =
   | 'overview' | 'personality' | 'love' | 'career' | 'wealth' | 'health'
@@ -47,8 +60,36 @@ export const TOPIC_LABEL: Record<TopicKey, string> = {
   parents:     '父母长辈',
 };
 
-/**
- * 论断内容库（14 主星 × 各宫位语境的详细断语）——核心内容，不在开源范围。
- * 此处置空；知识库 SEO 页因 `exists=false` 生成 0 条静态详情路由，但列表框架仍可运行。
- */
-export const STAR_DB: Record<string, unknown> = {};
+/** 每个字段是一段带四个标记的文本，由 lib/seo/knowledge.ts 的 parseStarContent 拆分。 */
+export interface StarContent {
+  mingGong: string;
+  personality: string;
+  xiongDi: string;
+  fuQi: string;
+  ziNv: string;
+  caiBo: string;
+  jiE: string;
+  qianYi: string;
+  jiaoYou: string;
+  guanLu: string;
+  tianZhai: string;
+  fuDe: string;
+  fuMu: string;
+}
+
+export const STAR_DB: Record<string, StarContent> = {
+  '紫微': ziwei,
+  '天机': tianji,
+  '太阳': taiyang,
+  '武曲': wuqu,
+  '天同': tiantong,
+  '廉贞': lianzhen,
+  '天府': tianfu,
+  '太阴': taiyin,
+  '贪狼': tanlang,
+  '巨门': jumen,
+  '天相': tianxiang,
+  '天梁': tianliang,
+  '七杀': qisha,
+  '破军': pojun,
+};

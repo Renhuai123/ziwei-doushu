@@ -6,7 +6,7 @@
  */
 
 import { STAR_DB } from '@/lib/ziwei/db-analysis';
-import type { TopicKey } from '@/lib/ziwei/db-analysis';
+import type { StarContent, TopicKey } from '@/lib/ziwei/db-analysis';
 import { TOPIC_PALACE_NAME, TOPIC_LABEL } from '@/lib/ziwei/db-analysis';
 
 export const ALL_STARS = [
@@ -41,22 +41,6 @@ export const ALL_TOPICS: TopicKey[] = [
   'family', 'children', 'move', 'friends', 'home', 'spirit', 'parents',
 ];
 
-interface StarContent {
-  mingGong: string;
-  personality: string;
-  xiongDi?: string;
-  fuQi: string;
-  ziNv?: string;
-  caiBo: string;
-  jiE: string;
-  qianYi?: string;
-  jiaoYou?: string;
-  guanLu: string;
-  tianZhai?: string;
-  fuDe?: string;
-  fuMu?: string;
-}
-
 const TOPIC_TO_FIELD: Record<TopicKey, keyof StarContent> = {
   overview:    'mingGong',
   personality: 'personality',
@@ -64,13 +48,13 @@ const TOPIC_TO_FIELD: Record<TopicKey, keyof StarContent> = {
   career:      'guanLu',
   wealth:      'caiBo',
   health:      'jiE',
-  family:      'xiongDi' as keyof StarContent,
-  children:    'ziNv' as keyof StarContent,
-  move:        'qianYi' as keyof StarContent,
-  friends:     'jiaoYou' as keyof StarContent,
-  home:        'tianZhai' as keyof StarContent,
-  spirit:      'fuDe' as keyof StarContent,
-  parents:     'fuMu' as keyof StarContent,
+  family:      'xiongDi',
+  children:    'ziNv',
+  move:        'qianYi',
+  friends:     'jiaoYou',
+  home:        'tianZhai',
+  spirit:      'fuDe',
+  parents:     'fuMu',
 };
 
 interface ParsedContent {
@@ -113,19 +97,21 @@ export interface KnowledgeData {
   topic: TopicKey;
   topicLabel: string;
   palaceName: string;
+  /** Palace name with exactly one 宫 suffix (iztro names 命宫 with it, the others without). */
+  palaceTitle: string;
   parsed: ParsedContent;
   exists: boolean;
 }
 
 export function getKnowledge(star: string, topic: TopicKey): KnowledgeData {
-  const profile = STAR_DB[star] as StarContent | undefined;
-  const field = TOPIC_TO_FIELD[topic];
-  const content = profile && field ? (profile[field] as string | undefined) ?? '' : '';
+  const profile: StarContent | undefined = STAR_DB[star];
+  const content = profile?.[TOPIC_TO_FIELD[topic]] ?? '';
   return {
     star,
     topic,
     topicLabel: TOPIC_LABEL[topic],
     palaceName: TOPIC_PALACE_NAME[topic],
+    palaceTitle: TOPIC_PALACE_NAME[topic].endsWith('宫') ? TOPIC_PALACE_NAME[topic] : `${TOPIC_PALACE_NAME[topic]}宫`,
     parsed: parseStarContent(content),
     exists: Boolean(content),
   };

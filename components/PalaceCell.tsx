@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 import type { Palace, Star } from '@/lib/ziwei/types';
 import { STEMS, BRANCHES } from '@/lib/ziwei/constants';
 import clsx from 'clsx';
@@ -73,13 +72,18 @@ export default function PalaceCell({
   const minorStars = stars.filter(s => s.type === 'minor');
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.92 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.35, delay, ease: 'easeOut' }}
+    <div
       onClick={onClick}
-      className="relative flex flex-col p-1.5 cursor-pointer transition-all duration-200 h-full"
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-pressed={!!isSelected}
+      aria-label={`${name}${name.endsWith('宫') ? '' : '宫'}，${ganzhi}，${majorStars.length ? majorStars.map(s => s.name + (s.siHua ? '化' + s.siHua : '')).join('、') : '空宫'}`}
+      className="anim-pop palace-cell relative flex flex-col p-1.5 cursor-pointer transition-all duration-200 h-full outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ac)]"
       style={{
+        animationDelay: `${delay}s`,
         minHeight: '90px',
         background: isCurrentDaXian
           ? 'rgba(147,51,234,0.08)'
@@ -227,6 +231,6 @@ export default function PalaceCell({
         </div>
       )}
 
-    </motion.div>
+    </div>
   );
 }
