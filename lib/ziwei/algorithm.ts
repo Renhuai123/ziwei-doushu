@@ -4,6 +4,8 @@
  */
 
 import { astro } from 'iztro';
+// 给 iztro 的 kot() 反查加缓存，排盘快约三倍；结果不变（见该文件说明）
+import './iztro-kot-cache';
 import { Solar, LunarMonth } from 'lunar-javascript';
 import type { BirthInfo, LunarInfo, Star, Palace, DaXian, DaXianSiHua, ZiweiChart } from './types';
 import { BRANCHES, STEMS } from './constants';
